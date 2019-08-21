@@ -1,7 +1,0 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/TietoSummerAcademyApp/.vs/TietoSummerAcademyApp/v16
-/TietoSummerAcademyApp/.vs/TietoSummerAcademyApp/config
-/.vs/slnx.sqlite
