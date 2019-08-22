@@ -1,3 +1,15 @@
+.head-box {
+  top: 0px;
+  height: 60px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #dddddd;
+  opacity: 1;
+  button{
+    border: none;
+    background: none;
+  }
+}
+
 .information-question {
   padding-top: 57px;
   padding-left: 50px;
@@ -43,20 +55,31 @@
       font-size: 18px;
     }
   }
-}
 
- button {
-  float:right;
-  display: block;
-  width: 180px;
-  height: 40px;
-  background: #348644;
-  border-style: none;
-  border-radius: 6px;
-  opacity: 1;
-  color: #ffffff;
-}
+  form {
+    width: 540px;
+    button {
+      float: right;
+      display: block;
+      width: 180px;
+      height: 40px;
+      margin-top: 67px;
 
-form {
-  width: 540px;
+      &.submit {
+        background: #348644;
+        border-style: none;
+        border-radius: 6px;
+        opacity: 1;
+        color: #ffffff;
+        margin-left: 20px;
+      }
+      &.cancel {
+        background: #eeeeee;
+        border: 1px solid #cccccc;
+        border-radius: 6px;
+        opacity: 1;
+        color: #333333;
+      }
+    }
+  }
 }
