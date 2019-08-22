@@ -46,10 +46,10 @@
 }
 
  button {
+  float:right;
   display: block;
   width: 180px;
   height: 40px;
-  margin-left: 360px;
   background: #348644;
   border-style: none;
   border-radius: 6px;
@@ -57,3 +57,6 @@
   color: #ffffff;
 }
 
+form {
+  width: 540px;
+}
