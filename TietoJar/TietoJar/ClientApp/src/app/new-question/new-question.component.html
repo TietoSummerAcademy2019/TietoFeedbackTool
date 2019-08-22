@@ -1,0 +1,18 @@
+    <div class="information-question">
+        <h3>Question creator</h3>
+        <p>Here you can write your question for site visitors to answer.</p>
+    </div>
+
+    <div class="question-form">
+        <h4>Question</h4>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+            <textarea id="question-text" name="first" ngModel required #first="ngModel" placeholder="Type here..." ></textarea>
+            <div class="text-right">
+                <button class="success">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+
+
