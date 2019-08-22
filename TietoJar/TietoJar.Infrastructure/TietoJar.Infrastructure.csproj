@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TietoJar.Application\TietoJar.Application.csproj" />
+    <ProjectReference Include="..\TietoJar.Domain\TietoJar.Domain.csproj" />
   </ItemGroup>
 
 </Project>
