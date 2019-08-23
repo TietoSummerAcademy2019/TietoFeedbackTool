@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { NewQuestionComponent } from './new-question/new-question.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
    declarations: [
@@ -18,7 +18,8 @@ import { NewQuestionComponent } from './new-question/new-question.component';
       BrowserModule,
       AppRoutingModule,
       BrowserAnimationsModule,
-      FormsModule
+      FormsModule,
+      HttpClientModule
    ],
    providers: [],
    bootstrap: [
