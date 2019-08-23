@@ -1,6 +1,8 @@
 <div class="head-box">
 <button>
+  <a class="navigation-back" routerLink="" routerLinkActive="active">
     <img src="../../assets/img/round-reply-24px.svg">
+  </a>
 </button>
 </div>
 <div class="main-form">
@@ -14,7 +16,7 @@
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <textarea id="question-text" name="first" ngModel required #first="ngModel" placeholder="Type here..."></textarea>
         <button class="submit">Submit</button>
-        <button class="cancel">Cancel</button>
+        <button class="cancel" routerLink="" routerLinkActive="active">Cancel</button>
     </form>
   </div>
 </div>

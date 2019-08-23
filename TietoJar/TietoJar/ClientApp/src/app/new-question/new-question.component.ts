@@ -10,9 +10,16 @@ export class NewQuestionComponent {
 
   constructor() { }
 
+  searchValue: string = '';
+
+  clearSearch() {
+    this.searchValue = '';
+  }
+
   onSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    console.log(f.valid);  // false
+    console.log(f.value);
+    console.log(f.valid);
+    f.reset();
   }
 
 }
