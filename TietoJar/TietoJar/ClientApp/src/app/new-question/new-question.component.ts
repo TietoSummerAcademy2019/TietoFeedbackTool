@@ -28,8 +28,7 @@ export class NewQuestionComponent {
 
     // get new-question from the form and assign it to the model
     this.questionModel.puzzleQuestion = f.controls['new-question'].value;
-    console.log(this.questionModel);
-
     f.reset();
+    this.qs.add(this.questionModel);
   }
 }
