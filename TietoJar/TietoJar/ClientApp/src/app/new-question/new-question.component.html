@@ -1,22 +1,31 @@
-<div class="head-box">
-<button>
-  <a class="navigation-back" routerLink="" routerLinkActive="active">
-    <img src="../../assets/img/round-reply-24px.svg">
-  </a>
-</button>
+<div class="new-question-content">
+  <div class="head-box">
+      <a class="navigation-back" routerLink="/" >
+        <img src="../../assets/img/round-reply-24px.svg" />
+      </a>
+    </div>
+      <div class="main-form">
+        <div class="information-question">
+          <div class="information-question-header">
+            <h1>Setup feedback tool</h1>
+          </div>
+          <div class="information-question-information">
+            <p>Ask your site visitor about their opinion.</p>
+          </div>
+        </div>
+      </div>
+      <div class="question-form">
+        <h2>Question</h2>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+          <textarea class="question-text" name="new-question" ngModel required #first="ngModel" placeholder="Type here..."></textarea>
+          <button class="submit">Submit</button>
+          <button class="cancel" routerLink="" routerLinkActive="active">Cancel</button>
+        </form>
+      </div>
 </div>
-<div class="main-form">
-  <div class="information-question">
-    <h3>Question creator</h3>
-    <p>Here you can write your question for site visitors to answer.</p>
-  </div>
+<footer class="new-question-footer">
+FOOTER
+</footer>
 
-  <div class="question-form">
-    <h4>Question</h4>
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-      <textarea id="question-text" name="new-question" ngModel required #first="ngModel" placeholder="Type here..."></textarea>
-        <button class="submit">Submit</button>
-        <button class="cancel" routerLink="" routerLinkActive="active">Cancel</button>
-    </form>
-  </div>
-</div>
+
+
