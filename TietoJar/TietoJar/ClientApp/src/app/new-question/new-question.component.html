@@ -6,9 +6,7 @@
     </div>
       <div class="main-form">
         <div class="information-question">
-          <div class="information-question-header">
-            <h1>Setup feedback tool</h1>
-          </div>
+          <h1 class="information-question-header">Setup feedback tool</h1>
           <div class="information-question-information">
             <p>Ask your site visitor about their opinion.</p>
           </div>
@@ -18,13 +16,15 @@
         <h2>Question</h2>
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
           <textarea class="question-text" name="new-question" ngModel required #first="ngModel" placeholder="Type here..."></textarea>
-          <button class="submit">Submit</button>
-          <button class="cancel" routerLink="" routerLinkActive="active">Cancel</button>
         </form>
       </div>
 </div>
 <footer class="new-question-footer">
-FOOTER
+  <div class="new-question-footer-buttons">
+      <button class="tieto-button cancel" routerLink="" routerLinkActive="active">Cancel</button>
+      <button class="tieto-button submit">Submit</button>
+  </div>
+
 </footer>
 
 
