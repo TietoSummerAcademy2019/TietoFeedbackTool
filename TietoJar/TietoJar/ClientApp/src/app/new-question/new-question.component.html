@@ -14,7 +14,7 @@
       </div>
       <div class="question-form">
         <h2>Question</h2>
-        <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
           <textarea class="question-text" name="new-question" ngModel required #first="ngModel" placeholder="Type here..."></textarea>
         </form>
       </div>
