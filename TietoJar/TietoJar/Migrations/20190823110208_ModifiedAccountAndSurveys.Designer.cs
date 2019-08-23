@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TietoJar.Persistence;
 
 namespace TietoJar.Migrations
 {
     [DbContext(typeof(TietoJarContext))]
-    partial class TietoJarContextModelSnapshot : ModelSnapshot
+    [Migration("20190823110208_ModifiedAccountAndSurveys")]
+    partial class ModifiedAccountAndSurveys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,8 +97,6 @@ namespace TietoJar.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AccountLogin");
-
-                    b.Property<string>("Name");
 
                     b.Property<string>("SurveyKey");
 
