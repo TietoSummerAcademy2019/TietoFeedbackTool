@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Question } from '../models/question';
+import { SurveyPuzzle } from '../models/SurveyPuzzle';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NewQuestionService<T extends Question> {
+export class NewQuestionService<T extends SurveyPuzzle> {
 
   private items: T[] = [];
   // apiBaseUrl to be used when backend is ready

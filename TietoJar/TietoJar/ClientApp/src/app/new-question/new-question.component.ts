@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Question } from '../models/question';
+import { SurveyPuzzle } from '../models/SurveyPuzzle';
 import { NewQuestionService } from './new-question.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { NewQuestionService } from './new-question.service';
 })
 export class NewQuestionComponent {
 
-  questionModel: Question = {
+  questionModel: SurveyPuzzle = {
     id: null,
     puzzleTypeId: null,
     surveyId: null,
@@ -18,9 +18,7 @@ export class NewQuestionComponent {
     position: null
   }
 
-  constructor(private qs: NewQuestionService<Question>) { }
-
-
+  constructor(private qs: NewQuestionService<SurveyPuzzle>) { }
 
   onSubmit(f: NgForm) {
     // console.log(f.value);

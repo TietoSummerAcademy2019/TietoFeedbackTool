@@ -1,4 +1,4 @@
-export interface Question {
+export interface SurveyPuzzle {
   id: number;
   puzzleTypeId: number;
   surveyId: number;
