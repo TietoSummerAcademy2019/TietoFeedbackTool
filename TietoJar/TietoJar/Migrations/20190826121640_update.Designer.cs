@@ -10,8 +10,8 @@ using TietoJar.Persistence;
 namespace TietoJar.Migrations
 {
     [DbContext(typeof(TietoJarContext))]
-    [Migration("20190826095458_update5")]
-    partial class update5
+    [Migration("20190826121640_update")]
+    partial class update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,13 +55,13 @@ namespace TietoJar.Migrations
 
                     b.Property<int>("Position");
 
-                    b.Property<int>("PuzzleId");
+                    b.Property<int>("SurveyPuzzleId");
 
-                    b.Property<int?>("SurveyPuzzleId");
+                    b.Property<int?>("SurveySurveyPuzzleId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SurveyPuzzleId");
+                    b.HasIndex("SurveySurveyPuzzleId");
 
                     b.ToTable("ClosePuzzlePossibilities");
                 });
@@ -76,13 +76,13 @@ namespace TietoJar.Migrations
                         .IsRequired()
                         .HasMaxLength(2000);
 
-                    b.Property<int>("PuzzleId");
+                    b.Property<int>("SurveyPuzzleId");
 
-                    b.Property<int?>("SurveyPuzzleId");
+                    b.Property<int?>("SurveySurveyPuzzleId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SurveyPuzzleId");
+                    b.HasIndex("SurveySurveyPuzzleId");
 
                     b.ToTable("OpenPuzzleAnswers");
 
@@ -90,8 +90,8 @@ namespace TietoJar.Migrations
                         new
                         {
                             Id = 1,
-                            Answer = "Yes, ofcourse",
-                            PuzzleId = 1
+                            Answer = "Yes, of course",
+                            SurveyPuzzleId = 1
                         });
                 });
 
@@ -179,14 +179,14 @@ namespace TietoJar.Migrations
                 {
                     b.HasOne("TietoJar.Domain.SurveyPuzzle")
                         .WithMany("ClosePuzzlePossibilities")
-                        .HasForeignKey("SurveyPuzzleId");
+                        .HasForeignKey("SurveySurveyPuzzleId");
                 });
 
             modelBuilder.Entity("TietoJar.Domain.OpenPuzzleAnswer", b =>
                 {
                     b.HasOne("TietoJar.Domain.SurveyPuzzle")
                         .WithMany("OpenPuzzleAnswers")
-                        .HasForeignKey("SurveyPuzzleId");
+                        .HasForeignKey("SurveySurveyPuzzleId");
                 });
 
             modelBuilder.Entity("TietoJar.Domain.Survey", b =>

@@ -2,7 +2,7 @@
 
 namespace TietoJar.Migrations
 {
-    public partial class update6 : Migration
+    public partial class update2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
