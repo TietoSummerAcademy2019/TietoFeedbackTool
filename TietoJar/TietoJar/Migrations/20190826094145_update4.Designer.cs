@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TietoJar.Persistence;
 
 namespace TietoJar.Migrations
 {
     [DbContext(typeof(TietoJarContext))]
-    partial class TietoJarContextModelSnapshot : ModelSnapshot
+    [Migration("20190826094145_update4")]
+    partial class update4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,14 +85,6 @@ namespace TietoJar.Migrations
                     b.HasIndex("SurveyPuzzleId");
 
                     b.ToTable("OpenPuzzleAnswers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Answer = "Yes, ofcourse",
-                            PuzzleId = 1
-                        });
                 });
 
             modelBuilder.Entity("TietoJar.Domain.PuzzleType", b =>
@@ -106,14 +100,6 @@ namespace TietoJar.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PuzzleTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            HaveOpenAnswer = true,
-                            Name = "Stars"
-                        });
                 });
 
             modelBuilder.Entity("TietoJar.Domain.Survey", b =>
@@ -130,14 +116,6 @@ namespace TietoJar.Migrations
                     b.HasIndex("AccountLogin");
 
                     b.ToTable("Surveys");
-
-                    b.HasData(
-                        new
-                        {
-                            SurveyKey = "123456789",
-                            AccountLogin = "kangorooAdmin1",
-                            Name = "defaultSurvey"
-                        });
                 });
 
             modelBuilder.Entity("TietoJar.Domain.SurveyPuzzle", b =>
@@ -161,16 +139,6 @@ namespace TietoJar.Migrations
                     b.HasIndex("SurveyKey");
 
                     b.ToTable("SurveyPuzzles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Position = 1,
-                            PuzzleQuestion = "Will it work?",
-                            PuzzleTypeId = 1,
-                            SurveyKey = "123456789"
-                        });
                 });
 
             modelBuilder.Entity("TietoJar.Domain.ClosePuzzlePossibility", b =>
