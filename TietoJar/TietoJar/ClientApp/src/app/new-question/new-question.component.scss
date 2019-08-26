@@ -64,9 +64,14 @@
 }
 
 .new-question-footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
   height: 90px;
   width: 100%;
   border-top: 1px solid #cccccc;
+  background: #ffffff;
   opacity: 1;
   &-buttons {
     display: flex;
@@ -80,7 +85,7 @@
   height: 45px;
   width: 198px;
   &.submit {
-    background: #0E76B7;
+    background: #0e76b7;
     border-style: none;
     border-radius: 6px;
     opacity: 1;
