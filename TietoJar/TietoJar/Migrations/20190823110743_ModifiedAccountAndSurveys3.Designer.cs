@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TietoJar.Persistence;
 
 namespace TietoJar.Migrations
 {
     [DbContext(typeof(TietoJarContext))]
-    partial class TietoJarContextModelSnapshot : ModelSnapshot
+    [Migration("20190823110743_ModifiedAccountAndSurveys3")]
+    partial class ModifiedAccountAndSurveys3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
