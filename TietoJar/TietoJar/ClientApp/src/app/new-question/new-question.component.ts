@@ -11,7 +11,6 @@ import { NewQuestionService } from './new-question.service';
 export class NewQuestionComponent {
 
   questionModel: SurveyPuzzle = {
-    id: 1,
     puzzleTypeId: 1,
     surveyId: 1,
     puzzleQuestion: '',
@@ -21,7 +20,7 @@ export class NewQuestionComponent {
   constructor(private qs: NewQuestionService<SurveyPuzzle>) { }
 
   onSubmit(f: NgForm) {
-    // console.log(f.value);
+    // console.log( f.controls['new-question'].value);
     // console.log(f.valid);
 
     // get new-question from the form and assign it to the model

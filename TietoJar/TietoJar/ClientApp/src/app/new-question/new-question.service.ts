@@ -15,7 +15,14 @@ export class NewQuestionService<T extends SurveyPuzzle> {
   // list to be used for filtering questions if they are meant not to repeat
   private items$ = new BehaviorSubject<T[]>([]);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.http.get<T[]>(this.apiBase)
+      .subscribe(items => {
+        this.items = items;
+        this.items$.next(this.items);
+        console.log(this.items.find(i => i.puzzleQuestion));
+    });
+  }
 
   add(item: T): void {
     this.items.push(item);
@@ -27,6 +34,6 @@ export class NewQuestionService<T extends SurveyPuzzle> {
         //   this.items$.next(this.items);
         // }
     );
-    console.log(this.items.find(i => i.puzzleQuestion));
+    // console.log(this.items.find(i => i.puzzleQuestion));
   }
 }
