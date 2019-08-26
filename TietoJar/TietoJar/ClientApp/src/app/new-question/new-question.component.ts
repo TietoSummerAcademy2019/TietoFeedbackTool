@@ -10,10 +10,10 @@ import { NewQuestionService } from './new-question.service';
 })
 export class NewQuestionComponent {
 
-  // hard-coded for now
+  // hard-coded according to sample DB entries for now
   questionModel: SurveyPuzzle = {
-    puzzleTypeId: 1,
-    surveyKey: 'testKey',
+    puzzleTypeId: 1, // Stars
+    surveyKey: '123456789',
     puzzleQuestion: '',
     position: 1
   }
