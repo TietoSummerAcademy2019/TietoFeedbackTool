@@ -10,8 +10,8 @@ using TietoJar.Persistence;
 namespace TietoJar.Migrations
 {
     [DbContext(typeof(TietoJarContext))]
-    [Migration("20190823110743_ModifiedAccountAndSurveys3")]
-    partial class ModifiedAccountAndSurveys3
+    [Migration("20190826082908_update3")]
+    partial class update3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,7 +37,7 @@ namespace TietoJar.Migrations
 
             modelBuilder.Entity("TietoJar.Domain.ClosePuzzlePossibility", b =>
                 {
-                    b.Property<int>("PuzzleId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -47,9 +47,11 @@ namespace TietoJar.Migrations
 
                     b.Property<int>("Position");
 
+                    b.Property<int>("PuzzleId");
+
                     b.Property<int?>("SurveyPuzzleId");
 
-                    b.HasKey("PuzzleId");
+                    b.HasKey("Id");
 
                     b.HasIndex("SurveyPuzzleId");
 
@@ -58,7 +60,7 @@ namespace TietoJar.Migrations
 
             modelBuilder.Entity("TietoJar.Domain.OpenPuzzleAnswer", b =>
                 {
-                    b.Property<int>("PuzzleId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -66,9 +68,11 @@ namespace TietoJar.Migrations
                         .IsRequired()
                         .HasMaxLength(2000);
 
+                    b.Property<int>("PuzzleId");
+
                     b.Property<int?>("SurveyPuzzleId");
 
-                    b.HasKey("PuzzleId");
+                    b.HasKey("Id");
 
                     b.HasIndex("SurveyPuzzleId");
 
@@ -92,17 +96,14 @@ namespace TietoJar.Migrations
 
             modelBuilder.Entity("TietoJar.Domain.Survey", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("SurveyKey")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("AccountLogin");
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("SurveyKey");
-
-                    b.HasKey("Id");
+                    b.HasKey("SurveyKey");
 
                     b.HasIndex("AccountLogin");
 
@@ -121,13 +122,13 @@ namespace TietoJar.Migrations
 
                     b.Property<int>("PuzzleTypeId");
 
-                    b.Property<int>("SurveyId");
+                    b.Property<string>("SurveyKey");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PuzzleTypeId");
 
-                    b.HasIndex("SurveyId");
+                    b.HasIndex("SurveyKey");
 
                     b.ToTable("SurveyPuzzles");
                 });
@@ -162,8 +163,7 @@ namespace TietoJar.Migrations
 
                     b.HasOne("TietoJar.Domain.Survey")
                         .WithMany("SurveyPuzzles")
-                        .HasForeignKey("SurveyId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SurveyKey");
                 });
 #pragma warning restore 612, 618
         }
