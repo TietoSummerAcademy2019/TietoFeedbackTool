@@ -11,11 +11,11 @@ import { NewQuestionService } from './new-question.service';
 export class NewQuestionComponent {
 
   questionModel: SurveyPuzzle = {
-    id: null,
-    puzzleTypeId: null,
-    surveyId: null,
+    id: 1,
+    puzzleTypeId: 1,
+    surveyId: 1,
     puzzleQuestion: '',
-    position: null
+    position: 1
   }
 
   constructor(private qs: NewQuestionService<SurveyPuzzle>) { }
