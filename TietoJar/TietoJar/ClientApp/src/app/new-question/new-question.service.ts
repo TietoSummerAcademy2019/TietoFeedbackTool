@@ -16,11 +16,15 @@ export class NewQuestionService<T extends SurveyPuzzle> {
   private items$ = new BehaviorSubject<T[]>([]);
 
   constructor(private http: HttpClient) {
+    // http get to instantly see if there are any errors
     this.http.get<T[]>(this.apiBase)
       .subscribe(items => {
         this.items = items;
         this.items$.next(this.items);
-        console.log(this.items.find(i => i.puzzleQuestion));
+        // iterate through the array of extracted objects and see the previously entered values
+        for(let item of items) {
+          console.log(item.puzzleQuestion)
+        }
     });
   }
 
@@ -28,12 +32,7 @@ export class NewQuestionService<T extends SurveyPuzzle> {
     this.items.push(item);
     this.http.post(this.apiBase, item)
       .subscribe(
-        () => {},
-        // () => {
-        //   this.items = this.items.filter(({id}) => item.id !== id);
-        //   this.items$.next(this.items);
-        // }
+        () => {}
     );
-    // console.log(this.items.find(i => i.puzzleQuestion));
   }
 }

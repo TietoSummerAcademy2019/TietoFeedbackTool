@@ -1,6 +1,6 @@
 export interface SurveyPuzzle {
   puzzleTypeId: number;
-  surveyId: number;
+  surveyKey: string;
   puzzleQuestion: string;
   position: number;
 }
