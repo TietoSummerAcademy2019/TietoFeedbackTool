@@ -1,23 +1,14 @@
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  margin: 0 0 100px;
-}
-
 .head-box {
-  top: 0px;
   height: 40px;
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #dddddd;
   opacity: 1;
-  & > a {
-    margin: 0 auto;
-  }
+
 }
 
 .information-question {
+  display: flex;
+  flex-direction: column;
   padding-top: 47px;
   padding-left: 50px;
   &-header {
@@ -39,12 +30,14 @@ body {
 }
 
 .question-form {
+  display: flex;
+  flex-direction: column;
   padding-top: 34px;
   padding-left: 50px;
   padding-bottom: 67px;
   & > h2 {
-    text-align: left;
-    font: Bold 14px/21px Open Sans;
+    font-weight: bold;
+    font-size: 14px;
     letter-spacing: -0.28px;
     color: #333333;
     opacity: 1;
@@ -61,32 +54,25 @@ body {
       font-size: 18px;
     }
   }
-
-  form {
-    width: 540px;
-  }
 }
 
 .new-question-footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 122px;
+  display: flex;
+  justify-content: center;
+  height: 90px;
   width: 100%;
   background: #ffffff 0% 0% no-repeat padding-box;
-  box-shadow: 0px 0px 4px #000000;
+  border-top: 1px solid #cccccc;
   opacity: 1;
   &-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 34px;
+    padding-top: 20px;
   }
 }
 
 .tieto-button {
   height: 45px;
-  width: 185px;
+  width: 198px;
+
   &.submit {
     background: #348644;
     border-style: none;
@@ -100,6 +86,6 @@ body {
     border: 1px solid #cccccc;
     border-radius: 6px;
     opacity: 1;
-    color: #333333;
+    color: #033333;
   }
 }
