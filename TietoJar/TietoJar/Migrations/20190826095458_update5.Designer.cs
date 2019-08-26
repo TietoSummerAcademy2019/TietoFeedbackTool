@@ -10,8 +10,8 @@ using TietoJar.Persistence;
 namespace TietoJar.Migrations
 {
     [DbContext(typeof(TietoJarContext))]
-    [Migration("20190823110332_ModifiedAccountAndSurveys2")]
-    partial class ModifiedAccountAndSurveys2
+    [Migration("20190826095458_update5")]
+    partial class update5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,11 +33,19 @@ namespace TietoJar.Migrations
                     b.HasKey("Login");
 
                     b.ToTable("Accounts");
+
+                    b.HasData(
+                        new
+                        {
+                            Login = "kangorooAdmin1",
+                            Name = "Kangaroo",
+                            Password = "zaq1xsw2"
+                        });
                 });
 
             modelBuilder.Entity("TietoJar.Domain.ClosePuzzlePossibility", b =>
                 {
-                    b.Property<int>("PuzzleId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -47,9 +55,11 @@ namespace TietoJar.Migrations
 
                     b.Property<int>("Position");
 
+                    b.Property<int>("PuzzleId");
+
                     b.Property<int?>("SurveyPuzzleId");
 
-                    b.HasKey("PuzzleId");
+                    b.HasKey("Id");
 
                     b.HasIndex("SurveyPuzzleId");
 
@@ -58,7 +68,7 @@ namespace TietoJar.Migrations
 
             modelBuilder.Entity("TietoJar.Domain.OpenPuzzleAnswer", b =>
                 {
-                    b.Property<int>("PuzzleId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -66,13 +76,23 @@ namespace TietoJar.Migrations
                         .IsRequired()
                         .HasMaxLength(2000);
 
+                    b.Property<int>("PuzzleId");
+
                     b.Property<int?>("SurveyPuzzleId");
 
-                    b.HasKey("PuzzleId");
+                    b.HasKey("Id");
 
                     b.HasIndex("SurveyPuzzleId");
 
                     b.ToTable("OpenPuzzleAnswers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Answer = "Yes, ofcourse",
+                            PuzzleId = 1
+                        });
                 });
 
             modelBuilder.Entity("TietoJar.Domain.PuzzleType", b =>
@@ -88,23 +108,38 @@ namespace TietoJar.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PuzzleTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            HaveOpenAnswer = true,
+                            Name = "Stars"
+                        });
                 });
 
             modelBuilder.Entity("TietoJar.Domain.Survey", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("SurveyKey")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("AccountLogin");
 
-                    b.Property<string>("SurveyKey");
+                    b.Property<string>("Name");
 
-                    b.HasKey("Id");
+                    b.HasKey("SurveyKey");
 
                     b.HasIndex("AccountLogin");
 
                     b.ToTable("Surveys");
+
+                    b.HasData(
+                        new
+                        {
+                            SurveyKey = "123456789",
+                            AccountLogin = "kangorooAdmin1",
+                            Name = "defaultSurvey"
+                        });
                 });
 
             modelBuilder.Entity("TietoJar.Domain.SurveyPuzzle", b =>
@@ -119,15 +154,25 @@ namespace TietoJar.Migrations
 
                     b.Property<int>("PuzzleTypeId");
 
-                    b.Property<int>("SurveyId");
+                    b.Property<string>("SurveyKey");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PuzzleTypeId");
 
-                    b.HasIndex("SurveyId");
+                    b.HasIndex("SurveyKey");
 
                     b.ToTable("SurveyPuzzles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Position = 1,
+                            PuzzleQuestion = "Will it work?",
+                            PuzzleTypeId = 1,
+                            SurveyKey = "123456789"
+                        });
                 });
 
             modelBuilder.Entity("TietoJar.Domain.ClosePuzzlePossibility", b =>
@@ -160,8 +205,7 @@ namespace TietoJar.Migrations
 
                     b.HasOne("TietoJar.Domain.Survey")
                         .WithMany("SurveyPuzzles")
-                        .HasForeignKey("SurveyId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SurveyKey");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,7 +12,7 @@
     </div>
     <div class="question-form">
       <h2>Question</h2>
-      <form #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
+      <form id="question-body" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
         <textarea class="question-text" name="new-question" ngModel required #first="ngModel"></textarea>
       </form>
     </div>
@@ -20,6 +20,6 @@
 <footer class="new-question-footer">
   <div class="new-question-footer-buttons">
       <button class="tieto-button cancel" routerLink="" routerLinkActive="active">Cancel</button>
-      <button class="tieto-button submit">Submit</button>
+      <button form="question-body" class="tieto-button submit">Submit</button>
   </div>
 </footer>
