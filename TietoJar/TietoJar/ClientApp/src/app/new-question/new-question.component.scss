@@ -1,9 +1,17 @@
-.head-box {
+.new-question-content {
+  min-height: 80vh;
+}
+
+.navigation-item {
   height: 40px;
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #dddddd;
   opacity: 1;
-
+  & > a {
+    & > img {
+      padding: 8px;
+    }
+  }
 }
 
 .information-question {
@@ -13,7 +21,7 @@
   padding-left: 50px;
   &-header {
     text-align: left;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 28px;
     letter-spacing: 0;
     color: #333333;
@@ -22,7 +30,7 @@
   &-information {
     text-align: left;
     font-size: 20px;
-    font-weight: lighter;
+    font-weight: 300;
     letter-spacing: 0;
     color: #333333;
     opacity: 1;
@@ -36,45 +44,43 @@
   padding-left: 50px;
   padding-bottom: 67px;
   & > h2 {
-    font-weight: bold;
+    font-weight: 700;
     font-size: 14px;
-    letter-spacing: -0.28px;
     color: #333333;
     opacity: 1;
   }
 
   .question-text {
     min-height: 238px;
-    width: 540px;
+    font-size: 16px;
+    font-weight: 600;
+    max-width: 540px;
+    width: 50vw;
     background: #ffffff 0% 0% no-repeat padding-box;
     border: 1px solid #cccccc;
     border-radius: 6px;
     opacity: 1;
-    &::placeholder {
-      font-size: 18px;
-    }
   }
 }
 
 .new-question-footer {
-  display: flex;
-  justify-content: center;
   height: 90px;
   width: 100%;
-  background: #ffffff 0% 0% no-repeat padding-box;
   border-top: 1px solid #cccccc;
   opacity: 1;
   &-buttons {
-    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
   }
 }
 
 .tieto-button {
   height: 45px;
   width: 198px;
-
   &.submit {
-    background: #348644;
+    background: #0E76B7;
     border-style: none;
     border-radius: 6px;
     opacity: 1;
