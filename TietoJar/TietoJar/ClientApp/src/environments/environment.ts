@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  apiBaseUrl: 'https://localhost:5001/api/survey/questions',
   production: false
 };
 
