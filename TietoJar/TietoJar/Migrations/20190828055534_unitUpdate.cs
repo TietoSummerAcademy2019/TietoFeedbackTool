@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TietoJar.Migrations
 {
-    public partial class TietoJarDBCreate : Migration
+    public partial class unitUpdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,14 +11,13 @@ namespace TietoJar.Migrations
                 name: "Accounts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Login = table.Column<string>(nullable: true),
+                    Login = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Accounts", x => x.Id);
+                    table.PrimaryKey("PK_Accounts", x => x.Login);
                 });
 
             migrationBuilder.CreateTable(
@@ -41,18 +40,19 @@ namespace TietoJar.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AccountId = table.Column<int>(nullable: false),
+                    AccountLogin = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
                     SurveyKey = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Surveys", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Surveys_Accounts_AccountId",
-                        column: x => x.AccountId,
+                        name: "FK_Surveys_Accounts_AccountLogin",
+                        column: x => x.AccountLogin,
                         principalTable: "Accounts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Login",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -146,9 +146,9 @@ namespace TietoJar.Migrations
                 column: "SurveyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Surveys_AccountId",
+                name: "IX_Surveys_AccountLogin",
                 table: "Surveys",
-                column: "AccountId");
+                column: "AccountLogin");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

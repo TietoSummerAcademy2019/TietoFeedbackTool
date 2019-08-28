@@ -10,8 +10,8 @@ using TietoJar.Persistence;
 namespace TietoJar.Migrations
 {
     [DbContext(typeof(TietoJarContext))]
-    [Migration("20190823110743_ModifiedAccountAndSurveys3")]
-    partial class ModifiedAccountAndSurveys3
+    [Migration("20190828055534_unitUpdate")]
+    partial class unitUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
