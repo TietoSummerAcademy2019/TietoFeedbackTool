@@ -1,1 +1,6 @@
-<p>display-data works!</p>
+<div *ngFor="let q of questions">
+  <p>{{ q.puzzleQuestion }}</p>
+</div>
+<div *ngFor="let a of answerOpen">
+  <p>{{ a.answer }}</p>
+</div>
