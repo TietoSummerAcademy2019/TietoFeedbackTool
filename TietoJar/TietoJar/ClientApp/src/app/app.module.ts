@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { NewQuestionComponent } from './new-question/new-question.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DisplayDataComponent } from './display-data/display-data.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       HomeComponent,
-      NewQuestionComponent
+      NewQuestionComponent,
+      DisplayDataComponent
    ],
    imports: [
       BrowserModule,
