@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TietoJar.Migrations
 {
-    public partial class update2 : Migration
+    public partial class update : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -87,18 +87,18 @@ namespace TietoJar.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PuzzleId = table.Column<int>(nullable: false),
+                    SurveyPuzzleId = table.Column<int>(nullable: false),
                     Answer = table.Column<string>(nullable: true),
                     Counter = table.Column<int>(nullable: false),
                     Position = table.Column<int>(nullable: false),
-                    SurveyPuzzleId = table.Column<int>(nullable: true)
+                    SurveySurveyPuzzleId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ClosePuzzlePossibilities", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ClosePuzzlePossibilities_SurveyPuzzles_SurveyPuzzleId",
-                        column: x => x.SurveyPuzzleId,
+                        name: "FK_ClosePuzzlePossibilities_SurveyPuzzles_SurveySurveyPuzzleId",
+                        column: x => x.SurveySurveyPuzzleId,
                         principalTable: "SurveyPuzzles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -110,30 +110,55 @@ namespace TietoJar.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PuzzleId = table.Column<int>(nullable: false),
+                    SurveyPuzzleId = table.Column<int>(nullable: false),
                     Answer = table.Column<string>(maxLength: 2000, nullable: false),
-                    SurveyPuzzleId = table.Column<int>(nullable: true)
+                    SurveySurveyPuzzleId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_OpenPuzzleAnswers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_OpenPuzzleAnswers_SurveyPuzzles_SurveyPuzzleId",
-                        column: x => x.SurveyPuzzleId,
+                        name: "FK_OpenPuzzleAnswers_SurveyPuzzles_SurveySurveyPuzzleId",
+                        column: x => x.SurveySurveyPuzzleId,
                         principalTable: "SurveyPuzzles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_ClosePuzzlePossibilities_SurveyPuzzleId",
-                table: "ClosePuzzlePossibilities",
-                column: "SurveyPuzzleId");
+            migrationBuilder.InsertData(
+                table: "Accounts",
+                columns: new[] { "Login", "Name", "Password" },
+                values: new object[] { "kangorooAdmin1", "Kangaroo", "zaq1xsw2" });
+
+            migrationBuilder.InsertData(
+                table: "OpenPuzzleAnswers",
+                columns: new[] { "Id", "Answer", "SurveyPuzzleId", "SurveySurveyPuzzleId" },
+                values: new object[] { 1, "Yes, of course", 1, null });
+
+            migrationBuilder.InsertData(
+                table: "PuzzleTypes",
+                columns: new[] { "Id", "HaveOpenAnswer", "Name" },
+                values: new object[] { 1, true, "Stars" });
+
+            migrationBuilder.InsertData(
+                table: "Surveys",
+                columns: new[] { "SurveyKey", "AccountLogin", "Name" },
+                values: new object[] { "123456789", "kangorooAdmin1", "defaultSurvey" });
+
+            migrationBuilder.InsertData(
+                table: "SurveyPuzzles",
+                columns: new[] { "Id", "Position", "PuzzleQuestion", "PuzzleTypeId", "SurveyKey" },
+                values: new object[] { 1, 1, "Will it work?", 1, "123456789" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_OpenPuzzleAnswers_SurveyPuzzleId",
+                name: "IX_ClosePuzzlePossibilities_SurveySurveyPuzzleId",
+                table: "ClosePuzzlePossibilities",
+                column: "SurveySurveyPuzzleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OpenPuzzleAnswers_SurveySurveyPuzzleId",
                 table: "OpenPuzzleAnswers",
-                column: "SurveyPuzzleId");
+                column: "SurveySurveyPuzzleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SurveyPuzzles_PuzzleTypeId",
