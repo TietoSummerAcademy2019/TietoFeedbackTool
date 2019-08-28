@@ -1,1 +1,0 @@
-alert("NO I PAN PAWEŁ");
