@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TietoJar.Migrations
 {
-    public partial class unitUpdate2 : Migration
+    public partial class submitDateModelsUpdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -110,7 +111,8 @@ namespace TietoJar.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     SurveyPuzzleId = table.Column<int>(nullable: false),
-                    Answer = table.Column<string>(maxLength: 2000, nullable: false)
+                    Answer = table.Column<string>(maxLength: 2000, nullable: false),
+                    SubmitDate = table.Column<DateTime>(type: "Date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -122,6 +124,31 @@ namespace TietoJar.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "ClosePuzzleAnswers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ClosePuzzlePossibilityId = table.Column<int>(nullable: false),
+                    SubmitDate = table.Column<DateTime>(type: "Date", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ClosePuzzleAnswers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ClosePuzzleAnswers_ClosePuzzlePossibilities_ClosePuzzlePossibilityId",
+                        column: x => x.ClosePuzzlePossibilityId,
+                        principalTable: "ClosePuzzlePossibilities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ClosePuzzleAnswers_ClosePuzzlePossibilityId",
+                table: "ClosePuzzleAnswers",
+                column: "ClosePuzzlePossibilityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ClosePuzzlePossibilities_SurveyPuzzleId",
@@ -152,10 +179,13 @@ namespace TietoJar.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ClosePuzzlePossibilities");
+                name: "ClosePuzzleAnswers");
 
             migrationBuilder.DropTable(
                 name: "OpenPuzzleAnswers");
+
+            migrationBuilder.DropTable(
+                name: "ClosePuzzlePossibilities");
 
             migrationBuilder.DropTable(
                 name: "SurveyPuzzles");
