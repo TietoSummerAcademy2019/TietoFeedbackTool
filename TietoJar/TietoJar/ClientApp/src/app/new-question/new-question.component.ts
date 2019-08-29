@@ -12,6 +12,7 @@ export class NewQuestionComponent {
 
   // hard-coded according to sample DB entries for now
   questionModel: SurveyPuzzle = {
+    id: 5,
     puzzleTypeId: 3, // Stars
     surveyKey: '006CB570ACDAB0E0BFC8E3DCB7BB4EDF',
     puzzleQuestion: '',
