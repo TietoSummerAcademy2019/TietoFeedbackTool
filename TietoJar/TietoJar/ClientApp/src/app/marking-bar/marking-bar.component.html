@@ -1,10 +1,15 @@
 <div class="feedback">
-    <div class="collapse feedback-window" id="windowContent">
-      <div class="card card-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur, nulla sit amet tincidunt molestie, urna nisi eleifend sapien, placerat pretium leo ante viverra lectus. Aenean ac molestie purus
-      </div>
-    </div>
   <div class="feedback-marking-bar">
-    <button class="btn btn-primary feedback-marking-bar-button" type="button" data-toggle="collapse" data-target="#windowContent" aria-expanded="false" aria-controls="collapseExample" (click)="toggleState()">Test</button>
+    <button class="btn btn-primary feedback-marking-bar-button" type="button" data-toggle="collapse" data-target="#windowContent" aria-expanded="false" aria-controls="collapseExample" (click)="toggleState()">
+      Leave feedback
+    </button>
+  </div>
+  <div class="collapse feedback-window" id="windowContent">
+    <button class="feedback-marking-bar-exit" type="button" data-toggle="collapse" data-target="#windowContent" aria-expanded="false" aria-controls="collapseExample">
+      X
+    </button>
+    <div class="card card-body well">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur, nulla sit amet tincidunt molestie, urna nisi eleifend sapien, placerat pretium leo ante viverra lectus. Aenean ac molestie purus
+    </div>
   </div>
 </div>
