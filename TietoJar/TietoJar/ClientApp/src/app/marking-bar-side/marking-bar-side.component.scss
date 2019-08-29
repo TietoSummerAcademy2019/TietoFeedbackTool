@@ -1,45 +1,49 @@
 .collapse.show {
-visibility: visible;
+  visibility: visible;
 }
 .collapsing {
-visibility: visible;
-height: 0;
--webkit-transition-property: height, visibility;
-transition-property: height, visibility;
--webkit-transition-timing-function: ease-out;
-transition-timing-function: ease-out;
+  visibility: visible;
+  height: 0;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
 }
 .collapsing.width {
--webkit-transition-property: width, visibility;
-transition-property: width, visibility;
-width: 0;
-height: 100%;
--webkit-transition-timing-function: ease-out;
-transition-timing-function: ease-out;
+  -webkit-transition-property: width, visibility;
+  transition-property: width, visibility;
+  width: 0;
+  height: 100%;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  float: right;
 }
 
 .feedback {
-  display: inline-block;
-  float: left;
+  // display: inline-block;
   // position: fixed;
   // bottom: 0;
   // right: 10vw;
   &-marking-bar {
     &-button {
-      background-image: url(../../assets/img/light-bulb.svg);
+      background-image: url(../../assets/img/light-bulb-right.svg);
       background-repeat: no-repeat;
-      background-position: center left 25px;
-      font-size: 14px;
+      background-position: bottom 15px center;
       color: #fff;
       background-color: #0E76B7;
       height: 180px;
       width: 30px;
       padding: 0;
+      float: right;
+      & span {
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        font-size: 14px;
+      }
     }
   }
 }
 
-.card {
-  display: inline-block;
-  float: left;
+.collapse {
+  float: right;
 }
