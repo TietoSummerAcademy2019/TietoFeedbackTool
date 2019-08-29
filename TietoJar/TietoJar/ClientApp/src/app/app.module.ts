@@ -8,13 +8,15 @@ import { HomeComponent } from './home/home.component';
 import { NewQuestionComponent } from './new-question/new-question.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkingBarComponent } from './marking-bar/marking-bar.component';
+import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       HomeComponent,
       NewQuestionComponent,
-      MarkingBarComponent
+      MarkingBarComponent,
+      MarkingBarSideComponent
    ],
    imports: [
       BrowserModule,
