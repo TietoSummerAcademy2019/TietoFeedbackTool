@@ -1,6 +1,6 @@
-<div *ngFor="let q of questions">
-  <p>{{ q.id }}</p>
-</div>
-<div *ngFor="let a of answerOpen">
-  <p>{{ a.surveyPuzzleId }}</p>
+<div class="display-data">
+  <div class="display-data-card" *ngFor="let qa of questionAnswer">
+    <h1>{{ qa.question }}</h1>
+    <h2>{{ qa.answer }}</h2>
+  </div>
 </div>

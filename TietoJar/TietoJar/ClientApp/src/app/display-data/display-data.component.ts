@@ -4,6 +4,7 @@ import { SurveyPuzzle } from '../models/SurveyPuzzle';
 import { OpenPuzzleAnswer } from '../models/OpenPuzzleAnswer';
 import { Observable } from 'rxjs';
 import { QuestionAnswer } from '../models/QuestionAnswer';
+import { delay } from 'q';
 
 
 @Component({
@@ -23,28 +24,31 @@ export class DisplayDataComponent implements OnInit {
     const questionsObservable = await this.ds.getQuestions();
     questionsObservable.subscribe((questions: SurveyPuzzle[]) => {
       this.questions = questions;
-      console.log('1');
     });
 
     const answersObservable = await this.ds.getAnswers();
     answersObservable.subscribe((answer: OpenPuzzleAnswer[]) => {
       this.answerOpen = answer;
-      console.log('2');
     });
 
-    this.checkAnswers();
+    await delay(100);
+
+    await this.checkAnswers();
+
   }
 
-  checkAnswers() {
-    console.log('3');
-    // this.questions.forEach(question => {
-    //   console.log(question);
-    //   this.answerOpen.forEach(answer => {
-    //     if (question.id === answer.surveyPuzzleId) {
-    //       console.log('merge question with answer');
-    //     }
-    //   });
-    // });
+  checkAnswers(): QuestionAnswer[]  {
+    this.questions.forEach(question => {
+      this.answerOpen.forEach(answer => {
+        if (question.id === answer.surveyPuzzleId) {
+          this.questionAnswer.push({
+            question: question.puzzleQuestion,
+            answer: answer.answer
+          });
+        }
+      });
+    });
+    return this.questionAnswer;
   }
 
 }
