@@ -21,14 +21,14 @@
 
 .feedback {
   // display: inline-block;
-  // position: fixed;
-  // bottom: 0;
-  // right: 10vw;
+  position: fixed;
+  top: 20vh;
+  right: 0;
   &-marking-bar {
     &-button {
       background-image: url(../../assets/img/light-bulb-right.svg);
       background-repeat: no-repeat;
-      background-position: bottom 15px center;
+      background-position: bottom 30px center;
       color: #fff;
       background-color: #0E76B7;
       height: 180px;
@@ -42,6 +42,32 @@
       }
     }
   }
+}
+
+.btn {
+  &#marking-bar {
+    &:focus {
+      box-shadow: none;
+    }
+    &:hover {
+      box-shadow: 0 0 10px 1px #878787;
+      background-color: #249ce7;
+    }
+    background-color: #0E76B7;
+    border-style: none;
+    float: right;
+    border-radius: 15px 0 0 15px;
+  }
+}
+
+.card {
+  border-style: solid;
+  border-width: 2px;
+  border-right-width: 0;
+  border-color: #0E76B7;
+  border-radius: 0 0 0 12px;
+  height: 30vh;
+  width: 300px;
 }
 
 .collapse {
