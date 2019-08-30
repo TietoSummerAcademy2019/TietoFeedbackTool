@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DisplayDataService } from './display-data.service';
-import { SurveyPuzzle } from '../models/SurveyPuzzle';
-import { OpenPuzzleAnswer } from '../models/OpenPuzzleAnswer';
-import { Observable } from 'rxjs';
-import { QuestionAnswer } from '../models/QuestionAnswer';
-import { Survey } from '../models/Survey';
+import { Account } from '../models/Account';
 
 
 @Component({
@@ -14,19 +10,19 @@ import { Survey } from '../models/Survey';
 })
 export class DisplayDataComponent implements OnInit {
 
-  questions: SurveyPuzzle[] = [];
-  answerOpen: OpenPuzzleAnswer[] = [];
-  questionAnswer: QuestionAnswer[] = [];
+  questionWithAnswer: Account[] = [];
 
-  constructor(private ds: DisplayDataService<Survey>) { }
+  constructor(private ds: DisplayDataService<Account>) { }
 
   ngOnInit() {
     this.init();
   }
 
   async init() {
-    this.ds.getAll();
-    console.log(this.ds.getAll());
+
+    await this.ds.getAll().then((result) => {
+      this.questionWithAnswer = result;
+    });
   }
 
 }
