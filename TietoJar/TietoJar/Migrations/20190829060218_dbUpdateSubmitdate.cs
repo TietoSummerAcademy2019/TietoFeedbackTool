@@ -2,7 +2,7 @@
 
 namespace TietoJar.Migrations
 {
-    public partial class update6 : Migration
+    public partial class dbUpdateSubmitdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
