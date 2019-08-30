@@ -21,6 +21,7 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 
 export class MarkingBarComponent implements OnInit {
 
+  public visibility: string = 'hidden';
   flag: boolean = false;
   question: String = "Do you think Senior Paweł Rules?";
 
@@ -41,13 +42,14 @@ export class MarkingBarComponent implements OnInit {
         if (this.flag == false) {
             this.question = this.qs.getQuestion();
             this.flag = true;
-        }
-    if(this.visibility === 'hidden') {
-      this.visibility = 'shown'
-    }
-    else {
-      this.visibility = 'hidden'
-    }
+      }
+      if (this.visibility === 'hidden') {
+        this.visibility = 'shown'
+      }
+      else {
+        this.visibility = 'hidden'
+      }
+   
   }
 
   onSubmit(f: NgForm) {
