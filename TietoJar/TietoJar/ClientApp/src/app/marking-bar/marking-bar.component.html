@@ -5,11 +5,12 @@
     </button>
   </div>
   <div class="collapse feedback-window" id="windowContent">
-    <!--
-    <button class="feedback-marking-bar-exit" id="exit-btn"  type="button" data-toggle="collapse" data-target="#windowContent" aria-expanded="false" aria-controls="collapseExample"></button>
-    -->
     <div class="card card-body well">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur, nulla sit amet tincidunt molestie, urna nisi eleifend sapien, placerat pretium leo ante viverra lectus. Aenean ac molestie purus
+      <form id="question-body" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
+        <p class="colored align-self-center">{{question}}</p>
+        <textarea name="new-question" ngModel required #first="ngModel" class="align-self-center"></textarea>
+        <button class="btn submit-btn align-self-end">Send</button>
+      </form>
     </div>
   </div>
 </div>

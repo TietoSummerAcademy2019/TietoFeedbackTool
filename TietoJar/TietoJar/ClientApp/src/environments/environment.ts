@@ -4,6 +4,7 @@
 
 export const environment = {
   apiBaseUrl: 'https://localhost:44350/api/survey/questions',
+  openAnswerUrl: 'https://localhost:44350/api/answer/open', 
   production: false
 };
 
