@@ -1,5 +1,4 @@
-// variables to calculate position of the marking bar to match the bottom of the feedback window
-$cardHeight: 500px;
+$cardHeight: 300px;
 $buttonHeight: 180px;
 $calculatedPosition: $cardHeight - $buttonHeight;
 
@@ -26,7 +25,7 @@ $calculatedPosition: $cardHeight - $buttonHeight;
 
 .feedback {
   position: fixed;
-  top: 20vh;
+  top: 30vh;
   right: 0;
   &-marking-bar {
     display: inline-block;
@@ -60,7 +59,7 @@ $calculatedPosition: $cardHeight - $buttonHeight;
       box-shadow: none;
     }
     &:hover {
-      box-shadow: 0 0 10px 1px #878787;
+      box-shadow: -1px 0 10px 0 #878787;
     }
     background-color: #0E76B7;
     border-style: none;
@@ -82,4 +81,29 @@ $calculatedPosition: $cardHeight - $buttonHeight;
 .collapse {
   // position: absolute;
   float: right;
+}
+
+.exit-button
+{
+  position: absolute;
+  margin-top: -16px;
+  margin-left: -16px;
+  display: inline-block;
+  width:20px;
+  height:20px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0E76B7;
+  border-radius:100%;
+  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%, white 56%,transparent 56%, transparent 100%),
+  -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);
+  background-color:#0E76B7;
+  outline: transparent;
+  transition: all 0.2s ease;
+  &:hover {
+    box-shadow: 0 0 5px 1px #878787;
+  }
+  &:focus {
+    box-shadow: 0 0 5px 1px #878787;
+  }
 }

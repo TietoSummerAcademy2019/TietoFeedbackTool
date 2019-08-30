@@ -1,10 +1,14 @@
 <div class="feedback">
   <div class="feedback-marking-bar">
-    <button class="btn feedback-marking-bar-button" id="marking-bar" type="button" data-toggle="collapse" data-target="#windowContent" aria-expanded="false" aria-controls="collapseExample" (click)="toggleState()">
+    <button (click)="toggle()" class="btn feedback-marking-bar-button" id="marking-bar" type="button" data-toggle="collapse" data-target="#windowContent" aria-expanded="false" aria-controls="collapseExample">
       Leave feedback
     </button>
   </div>
   <div class="collapse feedback-window" id="windowContent">
+    <div [@visibilityChanged]="visibility" class="collapse-exit">
+      <button (click)="toggle()" role="button" class="exit-button" data-toggle="collapse" data-target="#windowContent" aria-expanded="false">
+      </button>
+    </div>
     <div class="card card-body well">
       <form id="question-body" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
         <p class="colored align-self-center">{{question}}</p>

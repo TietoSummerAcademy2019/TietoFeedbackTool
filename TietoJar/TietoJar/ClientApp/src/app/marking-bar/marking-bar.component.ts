@@ -3,12 +3,22 @@ import { MarkingBarService } from './marking-bar.service';
 import { SurveyPuzzle } from '../models/SurveyPuzzle';
 import { OpenAnswer } from '../models/OpenAnswer';
 import { NgForm } from '@angular/forms';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-marking-bar',
   templateUrl: './marking-bar.component.html',
-  styleUrls: ['./marking-bar.component.scss']
+  styleUrls: ['./marking-bar.component.scss'],
+  animations: [
+    trigger('visibilityChanged', [
+      state('shown', style({ opacity: 1 })),
+      state('hidden', style({ opacity: 0 })),
+      transition('shown => hidden', animate('250ms')),
+      transition('hidden => shown', animate('250ms')),
+    ])
+  ]
 })
+
 export class MarkingBarComponent implements OnInit {
 
   flag: boolean = false;
@@ -27,12 +37,17 @@ export class MarkingBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleState() {
-    if (this.flag == false) {
-      this.question = this.qs.getQuestion();
-      this.flag = true;
+    toggle(): void {
+        if (this.flag == false) {
+            this.question = this.qs.getQuestion();
+            this.flag = true;
+        }
+    if(this.visibility === 'hidden') {
+      this.visibility = 'shown'
     }
-    this.show = !this.show;
+    else {
+      this.visibility = 'hidden'
+    }
   }
 
   onSubmit(f: NgForm) {
