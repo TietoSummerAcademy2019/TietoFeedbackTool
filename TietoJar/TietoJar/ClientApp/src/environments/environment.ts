@@ -5,6 +5,7 @@
 export const environment = {
   newQuestionUrl: 'https://localhost:44350/api/survey/questions',
   openAnswerUrl: 'https://localhost:44350/api/answer/open',
+  dataByLoginUrl: 'https://localhost:44350/api/survey/surveywithq/Jon',
   production: false
 };
 

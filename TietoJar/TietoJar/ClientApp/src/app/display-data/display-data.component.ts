@@ -4,7 +4,7 @@ import { SurveyPuzzle } from '../models/SurveyPuzzle';
 import { OpenPuzzleAnswer } from '../models/OpenPuzzleAnswer';
 import { Observable } from 'rxjs';
 import { QuestionAnswer } from '../models/QuestionAnswer';
-import { delay } from 'q';
+import { Survey } from '../models/Survey';
 
 
 @Component({
@@ -18,37 +18,15 @@ export class DisplayDataComponent implements OnInit {
   answerOpen: OpenPuzzleAnswer[] = [];
   questionAnswer: QuestionAnswer[] = [];
 
-  constructor(private ds: DisplayDataService<SurveyPuzzle, OpenPuzzleAnswer>) { }
+  constructor(private ds: DisplayDataService<Survey>) { }
 
-  async ngOnInit() {
-    const questionsObservable = await this.ds.getQuestions();
-    questionsObservable.subscribe((questions: SurveyPuzzle[]) => {
-      this.questions = questions;
-    });
-
-    const answersObservable = await this.ds.getAnswers();
-    answersObservable.subscribe((answer: OpenPuzzleAnswer[]) => {
-      this.answerOpen = answer;
-    });
-
-    await delay(100);
-
-    await this.checkAnswers();
-
+  ngOnInit() {
+    this.init();
   }
 
-  checkAnswers(): QuestionAnswer[]  {
-    this.questions.forEach(question => {
-      this.answerOpen.forEach(answer => {
-        if (question.id === answer.surveyPuzzleId) {
-          this.questionAnswer.push({
-            question: question.puzzleQuestion,
-            answer: answer.answer
-          });
-        }
-      });
-    });
-    return this.questionAnswer;
+  async init() {
+    this.ds.getAll();
+    console.log(this.ds.getAll());
   }
 
 }
