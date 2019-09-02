@@ -44,10 +44,10 @@
         <tbody *ngFor="let question of questionWithAnswer.surveys[0].surveyPuzzles">
           <tr *ngFor="let answer of question.openPuzzleAnswers">
             <td scope="row">{{answer.submitDate | date: "short"}}</td>
-            <td></td>
+            <td><img src="../../assets/img/stars.svg"  class="visual-rating"></td>
             <td>{{answer.answer}}</td>
-            <td></td>
-            <td></td>
+            <td> Windows</td>
+            <td> Chrome </td>
           </tr>
         </tbody>
       </table>

@@ -51,19 +51,30 @@
   }
 }
 
+.data-filtering-option {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 .display-data-table {
   padding-top: 50px;
   margin-left: 50px;
   margin-right: 50px;
 }
 
+.visual-rating {
+  height: 14px;
+}
+
 .table-striped {
   width: 100%;
   border-spacing: 0;
+  font-size: 14px;
   border-collapse: collapse;
   border: 1px solid #dadada;
   th {
     border: 1px solid #dadada;
+    font-weight: normal;
   }
 }
 
