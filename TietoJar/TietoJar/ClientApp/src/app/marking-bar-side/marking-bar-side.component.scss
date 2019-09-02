@@ -1,5 +1,5 @@
 $cardHeight: 100%;
-$buttonHeight: 180px;
+$buttonHeight: 220px;
 $calculatedPosition: 24px;
 
 .collapse.show {
@@ -37,13 +37,13 @@ $calculatedPosition: 24px;
       color: #fff;
       background-color: #0E76B7;
       height: $buttonHeight;
-      width: 30px;
+      width: 40px;
       padding: 0;
       float: right;
       & span {
         writing-mode: vertical-lr;
         transform: rotate(180deg);
-        font-size: 14px;
+        font-size: 16px;
       }
     }
   }
@@ -89,7 +89,7 @@ $calculatedPosition: 24px;
   position: absolute;
   display: inline-block;
   margin-top: -22px;
-  margin-left: 30px;
+  margin-left: 42px;
   width:20px;
   height:20px;
   border-style: solid;
@@ -112,7 +112,8 @@ $calculatedPosition: 24px;
 
 
 .colored {
-  text-align: center;
+  margin-left:5%;
+  text-align: left;
   font-weight: 400;
   font-size: 14px;
   color: #0E76B7;

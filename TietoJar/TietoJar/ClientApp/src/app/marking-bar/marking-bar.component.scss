@@ -10,9 +10,10 @@
       background-position: center left 25px;
       font-size: 14px;
       color: #fff;
-      height: 30px;
-      width: 180px;
+      height: 40px;
+      width: 220px;
       padding: 0;
+      font-size:16px;
     }
   }
 }
@@ -56,7 +57,8 @@ textarea {
 }
 
 .colored {
-  text-align:center;
+  max-width:220px;
+  text-align:left;
   font-weight: 400;
   font-size: 14px;
   color: #0E76B7;
@@ -76,7 +78,7 @@ textarea {
 .exit-button
 {
   position: absolute;
-  margin-top: 8px;
+  margin-top: 14px;
   display: inline-block;
   width:20px;
   height:20px;
