@@ -2,6 +2,7 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { NewQuestionService } from './new-question.service';
+import { SurveyPuzzle } from '../models/SurveyPuzzle';
 
 describe('Service: NewQuestion', () => {
   beforeEach(() => {
@@ -10,7 +11,7 @@ describe('Service: NewQuestion', () => {
     });
   });
 
-  it('should ...', inject([NewQuestionService], (service: NewQuestionService) => {
+  it('should ...', inject([NewQuestionService], (service: NewQuestionService<SurveyPuzzle>) => {
     expect(service).toBeTruthy();
   }));
 });
