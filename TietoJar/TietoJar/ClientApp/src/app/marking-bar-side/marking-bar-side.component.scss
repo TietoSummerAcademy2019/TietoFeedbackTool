@@ -50,8 +50,8 @@ $calculatedPosition: 24px;
 }
 
 .feedback-marking-bar{
-  /*position: relative;*/
-  /*top: $calculatedPosition;*/
+  position: relative;
+  top: $calculatedPosition;
 }
 
 .btn {
@@ -86,10 +86,8 @@ $calculatedPosition: 24px;
 
 .exit-button
 {
-  position: absolute;
   display: inline-block;
   margin-top: -22px;
-  margin-left: 42px;
   width:20px;
   height:20px;
   border-style: solid;

@@ -1,0 +1,17 @@
+<div class="display-data">
+    <div class="display-data-card">
+      <div *ngFor="let survey of questionWithAnswer.surveys">
+        <h1>{{ survey.name }}</h1>
+        <div *ngFor="let question of survey.surveyPuzzles">
+          <h2>{{ question.puzzleQuestion }}</h2>
+          <div *ngFor="let answer of question.openPuzzleAnswers">
+            <h3>
+              {{ answer.answer }}
+              <hr />
+              {{ answer.submitDate | date : 'short' }}
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

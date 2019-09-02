@@ -9,9 +9,8 @@ import { OpenAnswer } from '../models/OpenAnswer';
   providedIn: 'root'
 })
 export class MarkingBarService<T extends SurveyPuzzle, X extends OpenAnswer>{
-
   private items: T[] = [];
-  private readonly apiBase = environment.apiBaseUrl;
+  private readonly apiBase = environment.newQuestionUrl;
   private readonly answerApi = environment.openAnswerUrl;
 
   constructor(private http: HttpClient) {
@@ -22,6 +21,7 @@ export class MarkingBarService<T extends SurveyPuzzle, X extends OpenAnswer>{
   }
 
   getQuestion(): string {
+    console.log(this.items);
     return this.items[0].puzzleQuestion;
   }
 
@@ -31,5 +31,4 @@ export class MarkingBarService<T extends SurveyPuzzle, X extends OpenAnswer>{
         () => { }
       );
   }
-  
 }

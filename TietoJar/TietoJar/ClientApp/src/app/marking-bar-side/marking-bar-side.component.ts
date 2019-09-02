@@ -4,6 +4,7 @@ import { MarkingBarService } from '../marking-bar/marking-bar.service';
 import { SurveyPuzzle } from '../models/SurveyPuzzle';
 import { OpenAnswer } from '../models/OpenAnswer';
 import { NgForm } from '@angular/forms';
+import { ButtonFadeAnimation } from '../animation';
 
 @Component({
   selector: 'app-marking-bar-side',
@@ -23,6 +24,7 @@ export class MarkingBarSideComponent implements OnInit {
   public visibility: string = 'hidden';
   flag: boolean = false;
   question: String = "";
+  public animation = new ButtonFadeAnimation;
 
   constructor(private qs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
 
@@ -36,18 +38,6 @@ export class MarkingBarSideComponent implements OnInit {
     Answer: ''
   }
 
-  toggleVisibility(): void {
-    if (this.flag == false) {
-      this.question = this.qs.getQuestion();
-      this.flag = true;
-    }
-    if (this.visibility === 'hidden') {
-      this.visibility = 'shown'
-    }
-    else {
-      this.visibility = 'hidden'
-    }
-  }
 
 
   onSubmit(f: NgForm) {
@@ -56,5 +46,11 @@ export class MarkingBarSideComponent implements OnInit {
     f.reset();
     this.qs.addAnswer(this.AnswerModel);
   }
+  toggleVisibility() {
+    if (this.flag == false) {
+      this.question = this.qs.getQuestion();
+      this.flag = true;
+    }
+    this.visibility = this.animation.toggle(this.visibility);
+  }
 }
-
