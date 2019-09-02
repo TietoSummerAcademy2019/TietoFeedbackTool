@@ -1,5 +1,5 @@
 export interface SurveyPuzzle {
-  id: number;
+  id?: number;
   puzzleTypeId: number;
   surveyKey: string;
   puzzleQuestion: string;
