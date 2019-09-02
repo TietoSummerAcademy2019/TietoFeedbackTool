@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class NewQuestionService<T extends SurveyPuzzle> {
 
   private items: T[] = [];
-  private readonly apiBase = environment.apiBaseUrl;
+  private readonly apiBase = environment.newQuestionUrl;
 
   constructor(private http: HttpClient) {
     this.http.get<T[]>(this.apiBase)

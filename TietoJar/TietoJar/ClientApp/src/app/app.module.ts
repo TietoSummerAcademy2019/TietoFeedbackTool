@@ -7,12 +7,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { NewQuestionComponent } from './new-question/new-question.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DisplayDataComponent } from './display-data/display-data.component';
+import { MarkingBarComponent } from './marking-bar/marking-bar.component';
+import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       HomeComponent,
-      NewQuestionComponent
+      NewQuestionComponent,
+      DisplayDataComponent,
+      MarkingBarComponent,
+      MarkingBarSideComponent
    ],
    imports: [
       BrowserModule,
