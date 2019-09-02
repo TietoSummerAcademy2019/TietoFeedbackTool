@@ -1,6 +1,6 @@
 $cardHeight: 350px;
 $buttonHeight: 180px;
-$calculatedPosition: $cardHeight - $buttonHeight + 27px;
+$calculatedPosition: $cardHeight - $buttonHeight + 24px;
 
 .collapse.show {
   visibility: visible;
@@ -33,7 +33,7 @@ $calculatedPosition: $cardHeight - $buttonHeight + 27px;
     &-button {
       background-image: url(../../assets/img/light-bulb-right.svg);
       background-repeat: no-repeat;
-      background-position: bottom 30px center;
+      background-position: bottom 25px center;
       color: #fff;
       background-color: #0E76B7;
       height: $buttonHeight;
@@ -86,7 +86,7 @@ $calculatedPosition: $cardHeight - $buttonHeight + 27px;
 .exit-button
 {
   display: inline-block;
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
   width:20px;
   height:20px;
   border-style: solid;
