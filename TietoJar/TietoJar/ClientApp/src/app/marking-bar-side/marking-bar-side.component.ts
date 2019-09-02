@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
+import { MarkingBarService } from '../marking-bar/marking-bar.service';
+import { SurveyPuzzle } from '../models/SurveyPuzzle';
+import { OpenAnswer } from '../models/OpenAnswer';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-marking-bar-side',
@@ -17,19 +21,40 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 export class MarkingBarSideComponent implements OnInit {
 
   public visibility: string = 'hidden';
+  flag: boolean = false;
+  question: String = "";
 
-  constructor() { }
+  constructor(private qs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
 
   ngOnInit() {
   }
 
-  toggle() : void {
-    if(this.visibility === 'hidden') {
+
+
+  AnswerModel: OpenAnswer = {
+    SurveyPuzzleId: 3,
+    Answer: ''
+  }
+
+  toggleVisibility(): void {
+    if (this.flag == false) {
+      this.question = this.qs.getQuestion();
+      this.flag = true;
+    }
+    if (this.visibility === 'hidden') {
       this.visibility = 'shown'
     }
     else {
       this.visibility = 'hidden'
     }
+  }
+
+
+  onSubmit(f: NgForm) {
+    // get new-question from the form and assign it to the model
+    this.AnswerModel.Answer = f.controls['new-question'].value;
+    f.reset();
+    this.qs.addAnswer(this.AnswerModel);
   }
 }
 

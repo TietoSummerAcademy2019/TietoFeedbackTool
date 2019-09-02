@@ -1,6 +1,6 @@
-$cardHeight: 300px;
+$cardHeight: 100%;
 $buttonHeight: 180px;
-$calculatedPosition: $cardHeight - $buttonHeight;
+$calculatedPosition: 24px;
 
 .collapse.show {
   visibility: visible;
@@ -13,6 +13,7 @@ $calculatedPosition: $cardHeight - $buttonHeight;
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
+
 .collapsing.width {
   -webkit-transition-property: width, visibility;
   transition-property: width, visibility;
@@ -32,7 +33,7 @@ $calculatedPosition: $cardHeight - $buttonHeight;
     &-button {
       background-image: url(../../assets/img/light-bulb-right.svg);
       background-repeat: no-repeat;
-      background-position: bottom 30px center;
+      background-position: bottom 25px center;
       color: #fff;
       background-color: #0E76B7;
       height: $buttonHeight;
@@ -49,8 +50,8 @@ $calculatedPosition: $cardHeight - $buttonHeight;
 }
 
 .feedback-marking-bar{
-  position: relative;
-  top: $calculatedPosition;
+  /*position: relative;*/
+  /*top: $calculatedPosition;*/
 }
 
 .btn {
@@ -73,22 +74,22 @@ $calculatedPosition: $cardHeight - $buttonHeight;
   border-width: 2px;
   border-right-width: 0;
   border-color: #0E76B7;
-  border-radius: 12px 0 0 0;
+  border-radius: 0 0 0 12px;
   height: $cardHeight;
   width: 300px;
+  min-height: $buttonHeight + 10px;
 }
 
 .collapse {
-  // position: absolute;
   float: right;
 }
 
 .exit-button
 {
   position: absolute;
-  margin-top: -16px;
-  margin-left: -16px;
   display: inline-block;
+  margin-top: -22px;
+  margin-left: 30px;
   width:20px;
   height:20px;
   border-style: solid;
@@ -106,4 +107,32 @@ $calculatedPosition: $cardHeight - $buttonHeight;
   &:focus {
     box-shadow: 0 0 5px 1px #878787;
   }
+}
+
+
+
+.colored {
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  color: #0E76B7;
+}
+
+.submit-btn {
+  margin-right: 5%;
+  margin-top: 5%;
+  right: 0;
+  width: 180px;
+  height: 40px;
+  color: #fff;
+  border-radius: 6px;
+  background-color: #0E76B7;
+}
+
+textarea {
+  border-radius: 6px;
+  border: 2px solid #CCCCCC;
+  width: 230px;
+  height: 100px;
+  max-height: 250px;
 }

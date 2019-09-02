@@ -23,12 +23,11 @@ export class MarkingBarComponent implements OnInit {
 
   public visibility: string = 'hidden';
   flag: boolean = false;
-  question: String = "Do you think Senior Paweł Rules?";
+  question: String = "";
 
 
   constructor(private qs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
 
-  public show: boolean = false;
 
   AnswerModel: OpenAnswer = {
     SurveyPuzzleId: 3,
@@ -38,7 +37,8 @@ export class MarkingBarComponent implements OnInit {
   ngOnInit() {
   }
 
-    toggle(): void {
+
+    toggleVisibility(): void {
         if (this.flag == false) {
             this.question = this.qs.getQuestion();
             this.flag = true;
