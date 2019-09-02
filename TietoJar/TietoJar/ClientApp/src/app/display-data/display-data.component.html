@@ -5,50 +5,51 @@
     </a>
   </div>
   <div class="information-question">
-    <h1 class="information-question-header">Citizen Service</h1>
+    <h1 class="information-question-header">{{questionWithAnswer.surveys[0].name}}</h1>
     <div class="information-question-information">
       <p>Here you can find responses and their details for questions:</p>
-      <div class="information-question-information-item">
-        <p>1. What's up?</p>
-        <p>2. You good, bro?</p>
+      <div class="information-question-information-item" *ngFor="let question of questionWithAnswer.surveys[0].surveyPuzzles">
+        <p>{{ question.puzzleQuestion }}</p>
       </div>
     </div>
   </div>
-    <table mat-table [dataSource]="dataSource">
-
-      <!-- Date Column -->
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef> Date </th>
-        <td mat-cell *matCellDef="let element"> {{element }} </td>
-      </ng-container>
-
-      <!-- Reaction Column -->
-      <ng-container matColumnDef="reaction">
-        <th mat-header-cell *matHeaderCellDef> Reaction </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-
-      <!-- Response Column -->
-      <ng-container matColumnDef="response">
-        <th mat-header-cell *matHeaderCellDef> Response </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-
-      <!-- Os Column -->
-      <ng-container matColumnDef="os">
-        <th mat-header-cell *matHeaderCellDef> OS </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
-
-      <!-- Browser Column -->
-      <ng-container matColumnDef="browser">
-        <th mat-header-cell *matHeaderCellDef> Browser </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-</div>
+    <!---->
+    <div class="data-filtering">
+      <div class="data-filtering-info">
+        The list is filtered...
+      </div>
+      <div class="data-filtering-collapse-button">
+          <a data-toggle="collapse" href="#filter" role="button" aria-expanded="false">
+              Link with href
+          </a>
+      </div>
+    </div>
+    <div class="collapse" id="filter">
+        <div class="data-filtering-option">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        </div>
+    </div>
+    <!---->
+    <div class="display-data-table">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Reaction</th>
+            <th scope="col">Response</th>
+            <th scope="col">OS</th>
+            <th scope="col">Browser</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let question of questionWithAnswer.surveys[0].surveyPuzzles">
+          <tr *ngFor="let answer of question.openPuzzleAnswers">
+            <td scope="row">{{answer.submitDate | date: "short"}}</td>
+            <td></td>
+            <td>{{answer.answer}}</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
