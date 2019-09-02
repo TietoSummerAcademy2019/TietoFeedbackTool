@@ -1,6 +1,6 @@
-$cardHeight: 400px;
+$cardHeight: 350px;
 $buttonHeight: 180px;
-$calculatedPosition: $cardHeight - $buttonHeight + 24px;
+$calculatedPosition: $cardHeight - $buttonHeight + 27px;
 
 .collapse.show {
   visibility: visible;
@@ -13,6 +13,7 @@ $calculatedPosition: $cardHeight - $buttonHeight + 24px;
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
+
 .collapsing.width {
   -webkit-transition-property: width, visibility;
   transition-property: width, visibility;
@@ -79,15 +80,13 @@ $calculatedPosition: $cardHeight - $buttonHeight + 24px;
 }
 
 .collapse {
-  // position: absolute;
   float: right;
 }
 
 .exit-button
 {
-  // margin-top: -16px;
-  // margin-left: -16px;
   display: inline-block;
+  margin-bottom: 5px;
   width:20px;
   height:20px;
   border-style: solid;
