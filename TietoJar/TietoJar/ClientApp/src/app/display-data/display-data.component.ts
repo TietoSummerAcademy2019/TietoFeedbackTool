@@ -9,7 +9,7 @@ import { Account } from '../models/Account';
 })
 export class DisplayDataComponent implements OnInit {
 
-  questionWithAnswer: Account[] = [];
+  questionWithAnswer: Account;
 
   constructor(private ds: DisplayDataService<Account>) { }
 
