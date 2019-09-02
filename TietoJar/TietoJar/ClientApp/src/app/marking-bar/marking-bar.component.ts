@@ -11,5 +11,4 @@ export class MarkingBarComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

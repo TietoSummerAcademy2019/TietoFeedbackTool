@@ -24,5 +24,4 @@ export class DisplayDataComponent implements OnInit {
       this.questionWithAnswer = result;
     });
   }
-
 }
