@@ -24,7 +24,7 @@ export class MarkingBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggle() : void {
+  toggleVisibility() : void {
     if(this.visibility === 'hidden') {
       this.visibility = 'shown'
     }

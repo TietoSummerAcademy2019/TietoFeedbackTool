@@ -1,6 +1,6 @@
-$cardHeight: 300px;
+$cardHeight: 400px;
 $buttonHeight: 180px;
-$calculatedPosition: $cardHeight - $buttonHeight;
+$calculatedPosition: $cardHeight - $buttonHeight + 24px;
 
 .collapse.show {
   visibility: visible;
@@ -85,9 +85,8 @@ $calculatedPosition: $cardHeight - $buttonHeight;
 
 .exit-button
 {
-  position: absolute;
-  margin-top: -16px;
-  margin-left: -16px;
+  // margin-top: -16px;
+  // margin-left: -16px;
   display: inline-block;
   width:20px;
   height:20px;
