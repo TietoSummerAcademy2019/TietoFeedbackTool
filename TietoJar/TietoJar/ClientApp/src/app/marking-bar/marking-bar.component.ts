@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
+import { ButtonFadeAnimation } from '../animation';
 
 @Component({
   selector: 'app-marking-bar',
@@ -18,18 +19,15 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 export class MarkingBarComponent implements OnInit {
 
   public visibility: string = 'hidden';
+  public animation = new ButtonFadeAnimation;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  toggleVisibility() : void {
-    if(this.visibility === 'hidden') {
-      this.visibility = 'shown'
-    }
-    else {
-      this.visibility = 'hidden'
-    }
+  toggleVisibility() {
+    this.visibility = this.animation.toggle(this.visibility);
   }
 }

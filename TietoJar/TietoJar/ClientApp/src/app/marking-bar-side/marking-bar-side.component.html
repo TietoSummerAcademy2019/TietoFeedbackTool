@@ -1,15 +1,15 @@
 <div class="feedback">
-  <div id="windowContent" class="width collapse" aria-expanded="false">
+  <div id="window-content" class="width collapse" aria-expanded="false">
     <div [@visibilityChanged]="visibility" class="collapse-exit">
-      <button (click)="toggleVisibility()" role="button" class="exit-button" data-toggle="collapse" data-target="#windowContent" aria-expanded="false">
+      <button (click)="toggleVisibility()" role="button" class="exit-button" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
       </button>
     </div>
-    <div class="card card-body well">
+    <div class="card card-body">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur, nulla sit amet tincidunt molestie, urna nisi eleifend sapien, placerat pretium leo ante viverra lectus. Aenean ac molestie purus
     </div>
   </div>
   <div class="feedback-marking-bar">
-    <button (click)="toggleVisibility()" role="button" class="btn feedback-marking-bar-button " id="marking-bar" data-toggle="collapse" data-target="#windowContent" aria-expanded="false">
+    <button (click)="toggleVisibility()" role="button" class="btn feedback-marking-bar-button " id="marking-bar" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
       <span>
         Leave feedback
       </span>
