@@ -9,6 +9,8 @@ import { NewQuestionComponent } from './new-question/new-question.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DisplayDataComponent } from './display-data/display-data.component';
 import { MarkingBarComponent } from './marking-bar/marking-bar.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
    declarations: [
@@ -23,7 +25,9 @@ import { MarkingBarComponent } from './marking-bar/marking-bar.component';
       AppRoutingModule,
       BrowserAnimationsModule,
       FormsModule,
-      HttpClientModule
+      HttpClientModule,
+      MatTableModule,
+      MatPaginatorModule
    ],
    providers: [],
    bootstrap: [

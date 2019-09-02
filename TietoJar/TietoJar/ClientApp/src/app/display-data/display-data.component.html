@@ -1,17 +1,48 @@
 <div class="display-data">
-    <div class="display-data-card">
-      <div *ngFor="let survey of questionWithAnswer.surveys">
-        <h1>{{ survey.name }}</h1>
-        <div *ngFor="let question of survey.surveyPuzzles">
-          <h2>{{ question.puzzleQuestion }}</h2>
-          <div *ngFor="let answer of question.openPuzzleAnswers">
-            <h3>
-              {{ answer.answer }}
-              <hr />
-              {{ answer.submitDate | date : 'short' }}
-            </h3>
-          </div>
-        </div>
+  <div class="navigation-item">
+    <a class="navigation-back" routerLink="/" >
+      <img src="../../assets/img/round-reply-24px.svg" />
+    </a>
+  </div>
+  <div class="information-question">
+    <h1 class="information-question-header">Citizen Service</h1>
+    <div class="information-question-information">
+      <p>Here you can find responses and their details for questions:</p>
+      <div class="information-question-information-item">
+        <p>1. What's up?</p>
+        <p>2. You good, bro?</p>
       </div>
     </div>
   </div>
+    <table mat-table [dataSource]="dataSource">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
