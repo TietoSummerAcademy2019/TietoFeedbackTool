@@ -3,9 +3,9 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 import { ButtonFadeAnimation } from '../animation';
 
 @Component({
-  selector: 'app-marking-bar',
-  templateUrl: './marking-bar.component.html',
-  styleUrls: ['./marking-bar.component.scss'],
+  selector: 'app-marking-bar-side',
+  templateUrl: './marking-bar-side.component.html',
+  styleUrls: ['./marking-bar-side.component.scss'],
   animations: [
     trigger('visibilityChanged', [
       state('shown', style({ opacity: 1 })),
@@ -15,8 +15,7 @@ import { ButtonFadeAnimation } from '../animation';
     ])
   ]
 })
-
-export class MarkingBarComponent implements OnInit {
+export class MarkingBarSideComponent implements OnInit {
 
   public visibility: string = 'hidden';
   public animation = new ButtonFadeAnimation;

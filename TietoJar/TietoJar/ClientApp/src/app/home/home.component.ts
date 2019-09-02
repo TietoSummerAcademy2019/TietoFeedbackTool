@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   title: string =  'TietoJar';
-  team: string =  'Kangaroos !';
+  team: string =  'Kangaroos!';
 
   constructor() { }
 

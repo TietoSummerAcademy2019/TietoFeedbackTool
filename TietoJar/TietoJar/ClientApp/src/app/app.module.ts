@@ -9,6 +9,7 @@ import { NewQuestionComponent } from './new-question/new-question.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DisplayDataComponent } from './display-data/display-data.component';
 import { MarkingBarComponent } from './marking-bar/marking-bar.component';
+import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.component';
 
 @NgModule({
    declarations: [
@@ -16,7 +17,8 @@ import { MarkingBarComponent } from './marking-bar/marking-bar.component';
       HomeComponent,
       NewQuestionComponent,
       DisplayDataComponent,
-      MarkingBarComponent
+      MarkingBarComponent,
+      MarkingBarSideComponent
    ],
    imports: [
       BrowserModule,
