@@ -31,7 +31,7 @@
   </div>
   <!---->
   <div class="display-data-table">
-    <table class="table table-striped">
+    <table datatable class="table table-striped">
       <thead>
         <tr>
           <th scope="col">Date</th>
@@ -41,8 +41,8 @@
           <th scope="col">Browser</th>
         </tr>
       </thead>
-      <tbody *ngFor="let question of questionWithAnswer.surveys[1].surveyPuzzles">
-        <tr *ngFor="let answer of question.openPuzzleAnswers">
+      <tbody  *ngFor="let answer of answers; let i=index">
+        <tr *ngIf="i>=(activeSite-1)*resultsPerSite && i<activeSite*resultsPerSite">
           <td scope="row">{{answer.submitDate | date: "short"}}</td>
           <td><img src="../../assets/img/stars.svg" class="visual-rating"></td>
           <td>{{answer.answer}}</td>
@@ -53,21 +53,25 @@
     </table>
     <div class="bolded">
       {{ activeSite*resultsPerSite }}
+      /
+      {{ answers.length }}
     </div>
+
     <nav aria-label="...">
       <ul class="pagination">
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1">Previous</a>
+        <li class="page-item" [ngClass]="{'disabled': activeSite==1}">
+          <a class="page-link" (click)="setActiveSite(activeSite-1)" tabindex="-1">Previous</a>
         </li>
-        <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
+          <li class="page-item active"><a class="page-link" (click)="setActiveSite(1)">1 <span class="sr-only">(current)</span></a></li>
+          <li class="page-item">
+            <a class="page-link" (click)="setActiveSite(2)">2</a>
+          </li>
+          <li class="page-item"><a class="page-link" (click)="setActiveSite(3)">3</a></li>
         <li class="page-item">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
+          <a class="page-link" (click)="setActiveSite(activeSite+1)" [ngClass]="{'disabled': activeSite==3}">Next</a>
         </li>
       </ul>
     </nav>
+
   </div>
 </div>

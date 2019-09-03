@@ -15,10 +15,6 @@ export class DisplayDataService<T extends Account> {
 
   constructor(private http: HttpClient) {}
 
-  // getAll() {
-  //   return this.http.get(this.dataByLoginUrl).toPromise();
-  // }
-
   public getAll() {
     return this.http.get<T>(this.dataByLoginUrl).toPromise();
   }
