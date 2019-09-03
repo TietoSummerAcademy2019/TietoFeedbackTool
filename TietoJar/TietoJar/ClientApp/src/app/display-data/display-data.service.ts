@@ -18,5 +18,4 @@ export class DisplayDataService<T extends Account> {
   public getAll() {
     return this.http.get<T>(this.dataByLoginUrl).toPromise();
   }
-
 }
