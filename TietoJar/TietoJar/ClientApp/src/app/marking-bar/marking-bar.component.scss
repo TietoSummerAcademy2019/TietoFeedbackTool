@@ -1,45 +1,21 @@
 .feedback {
-  position: fixed;
   bottom: 0;
   right: 10vw;
 
   &-marking-bar {
     &-button {
       background-image: url(../../assets/img/light-bulb.svg);
-      background-repeat: no-repeat;
       background-position: center left 25px;
-      font-size: 14px;
-      color: #fff;
       height: 40px;
       width: 220px;
-      padding: 0;
       font-size:16px;
     }
   }
 }
 
-.btn {
-  &#marking-bar {
-    &:focus {
-      box-shadow: none;
-    }
-
-    &:hover {
-      box-shadow: 0 0 10px 1px #878787;
-    }
-
-    background-color: #0E76B7;
-    border-style: none;
-    float: right;
-    border-radius: 15px 15px 0 0;
-  }
-}
 
 .card {
-  border-style: solid;
   border-bottom-style: none;
-  border-width: 2px;
-  border-color: #0E76B7;
   border-radius: 12px 0 0 0;
   width: 100%;
 }
@@ -48,52 +24,10 @@
   overflow: visible;
 }
 
-.answer-input {
-  max-height:250px;
-  border-radius: 6px;
-  border: 2px solid #CCCCCC;
-  width: 230px;
-  height: 100px;
-}
 
-.colored {
-  max-width:220px;
-  text-align:left;
-  font-weight: 400;
-  font-size: 14px;
-  color: #0E76B7;
-}
 
 .btn {
   &-exit {
-    position: absolute;
     margin-top: 14px;
-    display: inline-block;
-    width:20px;
-    height:20px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: #0E76B7;
-    border-radius:100%;
-    background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%, white 56%,transparent 56%, transparent 100%),
-    -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);
-    background-color:#0E76B7;
-    outline: transparent;
-    transition: all 0.2s ease;
-    &:hover {
-      box-shadow: 0 0 5px 1px #878787;
-    }
-    &:focus {
-      box-shadow: 0 0 5px 1px #878787;
-    }
-  }
-  &-submit {
-    margin-top: 5%;
-    right: 0;
-    width: 180px;
-    height: 40px;
-    color: #fff;
-    border-radius: 6px;
-    background-color: #0E76B7;
   }
 }

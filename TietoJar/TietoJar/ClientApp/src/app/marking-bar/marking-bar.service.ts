@@ -25,10 +25,7 @@ export class MarkingBarService<T extends SurveyPuzzle, X extends OpenAnswer>{
     return this.items[0].puzzleQuestion;
   }
 
-  addAnswer(item: X): void {
-    this.http.post(this.answerApi, item)
-      .subscribe(
-        () => { }
-      );
+  addAnswer(item: X) {
+    this.http.post(this.answerApi, item);
   }
 }
