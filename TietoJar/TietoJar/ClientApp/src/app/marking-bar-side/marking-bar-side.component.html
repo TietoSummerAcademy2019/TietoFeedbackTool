@@ -8,7 +8,7 @@
         <form id="answer-body" #form="ngForm" (ngSubmit)="onSubmit(form)" (keydown.enter)="onSubmit(form);false" novalidate>
           <p class="colored align-self-center">{{question}}</p>
           <div class="text-center">
-            <textarea name="new-answer-side" ngModel required #first="ngModel" class="answer-input align-self-center"></textarea>
+            <textarea name="new-answer" ngModel required #first="ngModel" class="answer-input align-self-center"></textarea>
           </div>
           <div class="text-right">
             <button class="btn btn-submit align-self-end">Send</button>
