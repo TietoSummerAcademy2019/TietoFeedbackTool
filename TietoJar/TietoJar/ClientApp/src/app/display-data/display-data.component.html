@@ -5,10 +5,10 @@
     </a>
   </div>
   <div class="information-question">
-    <h1 class="information-question-header">{{questionWithAnswer.surveys[1].name}}</h1>
+    <h1 class="information-question-header">{{questionWithAnswer.surveys[0].name}}</h1>
     <div class="information-question-information">
       <p>Here you can find responses and their details for questions:</p>
-      <div class="information-question-information-item" *ngFor="let question of questionWithAnswer.surveys[1].surveyPuzzles">
+      <div class="information-question-information-item" *ngFor="let question of questionWithAnswer.surveys[0].surveyPuzzles">
         <p>{{ question.puzzleQuestion }}</p>
       </div>
     </div>
@@ -44,7 +44,7 @@
       <tbody>
         <ng-container *ngFor="let answer of answers; let i=index">
           <tr *ngIf="i>=(activeSite-1)*resultsPerSite && i<activeSite*resultsPerSite">
-            <td scope="row">{{answer.submitDate | date: "short"}}</td>
+            <td scope="row">{{answer.submitDate | date: 'dd-MM-yyyy' }}</td>
             <td><img src="../../assets/img/stars.svg" class="visual-rating"></td>
             <td>{{answer.answer}}</td>
             <td> Windows</td>

@@ -25,11 +25,6 @@ export class DisplayDataComponent implements OnInit {
   setActiveSite(site) {
     this.activeSite = site;
   }
-  public sortByDueDate(): void {
-    this.answers.sort((a: OpenPuzzleAnswer, b: OpenPuzzleAnswer) => {
-      return a.submitDate.getTime() - b.submitDate.getTime();
-    });
-  }
 
   ngOnInit() {
     this.init();
@@ -41,7 +36,7 @@ export class DisplayDataComponent implements OnInit {
       this.questionWithAnswer = result;
     });
 
-    for (let question of this.questionWithAnswer.surveys[1].surveyPuzzles) {
+    for (let question of this.questionWithAnswer.surveys[0].surveyPuzzles) {
       this.answers = this.answers.concat(question.openPuzzleAnswers);
     }
 
@@ -52,7 +47,8 @@ export class DisplayDataComponent implements OnInit {
 
     this.answers = this.getSortedArray();
   }
+
   public getSortedArray(): OpenPuzzleAnswer[] {
-    return this.answers.sort((b, a) => new Date(b.submitDate).getDate() - new Date(a.submitDate).getDate());
+    return this.answers.sort((a, b) => new Date(b.submitDate).getDate() - new Date(a.submitDate).getDate());
   }
 }
