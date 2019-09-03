@@ -13,7 +13,9 @@ export class DisplayDataComponent implements OnInit {
   questionWithAnswer: Account;
   activeSite: number;
   resultsPerSite: number;
-  answers: OpenPuzzleAnswer[] =[];
+  answers: OpenPuzzleAnswer[] = [];
+  pageCount: number;
+  pageArray: number[] = [];
 
   constructor(private ds: DisplayDataService<Account>) {
     this.activeSite =1 ;
@@ -21,9 +23,13 @@ export class DisplayDataComponent implements OnInit {
   }
 
   setActiveSite(site) {
-  this.activeSite = site;
-  console.log(this.activeSite);
-}
+    this.activeSite = site;
+  }
+  public sortByDueDate(): void {
+    this.answers.sort((a: OpenPuzzleAnswer, b: OpenPuzzleAnswer) => {
+      return a.submitDate.getTime() - b.submitDate.getTime();
+    });
+  }
 
   ngOnInit() {
     this.init();
@@ -34,11 +40,19 @@ export class DisplayDataComponent implements OnInit {
     await this.ds.getAll().then((result) => {
       this.questionWithAnswer = result;
     });
+
     for (let question of this.questionWithAnswer.surveys[1].surveyPuzzles) {
       this.answers = this.answers.concat(question.openPuzzleAnswers);
     }
-    console.log(this.answers);
 
+    this.pageCount = Math.ceil(this.answers.length / this.resultsPerSite);
+    for (let i = 1; i <= this.pageCount; i++) {
+      this.pageArray.push(i);
+    }
+
+    this.answers = this.getSortedArray();
   }
-  
+  public getSortedArray(): OpenPuzzleAnswer[] {
+    return this.answers.sort((b, a) => new Date(b.submitDate).getDate() - new Date(a.submitDate).getDate());
+  }
 }

@@ -1,8 +1,28 @@
+.paging-nav {
+  cursor: pointer;
+  & ul {
+    & li {
+      &.page-item {
+        &.disabled {
+          cursor: default;
+        }
+      }
+    }
+  }
+}
+
+.page-item.active .page-link {
+  color: #fff;
+  background-color: #0E76B7;
+  border-color: #0E76B7;
+}
+
 .pagination{
   float:right;
 }
 
-.bolded{
+.bolded-count{
+  float: left;
   font-weight: bold;
 }
 
