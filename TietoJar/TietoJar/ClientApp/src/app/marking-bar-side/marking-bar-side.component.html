@@ -1,23 +1,23 @@
 <div class="feedback">
   <div id="window-content" class="width collapse" aria-expanded="false">
     <div [@visibilityChanged]="visibility" class="collapse-exit">
-      <button (click)="toggleVisibility()" role="button" class="exit-button" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
+      <button (click)="toggleVisibility()" role="button" class="btn-exit-side" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
       </button>
     </div>
-      <div class="card card-body well">
-        <form id="question-body" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
+      <div class="card-side card-body">
+        <form id="answer-body" #form="ngForm" (ngSubmit)="onSubmit(form)" (keydown.enter)="onSubmit(form);false" novalidate>
           <p class="colored align-self-center">{{question}}</p>
           <div class="text-center">
-            <textarea name="new-question" ngModel required #first="ngModel" class="align-self-center"></textarea>
+            <textarea name="new-answer-side" ngModel required #first="ngModel" class="answer-input-side align-self-center"></textarea>
           </div>
           <div class="text-right">
-            <button class="btn submit-btn align-self-end">Send</button>
+            <button class="btn btn-submit-side align-self-end">Send</button>
           </div>
         </form>
       </div>
     </div>
     <div class="feedback-marking-bar">
-      <button (click)="toggleVisibility()" role="button" class="btn feedback-marking-bar-button " id="marking-bar" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
+      <button (click)="toggleVisibility()" role="button" class="btn feedback-marking-bar-button-side" id="marking-bar" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
         <span>
           Leave feedback
         </span>

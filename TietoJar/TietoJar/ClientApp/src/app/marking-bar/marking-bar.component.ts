@@ -23,13 +23,13 @@ import { ButtonFadeAnimation } from '../animation';
 export class MarkingBarComponent implements OnInit {
   public visibility: string = 'hidden';
   flag: boolean = false;
-  question: String = "";
+  question: string = "";
   public animation = new ButtonFadeAnimation;
 
-  constructor(private qs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
+  constructor(private mbs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
 
   AnswerModel: OpenAnswer = {
-    SurveyPuzzleId: 3,
+    SurveyPuzzleId: 1,
     Answer: ''
   }
 
@@ -38,16 +38,15 @@ export class MarkingBarComponent implements OnInit {
 
   toggleVisibility() {
     if (this.flag == false) {
-      this.question = this.qs.getQuestion();
+      this.question = this.mbs.getQuestion();
       this.flag = true;
     }
     this.visibility = this.animation.toggle(this.visibility);
   }
 
-  onSubmit(f: NgForm) {
-    // get new-question from the form and assign it to the model
-    this.AnswerModel.Answer = f.controls['new-question'].value;
-    f.reset();
-    this.qs.addAnswer(this.AnswerModel);
+  onSubmit(form: NgForm) {
+    this.AnswerModel.Answer = form.controls['new-answer'].value;
+    form.reset();
+    this.mbs.addAnswer(this.AnswerModel);
   }
 }

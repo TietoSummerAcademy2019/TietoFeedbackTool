@@ -30,7 +30,7 @@ $calculatedPosition: 24px;
   right: 0;
   &-marking-bar {
     display: inline-block;
-    &-button {
+    &-button-side {
       background-image: url(../../assets/img/light-bulb-right.svg);
       background-repeat: no-repeat;
       background-position: bottom 25px center;
@@ -69,7 +69,7 @@ $calculatedPosition: 24px;
   }
 }
 
-.card {
+.card-side {
   border-style: solid;
   border-width: 2px;
   border-right-width: 0;
@@ -84,31 +84,6 @@ $calculatedPosition: 24px;
   float: right;
 }
 
-.exit-button
-{
-  display: inline-block;
-  margin-top: -22px;
-  width:20px;
-  height:20px;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #0E76B7;
-  border-radius:100%;
-  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%, white 56%,transparent 56%, transparent 100%),
-  -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);
-  background-color:#0E76B7;
-  outline: transparent;
-  transition: all 0.2s ease;
-  &:hover {
-    box-shadow: 0 0 5px 1px #878787;
-  }
-  &:focus {
-    box-shadow: 0 0 5px 1px #878787;
-  }
-}
-
-
-
 .colored {
   margin-left:5%;
   text-align: left;
@@ -117,21 +92,44 @@ $calculatedPosition: 24px;
   color: #0E76B7;
 }
 
-.submit-btn {
-  margin-right: 5%;
-  margin-top: 5%;
-  right: 0;
-  width: 180px;
-  height: 40px;
-  color: #fff;
-  border-radius: 6px;
-  background-color: #0E76B7;
-}
-
-textarea {
+.answer-input-side {
   border-radius: 6px;
   border: 2px solid #CCCCCC;
   width: 230px;
   height: 100px;
   max-height: 250px;
+}
+
+.btn {
+  &-exit-side {
+    display: inline-block;
+    margin-top: -22px;
+    width:20px;
+    height:20px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #0E76B7;
+    border-radius:100%;
+    background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%, white 56%,transparent 56%, transparent 100%),
+    -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);
+    background-color:#0E76B7;
+    outline: transparent;
+    transition: all 0.2s ease;
+    &:hover {
+      box-shadow: 0 0 5px 1px #878787;
+    }
+    &:focus {
+      box-shadow: 0 0 5px 1px #878787;
+    }
+  }
+  &-submit-side {
+    margin-right: 5%;
+    margin-top: 5%;
+    right: 0;
+    width: 180px;
+    height: 40px;
+    color: #fff;
+    border-radius: 6px;
+    background-color: #0E76B7;
+  }
 }

@@ -23,11 +23,8 @@ export class NewQuestionService<T extends SurveyPuzzle> {
     });
   }
 
-  add(item: T): void {
+  add(item: T) {
     this.items.push(item);
-    this.http.post(this.apiBase, item)
-      .subscribe(
-        () => {}
-    );
+    this.http.post(this.apiBase, item);
   }
 }
