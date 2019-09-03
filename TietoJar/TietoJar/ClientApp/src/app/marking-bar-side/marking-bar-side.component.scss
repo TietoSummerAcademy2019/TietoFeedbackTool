@@ -1,6 +1,6 @@
-$cardHeight: 350px;
-$buttonHeight: 180px;
-$calculatedPosition: $cardHeight - $buttonHeight + 24px;
+$cardHeight: 100%;
+$buttonHeight: 220px;
+$calculatedPosition: 24px;
 
 .collapse.show {
   visibility: visible;
@@ -25,25 +25,20 @@ $calculatedPosition: $cardHeight - $buttonHeight + 24px;
 }
 
 .feedback {
-  position: fixed;
   top: 30vh;
   right: 0;
   &-marking-bar {
     display: inline-block;
     &-button {
       background-image: url(../../assets/img/light-bulb-right.svg);
-      background-repeat: no-repeat;
       background-position: bottom 25px center;
-      color: #fff;
-      background-color: #0E76B7;
       height: $buttonHeight;
-      width: 30px;
-      padding: 0;
+      width: 40px;
       float: right;
       & span {
         writing-mode: vertical-lr;
         transform: rotate(180deg);
-        font-size: 14px;
+        font-size: 16px;
       }
     }
   }
@@ -54,53 +49,30 @@ $calculatedPosition: $cardHeight - $buttonHeight + 24px;
   top: $calculatedPosition;
 }
 
-.btn {
-  &#marking-bar {
-    &:focus {
-      box-shadow: none;
-    }
-    &:hover {
-      box-shadow: -1px 0 10px 0 #878787;
-    }
-    background-color: #0E76B7;
-    border-style: none;
-    float: right;
-    border-radius: 15px 0 0 15px;
-  }
-}
 
 .card {
-  border-style: solid;
-  border-width: 2px;
   border-right-width: 0;
-  border-color: #0E76B7;
-  border-radius: 12px 0 0 0;
+  border-radius: 0 0 0 12px;
   height: $cardHeight;
   width: 300px;
+  min-height: $buttonHeight + 10px;
 }
 
 .collapse {
   float: right;
 }
 
-.exit-button
-{
-  display: inline-block;
-  width:20px;
-  height:20px;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #0E76B7;
-  border-radius:100%;
-  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%, white 56%,transparent 56%, transparent 100%),
-  -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);
-  background-color:#0E76B7;
-  outline: transparent;
-  transition: all 0.2s ease;
-  &:hover {
-    box-shadow: 0 0 5px 1px #878787;
+.colored {
+  margin-left: 5%;
+}
+
+
+.btn {
+  &#marking-bar {
+    border-radius: 15px 0 0 15px;
   }
-  &:focus {
-    box-shadow: 0 0 5px 1px #878787;
+
+  &-submit {
+    margin-right: 5%;
   }
 }

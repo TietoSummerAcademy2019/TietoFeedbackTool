@@ -3,28 +3,29 @@ import { HttpClient } from '@angular/common/http';
 import { SurveyPuzzle } from '../models/SurveyPuzzle';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { OpenAnswer } from '../models/OpenAnswer';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NewQuestionService<T extends SurveyPuzzle> {
-
+export class MarkingBarService<T extends SurveyPuzzle, X extends OpenAnswer>{
   private items: T[] = [];
   private readonly apiBase = environment.newQuestionUrl;
+  private readonly answerApi = environment.openAnswerUrl;
 
   constructor(private http: HttpClient) {
     this.http.get<T[]>(this.apiBase)
       .subscribe(items => {
         this.items = items;
-        // for loop for demo purpose
-        for(let item of items) {
-          console.log(item.puzzleQuestion)
-        }
-    });
+      });
   }
 
-  add(item: T) {
-    this.items.push(item);
-    this.http.post(this.apiBase, item);
+  getQuestion(): string {
+    console.log(this.items);
+    return this.items[0].puzzleQuestion;
+  }
+
+  addAnswer(item: X) {
+    this.http.post(this.answerApi, item).subscribe();
   }
 }
