@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { MarkingBarService } from './marking-bar.service';
+import { trigger, state, transition, style, animate } from '@angular/animations';
+import { MarkingBarService } from '../marking-bar/marking-bar.service';
 import { SurveyPuzzle } from '../models/SurveyPuzzle';
 import { OpenAnswer } from '../models/OpenAnswer';
 import { NgForm } from '@angular/forms';
-import { trigger, state, transition, style, animate } from '@angular/animations';
 import { ButtonFadeAnimation } from '../animation';
 
 @Component({
-  selector: 'app-marking-bar',
-  templateUrl: './marking-bar.component.html',
-  styleUrls: ['./marking-bar.component.scss'],
+  selector: 'app-marking-bar-side',
+  templateUrl: './marking-bar-side.component.html',
+  styleUrls: ['./marking-bar-side.component.scss'],
   animations: [
     trigger('visibilityChanged', [
       state('shown', style({ opacity: 1 })),
@@ -19,8 +19,8 @@ import { ButtonFadeAnimation } from '../animation';
     ])
   ]
 })
+export class MarkingBarSideComponent implements OnInit {
 
-export class MarkingBarComponent implements OnInit {
   public visibility: string = 'hidden';
   flag: boolean = false;
   question: string = "";
@@ -28,25 +28,24 @@ export class MarkingBarComponent implements OnInit {
 
   constructor(private mbs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
 
-  AnswerModel: OpenAnswer = {
-    SurveyPuzzleId: 1,
-    Answer: ''
-  }
-
   ngOnInit() {
   }
 
-  toggleVisibility() {
-    if (this.flag == false) {
-      this.question = this.mbs.getQuestion();
-      this.flag = true;
-    }
-    this.visibility = this.animation.toggle(this.visibility);
+  AnswerModel: OpenAnswer = {
+    SurveyPuzzleId: 1,
+    Answer: ''
   }
 
   onSubmit(form: NgForm) {
     this.AnswerModel.Answer = form.controls['new-answer'].value;
     form.reset();
     this.mbs.addAnswer(this.AnswerModel);
+  }
+  toggleVisibility() {
+    if (this.flag == false) {
+      this.question = this.mbs.getQuestion();
+      this.flag = true;
+    }
+    this.visibility = this.animation.toggle(this.visibility);
   }
 }

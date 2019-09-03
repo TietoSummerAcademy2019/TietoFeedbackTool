@@ -26,6 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Controllers\tslint.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TietoJar.Application\TietoJar.Application.csproj" />
     <ProjectReference Include="..\TietoJar.Domain\TietoJar.Domain.csproj" />
     <ProjectReference Include="..\TietoJar.Infrastructure\TietoJar.Infrastructure.csproj" />

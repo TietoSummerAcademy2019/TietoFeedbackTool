@@ -18,7 +18,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
       HomeComponent,
       NewQuestionComponent,
       DisplayDataComponent,
-      MarkingBarComponent
+      MarkingBarComponent,
+      MarkingBarSideComponent
    ],
    imports: [
       BrowserModule,
