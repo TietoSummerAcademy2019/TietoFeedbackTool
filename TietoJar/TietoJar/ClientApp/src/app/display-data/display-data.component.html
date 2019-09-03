@@ -54,7 +54,7 @@
       </tbody>
     </table>
     <div class="foot">
-      <div class="bolded-count">
+      <div *ngIf="answers.length !=0 " class="bolded-count">
         <ng-container *ngIf="activeSite*resultsPerSite<answers.length; else greater">{{ activeSite*resultsPerSite }}</ng-container>
         <ng-template #greater>{{ answers.length }}</ng-template>
         /
@@ -69,12 +69,6 @@
           <li *ngFor="let number of pageArray" class="page-item" [ngClass]="{'active': activeSite==number}">
             <a class="page-link" (click)="setActiveSite(number)">{{ number }}</a>
           </li>
-          <!--li class="page-item" [ngClass]="{'active': activeSite==2}">
-            <a class="page-link" (click)="setActiveSite(2)">2</a>
-          </li>
-          <li class="page-item" [ngClass]="{'active': activeSite==3}">  
-            <a class="page-link" (click)="setActiveSite(3)">3</a>
-          </li>-->
           <li class="page-item"[ngClass]="{'disabled': activeSite==pageCount}">
             <a class="page-link" (click)="setActiveSite(activeSite+1)">Next</a>
           </li>

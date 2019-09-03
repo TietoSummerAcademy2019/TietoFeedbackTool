@@ -18,7 +18,7 @@ export class DisplayDataComponent implements OnInit {
   pageArray: number[] = [];
 
   constructor(private ds: DisplayDataService<Account>) {
-    this.activeSite =1 ;
+    this.activeSite = 1;
     this.resultsPerSite = 5;
   }
 
