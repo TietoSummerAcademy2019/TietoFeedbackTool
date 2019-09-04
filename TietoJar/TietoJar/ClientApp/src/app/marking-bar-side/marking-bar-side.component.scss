@@ -76,3 +76,12 @@ $calculatedPosition: 24px;
     margin-right: 5%;
   }
 }
+
+.visible {
+  opacity: 1 !important;
+}
+
+.visibility-transition {
+  opacity: 0;
+  transition: .3s ease-in-out
+}

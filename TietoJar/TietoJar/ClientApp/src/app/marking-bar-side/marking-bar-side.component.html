@@ -1,6 +1,6 @@
 <div class="feedback">
   <div id="window-content" class="width collapse" aria-expanded="false">
-    <div [@visibilityChanged]="visibility" class="collapse-exit">
+    <div [class.visible]="visibility" class="collapse-exit visibility-transition">
       <button (click)="toggleVisibility()" role="button" class="btn-exit" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
       </button>
     </div>

@@ -1,12 +1,12 @@
 <div class="feedback">
-  <div class="feedback-marking-bar">
-    <button (click)="toggleVisibility()" class="btn feedback-marking-bar-button" id="marking-bar" type="button" data-toggle="collapse" data-target="#window-content" aria-expanded="false" aria-controls="collapseExample">
+  <div (click)="toggleVisibility()" class="feedback-marking-bar">
+    <button class="btn feedback-marking-bar-button" id="marking-bar" type="button" data-toggle="collapse" data-target="#window-content" aria-expanded="false" aria-controls="collapseExample">
       Leave feedback
     </button>
   </div>
   <div class="collapse feedback-window" id="window-content">
-    <div [@visibilityChanged]="visibility" class="collapse-exit">
-      <button (click)="toggleVisibility()" role="button" class="btn-exit" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
+    <div (click)="toggleVisibility()" [class.visible]="visibility" class="collapse-exit visibility-transition">
+      <button role="button" class="btn-exit" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
       </button>
     </div>
     <div class="card card-body">
