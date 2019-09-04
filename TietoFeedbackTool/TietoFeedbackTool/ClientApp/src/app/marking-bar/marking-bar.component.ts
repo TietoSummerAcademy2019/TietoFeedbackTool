@@ -45,14 +45,11 @@ export class MarkingBarComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    var inputForm = document.getElementsByClassName('transition-form')
     this.AnswerModel.Answer = form.controls['new-answer'].value;
     form.reset();
     this.mbs.addAnswer(this.AnswerModel);
 
     this.formVisibility = !this.formVisibility;
     this.messageVisibility = !this.messageVisibility;
-
-    // inputForm[0].remove();
   }
 }
