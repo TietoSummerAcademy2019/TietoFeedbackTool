@@ -16,10 +16,12 @@ export class DisplayDataComponent implements OnInit {
   answers: OpenPuzzleAnswer[] = [];
   pageCount: number;
   pageArray: number[] = [];
+  surveyIndex: number;
 
   constructor(private ds: DisplayDataService<Account>) {
     this.activeSite = 1;
     this.resultsPerSite = 5;
+    this.surveyIndex = 0;
   }
 
   setActiveSite(site) {
@@ -41,7 +43,7 @@ export class DisplayDataComponent implements OnInit {
       this.questionWithAnswer = result;
     });
 
-    for (let question of this.questionWithAnswer.surveys[1].surveyPuzzles) {
+    for (let question of this.questionWithAnswer.surveys[this.surveyIndex].surveyPuzzles) {
       this.answers = this.answers.concat(question.openPuzzleAnswers);
     }
 
