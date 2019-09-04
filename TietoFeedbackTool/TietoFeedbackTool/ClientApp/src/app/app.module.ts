@@ -12,6 +12,7 @@ import { MarkingBarComponent } from './marking-bar/marking-bar.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.component';
+import { TrackingCodeGenerationComponent } from './tracking-code-generation/tracking-code-generation.component';
 
 @NgModule({
    declarations: [
@@ -20,7 +21,8 @@ import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.com
       NewQuestionComponent,
       DisplayDataComponent,
       MarkingBarComponent,
-      MarkingBarSideComponent
+      MarkingBarSideComponent,
+      TrackingCodeGenerationComponent
    ],
    imports: [
       BrowserModule,
@@ -29,7 +31,7 @@ import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.com
       FormsModule,
       HttpClientModule,
       MatTableModule,
-     MatPaginatorModule
+      MatPaginatorModule
    ],
    providers: [],
    bootstrap: [
