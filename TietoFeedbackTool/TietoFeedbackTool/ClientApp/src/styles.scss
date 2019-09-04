@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+
+.btn {
+  &#marking-bar {
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover {
+      box-shadow: 0 0 10px 1px #878787;
+    }
+
+    background-color: #0E76B7;
+    border-style: none;
+    float: right;
+    border-radius: 15px 15px 0 0;
+  }
+}
+
+.colored {
+  max-width: 220px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  color: #0E76B7;
+}
+
+
+.btn {
+  &-exit {
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #0E76B7;
+    border-radius: 100%;
+    background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%, white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%, white 56%,transparent 56%, transparent 100%);
+    background-color: #0E76B7;
+    outline: transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+      box-shadow: 0 0 5px 1px #878787;
+    }
+
+    &:focus {
+      box-shadow: 0 0 5px 1px #878787;
+    }
+  }
+
+
+  &-submit {
+    width: 180px;
+    height: 40px;
+    margin-top: 5%;
+    color: #fff;
+    border-radius: 6px;
+    background-color: #0E76B7;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+
+.answer-input {
+  border-radius: 6px;
+  border: 2px solid #CCCCCC;
+  width: 230px;
+  height: 100px;
+  max-height: 250px;
+}
+
+
+.card {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0E76B7;
+}
+
+.feedback {
+  position: fixed;
+
+  &-marking-bar {
+
+    &-button {
+      background-repeat: no-repeat;
+      font-size: 14px;
+      color: #fff;
+      padding: 0;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
