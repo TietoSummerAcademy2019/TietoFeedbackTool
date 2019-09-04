@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TietoJar.Persistence;
+using TietoFeedbackTool.Persistence;
 
-namespace TietoJar.Migrations
+namespace TietoFeedbackTool.Migrations
 {
-    [DbContext(typeof(TietoJarContext))]
-    partial class TietoJarContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(TietoFeedbackToolContext))]
+    [Migration("20190904094252_renamedBaseSetup")]
+    partial class renamedBaseSetup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace TietoJar.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TietoJar.Domain.Account", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.Account", b =>
                 {
                     b.Property<string>("Login")
                         .ValueGeneratedOnAdd();
@@ -33,7 +35,7 @@ namespace TietoJar.Migrations
                     b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("TietoJar.Domain.ClosePuzzleAnswer", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.ClosePuzzleAnswer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +53,7 @@ namespace TietoJar.Migrations
                     b.ToTable("ClosePuzzleAnswers");
                 });
 
-            modelBuilder.Entity("TietoJar.Domain.ClosePuzzlePossibility", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.ClosePuzzlePossibility", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -72,7 +74,7 @@ namespace TietoJar.Migrations
                     b.ToTable("ClosePuzzlePossibilities");
                 });
 
-            modelBuilder.Entity("TietoJar.Domain.OpenPuzzleAnswer", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.OpenPuzzleAnswer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -94,7 +96,7 @@ namespace TietoJar.Migrations
                     b.ToTable("OpenPuzzleAnswers");
                 });
 
-            modelBuilder.Entity("TietoJar.Domain.PuzzleType", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.PuzzleType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -109,7 +111,7 @@ namespace TietoJar.Migrations
                     b.ToTable("PuzzleTypes");
                 });
 
-            modelBuilder.Entity("TietoJar.Domain.Survey", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.Survey", b =>
                 {
                     b.Property<string>("SurveyKey")
                         .ValueGeneratedOnAdd();
@@ -125,7 +127,7 @@ namespace TietoJar.Migrations
                     b.ToTable("Surveys");
                 });
 
-            modelBuilder.Entity("TietoJar.Domain.SurveyPuzzle", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.SurveyPuzzle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -148,45 +150,45 @@ namespace TietoJar.Migrations
                     b.ToTable("SurveyPuzzles");
                 });
 
-            modelBuilder.Entity("TietoJar.Domain.ClosePuzzleAnswer", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.ClosePuzzleAnswer", b =>
                 {
-                    b.HasOne("TietoJar.Domain.ClosePuzzlePossibility")
+                    b.HasOne("TietoFeedbackTool.Domain.ClosePuzzlePossibility")
                         .WithMany("ClosePuzzleAnswers")
                         .HasForeignKey("ClosePuzzlePossibilityId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TietoJar.Domain.ClosePuzzlePossibility", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.ClosePuzzlePossibility", b =>
                 {
-                    b.HasOne("TietoJar.Domain.SurveyPuzzle")
+                    b.HasOne("TietoFeedbackTool.Domain.SurveyPuzzle")
                         .WithMany("ClosePuzzlePossibilities")
                         .HasForeignKey("SurveyPuzzleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TietoJar.Domain.OpenPuzzleAnswer", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.OpenPuzzleAnswer", b =>
                 {
-                    b.HasOne("TietoJar.Domain.SurveyPuzzle")
+                    b.HasOne("TietoFeedbackTool.Domain.SurveyPuzzle")
                         .WithMany("OpenPuzzleAnswers")
                         .HasForeignKey("SurveyPuzzleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TietoJar.Domain.Survey", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.Survey", b =>
                 {
-                    b.HasOne("TietoJar.Domain.Account")
+                    b.HasOne("TietoFeedbackTool.Domain.Account")
                         .WithMany("Surveys")
                         .HasForeignKey("AccountLogin");
                 });
 
-            modelBuilder.Entity("TietoJar.Domain.SurveyPuzzle", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.SurveyPuzzle", b =>
                 {
-                    b.HasOne("TietoJar.Domain.PuzzleType")
+                    b.HasOne("TietoFeedbackTool.Domain.PuzzleType")
                         .WithMany("SurveyPuzzles")
                         .HasForeignKey("PuzzleTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("TietoJar.Domain.Survey")
+                    b.HasOne("TietoFeedbackTool.Domain.Survey")
                         .WithMany("SurveyPuzzles")
                         .HasForeignKey("SurveyKey");
                 });

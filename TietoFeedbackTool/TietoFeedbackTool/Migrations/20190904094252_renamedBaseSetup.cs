@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TietoJar.Migrations
+namespace TietoFeedbackTool.Migrations
 {
-    public partial class submitDateModelsUpdate : Migration
+    public partial class renamedBaseSetup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -112,7 +112,7 @@ namespace TietoJar.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     SurveyPuzzleId = table.Column<int>(nullable: false),
                     Answer = table.Column<string>(maxLength: 2000, nullable: false),
-                    SubmitDate = table.Column<DateTime>(type: "Date", nullable: false)
+                    SubmitDate = table.Column<DateTime>(type: "Datetime", nullable: false)
                 },
                 constraints: table =>
                 {
