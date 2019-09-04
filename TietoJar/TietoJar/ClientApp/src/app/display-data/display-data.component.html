@@ -44,7 +44,7 @@
       <tbody>
         <ng-container *ngFor="let answer of answers; let i=index">
           <tr *ngIf="i>=(activeSite-1)*resultsPerSite && i<activeSite*resultsPerSite">
-            <td scope="row">{{answer.submitDate | date: 'dd-MM-yyyy' }}</td>
+            <td scope="row">{{answer.submitDate | date: 'yyyy-MM-dd hh:mm' }}</td>
             <td><img src="../../assets/img/stars.svg" class="visual-rating"></td>
             <td>{{answer.answer}}</td>
             <td> Windows</td>
