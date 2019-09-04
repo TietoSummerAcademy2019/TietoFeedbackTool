@@ -16,10 +16,12 @@ export class DisplayDataComponent implements OnInit {
   answers: OpenPuzzleAnswer[] = [];
   pageCount: number;
   pageArray: number[] = [];
+  surveyIndex: number;
 
   constructor(private ds: DisplayDataService<Account>) {
     this.activeSite = 1;
     this.resultsPerSite = 5;
+    this.surveyIndex = 0;
   }
 
   setActiveSite(site) {
