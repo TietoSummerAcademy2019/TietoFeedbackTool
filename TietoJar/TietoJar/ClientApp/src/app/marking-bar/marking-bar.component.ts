@@ -12,7 +12,9 @@ import { NgForm } from '@angular/forms';
 
 export class MarkingBarComponent implements OnInit {
   flag: boolean = false;
-  visibility: boolean = false;
+  buttonVisibility: boolean = false;
+  messageVisibility: boolean = false;
+  formVisibility: boolean = true;
   question: string = "";
 
   constructor(private mbs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
@@ -30,12 +32,18 @@ export class MarkingBarComponent implements OnInit {
       this.question = this.mbs.getQuestion();
       this.flag = true;
     }
-    this.visibility = !this.visibility;
+    this.buttonVisibility = !this.buttonVisibility;
   }
 
   onSubmit(form: NgForm) {
+    var inputForm = document.getElementsByClassName('transition-form')
     this.AnswerModel.Answer = form.controls['new-answer'].value;
     form.reset();
     this.mbs.addAnswer(this.AnswerModel);
+
+    this.formVisibility = !this.formVisibility;
+    this.messageVisibility = !this.messageVisibility;
+
+    inputForm[0].remove();
   }
 }

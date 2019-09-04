@@ -14,6 +14,7 @@
 }
 
 .card {
+  position: relative;
   border-bottom-style: none;
   border-radius: 12px 0 0 0;
   width: 100%;
@@ -30,10 +31,35 @@
 }
 
 .visible {
-  opacity: 1 !important;
+  &-exit, &-msg, &-form {
+    opacity: 1 !important;
+  }
 }
 
-.visibility-transition {
-  opacity: 0;
-  transition: .3s ease-in-out
+.hidden {
+  &-form {
+    opacity: 0;
+    transition: .5s ease-in-out;
+  }
+}
+
+.transition {
+  &-exit {
+    opacity: 0;
+    transition: .3s ease-in-out
+  }
+  &-msg {
+    opacity: 0;
+    transition: .5s ease-in-out
+  }
+  &-form {
+    opacity: 0;
+    transition: .5s ease-in-out;
+    // display: none;
+  }
+}
+
+.success-msg {
+  position: absolute;
+  display: flex;
 }

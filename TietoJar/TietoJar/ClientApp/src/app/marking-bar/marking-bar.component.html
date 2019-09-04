@@ -5,12 +5,12 @@
     </button>
   </div>
   <div class="collapse feedback-window" id="window-content">
-    <div (click)="toggleVisibility()" [class.visible]="visibility" class="collapse-exit visibility-transition">
+    <div (click)="toggleVisibility()" [class.visible-exit]="buttonVisibility" class="collapse-exit transition-exit">
       <button role="button" class="btn-exit" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
       </button>
     </div>
     <div class="card card-body">
-      <form id="answer-body" #form="ngForm" (ngSubmit)="onSubmit(form)" (keydown.enter)="onSubmit(form);false" novalidate>
+      <form class="transition-form" [class.visible-form]="formVisibility" id="answer-body" #form="ngForm" (ngSubmit)="onSubmit(form)" (keydown.enter)="onSubmit(form);false" novalidate>
         <p class="colored align-self-center">{{question}}</p>
         <div class="text-center">
           <textarea name="new-answer" ngModel required #first="ngModel" class="answer-input align-self-center"></textarea>
@@ -19,6 +19,11 @@
           <button class="btn btn-submit align-self-end">Send</button>
         </div>
       </form>
+      <div class="success-msg transition-msg align-self-center" [class.visible-msg]="messageVisibility">
+        <span class="align-middle">
+          Thank you for your feedback!
+        </span>
+      </div>
     </div>
   </div>
 </div>
