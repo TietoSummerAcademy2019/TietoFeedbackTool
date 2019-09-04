@@ -1,3 +1,5 @@
+$formDisplay: block;
+
 .feedback {
   bottom: 0;
   right: 10vw;
@@ -30,18 +32,14 @@
   }
 }
 
-.visible {
-  &-exit, &-msg, &-form {
-    opacity: 1 !important;
-  }
-}
 
-.hidden {
-  &-form {
-    opacity: 0;
-    transition: .5s ease-in-out;
-  }
-}
+
+// .hidden {
+//   &-form {
+//     opacity: 0;
+//     transition: .5s ease-in-out;
+//   }
+// }
 
 .transition {
   &-exit {
@@ -50,16 +48,34 @@
   }
   &-msg {
     opacity: 0;
-    transition: .5s ease-in-out
+    transition: .5s ease-in-out;
+    display: none;
   }
   &-form {
     opacity: 0;
     transition: .5s ease-in-out;
-    // display: none;
+  }
+}
+
+.visible {
+  &-exit {
+    opacity: 1 !important;
+    display: block;
+  }
+  &-form {
+    opacity: 1 !important;
+    display: $formDisplay;
+  }
+  &-msg {
+    opacity: 1 !important;
+    display: block;
+    $formDisplay: none;
   }
 }
 
 .success-msg {
   position: absolute;
   display: flex;
+  // height: 100%;
+  top: 45%;
 }
