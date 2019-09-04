@@ -27,12 +27,21 @@ export class MarkingBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleVisibility() {
+  toggleQuestion() {
     if (this.flag == false) {
       this.question = this.mbs.getQuestion();
       this.flag = true;
     }
-    this.buttonVisibility = !this.buttonVisibility;
+  }
+
+  toggleVisibility() {
+    if (this.buttonVisibility == false) {
+      this.buttonVisibility = true;
+    }
+    else {
+      this.buttonVisibility = false;
+    }
+    this.toggleQuestion();
   }
 
   onSubmit(form: NgForm) {
@@ -44,6 +53,6 @@ export class MarkingBarComponent implements OnInit {
     this.formVisibility = !this.formVisibility;
     this.messageVisibility = !this.messageVisibility;
 
-    inputForm[0].remove();
+    // inputForm[0].remove();
   }
 }

@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class MarkingBarSideComponent implements OnInit {
   flag: boolean = false;
-  visibility: boolean = false;
+  buttonVisibility: boolean = false;
   question: string = "";
 
   constructor(private mbs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
@@ -29,11 +29,21 @@ export class MarkingBarSideComponent implements OnInit {
     form.reset();
     this.mbs.addAnswer(this.AnswerModel);
   }
-  toggleVisibility() {
+
+  toggleQuestion() {
     if (this.flag == false) {
       this.question = this.mbs.getQuestion();
       this.flag = true;
     }
-    this.visibility = !this.visibility;
+  }
+
+  toggleVisibility() {
+    if (this.buttonVisibility == false) {
+      this.buttonVisibility = true;
+    }
+    else {
+      this.buttonVisibility = false;
+    }
+    this.toggleQuestion();
   }
 }
