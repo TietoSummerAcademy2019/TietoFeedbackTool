@@ -1,9 +1,9 @@
+<div class="navigation-item col-xl-12">
+  <a class="navigation-back" routerLink="/">
+    <img src="../../assets/img/round-reply-24px.svg" />
+  </a>
+</div>
 <div class="container-fluid">
-  <div class="navigation-item col-xl-12">
-    <a class="navigation-back" routerLink="/">
-      <img src="../../assets/img/round-reply-24px.svg" />
-    </a>
-  </div>
   <div class="row">
     <div class="information-feedback col-xl-12">
       <h1 class="information-feedback-header"> Tracking Code Generator</h1>
@@ -14,10 +14,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xl-12">
-        <div class="generate-code">
-            <button class="tieto-button submit" (click)="handleClick()">Generate code</button>
-        </div>
+    <div class="col-xl-8">
+      <div class="tracking-code-content" id="text-copy">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, odio quisquam impedit perspiciatis porro nihil quaerat at?
+          Accusantium error magnam tempore et, reiciendis quo voluptates iure, repellat exercitationem, necessitatibus porro.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, odio quisquam impedit perspiciatis porro nihil quaerat at?
+          Accusantium error magnam tempore et, reiciendis quo voluptates iure, repellat exercitationem, necessitatibus porro.
+      </div>
+      <button class="tieto-button submit float-right" (click)="getCode()">Copy</button>
     </div>
   </div>
 </div>
+

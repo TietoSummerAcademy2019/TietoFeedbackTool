@@ -9,15 +9,23 @@ export class TrackingCodeGenerationComponent implements OnInit {
 
   constructor() { }
 
-  handleClick() {
+  ngOnInit() { }
 
-    var div = document.createElement('div');
-    div.className = 'generate-code-content col-xl-3';
-    console.log('Click!');
-    document.getElementsByClassName('row')[1].appendChild(div);
-  }
+  getCode() {
+    var copyText = document.getElementById('text-copy');
 
-  ngOnInit() {
+    let selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = copyText.innerText;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+
   }
 
 }

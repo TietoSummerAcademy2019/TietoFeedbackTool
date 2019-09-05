@@ -3,6 +3,10 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
+body {
+  margin: 0;
+  padding: 0;
+}
 
 .btn {
   &#marking-bar {
@@ -102,7 +106,6 @@
 }
 
 /* Styles to button Submit and Cancel*/
-
 
 .tieto-button {
   height: 45px;
