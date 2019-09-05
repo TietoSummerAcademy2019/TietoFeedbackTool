@@ -27,5 +27,4 @@ export class TrackingCodeGenerationComponent implements OnInit {
     document.body.removeChild(selBox);
 
   }
-
 }
