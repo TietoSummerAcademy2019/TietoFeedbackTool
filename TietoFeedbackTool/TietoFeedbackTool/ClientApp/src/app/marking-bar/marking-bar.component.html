@@ -16,7 +16,7 @@
           <textarea name="new-answer" ngModel required #first="ngModel" class="answer-input align-self-center"></textarea>
         </div>
         <div class="text-right">
-          <button class="btn btn-submit align-self-end" (click)="changeHtmlContent()">Send</button>
+          <button class="btn btn-submit align-self-end" (click)="changeDisplayedContent()">Send</button>
         </div>
       </form>
       <div class="transition-msg" id="success-message" [class.visible-msg]="messageVisibility">

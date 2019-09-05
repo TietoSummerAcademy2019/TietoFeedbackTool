@@ -3,6 +3,7 @@ import { MarkingBarService } from '../marking-bar/marking-bar.service';
 import { SurveyPuzzle } from '../models/SurveyPuzzle';
 import { OpenAnswer } from '../models/OpenAnswer';
 import { NgForm } from '@angular/forms';
+import { Transition } from '../animation';
 
 @Component({
   selector: 'app-marking-bar-side',
@@ -15,6 +16,7 @@ export class MarkingBarSideComponent implements OnInit {
   messageVisibility: boolean = false;
   formVisibility: boolean = true;
   question: string = "";
+  transition: Transition = new Transition;
 
   constructor(private mbs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
 
@@ -43,17 +45,11 @@ export class MarkingBarSideComponent implements OnInit {
   }
 
   toggleVisibility() {
-    if (this.buttonVisibility == false) {
-      this.buttonVisibility = true;
-    }
-    else {
-      this.buttonVisibility = false;
-    }
+    this.buttonVisibility = this.transition.toggleButton(this.buttonVisibility);
     this.toggleQuestion();
   }
 
-  changeHtmlContent() {
-    document.getElementById('answer-body').style.display = 'none';
-    document.getElementById('success-message').style.display = 'table-cell';
+  changeDisplayedContent() {
+    this.transition.changeHtmlContent();
   }
 }
