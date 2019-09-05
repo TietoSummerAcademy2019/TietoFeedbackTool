@@ -1,0 +1,145 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.card {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0E76B7;
+  position: relative;
+  border-bottom-style: none;
+  border-radius: 12px 0 0 0;
+  width: 100%;
+}
+
+.collapsing {
+  overflow: visible;
+}
+
+.btn {
+
+  &:hover {
+    box-shadow: 0 0 5px 1px #878787;
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px 1px #878787;
+  }
+
+  &-exit {
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #0E76B7;
+    border-radius: 100%;
+    background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%, white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%, white 56%,transparent 56%, transparent 100%);
+    background-color: #0E76B7;
+    outline: transparent;
+    transition: all 0.2s ease;
+    margin-top: 14px;
+  }
+
+  &#marking-bar {
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover {
+      box-shadow: 0 0 10px 1px #878787;
+    }
+
+    background-color: #0E76B7;
+    border-style: none;
+    float: right;
+    border-radius: 15px 15px 0 0;
+  }
+
+  &-submit {
+    width: 180px;
+    height: 40px;
+    margin-top: 5%;
+    color: #fff;
+    border-radius: 6px;
+    background-color: #0E76B7;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.colored {
+  max-width: 220px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  color: #0E76B7;
+}
+
+.visible {
+  &-exit, &-msg, &-form {
+    opacity: 1 !important;
+  }
+}
+
+.answer-input {
+  border-radius: 6px;
+  border: 2px solid #CCCCCC;
+  width: 230px;
+  height: 100px;
+  max-height: 250px;
+}
+
+.hidden {
+  &-form {
+    opacity: 0;
+    transition: .5s ease-in-out;
+  }
+}
+
+.transition {
+  &-exit {
+    opacity: 0;
+    transition: .3s ease-in-out
+  }
+
+  &-msg {
+    opacity: 0;
+    transition: .5s ease-in-out
+  }
+
+  &-form {
+    opacity: 0;
+    transition: .5s ease-in-out;
+  }
+}
+
+.success-msg {
+  display: none;
+  min-height: 80px;
+  min-width: 230px;
+}
+
+.feedback {
+  position: fixed;
+  bottom: 0;
+  right: 10vw;
+
+  &-marking-bar {
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.btn#marking-bar {
+  background-repeat: no-repeat;
+  font-size: 14px;
+  color: #fff;
+  padding: 0;
+  background-image: url(../../assets/img/light-bulb.svg);
+  background-position: center left 25px;
+  height: 40px !important;
+  width: 220px !important;
+  font-size: 16px;
+}
