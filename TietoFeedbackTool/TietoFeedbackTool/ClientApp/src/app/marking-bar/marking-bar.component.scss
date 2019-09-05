@@ -14,7 +14,6 @@
 }
 
 .card {
-  position: relative;
   border-bottom-style: none;
   border-radius: 12px 0 0 0;
   width: 100%;
@@ -37,12 +36,11 @@
   }
   &-msg {
     opacity: 0;
-    transition: .5s ease-in-out;
-    // display: none;
+    transition: 1s ease-in-out;
   }
   &-form {
     opacity: 0;
-    transition: .5s ease-in-out;
+    transition: 1s ease-in-out;
   }
 }
 
@@ -61,9 +59,16 @@
   }
 }
 
-.success-msg {
-  background-color: red;
-  display: flex;
-  min-height: 194.9px;
-  min-width: 230px;
+#success-message {
+  vertical-align: middle;
+  text-align: center;
+  & div {
+    &#thanks {
+      font-size: 18px;
+    }
+    &#message {
+      font-size: 13px;
+    }
+  }
+  display: none;
 }

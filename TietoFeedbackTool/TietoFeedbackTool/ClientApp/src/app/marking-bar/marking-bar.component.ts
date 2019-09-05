@@ -16,16 +16,6 @@ export class MarkingBarComponent implements OnInit {
   messageVisibility: boolean = false;
   formVisibility: boolean = true;
   question: string = "";
-  successMessageHTML: any = `
-    <div class="success-msg transition-msg align-self-center" [class.visible-msg]="messageVisibility"
-    style="display: flex; min-height: 193.9px; min-width: 230px;">
-      <p>
-        Thank you!
-      </p>
-      <p>
-        Your feedback is really important to us!
-      </p>
-    </div>`
 
   constructor(private mbs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
 
@@ -59,12 +49,12 @@ export class MarkingBarComponent implements OnInit {
     form.reset();
     this.mbs.addAnswer(this.AnswerModel);
 
-    // this.formVisibility = !this.formVisibility;
-    // this.messageVisibility = !this.messageVisibility;
-    this.changeHtmlContent()
+    this.formVisibility = !this.formVisibility;
+    this.messageVisibility = !this.messageVisibility;
   }
 
   changeHtmlContent() {
-    document.getElementsByClassName('card-body')[0].innerHTML = this.successMessageHTML
+    document.getElementById('answer-body').style.display = 'none';
+    document.getElementById('success-message').style.display = 'table-cell';
   }
 }
