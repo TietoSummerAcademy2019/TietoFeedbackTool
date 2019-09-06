@@ -9,7 +9,6 @@ import { NewQuestionComponent } from './new-question/new-question.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DisplayDataComponent } from './display-data/display-data.component';
 import { MarkingBarComponent } from './marking-bar/marking-bar.component';
-import { MatTableModule } from '@angular/material/table';
 import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.component';
 import { TrackingCodeGenerationComponent } from './tracking-code-generation/tracking-code-generation.component';
 import { ClipboardModule } from 'ngx-clipboard';
@@ -30,7 +29,6 @@ import { ClipboardModule } from 'ngx-clipboard';
       BrowserAnimationsModule,
       FormsModule,
       HttpClientModule,
-      MatTableModule,
       ClipboardModule
    ],
    providers: [],
