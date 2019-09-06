@@ -80,23 +80,3 @@
     padding: 20px;
   }
 }
-
-.tieto-button {
-  height: 45px;
-  width: 198px;
-  &.submit {
-    background: #0e76b7;
-    border-style: none;
-    border-radius: 6px;
-    opacity: 1;
-    color: #ffffff;
-    margin-left: 20px;
-  }
-  &.cancel {
-    background: #eeeeee;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-    opacity: 1;
-    color: #033333;
-  }
-}
