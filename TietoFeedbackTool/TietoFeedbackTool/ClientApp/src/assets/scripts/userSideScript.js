@@ -38,7 +38,7 @@ function addSCSS()
 
 function getSurvey() {
   var key = getSurveyKey();
-  var apiLink = "api/survey/getsurvey/" + key
+  var apiLink = "https://localhost:44350/api/survey/getsurvey/" + key
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
