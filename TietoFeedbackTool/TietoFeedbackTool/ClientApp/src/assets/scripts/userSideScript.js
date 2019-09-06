@@ -35,6 +35,22 @@ function addSCSS()
   linkNode.setAttribute("href", "https://localhost:44350/api/survey/getstyle");
   document.head.appendChild(linkNode);
 }
+function checkDomain() {
+  var currentDomain = window.location.host;
+  var apiLink = "https://localhost:44350/api/survey/domains";
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var results = xhttp.responseText;
+      if(results.match(currentDomain))
+      {
+        getSurvey();
+      }
+    }
+  };
+  xhttp.open("GET", apiLink, true);
+  xhttp.send();
+}
 
 function getSurvey() {
   var key = getSurveyKey();
@@ -54,5 +70,5 @@ function getSurvey() {
 }
 
 window.addEventListener('load', () => {
-  getSurvey();
+  checkDomain();
 });
