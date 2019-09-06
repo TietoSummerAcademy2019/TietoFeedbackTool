@@ -16,9 +16,14 @@
   <div class="row">
     <div class="col-xl-8">
       <div class="tracking-code-content" id="text-copy" #trackingCode>
-        {{ userSideScript }}
+        <pre>
+          <code class="html">
+
+          </code>
+          {{ userSideScript }}
+        </pre>
       </div>
-      <button class="tieto-button submit float-right" (click)="copyScript($event.target)">Copy</button>
+      <button class="tieto-button submit float-right" (click)="copyScript()">Copy</button>
     </div>
   </div>
 </div>
