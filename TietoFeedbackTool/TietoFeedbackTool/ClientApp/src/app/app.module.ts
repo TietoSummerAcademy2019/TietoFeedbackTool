@@ -12,6 +12,7 @@ import { MarkingBarComponent } from './marking-bar/marking-bar.component';
 import { MatTableModule } from '@angular/material/table';
 import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.component';
 import { TrackingCodeGenerationComponent } from './tracking-code-generation/tracking-code-generation.component';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
    declarations: [
@@ -29,7 +30,8 @@ import { TrackingCodeGenerationComponent } from './tracking-code-generation/trac
       BrowserAnimationsModule,
       FormsModule,
       HttpClientModule,
-      MatTableModule
+      MatTableModule,
+      ClipboardModule
    ],
    providers: [],
    bootstrap: [

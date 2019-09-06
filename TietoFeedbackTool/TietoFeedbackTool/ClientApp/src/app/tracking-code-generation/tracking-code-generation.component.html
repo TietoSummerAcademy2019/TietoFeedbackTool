@@ -15,13 +15,10 @@
   </div>
   <div class="row">
     <div class="col-xl-8">
-      <div class="tracking-code-content" id="text-copy">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, odio quisquam impedit perspiciatis porro nihil quaerat at?
-          Accusantium error magnam tempore et, reiciendis quo voluptates iure, repellat exercitationem, necessitatibus porro.
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, odio quisquam impedit perspiciatis porro nihil quaerat at?
-          Accusantium error magnam tempore et, reiciendis quo voluptates iure, repellat exercitationem, necessitatibus porro.
+      <div class="tracking-code-content" id="text-copy" #trackingCode>
+        Here a beatiful tracking code will appear someday...
       </div>
-      <button class="tieto-button submit float-right" (click)="getCode()">Copy</button>
+      <button class="tieto-button submit float-right" ngxClipboard [cbContent]="trackingCode.innerText">Copy</button>
     </div>
   </div>
 </div>
