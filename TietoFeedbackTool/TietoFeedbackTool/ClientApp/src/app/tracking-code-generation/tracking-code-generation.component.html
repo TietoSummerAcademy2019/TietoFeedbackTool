@@ -18,7 +18,7 @@
       <div class="tracking-code-content" id="text-copy" #trackingCode>
         {{ userSideScript }}
       </div>
-      <button class="tieto-button submit float-right" (click)="copyScript()">Copy</button>
+      <button class="tieto-button submit float-right" (click)="copyScript($event.target)">Copy</button>
     </div>
   </div>
 </div>

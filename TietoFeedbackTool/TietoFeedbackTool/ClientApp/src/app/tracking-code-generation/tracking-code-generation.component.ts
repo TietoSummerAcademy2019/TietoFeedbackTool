@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Survey } from '../models/Survey';
 import { TrackingCodeGenerationService } from './tracking-code-generation.service';
 import { ClipboardService } from 'ngx-clipboard';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-tracking-code-generation',
@@ -33,7 +34,11 @@ export class TrackingCodeGenerationComponent implements OnInit {
     <script async src="https://localhost:44350/api/survey/getscript"></script>`
   }
 
-  copyScript() {
+  copyScript(element) {
     this._cs.copyFromContent(this.userSideScript)
+
+    element.textContent = 'Copied it!'
+
+
   }
 }
