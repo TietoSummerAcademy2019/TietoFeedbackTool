@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Survey } from '../models/Survey';
 import { TrackingCodeGenerationService } from './tracking-code-generation.service';
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-tracking-code-generation',
@@ -8,11 +9,12 @@ import { TrackingCodeGenerationService } from './tracking-code-generation.servic
   styleUrls: ['./tracking-code-generation.component.scss']
 })
 export class TrackingCodeGenerationComponent implements OnInit {
-
   survey: Survey;
   surveyKey: string;
+  userSideScript: string;
 
-  constructor(private tcs: TrackingCodeGenerationService<Survey>) { }
+  constructor(private tcs: TrackingCodeGenerationService<Survey>,
+    private _cs: ClipboardService) { }
 
   ngOnInit() {
     this.init();
@@ -23,5 +25,15 @@ export class TrackingCodeGenerationComponent implements OnInit {
       this.survey = result;
     });
     this.surveyKey = this.survey[0].surveyKey;
+    this.userSideScript = `<script>
+    function getSurveyKey() {
+      return ${ this.surveyKey };
+    };
+    </script>
+    <script async src="https://localhost:44350/api/survey/getscript"></script>`
+  }
+
+  copyScript() {
+    this._cs.copyFromContent(this.userSideScript)
   }
 }
