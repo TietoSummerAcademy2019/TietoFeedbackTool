@@ -23,18 +23,6 @@
   }
 }
 
-.navigation-item {
-  height: 40px;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  border: 1px solid #dddddd;
-  opacity: 1;
-  & > a {
-    & > img {
-      padding: 8px;
-    }
-  }
-}
-
 .data-filtering {
   margin-top: 50px;
   margin-left: 50px;

@@ -9,9 +9,7 @@ import { NewQuestionComponent } from './new-question/new-question.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DisplayDataComponent } from './display-data/display-data.component';
 import { MarkingBarComponent } from './marking-bar/marking-bar.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.component';
 import { TrackingCodeGenerationComponent } from './tracking-code-generation/tracking-code-generation.component';
 
@@ -31,9 +29,7 @@ import { TrackingCodeGenerationComponent } from './tracking-code-generation/trac
       BrowserAnimationsModule,
       FormsModule,
       HttpClientModule,
-      MatTableModule,
-      MatPaginatorModule,
-      MatDialogModule
+      MatTableModule
    ],
    providers: [],
    bootstrap: [

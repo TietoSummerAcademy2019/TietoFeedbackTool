@@ -7,8 +7,6 @@ import { MarkingBarComponent } from './marking-bar/marking-bar.component';
 import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.component';
 import { TrackingCodeGenerationComponent } from './tracking-code-generation/tracking-code-generation.component';
 
-
-
 const routes: Routes = [
   {
     path: '',

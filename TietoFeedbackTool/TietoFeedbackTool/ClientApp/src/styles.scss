@@ -8,6 +8,19 @@ body {
   padding: 0;
 }
 
+/* Styles to navbar */
+
+.navigation-item {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #dddddd;
+  opacity: 1;
+  & > a {
+    & > img {
+      padding: 8px;
+    }
+  }
+}
+
 .btn {
   &#marking-bar {
     &:focus {
