@@ -3,28 +3,21 @@ import { MarkingBarService } from './marking-bar.service';
 import { SurveyPuzzle } from '../models/SurveyPuzzle';
 import { OpenAnswer } from '../models/OpenAnswer';
 import { NgForm } from '@angular/forms';
-import { trigger, state, transition, style, animate } from '@angular/animations';
-import { ButtonFadeAnimation } from '../animation';
+import { Transition } from '../animation';
 
 @Component({
   selector: 'app-marking-bar',
   templateUrl: './marking-bar.component.html',
-  styleUrls: ['./marking-bar.component.scss'],
-  animations: [
-    trigger('visibilityChanged', [
-      state('shown', style({ opacity: 1 })),
-      state('hidden', style({ opacity: 0 })),
-      transition('shown => hidden', animate('250ms')),
-      transition('hidden => shown', animate('250ms')),
-    ])
-  ]
+  styleUrls: ['./marking-bar.component.scss']
 })
 
 export class MarkingBarComponent implements OnInit {
-  public visibility: string = 'hidden';
   flag: boolean = false;
+  buttonVisibility: boolean = false;
+  messageVisibility: boolean = false;
+  formVisibility: boolean = true;
   question: string = "";
-  public animation = new ButtonFadeAnimation;
+  transition: Transition = new Transition;
 
   constructor(private mbs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
 
@@ -36,17 +29,28 @@ export class MarkingBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleVisibility() {
+  toggleQuestion() {
     if (this.flag == false) {
       this.question = this.mbs.getQuestion();
       this.flag = true;
     }
-    this.visibility = this.animation.toggle(this.visibility);
+  }
+
+  toggleVisibility() {
+    this.buttonVisibility = this.transition.toggleButton(this.buttonVisibility);
+    this.toggleQuestion();
   }
 
   onSubmit(form: NgForm) {
     this.AnswerModel.Answer = form.controls['new-answer'].value;
     form.reset();
     this.mbs.addAnswer(this.AnswerModel);
+
+    this.formVisibility = !this.formVisibility;
+    this.messageVisibility = !this.messageVisibility;
+  }
+
+  changeDisplayedContent() {
+    this.transition.changeHtmlContent();
   }
 }

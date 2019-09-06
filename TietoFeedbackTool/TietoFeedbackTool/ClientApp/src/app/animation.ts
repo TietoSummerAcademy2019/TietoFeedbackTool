@@ -1,10 +1,15 @@
-export class ButtonFadeAnimation {
-  public toggle(visibility: string) {
-    if(visibility === 'hidden') {
-      return 'shown';
+export class Transition {
+  public toggleButton(buttonVisibility: boolean) {
+    if (buttonVisibility == false) {
+      return true;
     }
     else {
-      return 'hidden';
+      return false;
     }
+  }
+
+  public changeHtmlContent() {
+    document.getElementById('answer-body').style.display = 'none';
+    document.getElementById('success-message').style.display = 'inline';
   }
 }
