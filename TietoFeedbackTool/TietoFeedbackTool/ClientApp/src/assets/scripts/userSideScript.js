@@ -19,7 +19,7 @@ function surveySetup() {
 
     var jsonData = JSON.stringify(requestData);
 
-    var link = 'https://localhost:44350/api/survey/postanswer';
+    var link = 'https://localhost:44350/api/answer/open';
     request.open('post', link);
     request.setRequestHeader('Content-type', 'application/json');
 
