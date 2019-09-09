@@ -22,6 +22,12 @@
   box-shadow: 0 0 5px 1px #878787;
 }
 
+.btn-exit:hover {
+  box-shadow: 0 0 5px 1px #878787;
+}
+.btn-exit:focus {
+  outline: transparent;
+}
 .btn-exit {
   width: 20px;
   height: 20px;
@@ -29,9 +35,9 @@
   border-width: 3px;
   border-color: #0e76b7;
   border-radius: 100%;
+  outline:transparent;
   background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%, white 56%, transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%, white 56%, transparent 56%, transparent 100%);
   background-color: #0e76b7;
-  outline: transparent;
   transition: all 0.2s ease;
   margin-top: 14px;
 }
@@ -39,6 +45,7 @@
 .btn#marking-bar {
   width: 220px;
   height: 40px;
+  outline:transparent;
   background-color: #0e76b7;
   border-style: none;
   float: right;
