@@ -8,6 +8,8 @@ export class TranslateService {
 
   data: any = {};
 
+language: string;
+
 constructor(private http: HttpClient) { }
 
 use(lang: string): Promise<{}> {
@@ -17,6 +19,7 @@ use(lang: string): Promise<{}> {
       translation => {
         this.data = Object.assign({}, translation || {});
         resolve(this.data);
+        this.language = this.data.lang;
       },
       error => {
         console.log('Error');
