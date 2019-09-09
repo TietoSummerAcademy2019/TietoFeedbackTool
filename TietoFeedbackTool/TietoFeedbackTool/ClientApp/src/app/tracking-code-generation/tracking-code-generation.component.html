@@ -9,16 +9,18 @@
       <h1 class="information-feedback-header"> Tracking Code Generator</h1>
       <div class="information-feedback-information">
         <p>Your “tracking code” is a code snippet that needs to be installed on your site for you to be able to use Tieto Feedback Tool.</p>
-        <p>Copy and paste the code snippet into the <strong>&lt;head&gt;</strong> tag on every page where you wish to track visitorsand collect feedback.</p>
+        <p>Copy and paste the code snippet into the <strong>&lt;head&gt;</strong> tag on every page where you wish to track visitors and collect feedback.</p>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-xl-8">
       <div class="tracking-code-content" id="text-copy" #trackingCode>
-        Here a beatiful tracking code will appear someday...
+        <pre>
+          {{ userSideScript }}
+        </pre>
       </div>
-      <button class="tieto-button submit float-right" ngxClipboard [cbContent]="trackingCode.innerText">Copy</button>
+      <button class="tieto-button submit float-right" (click)="copyScript($event.target)">Copy</button>
     </div>
   </div>
 </div>
