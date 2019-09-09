@@ -28,7 +28,7 @@ function surveySetup() {
   });
 }
 
-function addSCSS()
+function addCSS()
 {
   var linkNode = document.createElement("link");
   linkNode.setAttribute("rel", "stylesheet");
@@ -43,7 +43,7 @@ function checkDomain() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      addSCSS();
+      addCSS();
       var HTMLnode = document.createElement("div");
       HTMLnode.innerHTML = this.responseText;
       document.body.appendChild(HTMLnode);
