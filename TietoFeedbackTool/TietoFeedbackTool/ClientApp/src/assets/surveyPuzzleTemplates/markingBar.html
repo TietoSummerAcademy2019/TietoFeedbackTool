@@ -19,6 +19,14 @@
           <button class="btn btn-submit align-self-end" id="survey-submit">Send</button>
         </div>
       </div>
+      <div class="transition-msg" id="success-message" [class.visible-msg]="messageVisibility">
+        <div id="thanks">
+          Thank you!
+        </div>
+        <div id="message">
+          Your feedback is really important to us!
+        </div>
+      </div>
     </div>
   </div>
 </div>

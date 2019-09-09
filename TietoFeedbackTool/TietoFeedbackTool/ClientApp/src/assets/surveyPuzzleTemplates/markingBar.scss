@@ -97,21 +97,6 @@
   transition: 0.5s ease-in-out;
 }
 
-.transition-exit {
-  opacity: 0;
-  transition: 0.3s ease-in-out;
-}
-
-.transition-msg {
-  opacity: 0;
-  transition: 0.5s ease-in-out;
-}
-
-.transition-form {
-  opacity: 0;
-  transition: 0.5s ease-in-out;
-}
-
 .success-msg {
   display: none;
   min-height: 80px;
@@ -127,3 +112,19 @@
 .feedback-marking-bar:hover {
   color: #fff;
 }
+
+#success-message {
+  text-align: center;
+  position: relative;
+  color: #0e76b7;
+  display: none;
+}
+
+#success-message #thanks {
+  font-size: 18px;
+}
+
+#success-message #message {
+  font-size: 13px;
+}
+
