@@ -9,19 +9,16 @@ import { TranslateService } from './translate-service/translate-service.service'
 export class AppComponent {
   title = 'Tieto Jar';
   team = 'Team Kangaroo';
-  languages: Object = [
-    {id: 'en', name: "English"},
-    {id: 'fi', name: "Suomi"}
-  ];
-  // language: string;
   selectedLanguage: string;
 
   constructor(private translate: TranslateService) {
-    this.selectedLanguage = this.translate.language;
-   }
+    this.selectedLanguage = "English";
+  }
 
-  setLang(lang: string) {
-    this.selectedLanguage = this.translate.language;
+
+  setLang(lang: string, langName: string) {
     this.translate.use(lang);
+    this.selectedLanguage = langName;
+    console.log(langName);
   }
 }
