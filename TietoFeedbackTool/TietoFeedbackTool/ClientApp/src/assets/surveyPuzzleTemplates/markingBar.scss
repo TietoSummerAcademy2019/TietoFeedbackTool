@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+/* You can add global styles to this file, and also import other style files */
+.card {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0e76b7;
+  position: relative;
+  border-bottom-style: none;
+  border-radius: 12px 0 0 0;
+  width: 100%;
+}
+
+.collapsing {
+  overflow: visible;
+}
+
+.btn:hover {
+  box-shadow: 0 0 5px 1px #878787;
+}
+
+.btn:focus {
+  box-shadow: 0 0 5px 1px #878787;
+}
+
+.btn-exit {
+  width: 20px;
+  height: 20px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0e76b7;
+  border-radius: 100%;
+  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%, white 56%, transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%, white 56%, transparent 56%, transparent 100%);
+  background-color: #0e76b7;
+  outline: transparent;
+  transition: all 0.2s ease;
+  margin-top: 14px;
+}
+
+.btn#marking-bar {
+  width: 220px;
+  height: 40px;
+  background-color: #0e76b7;
+  border-style: none;
+  float: right;
+  border-radius: 15px 15px 0 0;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-image: url(../../assets/img/light-bulb.svg);
+  background-position: center left 25px;
+}
+
+.btn#marking-bar:focus {
+  box-shadow: none;
+  color: #fff;
+}
+
+.btn#marking-bar:hover {
+  box-shadow: 0 0 10px 1px #878787;
+  color: #fff;
+}
+
+.btn-submit {
+  width: 180px;
+  height: 40px;
+  margin-top: 5%;
+  color: #fff;
+  border-radius: 6px;
+  background-color: #0e76b7;
+}
+
+.btn-submit:hover {
+  color: #fff;
+}
+
+.colored {
+  max-width: 220px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  color: #0e76b7;
+}
+
+.visible-exit, .visible-msg, .visible-form {
+  opacity: 1 !important;
+}
+
+.answer-input {
+  border-radius: 6px;
+  border: 2px solid #ccc;
+  width: 230px;
+  height: 100px;
+  max-height: 250px;
+}
+
+.hidden-form {
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.success-msg {
+  display: none;
+  min-height: 80px;
+  min-width: 230px;
+}
+
+.feedback {
+  position: fixed;
+  bottom: 0;
+  right: 10vw;
+}
+
+.feedback-marking-bar:hover {
+  color: #fff;
+}
+
+#success-message {
+  text-align: center;
+  position: relative;
+  color: #0e76b7;
+  display: none;
+}
+
+#success-message #thanks {
+  font-size: 18px;
+}
+
+#success-message #message {
+  font-size: 13px;
+}
+

@@ -1,0 +1,186 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles to navbar */
+
+.navigation-item {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #dddddd;
+  opacity: 1;
+  & > a {
+    & > img {
+      padding: 8px;
+    }
+  }
+}
+
+.btn {
+  &#marking-bar {
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover {
+      box-shadow: 0 0 10px 1px #878787;
+    }
+
+    background-color: #0E76B7;
+    border-style: none;
+    float: right;
+    border-radius: 15px 15px 0 0;
+  }
+}
+
+.colored {
+  max-width: 220px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  color: #0E76B7;
+}
+
+
+.btn {
+  &-exit {
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #0E76B7;
+    border-radius: 100%;
+    background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%, white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%, white 56%,transparent 56%, transparent 100%);
+    background-color: #0E76B7;
+    outline: transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+      box-shadow: 0 0 5px 1px #878787;
+    }
+
+    &:focus {
+      box-shadow: 0 0 5px 1px #878787;
+    }
+  }
+
+
+  &-submit {
+    width: 180px;
+    height: 40px;
+    margin-top: 5%;
+    color: #fff;
+    border-radius: 6px;
+    background-color: #0E76B7;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+
+.answer-input {
+  border-radius: 6px;
+  border: 2px solid #CCCCCC;
+  width: 230px;
+  height: 100px;
+  max-height: 250px;
+}
+
+
+.card {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0E76B7;
+}
+
+.feedback {
+  position: fixed;
+
+  &-marking-bar {
+
+    &-button {
+      background-repeat: no-repeat;
+      font-size: 14px;
+      color: #fff;
+      padding: 0;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* Styles to button Submit and Cancel*/
+
+.tieto-button {
+  height: 45px;
+  width: 198px;
+  &.submit {
+    background: #0e76b7;
+    border-style: none;
+    border-radius: 6px;
+    opacity: 1;
+    color: #ffffff;
+    margin-left: 20px;
+  }
+  &.cancel {
+    background: #eeeeee;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    opacity: 1;
+    color: #033333;
+  }
+}
+
+/*.transition {
+  &-exit {
+    opacity: 0;
+    transition: .3s ease-in-out
+  }
+  &-msg {
+    opacity: 0;
+    transition: 1s ease-in-out;
+  }
+  &-form {
+    opacity: 0;
+    transition: 1s ease-in-out;
+  }
+}*/
+
+.visible {
+  &-exit {
+    opacity: 1 !important;
+    display: block;
+  }
+  &-form {
+    opacity: 1 !important;
+    display: block;
+  }
+  &-msg {
+    opacity: 1 !important;
+    display: block;
+  }
+}
+
+#success-message {
+  text-align: center;
+  position: relative;
+  color: #0E76B7;
+  & div {
+    &#thanks {
+      font-size: 18px;
+    }
+    &#message {
+      font-size: 13px;
+    }
+  }
+  display: none;
+}
