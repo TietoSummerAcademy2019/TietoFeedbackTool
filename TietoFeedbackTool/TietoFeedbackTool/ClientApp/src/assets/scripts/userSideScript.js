@@ -24,6 +24,7 @@ function surveySetup() {
     request.setRequestHeader('Content-type', 'application/json');
 
     request.send(jsonData);
+    changeHtmlContent();
   });
 }
 
@@ -51,6 +52,11 @@ function getSurvey() {
   };
   xhttp.open("GET", apiLink, true);
   xhttp.send();
+}
+
+function changeHtmlContent() {
+  document.getElementById('answer-body').style.display = 'none';
+  document.getElementById('success-message').style.display = 'inline';
 }
 
 window.addEventListener('load', () => {
