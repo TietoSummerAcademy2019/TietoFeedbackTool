@@ -32,10 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TietoFeedbackTool.Application\TietoFeedbackTool.Application.csproj" />
-    <ProjectReference Include="..\TietoFeedbackTool.Domain\TietoFeedbackTool.Domain.csproj" />
-    <ProjectReference Include="..\TietoFeedbackTool.Infrastructure\TietoFeedbackTool.Infrastructure.csproj" />
-    <ProjectReference Include="..\TietoFeedbackTool.Persistence\TietoFeedbackTool.Persistence.csproj" />
+		<ProjectReference Include="..\TietoFeedbackTool.Application\TietoFeedbackTool.Application.csproj" />
+		<ProjectReference Include="..\TietoFeedbackTool.Domain\TietoFeedbackTool.Domain.csproj" />
+		<ProjectReference Include="..\TietoFeedbackTool.Infrastructure\TietoFeedbackTool.Infrastructure.csproj" />
+		<ProjectReference Include="..\TietoFeedbackTool.Persistence\TietoFeedbackTool.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>

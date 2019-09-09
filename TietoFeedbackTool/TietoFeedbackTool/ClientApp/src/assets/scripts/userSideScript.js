@@ -36,10 +36,10 @@ function addSCSS()
   linkNode.setAttribute("href", "https://localhost:44350/api/survey/getstyle");
   document.head.appendChild(linkNode);
 }
-
-function getSurvey() {
+function checkDomain() {
   var key = getSurveyKey();
-  var apiLink = "api/survey/getsurvey/" + key
+  var currentDomain = window.location.host;
+  var apiLink = "https://localhost:44350/api/survey/getsurvey/" + key + "/" + currentDomain;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -60,5 +60,5 @@ function changeHtmlContent() {
 }
 
 window.addEventListener('load', () => {
-  getSurvey();
+  checkDomain();
 });
