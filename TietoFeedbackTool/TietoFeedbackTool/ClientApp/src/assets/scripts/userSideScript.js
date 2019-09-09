@@ -36,21 +36,9 @@ function addSCSS()
   document.head.appendChild(linkNode);
 }
 function checkDomain() {
-  var currentDomain = window.location.host;
-  var apiLink = "https://localhost:44350/api/survey/domains/" + currentDomain;
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      getSurvey();
-    }
-  };
-  xhttp.open("GET", apiLink, true);
-  xhttp.send();
-}
-
-function getSurvey() {
   var key = getSurveyKey();
-  var apiLink = "https://localhost:44350/api/survey/getsurvey/" + key
+  var currentDomain = window.location.host;
+  var apiLink = "https://localhost:44350/api/survey/getsurvey/" + key + "/" + currentDomain;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
