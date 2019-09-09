@@ -13,6 +13,8 @@ body {
 .navigation-item {
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #dddddd;
+  height: 40px;
+  width: 100%;
   opacity: 1;
   & > a {
     & > img {

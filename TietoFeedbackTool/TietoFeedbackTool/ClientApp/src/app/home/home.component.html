@@ -1,5 +1,13 @@
 <div class="tieto-feedback-tool-home">
-  <h1 class="tieto-feedback-tool-home-title">Welcome to {{ title }}!</h1>
-  <h2 class="tieto-feedback-tool-home-title-info">Made by {{ team }}</h2>
+  <div class="navigation-item">
+    <div class="navigation-item-button float-right">
+        <input type="checkbox" checked data-toggle="toggle" data-size="lg">
+    </div>
+  </div>
+  <h1 class="tieto-feedback-tool-home-title"> {{ 'welcome' | translate }} {{ title }}!</h1>
+  <h2 class="tieto-feedback-tool-home-title-info"> {{ 'made' | translate }} {{ team }}</h2>
   <img width="300" src="../assets/img/ninjakangoogeometric.svg" />
+
+
+
 </div>
