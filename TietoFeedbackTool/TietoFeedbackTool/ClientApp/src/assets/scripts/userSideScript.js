@@ -37,15 +37,11 @@ function addSCSS()
 }
 function checkDomain() {
   var currentDomain = window.location.host;
-  var apiLink = "https://localhost:44350/api/survey/domains";
+  var apiLink = "https://localhost:44350/api/survey/domains/" + currentDomain;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      var results = xhttp.responseText;
-      if(results.match(currentDomain))
-      {
-        getSurvey();
-      }
+      getSurvey();
     }
   };
   xhttp.open("GET", apiLink, true);
