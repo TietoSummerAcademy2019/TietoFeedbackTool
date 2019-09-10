@@ -23,7 +23,7 @@
 <div class="navigation-item">
   <div class="navigation-item-button float-right">
     <div class="dropdown">
-        <button class="btn language btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button [ngStyle]="{'background-image': image}" class="btn language btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{ selectedLanguage }}
         </button>
         <div class="dropdown-menu language" aria-labelledby="dropdownMenuButton">
