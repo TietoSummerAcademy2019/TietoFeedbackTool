@@ -3,10 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  newQuestionUrl: 'https://localhost:44350/api/survey/questions',
-  openAnswerUrl: 'https://localhost:44350/api/answer/open',
-  dataByLoginUrl: 'https://localhost:44350/api/survey/surveywithq/Jon',
-  surveyUrl: 'https://localhost:44350/api/survey',
+  newQuestionUrl: 'http://10.33.0.54:8083/api/survey/questions',
+  openAnswerUrl: 'http://10.33.0.54:8083/api/answer/open',
+  dataByLoginUrl: 'http://10.33.0.54:8083/api/survey/surveywithq/Jon',
+  surveyUrl: 'http://10.33.0.54:8083/api/survey',
   production: false
 };
 
