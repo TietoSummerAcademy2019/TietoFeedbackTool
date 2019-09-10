@@ -16,12 +16,6 @@
       <li class="tieto-feedback-tool-header-list-item">
         <a class="nav-link tieto-feedback-tool-header-list-item-link" id="tracking-code-generation" routerLink="tracking-code-generation" routerLinkActive="active">Tracking code generation</a>
       </li>
-      <li>
-        <div>
-            <button (click)="setLang('fi')">Language: FI</button>
-            <button (click)="setLang('en')">Language: EN</button>
-          </div>
-      </li>
     </ul>
   </div>
 </nav>
@@ -29,12 +23,12 @@
 <div class="navigation-item">
   <div class="navigation-item-button float-right">
     <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button [ngStyle]="{'background-image': image}" class="btn language btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{ selectedLanguage }}
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" id="suomi" (click)="setLang('fi')">Suomi</a>
-          <a class="dropdown-item" id="english" (click)="setLang('en')">English</a>
+        <div class="dropdown-menu language" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item language" id="suomi" (click)="setLang('fi', 'Suomi')">Suomi</a>
+          <a class="dropdown-item language" id="english" (click)="setLang('en', 'English')">English</a>
         </div>
       </div>
   </div>
