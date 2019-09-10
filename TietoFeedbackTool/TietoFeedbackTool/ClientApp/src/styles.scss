@@ -142,7 +142,7 @@ body {
   }
 }
 
-.transition {
+/*.transition {
   &-exit {
     opacity: 0;
     transition: .3s ease-in-out
@@ -155,7 +155,7 @@ body {
     opacity: 0;
     transition: 1s ease-in-out;
   }
-}
+}*/
 
 .visible {
   &-exit {
