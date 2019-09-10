@@ -3,9 +3,14 @@
   margin: 0;
 }
 
+.wraper {
+  max-width: 700px;
+}
+
 .information-feedback {
   padding-top: 50px;
   padding-left: 60px;
+  padding-right: 60px;
   &-header {
     font-weight: 700;
     font-size: 28px;
