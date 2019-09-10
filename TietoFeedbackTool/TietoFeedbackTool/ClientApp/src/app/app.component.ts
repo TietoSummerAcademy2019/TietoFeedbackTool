@@ -8,7 +8,7 @@ import { TranslateService } from './translate-service/translate-service.service'
 })
 export class AppComponent {
   title = 'Tieto Jar';
-  team = 'Team Kangaroo';
+  team2 = 'Team Kangaroo';
   selectedLanguage: string;
   image: string = 'url(../assets/flags-eng.svg)';
 
