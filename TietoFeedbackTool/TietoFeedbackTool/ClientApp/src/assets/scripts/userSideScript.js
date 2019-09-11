@@ -57,7 +57,6 @@ function checkDomain() {
 function changeHtmlContent() {
   document.getElementById('answer-body').style.display = 'none';
   document.getElementById('success-message').style.display = 'inline';
- // setTimeout(closeTool(), 100000);
   setTimeout(function () {
     closeTool()
    },1000); //delay is in milliseconds 
