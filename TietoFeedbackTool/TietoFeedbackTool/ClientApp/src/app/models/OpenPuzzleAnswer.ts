@@ -1,6 +1,6 @@
 export interface OpenPuzzleAnswer {
   id: number;
-  surveyPuzzleId: number;
+  questionId: number;
   answer: string;
   submitDate: Date;
 }

@@ -5,11 +5,11 @@
     </a>
   </div>
   <div class="information-question">
-    <h1 class="information-question-header">{{questionWithAnswer.surveys[0].name}}</h1>
+    <h1 class="information-question-header">{{questionWithAnswer.name}}</h1>
     <div class="information-question-information">
       <p>Here you can find responses and their details for questions:</p>
-      <div class="information-question-information-item" *ngFor="let question of questionWithAnswer.surveys[0].surveyPuzzles">
-        <p>{{ question.puzzleQuestion }}</p>
+      <div class="information-question-information-item" *ngFor="let question of questionWithAnswer.questions">
+        <p>{{ question.questionText }}</p>
       </div>
     </div>
   </div>

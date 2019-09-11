@@ -38,7 +38,7 @@ export class DisplayDataComponent implements OnInit {
       this.questionWithAnswer = result;
     });
 
-    for (let question of this.questionWithAnswer.surveys[0].surveyPuzzles) {
+    for (let question of this.questionWithAnswer.questions) {
       this.answers = this.answers.concat(question.openPuzzleAnswers);
     }
 
