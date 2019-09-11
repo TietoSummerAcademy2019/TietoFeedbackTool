@@ -131,8 +131,8 @@ body {
 /* Styles to button Submit and Cancel*/
 
 .tieto-button {
-  //height: 45px;
-  //width: 198px;
+  margin: 0 auto;
+  display: block;
   &.submit {
     background: #0e76b7;
     border-style: none;
