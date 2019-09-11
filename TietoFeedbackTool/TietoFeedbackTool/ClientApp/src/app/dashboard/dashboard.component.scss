@@ -33,9 +33,19 @@ main {
           &.row {
             & div {
               &.title {
-                margin: 0;
+                // margin: 0;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
                 font-size: 1.75rem;
                 font-weight: 700;
+              }
+              &.tracking-code, &.delete {
+                color: #0E76B7;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                padding-bottom: .125rem;
               }
             }
           }
