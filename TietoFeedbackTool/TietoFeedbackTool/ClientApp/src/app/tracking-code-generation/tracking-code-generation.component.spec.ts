@@ -2,6 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 import { TrackingCodeGenerationComponent } from './tracking-code-generation.component';
 
@@ -11,7 +12,8 @@ describe('TrackingCodeGenerationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TrackingCodeGenerationComponent ]
+      providers: [HttpClient, HttpHandler],
+      declarations: [TrackingCodeGenerationComponent]
     })
     .compileComponents();
   }));
