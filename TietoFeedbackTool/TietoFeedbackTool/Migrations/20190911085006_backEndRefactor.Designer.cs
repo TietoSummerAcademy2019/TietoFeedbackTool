@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TietoFeedbackTool.Persistence;
 
 namespace TietoFeedbackTool.Migrations
 {
     [DbContext(typeof(TietoFeedbackToolContext))]
-    partial class TietoFeedbackToolContextModelSnapshot : ModelSnapshot
+    [Migration("20190911085006_backEndRefactor")]
+    partial class backEndRefactor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,13 +28,13 @@ namespace TietoFeedbackTool.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("QuestionsKey")
+                    b.Property<string>("QuestionKey")
                         .IsRequired()
                         .ValueGeneratedOnAdd();
 
                     b.HasKey("Login");
 
-                    b.HasIndex("QuestionsKey")
+                    b.HasIndex("QuestionKey")
                         .IsUnique();
 
                     b.ToTable("Accounts");
