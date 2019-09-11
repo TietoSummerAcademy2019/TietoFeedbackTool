@@ -78,5 +78,4 @@ function changeOpacity() {
   } else {
     document.getElementsByClassName('img-exit')[0].style.opacity = 0;
   }
-  
 }

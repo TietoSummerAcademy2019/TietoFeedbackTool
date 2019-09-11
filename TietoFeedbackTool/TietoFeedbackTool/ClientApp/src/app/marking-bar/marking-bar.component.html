@@ -1,14 +1,11 @@
 <div class="feedback">
   <div (click)="toggleVisibility()" class="feedback-marking-bar">
-    <button class="btn feedback-marking-bar-button" id="marking-bar" type="button" data-toggle="collapse" data-target="#window-content" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn feedback-marking-bar-button" id="marking-bar" type="button" data-toggle="collapse" data-target="#window-content" aria-expanded="false" aria-controls="collapseExample" onclick="changeOpacity()">
       Leave feedback
+      <div class="img-exit"></div>
     </button>
   </div>
   <div class="collapse feedback-window" id="window-content">
-    <div (click)="toggleVisibility()" [class.visible-exit]="buttonVisibility" class="collapse-exit transition-exit">
-      <button role="button" class="btn-exit" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
-      </button>
-    </div>
     <div class="card card-body">
       <form class="transition-form" [class.visible-form]="formVisibility" id="answer-body" #form="ngForm" (ngSubmit)="onSubmit(form)" (keydown.enter)="onSubmit(form);false" novalidate>
         <p class="colored align-self-center">{{question}}</p>
