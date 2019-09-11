@@ -1,7 +1,7 @@
 function surveySetup() {
   const survey = {
     answer: document.getElementById('answer'),
-    surveyPuzzleId: document.getElementById('answer').getAttribute("data-id"),
+    questionId: document.getElementById('answer').getAttribute("data-id"),
     submit: document.getElementById('survey-submit')
   };
 
@@ -14,12 +14,12 @@ function surveySetup() {
 
     var requestData = {
       answer: `${survey.answer.value}`,
-      surveyPuzzleId: `${survey.surveyPuzzleId}`
+      questionId: `${survey.questionId}`
     };
 
     var jsonData = JSON.stringify(requestData);
 
-    var link = 'https://localhost:44350/api/answer/open';
+    var link = 'https://localhost:44350/api/Answer/open';
     request.open('post', link);
     request.setRequestHeader('Content-type', 'application/json');
 
