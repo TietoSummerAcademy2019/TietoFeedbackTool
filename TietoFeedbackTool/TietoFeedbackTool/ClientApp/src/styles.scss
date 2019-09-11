@@ -13,12 +13,20 @@ body {
 .navigation-item {
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #dddddd;
-  height: 40px;
+  height: 65px;
   width: 100%;
   opacity: 1;
   & > a {
     & > img {
       padding: 8px;
+    }
+  }
+  &-button {
+    height: 100%;
+    & div {
+      &.dropdown {
+        height: 100%;
+      }
     }
   }
 }
