@@ -10,6 +10,7 @@
     margin: 0;
   }
 }
+
 nav {
   &.sidebar {
     position: fixed;
@@ -19,5 +20,34 @@ nav {
     z-index: -1;
     background-color: white;
     border-right: 1px solid #DDDDDD;
+  }
+}
+
+main {
+  &.main-wrapper {
+    padding-top: 3.125rem;
+    padding-left: 3.5rem;
+    & div {
+      &.main-content {
+        & div {
+          &.row {
+            & div {
+              &.title {
+                margin: 0;
+                font-size: 1.75rem;
+                font-weight: 700;
+              }
+            }
+          }
+        }
+        & p {
+          &.message {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+            font-weight: 300;
+          }
+        }
+      }
+    }
   }
 }
