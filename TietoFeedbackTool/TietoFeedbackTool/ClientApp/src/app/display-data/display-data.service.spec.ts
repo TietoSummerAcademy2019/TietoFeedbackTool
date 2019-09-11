@@ -2,7 +2,7 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { DisplayDataService } from './display-data.service';
-import { Survey } from '../models/Survey';
+import { Survey } from '../models/Question';
 import { Account } from '../models/Account';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
