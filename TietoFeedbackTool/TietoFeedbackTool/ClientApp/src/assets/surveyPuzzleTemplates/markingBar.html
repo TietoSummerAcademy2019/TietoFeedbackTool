@@ -1,14 +1,11 @@
 <div class="feedback">
   <div class="feedback-marking-bar">
-    <button class="btn feedback-marking-bar-button" id="marking-bar" type="button" data-toggle="collapse" data-target="#window-content" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn feedback-marking-bar-button" id="marking-bar" type="button" data-toggle="collapse" data-target="#window-content" aria-expanded="false" aria-controls="collapseExample" onclick="changeOpacity()">
       Leave feedback
+      <div class="img-exit"></div>
     </button>
   </div>
   <div class="collapse feedback-window" id="window-content">
-    <div class="collapse-exit visibility-transition">
-      <button role="button" class="btn-exit" data-toggle="collapse" data-target="#window-content" aria-expanded="false">
-      </button>
-    </div>
     <div class="card card-body">
       <div id="answer-body" novalidate>
         <p class="colored align-self-center" id="question-text"> </p>
