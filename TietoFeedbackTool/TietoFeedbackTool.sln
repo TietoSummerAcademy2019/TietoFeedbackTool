@@ -37,7 +37,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BF122C43-A591-4096-ACCE-BC627BB43635}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		..\..\..\..\Downloads\testDataAfterRefactor.json = ..\..\..\..\Downloads\testDataAfterRefactor.json
+		testDataAfterRefactor.json = testDataAfterRefactor.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{9C19373B-A1F2-4AA9-A369-A033E8458E4A}"
