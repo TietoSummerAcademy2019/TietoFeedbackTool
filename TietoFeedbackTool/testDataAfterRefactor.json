@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"Login\" : \"OlejnWoj\",\n\t\"Name\" : \"Mr.Daddy\",\n\t\"Password\" : \"kenguru\",\n\t\"QuestionsKey\": \"QWERTY123\"\n}"
+					"raw": "{\n\t\"Login\" : \"OlejWoj\",\n\t\"Name\" : \"Mr.Daddy\",\n\t\"QuestionsKey\": \"QWERTY123\"\n}"
 				},
 				"url": {
 					"raw": "https://localhost:44350/api/account",
