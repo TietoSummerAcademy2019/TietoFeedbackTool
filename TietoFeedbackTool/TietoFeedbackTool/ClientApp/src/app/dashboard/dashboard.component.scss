@@ -10,6 +10,7 @@
     margin: 0;
   }
 }
+
 nav {
   &.sidebar {
     position: fixed;
@@ -22,5 +23,44 @@ nav {
   }
   & > div.sidebar-sticky {
     padding: 150px 40px 0 40px;
+  }
+}
+
+main {
+  &.main-wrapper {
+    padding-top: 3.125rem;
+    padding-left: 3.5rem;
+    & div {
+      &.main-content {
+        & div {
+          &.row {
+            & div {
+              &.title {
+                // margin: 0;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                font-size: 1.75rem;
+                font-weight: 700;
+              }
+              &.tracking-code, &.delete {
+                color: #0E76B7;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                padding-bottom: .125rem;
+              }
+            }
+          }
+        }
+        & p {
+          &.message {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+            font-weight: 300;
+          }
+        }
+      }
+    }
   }
 }
