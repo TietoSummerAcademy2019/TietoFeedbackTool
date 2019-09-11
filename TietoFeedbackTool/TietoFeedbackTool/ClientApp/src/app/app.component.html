@@ -1,36 +1,14 @@
-<nav class="navbar navbar-expand-lg tieto-feedback-tool-header">
-  <div class="container col-xl-12">
-    <ul class="navbar-nav tieto-feedback-tool-header-list">
-      <li class="tieto-feedback-tool-header-list-item">
-        <a class="nav-link tieto-feedback-tool-header-list-item-link" id="new-question" routerLink="new-question" routerLinkActive="active">{{ 'add-new' | translate }}</a>
-      </li>
-      <li class="tieto-feedback-tool-header-list-item">
-        <a class="nav-link tieto-feedback-tool-header-list-item-link" id="marking-bar" routerLink="marking-bar" routerLinkActive="active">{{ 'feedback-tool-bottom' | translate }}</a>
-      </li>
-      <li class="tieto-feedback-tool-header-list-item">
-          <a class="nav-link tieto-feedback-tool-header-list-item-link" id="marking-bar-side" routerLink="marking-bar-side" routerLinkActive="active">{{ 'feedback-tool-side' | translate }}</a>
-      </li>
-      <li class="tieto-feedback-tool-header-list-item">
-        <a class="nav-link tieto-feedback-tool-header-list-item-link" id="display-data" routerLink="display-data" routerLinkActive="active">{{ 'display-data' | translate }}</a>
-      </li>
-      <li class="tieto-feedback-tool-header-list-item">
-        <a class="nav-link tieto-feedback-tool-header-list-item-link" id="tracking-code-generation" routerLink="tracking-code-generation" routerLinkActive="active">{{ 'tracking-code-generator' | translate }}</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
 <div class="navigation-item">
   <div class="navigation-item-button float-right">
     <div class="dropdown">
-        <button [ngStyle]="{'background-image': image}" class="btn language btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{ selectedLanguage }}
-        </button>
-        <div class="dropdown-menu language" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item language" id="suomi" (click)="setLang('fi', 'Suomi')">Suomi</a>
-          <a class="dropdown-item language" id="english" (click)="setLang('en', 'English')">English</a>
-        </div>
+      <button [ngStyle]="{'background-image': image}" class="btn language btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ selectedLanguage }}
+      </button>
+      <div class="dropdown-menu language" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item language" id="suomi" (click)="setLang('fi', 'Suomi')">Suomi</a>
+        <a class="dropdown-item language" id="english" (click)="setLang('en', 'English')">English</a>
       </div>
+    </div>
   </div>
 </div>
 
