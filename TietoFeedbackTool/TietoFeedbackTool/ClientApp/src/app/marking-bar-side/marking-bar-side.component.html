@@ -1,4 +1,4 @@
-<div class="feedback">
+<div class="feedback" id="tool">
   <div id="window-content" class="width collapse" aria-expanded="false">
       <div class="card card-body">
         <form id="answer-body" #form="ngForm" (ngSubmit)="onSubmit(form)" (keydown.enter)="onSubmit(form);false" novalidate>
@@ -22,7 +22,7 @@
     </div>
     <div class="feedback-marking-bar">
       <button (click)="toggleVisibility()" role="button" class="btn feedback-marking-bar-button" id="marking-bar" data-toggle="collapse" data-target="#window-content" aria-expanded="false" onclick="changeOpacity()">
-        <div class="img-exit"></div>
+        <div class="img-exit" id="exitsvg"></div>
         <span>
           Leave feedback
         </span>

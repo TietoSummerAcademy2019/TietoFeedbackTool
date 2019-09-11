@@ -11,12 +11,15 @@ export class Transition {
   public changeHtmlContent() {
     document.getElementById('answer-body').style.display = 'none';
     document.getElementById('success-message').style.display = 'inline';
+    setTimeout(function () {
+      document.getElementById('tool').style.display = 'none';
+    }, 3000)
   }
   public changeOpacity() {
-    if (document.getElementsByClassName('img-exit')[0].style.opacity == 0) {
-      document.getElementsByClassName('img-exit')[0].style.opacity = 1;
+    if (document.getElementById('exitsvg')[0].style.opacity == 0) {
+      document.getElementById('exitsvg')[0].style.opacity = 1;
     } else {
-      document.getElementsByClassName('img-exit')[0].style.opacity = 0;
+      document.getElementById('exitsvg')[0].style.opacity = 0;
     }
   }
 }
