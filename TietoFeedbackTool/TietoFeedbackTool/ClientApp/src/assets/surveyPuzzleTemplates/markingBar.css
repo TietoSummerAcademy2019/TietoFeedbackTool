@@ -22,49 +22,40 @@
   box-shadow: 0 0 5px 1px #878787;
 }
 
-.btn-exit:hover {
-  box-shadow: 0 0 5px 1px #878787;
-}
-.btn-exit:focus {
-  outline: transparent;
-}
-.btn-exit {
+
+.img-exit {
+  margin-top: 2px;
+  background-image: url(../../assets/img/exit.svg);
+  background-repeat: no-repeat;
+  background-position: center;
   width: 20px;
   height: 20px;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #0e76b7;
-  border-radius: 100%;
-  outline:transparent;
-  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%, white 56%, transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%, white 56%, transparent 56%, transparent 100%);
-  background-color: #0e76b7;
-  transition: all 0.2s ease;
-  margin-top: 14px;
+  float: right;
+  transition: all 0.4s ease;
+  opacity: 0;
 }
 
 .btn#marking-bar {
   width: 220px;
   height: 40px;
-  outline:transparent;
+  outline: transparent;
   background-color: #0e76b7;
   border-style: none;
+  font-size: 16px;
   float: right;
   border-radius: 15px 15px 0 0;
   color: #fff;
-  background-repeat: no-repeat;
-  background-image: url(../../assets/img/light-bulb.svg);
-  background-position: center left 25px;
 }
 
-.btn#marking-bar:focus {
-  box-shadow: none;
-  color: #fff;
-}
+  .btn#marking-bar:focus {
+    box-shadow: none;
+    color: #fff;
+  }
 
-.btn#marking-bar:hover {
-  box-shadow: 0 0 10px 1px #878787;
-  color: #fff;
-}
+  .btn#marking-bar:hover {
+    box-shadow: 0 0 10px 1px #878787;
+    color: #fff;
+  }
 
 .btn-submit {
   width: 180px;
@@ -75,9 +66,9 @@
   background-color: #0e76b7;
 }
 
-.btn-submit:hover {
-  color: #fff;
-}
+  .btn-submit:hover {
+    color: #fff;
+  }
 
 .colored {
   max-width: 220px;
@@ -127,11 +118,10 @@
   display: none;
 }
 
-#success-message #thanks {
-  font-size: 18px;
-}
+  #success-message #thanks {
+    font-size: 18px;
+  }
 
-#success-message #message {
-  font-size: 13px;
-}
-
+  #success-message #message {
+    font-size: 13px;
+  }
