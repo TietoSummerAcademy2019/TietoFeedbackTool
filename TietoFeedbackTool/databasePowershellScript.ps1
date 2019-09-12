@@ -1,4 +1,4 @@
-﻿[String]$dbname = "TietoFeedbackTool";
+﻿[String]$dbname = "TietoFeedbackToolDB";
  
 # Open ADO.NET Connection with Windows authentification to local SQLSERVER.
 $con = New-Object Data.SqlClient.SqlConnection;
