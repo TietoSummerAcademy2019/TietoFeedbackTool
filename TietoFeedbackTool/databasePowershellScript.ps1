@@ -23,7 +23,6 @@ if ($rd.Read())
     $cmd = New-Object Data.SqlClient.SqlCommand $sql, $con;
     $cmd.ExecuteNonQuery();
 }
-$rd.Dispose();
  
 # Create the database.
 $sql = "CREATE DATABASE [$dbname];"
