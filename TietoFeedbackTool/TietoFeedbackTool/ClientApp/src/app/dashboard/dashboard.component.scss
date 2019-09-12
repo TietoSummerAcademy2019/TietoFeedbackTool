@@ -30,6 +30,7 @@ main {
   &.main-wrapper {
     padding-top: 3.125rem;
     padding-left: 3.5rem;
+    padding-right: 3.5rem;
     & div {
       &.main-content {
         & div {
@@ -54,6 +55,7 @@ main {
                     color: #0E76B7;
                     & span {
                       &#action-text {
+                        padding-bottom: .125rem;
                         margin-left: .5rem;
                       }
                     }
@@ -66,11 +68,79 @@ main {
         & p {
           &.message {
             margin-top: 1rem;
+            margin-bottom: 1.5rem;
             font-size: 1.25rem;
             font-weight: 300;
           }
         }
+        & div.new-survey > a#new-survey-action {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          color: #0E76B7;
+          & span {
+            &#action-text {
+              margin-left: .5rem;
+              padding-bottom: .125rem;
+            }
+          }
+        }
+        & div.survey-list {
+          margin-top: 1.5rem;
+          & div.survey-list-item {
+            border-style: solid;
+            border-width: 1px;
+            border-color: #DDDDDD;
+            border-radius: .4rem;
+            & div.survey-list-item-head {
+              margin: 0;
+              padding-top: 1.5rem;
+              padding-bottom: 1.5rem;
+              & div.delete-item {
+                padding-right: 1.25rem;
+              }
+              & div.see-more, div.edit-item, div.delete-item {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                & a {
+                  &#survey-item-action {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    color: #0E76B7;
+                    & span {
+                      &#item-action-text {
+                        padding-bottom: .125rem;
+                        margin-left: .5rem;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        & div.survey-info {
+          padding-top: 1.5rem;
+          padding-bottom: 1.5rem;
+          padding-left: .9rem;
+          padding-right: .9rem;
+          & div#response-count {
+            margin-top: .3rem;
+          }
+        }
       }
     }
+  }
+}
+
+hr {
+  &#survey-item-separator {
+    color: #DDDDDD;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: .7rem;
+    margin-right: .7rem;
   }
 }
