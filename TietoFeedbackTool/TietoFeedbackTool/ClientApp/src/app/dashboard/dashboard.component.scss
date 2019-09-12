@@ -14,15 +14,51 @@
 nav {
   &.sidebar {
     position: fixed;
-    top: 0;
+    top: 4.0625rem;
     bottom: 0;
     padding: 0;
-    z-index: -1;
     background-color: white;
-    border-right: 1px solid #DDDDDD;
+    border-right: .0625rem solid #DDDDDD;
   }
   & > div.sidebar-sticky {
-    padding: 120px 70px 0 30px;
+    padding: 3.4375rem 4.375rem 0 1.875rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: #777777;
+    & > .sidebar-page {
+      margin-top: 1.25rem;
+      margin-left: 1.5rem;
+    }
+    & > hr {
+      margin-top: .3125rem;
+      margin-bottom: 1rem;
+      margin-left: 1.4rem;
+    }
+    & > .sidebar-page-item {
+      margin-left: 1.5rem;
+
+      & > ul {
+        list-style: none;
+        padding-inline-start: 0;
+      }
+    }
+    & > div.settings {
+      & > #settings-link {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 3rem;
+        margin-left: 2.5rem;
+        color: #333333;
+        &:hover {
+          text-decoration: none;
+        }
+        & > span {
+          margin-left: 1rem;
+          padding-bottom: .1rem;
+        }
+      }
+    }
   }
 }
 
