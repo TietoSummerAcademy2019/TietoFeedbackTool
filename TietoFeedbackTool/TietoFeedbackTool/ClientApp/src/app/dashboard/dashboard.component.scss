@@ -36,19 +36,29 @@ main {
           &.row {
             & div {
               &.title {
-                // margin: 0;
                 display: flex;
                 justify-content: flex-start;
-                align-items: flex-end;
+                align-items: center;
                 font-size: 1.75rem;
                 font-weight: 700;
               }
               &.tracking-code, &.delete {
-                color: #0E76B7;
                 display: flex;
                 justify-content: flex-start;
-                align-items: flex-end;
-                padding-bottom: .125rem;
+                align-items: center;
+                & a {
+                  &#survey-action {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    color: #0E76B7;
+                    & span {
+                      &#action-text {
+                        margin-left: .5rem;
+                      }
+                    }
+                  }
+                }
               }
             }
           }
