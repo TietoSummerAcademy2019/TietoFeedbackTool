@@ -15,7 +15,6 @@ $cmd = New-Object Data.SqlClient.SqlCommand $sql, $con;
 $rd = $cmd.ExecuteReader();
 if ($rd.Read())
 {   
-    $rd.Close();
     $rd.Dispose();
     $sql = "alter database [$dbname] set single_user with rollback immediate"
     $cmd = New-Object Data.SqlClient.SqlCommand $sql, $con;
@@ -24,7 +23,6 @@ if ($rd.Read())
     $cmd = New-Object Data.SqlClient.SqlCommand $sql, $con;
     $cmd.ExecuteNonQuery();
 }
-$rd.Close();
 $rd.Dispose();
  
 # Create the database.
@@ -41,5 +39,3 @@ Invoke-sqlcmd -ServerInstance $server -Database $dbname -InputFile $scriptFullPa
  
 # Close & Clear all objects.
 $cmd.Dispose();
-$con.Close();
-$con.Dispose();
