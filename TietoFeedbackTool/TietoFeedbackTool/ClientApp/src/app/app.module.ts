@@ -15,6 +15,7 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { TranslateService } from './translate-service/translate-service.service';
 import { TranslatePipe } from './translate-service/translate.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 export function setupTranslateFactory(
   service: TranslateService): Function {
@@ -39,7 +40,8 @@ export function setupTranslateFactory(
       BrowserAnimationsModule,
       FormsModule,
       HttpClientModule,
-      ClipboardModule
+      ClipboardModule,
+      MatSlideToggleModule
    ],
    providers: [
      TranslateService,

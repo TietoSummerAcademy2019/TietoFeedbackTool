@@ -6,7 +6,7 @@
             <button class="tieto-button submit btn btn-lg btn-block">Generate tracking code</button>
           </div>
           <div class="row sidebar-page">
-              List of pages
+            List of pages
           </div>
           <hr>
           <div class="row sidebar-page-item">
@@ -16,8 +16,8 @@
           </div>
           <div class="row settings">
             <a id="settings-link" href="#">
-              <img id="settings-cog" src="../../assets/img/cog.svg" alt="Settings">
-              <span id="settings-cog-text">Settings</span>
+            <img id="settings-cog" src="../../assets/img/cog.svg" alt="Settings">
+            <span id="settings-cog-text">Settings</span>
             </a>
           </div>
         </div>
@@ -30,28 +30,28 @@
             </div>
             <div class="col-3 tracking-code">
               <a id="survey-action">
-                <img id="survey-icon" src="../../assets/img/tracking-code.svg" alt="tracking-code-icon">
-                <span id="action-text">
-                  Tracking code
-                </span>
+              <img id="survey-icon" src="../../assets/img/tracking-code.svg" alt="tracking-code-icon">
+              <span id="action-text">
+              Tracking code
+              </span>
               </a>
             </div>
             <div class="col-3 delete">
               <a id="survey-action">
-                <img id="survey-icon" src="../../assets/img/recycle-bin.svg" alt="recycle-bin-icon">
-                <span id="action-text">
-                  Delete
-                </span>
+              <img id="survey-icon" src="../../assets/img/recycle-bin.svg" alt="recycle-bin-icon">
+              <span id="action-text">
+              Delete
+              </span>
               </a>
             </div>
           </div>
           <p class="message">Here you can find your own surveys.</p>
           <div class="new-survey">
             <a id="new-survey-action">
-              <img id="new-survey-icon" src="../../assets/img/add-new.svg" alt="new-survey-icon">
-              <span id="action-text">
-                Create new survey
-              </span>
+            <img id="new-survey-icon" src="../../assets/img/add-new.svg" alt="new-survey-icon">
+            <span id="action-text">
+            Create new survey
+            </span>
             </a>
           </div>
           <div class="survey-list">
@@ -62,26 +62,26 @@
                 </div>
                 <div class="col-2 see-more">
                   <a id="survey-item-action">
-                    <img id="survey-item-icon" src="../../assets/img/see-more.svg" alt="see-more-icon">
-                    <span id="item-action-text">
-                      See more
-                    </span>
+                  <img id="survey-item-icon" src="../../assets/img/see-more.svg" alt="see-more-icon">
+                  <span id="item-action-text">
+                  See more
+                  </span>
                   </a>
                 </div>
                 <div class="col-2 edit-item">
                   <a id="survey-item-action">
-                    <img id="survey-item-icon" src="../../assets/img/edit-pencil.svg" alt="edit-pencil-icon">
-                    <span id="item-action-text">
-                      Edit
-                    </span>
+                  <img id="survey-item-icon" src="../../assets/img/edit-pencil.svg" alt="edit-pencil-icon">
+                  <span id="item-action-text">
+                  Edit
+                  </span>
                   </a>
                 </div>
                 <div class="col-2 delete-item">
                   <a id="survey-item-action">
-                    <img id="survey-item-icon" src="../../assets/img/recycle-bin.svg" alt="recycle-bin-icon">
-                    <span id="item-action-text">
-                      Delete
-                    </span>
+                  <img id="survey-item-icon" src="../../assets/img/recycle-bin.svg" alt="recycle-bin-icon">
+                  <span id="item-action-text">
+                  Delete
+                  </span>
                   </a>
                 </div>
               </div>
@@ -94,7 +94,12 @@
                   178 responses
                   <div class="float-right" id="active-toggle">
                     Turn off
-                    <button id="active-toggle"></button>
+                    <mat-slide-toggle
+                      class="slide"
+                      [color]="color"
+                      [checked]="checked"
+                      [disabled]="disabled">
+                    </mat-slide-toggle>
                   </div>
                 </div>
               </div>

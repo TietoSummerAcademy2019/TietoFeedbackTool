@@ -11,11 +11,10 @@ export class DashboardComponent implements OnInit {
     'page1',
     'page2',
     'page3',
-  ]
-
-  click2() {
-    console.log('Click')
-  }
+  ];
+  color = 'primary';
+  checked = true;
+  disabled = false;
 
   constructor() { }
 
