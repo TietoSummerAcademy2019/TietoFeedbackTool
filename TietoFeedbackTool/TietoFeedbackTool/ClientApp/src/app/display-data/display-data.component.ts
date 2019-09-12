@@ -13,8 +13,7 @@ export class DisplayDataComponent implements OnInit {
   questionWithAnswer: Account = {
     login: '',
     name:'',
-    questionsKey:'',
-    questions: []
+    questionsKey:''
   }
   activeSite: number;
   resultsPerSite: number;

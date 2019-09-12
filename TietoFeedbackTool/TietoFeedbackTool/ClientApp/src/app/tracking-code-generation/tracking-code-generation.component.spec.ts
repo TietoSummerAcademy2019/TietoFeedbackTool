@@ -30,18 +30,4 @@ describe('TrackingCodeGenerationComponent', () => {
   it('should create tracking code generation component', () => {
     expect(component).toBeTruthy();
   });
-
-
-  /* TO BE FIXED
-  it('should component have code to copy', function (done){
-  
-    return new Promise(function (resolve, reject) {
-      component.init().then(function () {
-        const copytext = fixture.debugElement.query(By.css('#text-copy'));
-        expect(copytext.nativeElement.textContent).toContain("asd");
-      } );
-      resolve();
-    });
-  });
-  */
 });
