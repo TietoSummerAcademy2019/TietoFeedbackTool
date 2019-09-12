@@ -20,8 +20,6 @@ export class TranslateService {
           this.data = Object.assign({}, translation || {});
           resolve(this.data);
           this.language = this.data.lang;
-
-          console.log(this.data)
         },
         error => {
           console.log('Error');

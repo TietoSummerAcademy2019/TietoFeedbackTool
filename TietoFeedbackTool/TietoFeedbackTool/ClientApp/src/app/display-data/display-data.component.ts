@@ -10,7 +10,11 @@ import { OpenPuzzleAnswer } from '../models/OpenPuzzleAnswer';
 })
 export class DisplayDataComponent implements OnInit {
 
-  questionWithAnswer: Account;
+  questionWithAnswer: Account = {
+    login: '',
+    name:'',
+    questionsKey:''
+  }
   activeSite: number;
   resultsPerSite: number;
   answers: OpenPuzzleAnswer[] = [];
