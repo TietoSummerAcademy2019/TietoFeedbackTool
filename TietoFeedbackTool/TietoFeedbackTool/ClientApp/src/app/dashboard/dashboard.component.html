@@ -3,7 +3,22 @@
       <nav class="col-lg-3 d-none d-md-block sidebar">
         <div class="sidebar-sticky">
           <div>
-            <button class="tieto-button submit btn btn-lg btn-primary btn-block" type="submit" routerLink="" routerLinkActive="active">Generate tracking code</button>
+            <button class="tieto-button submit btn btn-lg btn-block">Generate tracking code</button>
+          </div>
+          <div class="row sidebar-page">
+              List of pages
+          </div>
+          <hr>
+          <div class="row sidebar-page-item">
+            <ul>
+              <li *ngFor="let page of pages"> {{ page }}</li>
+            </ul>
+          </div>
+          <div class="row settings">
+            <a id="settings-link" href="#">
+              <img id="settings-cog" src="../../assets/img/cog.svg" alt="Settings">
+              <span id="settings-cog-text">Settings</span>
+            </a>
           </div>
         </div>
       </nav>
