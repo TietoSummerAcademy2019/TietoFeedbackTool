@@ -2,7 +2,7 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { TrackingCodeGenerationService } from './tracking-code-generation.service';
-import { Survey } from '../models/Survey';
+import { Account } from '../models/Account';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('Service: TrackingCodeGeneration', () => {
@@ -12,7 +12,7 @@ describe('Service: TrackingCodeGeneration', () => {
     });
   });
 
-  it('should ...', inject([TrackingCodeGenerationService], (service: TrackingCodeGenerationService<Survey>) => {
+  it('should create tracking code service', inject([TrackingCodeGenerationService], (service: TrackingCodeGenerationService<Account>) => {
     expect(service).toBeTruthy();
   }));
 });

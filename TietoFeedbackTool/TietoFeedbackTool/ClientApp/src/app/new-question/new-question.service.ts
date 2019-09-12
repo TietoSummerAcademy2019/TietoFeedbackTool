@@ -19,6 +19,10 @@ export class NewQuestionService<T extends Question> {
     });
   }
 
+  getItems() {
+    return this.items;
+  }
+
   add(item: T) {
     this.items.push(item);
     this.http.post(this.apiBase, item).subscribe();

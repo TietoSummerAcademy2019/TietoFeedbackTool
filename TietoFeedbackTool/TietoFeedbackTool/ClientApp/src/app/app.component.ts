@@ -7,7 +7,7 @@ import { TranslateService } from './translate-service/translate-service.service'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Tieto Jar';
+  title = 'Tieto FeedBackTool';
   team2 = 'Team Kangaroo';
   selectedLanguage: string;
   image: string = 'url(../assets/flags-eng.svg)';

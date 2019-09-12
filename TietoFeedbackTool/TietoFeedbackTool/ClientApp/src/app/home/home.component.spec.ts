@@ -23,7 +23,11 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create home component', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should title be TietoFeedbackTool', () => {
+    expect(component.title).toEqual('TietoFeedbackTool');
+  })
 });

@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { TrackingCodeGenerationComponent } from './tracking-code-generation.component';
 
@@ -12,7 +12,7 @@ describe('TrackingCodeGenerationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      providers: [HttpClient, HttpHandler],
+      imports: [HttpClientTestingModule],
       declarations: [TrackingCodeGenerationComponent]
     })
     .compileComponents();
@@ -21,10 +21,27 @@ describe('TrackingCodeGenerationComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TrackingCodeGenerationComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    return new Promise(function (resolve, reject) {
+      component.init();
+      resolve();
+    });
   });
 
-  it('should create', () => {
+  it('should create tracking code generation component', () => {
     expect(component).toBeTruthy();
   });
+
+
+  /* TO BE FIXED
+  it('should component have code to copy', function (done){
+  
+    return new Promise(function (resolve, reject) {
+      component.init().then(function () {
+        const copytext = fixture.debugElement.query(By.css('#text-copy'));
+        expect(copytext.nativeElement.textContent).toContain("asd");
+      } );
+      resolve();
+    });
+  });
+  */
 });
