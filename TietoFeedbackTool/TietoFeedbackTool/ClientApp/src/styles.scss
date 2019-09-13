@@ -203,3 +203,20 @@ body {
   margin: 1rem 1rem 1rem;
   height: 50%;
 }
+
+/*
+  Exit image
+*/
+
+.img-exit {
+  margin-top: 2px;
+  background-image: url(../src/assets/img/exit.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  float: right;
+  margin-right:10px;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
