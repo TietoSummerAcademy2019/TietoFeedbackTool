@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TietoFeedbackTool.Persistence;
 
 namespace TietoFeedbackTool.Migrations
 {
     [DbContext(typeof(TietoFeedbackToolContext))]
-    partial class TietoFeedbackToolContextModelSnapshot : ModelSnapshot
+    [Migration("20190911101109_backendRefactor2")]
+    partial class backendRefactor2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,13 +29,13 @@ namespace TietoFeedbackTool.Migrations
                     b.Property<string>("Name");
 
                     b.Property<string>("QuestionsKey")
+                        .IsRequired()
                         .ValueGeneratedOnAdd();
 
                     b.HasKey("Login");
 
                     b.HasIndex("QuestionsKey")
-                        .IsUnique()
-                        .HasFilter("[QuestionsKey] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Accounts");
                 });
@@ -66,8 +68,7 @@ namespace TietoFeedbackTool.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AccountLogin")
-                        .IsRequired();
+                    b.Property<string>("AccountLogin");
 
                     b.Property<string>("Domain");
 
@@ -94,8 +95,7 @@ namespace TietoFeedbackTool.Migrations
                 {
                     b.HasOne("TietoFeedbackTool.Domain.Account")
                         .WithMany("Questions")
-                        .HasForeignKey("AccountLogin")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("AccountLogin");
                 });
 #pragma warning restore 612, 618
         }

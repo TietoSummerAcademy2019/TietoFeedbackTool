@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SurveyPuzzle } from '../models/SurveyPuzzle';
+import { Question } from '../models/Question';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NewQuestionService<T extends SurveyPuzzle> {
+export class NewQuestionService<T extends Question> {
 
   private items: T[] = [];
   private readonly apiBase = environment.newQuestionUrl;
@@ -16,15 +16,15 @@ export class NewQuestionService<T extends SurveyPuzzle> {
     this.http.get<T[]>(this.apiBase)
       .subscribe(items => {
         this.items = items;
-        // for loop for demo purpose
-        for(let item of items) {
-          console.log(item.puzzleQuestion)
-        }
     });
+  }
+
+  getItems() {
+    return this.items;
   }
 
   add(item: T) {
     this.items.push(item);
-    this.http.post(this.apiBase, item);
+    this.http.post(this.apiBase, item).subscribe();
   }
 }

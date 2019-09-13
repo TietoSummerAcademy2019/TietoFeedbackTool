@@ -10,7 +10,11 @@ import { OpenPuzzleAnswer } from '../models/OpenPuzzleAnswer';
 })
 export class DisplayDataComponent implements OnInit {
 
-  questionWithAnswer: Account;
+  questionWithAnswer: Account = {
+    login: '',
+    name:'',
+    questionsKey:''
+  }
   activeSite: number;
   resultsPerSite: number;
   answers: OpenPuzzleAnswer[] = [];
@@ -38,7 +42,7 @@ export class DisplayDataComponent implements OnInit {
       this.questionWithAnswer = result;
     });
 
-    for (let question of this.questionWithAnswer.surveys[0].surveyPuzzles) {
+    for (let question of this.questionWithAnswer.questions) {
       this.answers = this.answers.concat(question.openPuzzleAnswers);
     }
 

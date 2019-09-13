@@ -1,7 +1,7 @@
 function surveySetup() {
   const survey = {
     answer: document.getElementById('answer'),
-    surveyPuzzleId: document.getElementById('answer').getAttribute("data-id"),
+    questionId: document.getElementById('answer').getAttribute("data-id"),
     submit: document.getElementById('survey-submit')
   };
 
@@ -14,12 +14,12 @@ function surveySetup() {
 
     var requestData = {
       answer: `${survey.answer.value}`,
-      surveyPuzzleId: `${survey.surveyPuzzleId}`
+      questionId: `${survey.questionId}`
     };
 
     var jsonData = JSON.stringify(requestData);
 
-    var link = 'https://10.33.0.54:8083/api/answer/open';
+    var link = 'https://localhost:44350/api/Answer/open';
     request.open('post', link);
     request.setRequestHeader('Content-type', 'application/json');
 
@@ -33,13 +33,13 @@ function addCSS()
   var linkNode = document.createElement("link");
   linkNode.setAttribute("rel", "stylesheet");
   linkNode.setAttribute("type", "text/css");
-  linkNode.setAttribute("href", "https://10.33.0.54:8083/api/survey/getstyle");
+  linkNode.setAttribute("href", "https://localhost:44350/api/survey/getstyle");
   document.head.appendChild(linkNode);
 }
 function checkDomain() {
   var key = getSurveyKey();
   var currentDomain = window.location.host;
-  var apiLink = "https://10.33.0.54:8083/api/survey/getsurvey/" + key + "/" + currentDomain;
+  var apiLink = "https://localhost:44350/api/survey/getsurvey/" + key + "/" + currentDomain;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -57,8 +57,24 @@ function checkDomain() {
 function changeHtmlContent() {
   document.getElementById('answer-body').style.display = 'none';
   document.getElementById('success-message').style.display = 'inline';
+  setTimeout(function () {
+    closeTool()
+   },1000); //delay is in milliseconds 
+
+}
+
+function closeTool() {
+  document.getElementsByClassName('feedback')[0].style.display = 'none';
 }
 
 window.addEventListener('load', () => {
   checkDomain();
 });
+
+function changeOpacity() {
+  if (document.getElementsByClassName('img-exit')[0].style.opacity == 0) {
+    document.getElementsByClassName('img-exit')[0].style.opacity = 1;
+  } else {
+    document.getElementsByClassName('img-exit')[0].style.opacity = 0;
+  }
+}
