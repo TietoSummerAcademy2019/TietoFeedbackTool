@@ -5,5 +5,5 @@ export interface Question {
   questionText: string;
   AccountLogin: string;
   openPuzzleAnswers?: OpenPuzzleAnswer[];
-  Enabled: boolean;
+  enabled: boolean;
 }

@@ -34,7 +34,9 @@ export class DashboardComponent implements OnInit {
 
   async init() {
     await this.ds.getAll().then((result) => {
+      console.log(result);
       this.questionWithAnswer = result;
+      // this.questionWithAnswer.questions.forEach(question => console.log(typeof question.enabled))
     });
   }
 }

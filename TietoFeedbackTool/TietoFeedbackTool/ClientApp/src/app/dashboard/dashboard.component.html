@@ -93,13 +93,25 @@
                 <div id="response-count">
                   178 responses
                   <div class="float-right" id="active-toggle">
-                    Turn off
-                    <mat-slide-toggle
-                      class="slide"
-                      [color]="color"
-                      [checked]="checked"
-                      [disabled]="disabled">
-                    </mat-slide-toggle>
+                    <div *ngIf="question.enabled; then activeBlock else inactiveBlock"></div>
+                    <ng-template #activeBlock>
+                      Turn off
+                      <mat-slide-toggle
+                        class="slide"
+                        [color]="color"
+                        [checked]=true
+                        [disabled]="disabled">
+                      </mat-slide-toggle>
+                    </ng-template>
+                    <ng-template #inactiveBlock>
+                      Turn on
+                      <mat-slide-toggle
+                        class="slide"
+                        [color]="color"
+                        [checked]=false
+                        [disabled]="disabled">
+                      </mat-slide-toggle>
+                    </ng-template>
                   </div>
                 </div>
               </div>
