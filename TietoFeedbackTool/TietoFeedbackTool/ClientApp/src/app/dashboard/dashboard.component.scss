@@ -89,6 +89,7 @@ main {
                 align-items: center;
                 & a {
                   &#survey-action {
+                    text-decoration: none;
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
@@ -114,6 +115,7 @@ main {
           }
         }
         & div.new-survey > a#new-survey-action {
+          text-decoration: none;
           display: flex;
           justify-content: flex-start;
           align-items: center;
@@ -145,6 +147,7 @@ main {
                 align-items: center;
                 & a {
                   &#survey-item-action {
+                    text-decoration: none;
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
