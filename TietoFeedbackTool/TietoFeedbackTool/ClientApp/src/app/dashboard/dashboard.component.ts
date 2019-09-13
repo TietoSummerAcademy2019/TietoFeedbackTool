@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Account } from '../models/Account';
+import { DisplayDataService } from '../display-data/display-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,13 +14,27 @@ export class DashboardComponent implements OnInit {
     'page2',
     'page3',
   ];
+
+  // angular material properties
   color = 'primary';
   checked = true;
   disabled = false;
 
-  constructor() { }
-
-  ngOnInit() {
+  questionWithAnswer: Account = {
+    login: '',
+    name:'',
+    questionsKey:''
   }
 
+  constructor(private ds: DisplayDataService<Account>) { }
+
+  ngOnInit() {
+    this.init();
+  }
+
+  async init() {
+    await this.ds.getAll().then((result) => {
+      this.questionWithAnswer = result;
+    });
+  }
 }

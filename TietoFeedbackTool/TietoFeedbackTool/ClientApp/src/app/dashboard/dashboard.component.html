@@ -55,10 +55,10 @@
             </a>
           </div>
           <div class="survey-list">
-            <div class="survey-list-item">
+            <div class="survey-list-item" *ngFor="let question of questionWithAnswer.questions">
               <div class="row survey-list-item-head">
                 <div class="col-6 question">
-                  What do you think about our design?
+                  {{ question.questionText }}
                 </div>
                 <div class="col-2 see-more">
                   <a id="survey-item-action" routerLink="/">
