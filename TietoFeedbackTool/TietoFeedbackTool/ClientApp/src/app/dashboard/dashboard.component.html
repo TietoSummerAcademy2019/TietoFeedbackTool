@@ -97,6 +97,7 @@
                     <ng-template #activeBlock>
                       Turn off
                       <mat-slide-toggle
+                        (click)="question.enabled=!question.enabled"
                         class="slide"
                         [color]="color"
                         [checked]=true
@@ -106,6 +107,7 @@
                     <ng-template #inactiveBlock>
                       Turn on
                       <mat-slide-toggle
+                        (click)="question.enabled=!question.enabled"
                         class="slide"
                         [color]="color"
                         [checked]=false
