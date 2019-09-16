@@ -24,5 +24,6 @@ export class DisplayDataService<T extends Account> {
   remove(id:string) {
     console.log(`${this.deleteQuestionUrl}/${id}`);
     this.http.delete(`${this.deleteQuestionUrl}/${id}`).subscribe();
+    window.location.reload();
   }
 }
