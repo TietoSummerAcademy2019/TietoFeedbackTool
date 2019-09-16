@@ -220,3 +220,10 @@ body {
   transition: all 0.4s ease;
   opacity: 0;
 }
+
+.custom-dialog {
+  .mat-dialog-container{
+    padding: 3.375rem;
+    border-radius: .75rem;
+  }
+}

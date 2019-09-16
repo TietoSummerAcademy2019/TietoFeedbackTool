@@ -4,6 +4,9 @@ import { DisplayDataService } from '../display-data/display-data.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { I18nPluralPipe } from '@angular/common';
+import { MatDialog } from '@angular/material'
+import { DeletePopupComponent } from './delete-popup/delete-popup.component';
+
 
 
 @Component({
@@ -41,7 +44,11 @@ export class DashboardComponent implements OnInit {
     questionsKey:''
   }
 
-  constructor(private ds: DisplayDataService<Account>, private http: HttpClient) { }
+  constructor(
+    private ds: DisplayDataService<Account>,
+    private http: HttpClient,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
     this.init();
@@ -56,7 +63,12 @@ export class DashboardComponent implements OnInit {
   }
 
   removeQuestion(id) {
-    console.log('comp');
     this.ds.remove(id)
+  }
+
+  openDialog() {
+    this.dialog.open(DeletePopupComponent, {
+      panelClass: 'custom-dialog'
+    });
   }
 }
