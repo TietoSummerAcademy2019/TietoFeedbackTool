@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "tietoMaterialTheme";
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
@@ -131,8 +131,10 @@ body {
 /* Styles to button Submit and Cancel*/
 
 .tieto-button {
-  height: 45px;
-  width: 198px;
+  margin: 0 auto;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
   &.submit {
     background: #0e76b7;
     border-style: none;
@@ -195,10 +197,16 @@ body {
   display: none;
 }
 
+.icon-back {
+  text-align: center;
+  display: block;
+  margin: 1rem 1rem 1rem;
+  height: 50%;
+}
+
 /*
   Exit image
 */
-
 
 .img-exit {
   margin-top: 2px;

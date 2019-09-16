@@ -1,0 +1,128 @@
+<div class="container-fluid">
+    <div class="row">
+      <nav class="col-lg-3 d-none d-lg-block sidebar">
+        <div class="sidebar-sticky">
+          <div>
+            <button class="tieto-button submit btn btn-lg btn-block" [routerLink]="['/tracking-code-generation']" routerLinkActive="router-link-active">Generate tracking code</button>
+          </div>
+          <div class="row sidebar-page">
+            List of pages
+          </div>
+          <hr>
+          <div class="row sidebar-page-item">
+            <ul>
+              <li *ngFor="let page of pages"> {{ page }}</li>
+            </ul>
+          </div>
+          <div class="row settings">
+            <a id="settings-link" href="#">
+            <img id="settings-cog" src="../../assets/img/cog.svg" alt="Settings">
+            <span id="settings-cog-text">Settings</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <main role="main" class="col-lg-9 ml-sm-auto col-lg-9 main-wrapper">
+        <div class="main-content">
+          <div class="row heading">
+            <div class="col-2 title">
+              Dashboard
+            </div>
+            <div class="col-2 tracking-code">
+              <a id="survey-action" routerLink="tracking-code-generation">
+                <img id="survey-icon" src="../../assets/img/tracking-code.svg" alt="tracking-code-icon">
+                <span id="action-text">
+                  Tracking code
+                </span>
+                </a>
+            </div>
+            <div class="col-1 delete">
+              <a id="survey-action" routerLink="/">
+                <img id="survey-icon" src="../../assets/img/recycle-bin.svg" alt="recycle-bin-icon">
+                <span id="action-text">
+                  Delete
+                </span>
+              </a>
+            </div>
+          </div>
+          <p class="message">Here you can find your own surveys.</p>
+          <div class="new-survey">
+            <a id="new-survey-action" routerLink="new-question">
+              <img id="new-survey-icon" src="../../assets/img/add-new.svg" alt="new-survey-icon">
+              <span id="action-text">
+                Create new survey
+            </span>
+            </a>
+          </div>
+          <div class="survey-list-empty" *ngIf="!questionWithAnswer.questions">
+            Nothing to display
+          </div>
+          <div class="survey-list" *ngIf="questionWithAnswer.questions">
+            <div class="survey-list-item" *ngFor="let question of questionWithAnswer.questions">
+              <div class="row survey-list-item-head">
+                <div class="col-6 question">
+                  {{ question.questionText }}
+                </div>
+                <div class="col-2 see-more">
+                  <a id="survey-item-action" routerLink="display-data">
+                    <img id="survey-item-icon" src="../../assets/img/see-more.svg" alt="see-more-icon">
+                    <span id="item-action-text">
+                      See more
+                    </span>
+                  </a>
+                </div>
+                <div class="col-2 edit-item">
+                  <a id="survey-item-action" routerLink="/">
+                    <img id="survey-item-icon" src="../../assets/img/edit-pencil.svg" alt="edit-pencil-icon">
+                    <span id="item-action-text">
+                      Edit
+                    </span>
+                  </a>
+                </div>
+                <div class="col-2 delete-item">
+                  <a id="survey-item-action" routerLink="/">
+                    <img id="survey-item-icon" src="../../assets/img/recycle-bin.svg" alt="recycle-bin-icon">
+                    <span id="item-action-text">
+                      Delete
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <hr id="survey-item-separator">
+              <div class="survey-info">
+                <div id="creation-date">
+                  28.08.2019
+                </div>
+                <div id="response-count">
+                  178 responses
+                  <div class="float-right" id="active-toggle">
+                    <div *ngIf="question.enabled; then activeBlock else inactiveBlock"></div>
+                    <ng-template #activeBlock>
+                      Turn off
+                      <mat-slide-toggle
+                        (click)="question.enabled=!question.enabled"
+                        class="slide"
+                        [color]="color"
+                        [checked]=true
+                        [disabled]="disabled">
+                      </mat-slide-toggle>
+                    </ng-template>
+                    <ng-template #inactiveBlock>
+                      Turn on
+                      <mat-slide-toggle
+                        (click)="question.enabled=!question.enabled"
+                        class="slide"
+                        [color]="color"
+                        [checked]=false
+                        [disabled]="disabled">
+                      </mat-slide-toggle>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>

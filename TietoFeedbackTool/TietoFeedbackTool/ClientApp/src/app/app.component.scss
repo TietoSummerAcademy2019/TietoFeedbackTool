@@ -1,3 +1,21 @@
+.navigation-item {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+.float-left {
+  height: 100%;
+}
+
+a {
+  & img {
+    &.kangaroo-icon {
+      height: 100%;
+      margin-top: 5px;
+    }
+  }
+}
+
 .tieto-feedback-tool {
   &-header {
   background-color: #0E76B7;;
