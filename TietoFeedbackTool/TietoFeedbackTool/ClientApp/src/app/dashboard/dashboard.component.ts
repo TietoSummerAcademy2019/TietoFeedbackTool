@@ -55,7 +55,6 @@ export class DashboardComponent implements OnInit {
     await this.ds.getAll().then((result) => {
       this.questionWithAnswer = result;
     });
-<<<<<<< HEAD
   }
 
   openDialog(id) {
@@ -64,7 +63,5 @@ export class DashboardComponent implements OnInit {
       panelClass: 'custom-dialog',
       data: { idQ: id }
     });
-=======
->>>>>>> dev
   }
 }
