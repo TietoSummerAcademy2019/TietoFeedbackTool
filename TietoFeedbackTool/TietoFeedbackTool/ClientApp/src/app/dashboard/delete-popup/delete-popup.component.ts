@@ -20,5 +20,4 @@ export class DeletePopupComponent {
     console.log(this.data.idQ);
     this.ds.remove(this.data.idQ)
   }
-
 }
