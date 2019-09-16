@@ -54,7 +54,10 @@
             </span>
             </a>
           </div>
-          <div class="survey-list">
+          <div class="survey-list-empty" *ngIf="!questionWithAnswer.questions">
+            Nothing to display
+          </div>
+          <div class="survey-list" *ngIf="questionWithAnswer.questions">
             <div class="survey-list-item" *ngFor="let question of questionWithAnswer.questions">
               <div class="row survey-list-item-head">
                 <div class="col-6 question">
