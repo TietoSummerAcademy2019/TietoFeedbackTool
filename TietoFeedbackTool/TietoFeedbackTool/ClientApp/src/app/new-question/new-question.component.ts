@@ -15,7 +15,7 @@ export class NewQuestionComponent {
     AccountLogin: 'OlejWoj',
     questionText: '',
     Domain: 'localhost:44350',
-    Enabled: false
+    enabled: false
   }
 
   constructor(private qs: NewQuestionService<Question>) { }
