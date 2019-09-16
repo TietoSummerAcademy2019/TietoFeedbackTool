@@ -16,7 +16,6 @@ export class AppComponent {
   imageNavbar_2 = '../assets/img/back.svg';
 
   constructor(private translate: TranslateService, private router: Router) {
-    console.log('loading...')
     this.selectedLanguage = "English";
 
     this.router.events.subscribe(event => {
@@ -43,6 +42,5 @@ export class AppComponent {
     }
     this.translate.use(lang);
     this.selectedLanguage = langName;
-    console.log(langName);
   }
 }
