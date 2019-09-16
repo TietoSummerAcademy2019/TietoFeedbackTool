@@ -92,5 +92,5 @@ function checkAnswer() {
 }
 
 function isEmptyOrSpaces(str) {
-  return str === null || str.match(/^ *$/) !== null;
+  return str === null || str.match(/^\s* *$/) !== null;
 }
