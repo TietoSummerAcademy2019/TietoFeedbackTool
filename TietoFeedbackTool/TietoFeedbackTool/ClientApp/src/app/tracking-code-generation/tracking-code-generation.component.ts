@@ -26,7 +26,10 @@ export class TrackingCodeGenerationComponent implements OnInit {
     });
     this.questionsKey = this.acc[0].questionsKey;
     this.userSideScript = `
-    <script async src="https://localhost:44350/api/survey/getscript/${ this.questionsKey}"></script>`
+    <script async
+      src="https://localhost:44350/api/survey/getscript/
+      ${ this.questionsKey}">
+    </script>`
   }
 
   copyScript(element) {
