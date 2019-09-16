@@ -49,7 +49,6 @@ module.exports = {
             .assert.containsText('@answerItem',answer)
 
     },
-    */
     'Should change language after switching flag': async function(browser){
         var homeSite = browser.page.tietoFeedbackToolHome();
 
@@ -62,5 +61,19 @@ module.exports = {
             .pause(200)
             .click('@suomiBtn')
             .assert.containsText('@title','Tervetuloa TietoFeedbackTool!')
+    },
+
+    */
+    'Should error message appear after subitting empty answer': async function(browser){
+        var homeSite = browser.page.tietoFeedbackToolMarkingBar();
+
+        homeSite
+            .navigate()
+            .waitForElementPresent('@feedbackTool',constants.TIMEOUT)
+            .click('@feedbackTool')
+            .pause(500)
+            .click('@submitBtn')
+            .pause(200)
+            .assert.elementPresent('#need')
     }
 }

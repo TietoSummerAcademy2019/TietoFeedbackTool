@@ -78,6 +78,20 @@
   color: #0e76b7;
 }
 
+.error-label {
+  background-color: deeppink;
+  color: white;
+  padding:3px 15px 3px 15px;
+  margin-top:-px;
+  float:left;
+  border-radius:6px;
+  display:none;
+}
+
+.div.text-center{
+  margin-bottom:0px ;
+}
+
 .visible-exit, .visible-msg, .visible-form {
   opacity: 1 !important;
 }
@@ -102,9 +116,11 @@
 }
 
 .feedback {
+  opacity: 1;
   position: fixed;
   bottom: 0;
   right: 10vw;
+  transition: opacity 2s ease;
 }
 
 .feedback-marking-bar:hover {
