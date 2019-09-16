@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../models/Account';
 import { DisplayDataService } from '../display-data/display-data.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +11,7 @@ import { DisplayDataService } from '../display-data/display-data.service';
 })
 export class DashboardComponent implements OnInit {
 
+  private readonly deleteQuestionUrl = environment.deleteQuestionUrl;
   pages = [
     'page1',
     'page2',
@@ -26,7 +29,7 @@ export class DashboardComponent implements OnInit {
     questionsKey:''
   }
 
-  constructor(private ds: DisplayDataService<Account>) { }
+  constructor(private ds: DisplayDataService<Account>, private http: HttpClient) { }
 
   ngOnInit() {
     this.init();
@@ -36,5 +39,10 @@ export class DashboardComponent implements OnInit {
     await this.ds.getAll().then((result) => {
       this.questionWithAnswer = result;
     });
+  }
+
+  removeQuestion(id) {
+    console.log('comp');
+    this.ds.remove(id)
   }
 }

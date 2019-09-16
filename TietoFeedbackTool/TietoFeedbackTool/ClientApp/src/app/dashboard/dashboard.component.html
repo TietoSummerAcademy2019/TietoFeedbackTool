@@ -82,7 +82,7 @@
                 <div class="col-2 delete-item">
                   <a id="survey-item-action" routerLink="/">
                     <img id="survey-item-icon" src="../../assets/img/recycle-bin.svg" alt="recycle-bin-icon">
-                    <span id="item-action-text">
+                    <span id="item-action-text" (click)="removeQuestion(question.id)">
                       Delete
                     </span>
                   </a>
