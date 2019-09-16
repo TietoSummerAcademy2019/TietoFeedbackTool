@@ -19,15 +19,19 @@ module.exports = {
        
         displayData
             .navigate()
-            .click('@seeMore')
+            .waitForElementPresent('@lastElement')
+            .click('@lastElement')
+            .pause(500)
             .waitForElementPresent('@questionItem', constants.TIMEOUT)
             .assert.containsText('@questionItem','What could you improve in our site?')
             .pause(500);
         
      
     },
-    
     'Should created answer be displayed in display page': async function(browser){
+
+        //THIS TEST REQUIRE THAT YOU HAVE FIRST QUESTION ENABLED AND WITH CORRECT DOMAIN
+
         var displayData = browser.page.tietoFeedbackToolDisplayData();
         var answerSite = browser.page.tietoFeedbackToolMarkingBar();
 
@@ -49,7 +53,6 @@ module.exports = {
             .assert.containsText('@answerItem',answer)
 
     },
-    
     'Should error message appear after trying to submit empty answer': async function(browser){
         var homeSite = browser.page.tietoFeedbackToolMarkingBar();
 
@@ -87,5 +90,4 @@ module.exports = {
         .assert.containsText("h1","Tracking Code Generator")
         .pause(500)
    }
-
 }

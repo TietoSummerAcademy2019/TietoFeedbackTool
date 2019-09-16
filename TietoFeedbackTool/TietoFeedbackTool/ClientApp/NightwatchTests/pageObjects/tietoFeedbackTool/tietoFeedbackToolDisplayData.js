@@ -1,6 +1,10 @@
 module.exports = {
     url:'https://localhost:44350',
     elements:{
+        lastElement:{
+            selector:'//div[@class = "survey-list"]//div[last()-2]//span',
+            locateStrategy:'xpath'
+        },
         seeMore:{
             selector: 'see-more',
             locateStrategy: 'class name'
