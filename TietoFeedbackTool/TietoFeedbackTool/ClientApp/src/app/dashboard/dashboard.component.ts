@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Account } from '../models/Account';
 import { DisplayDataService } from '../display-data/display-data.service';
+import { I18nPluralPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +16,16 @@ export class DashboardComponent implements OnInit {
     'page2',
     'page3',
   ];
+
+  // i18n pluralization map
+  responseMapping = {
+    'response': {
+      '=0' : '0 Responses',
+      '=1' : '1 Response',
+      'other' : '# Responses'
+    }
+  };
+  item: any;
 
   // angular material properties
   color = 'primary';
@@ -30,11 +42,13 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.init();
+    this.item = 'response';
   }
 
   async init() {
     await this.ds.getAll().then((result) => {
       this.questionWithAnswer = result;
     });
+    console.log(this.questionWithAnswer.questions)
   }
 }
