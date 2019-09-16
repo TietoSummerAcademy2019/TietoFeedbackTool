@@ -102,9 +102,11 @@
 }
 
 .feedback {
+  opacity: 1;
   position: fixed;
   bottom: 0;
   right: 10vw;
+  transition: opacity 2s ease;
 }
 
 .feedback-marking-bar:hover {

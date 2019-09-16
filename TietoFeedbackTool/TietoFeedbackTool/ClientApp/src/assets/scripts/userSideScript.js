@@ -58,13 +58,15 @@ function changeHtmlContent() {
   document.getElementById('answer-body').style.display = 'none';
   document.getElementById('success-message').style.display = 'inline';
   setTimeout(function () {
-    closeTool()
+    closeTool();
    },1000); //delay is in milliseconds 
-
 }
 
 function closeTool() {
-  document.getElementsByClassName('feedback')[0].style.display = 'none';
+  document.getElementsByClassName('feedback')[0].style.opacity = 0;
+  setTimeout(function () {
+    document.getElementsByClassName('feedback')[0].style.display = 'none';
+  }, 2000);
 }
 
 window.addEventListener('load', () => {
