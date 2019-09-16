@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Account } from '../models/Account';
 import { DisplayDataService } from '../display-data/display-data.service';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
 import { I18nPluralPipe } from '@angular/common';
 import { MatDialog } from '@angular/material'
 import { DeletePopupComponent } from './delete-popup/delete-popup.component';
@@ -16,7 +14,6 @@ import { DeletePopupComponent } from './delete-popup/delete-popup.component';
 })
 export class DashboardComponent implements OnInit {
 
-  private readonly deleteQuestionUrl = environment.deleteQuestionUrl;
   pages = [
     'page1',
     'page2',
@@ -46,7 +43,6 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private ds: DisplayDataService<Account>,
-    private http: HttpClient,
     public dialog: MatDialog
   ) { }
 
@@ -59,16 +55,13 @@ export class DashboardComponent implements OnInit {
     await this.ds.getAll().then((result) => {
       this.questionWithAnswer = result;
     });
-    console.log(this.questionWithAnswer.questions)
   }
 
-  removeQuestion(id) {
-    this.ds.remove(id)
-  }
-
-  openDialog() {
+  openDialog(id) {
+    console.log(id)
     this.dialog.open(DeletePopupComponent, {
-      panelClass: 'custom-dialog'
+      panelClass: 'custom-dialog',
+      data: { idQ: id }
     });
   }
 }
