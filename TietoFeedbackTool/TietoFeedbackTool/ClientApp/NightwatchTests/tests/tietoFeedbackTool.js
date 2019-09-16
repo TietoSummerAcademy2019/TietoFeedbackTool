@@ -2,7 +2,7 @@ var constants = require('../consts');
 
 module.exports = {
  
-
+    /*
        
     'Should created question be displayed in display page': async function(browser){
         var displayData = browser.page.tietoFeedbackToolDisplayData();
@@ -46,7 +46,21 @@ module.exports = {
             .navigate()
             .waitForElementPresent('@answerItem',constants.TIMEOUT)
             .pause(500)
-            .assert.containsText('@answerItem','ds')
+            .assert.containsText('@answerItem',answer)
 
+    },
+    */
+    'Should change language after switching flag': async function(browser){
+        var homeSite = browser.page.tietoFeedbackToolHome();
+
+        homeSite
+            .navigate()
+            .waitForElementPresent('@languageBtn',constants.TIMEOUT)
+            .pause(500)
+            .assert.containsText('@title','Welcome to TietoFeedbackTool!')
+            .click('@languageBtn')
+            .pause(200)
+            .click('@suomiBtn')
+            .assert.containsText('@title','Tervetuloa TietoFeedbackTool!')
     }
 }
