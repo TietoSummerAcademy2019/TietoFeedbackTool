@@ -42,6 +42,5 @@ export class AppComponent {
     }
     this.translate.use(lang);
     this.selectedLanguage = langName;
-    console.log(langName);
   }
 }
