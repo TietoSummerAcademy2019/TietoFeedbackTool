@@ -12,7 +12,12 @@ module.exports = {
         userName:{
             selector:'information-question-header',
             locateStrategy: 'class name'
+        },
+        answerItem:{
+            selector:'//tbody//tr[last()]//td[3]',
+            locateStrategy:'xpath'
         }
+
     }
 
     

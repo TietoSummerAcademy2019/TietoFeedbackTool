@@ -1,5 +1,5 @@
 module.exports = {
-    url:'https://localhost:44350/marking-bar',
+    url:'https://localhost:44350',
     elements:{
         feedbackTool:{
             selector: 'marking-bar',
@@ -8,8 +8,11 @@ module.exports = {
         answerInput:{
             selector :'answer-input',
             locateStrategy: 'class name'
+        },
+        submitBtn:{
+           selector:'survey-submit' ,
+           locateStrategy : 'id'
         }
-
         
     }
 }

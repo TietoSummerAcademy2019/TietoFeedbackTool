@@ -22,7 +22,7 @@ export class MarkingBarComponent implements OnInit {
   constructor(private mbs: MarkingBarService<Question, OpenAnswer>) { };
 
   AnswerModel: OpenAnswer = {
-    SurveyPuzzleId: 1,
+    QuestionId: 1,
     Answer: ''
   }
 
