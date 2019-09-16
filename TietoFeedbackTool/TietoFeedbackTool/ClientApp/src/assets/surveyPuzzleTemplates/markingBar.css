@@ -79,13 +79,13 @@
 }
 
 .error-label {
-  background-color: deeppink;
+  background-color: #d9135c;
   color: white;
-  padding:3px 15px 3px 15px;
-  margin-top:-px;
-  float:left;
-  border-radius:6px;
-  display:none;
+  padding: 3px 15px 3px 15px;
+  margin-top: -5px;
+  float: left;
+  border-radius: 6px;
+  display: none;
 }
 
 .div.text-center{
