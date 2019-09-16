@@ -83,8 +83,8 @@ function changeOpacity() {
 
 function checkAnswer() {
   if (isEmptyOrSpaces(document.getElementById('answer').value)) {
-    document.getElementById('answer').style.backgroundColor = "pink";
-    document.getElementById('answer').style.borderColor = "red";
+    document.getElementById('answer').style.backgroundColor =  "#ffedf1";
+    document.getElementById('answer').style.borderColor = "#d9135d";
     document.getElementById('need').style.display = 'inline';
   } else {
     changeHtmlContent();
@@ -92,5 +92,5 @@ function checkAnswer() {
 }
 
 function isEmptyOrSpaces(str) {
-  return str === null || str.match(/^ *$/) !== null;
+  return str === null || str.match(/^\s* *$/) !== null;
 }

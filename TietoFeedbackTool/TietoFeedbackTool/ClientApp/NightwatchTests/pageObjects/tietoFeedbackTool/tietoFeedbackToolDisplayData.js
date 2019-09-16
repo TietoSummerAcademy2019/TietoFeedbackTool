@@ -1,6 +1,10 @@
 module.exports = {
-    url:'https://localhost:44350/display-data',
+    url:'https://localhost:44350',
     elements:{
+        seeMore:{
+            selector: 'see-more',
+            locateStrategy: 'class name'
+        },
         questions:{
             selector: 'information-question-information',
             locateStrategy: 'class name'

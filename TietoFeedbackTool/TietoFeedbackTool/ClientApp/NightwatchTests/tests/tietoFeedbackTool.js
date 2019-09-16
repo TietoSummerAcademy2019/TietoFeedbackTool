@@ -2,12 +2,10 @@ var constants = require('../consts');
 
 module.exports = {
  
-    /*
-       
     'Should created question be displayed in display page': async function(browser){
         var displayData = browser.page.tietoFeedbackToolDisplayData();
         var questionSite = browser.page.tietoFeedbackToolQuestion();
-        var text = 'NewQuestion';
+        var text = 'What could you improve in our site?';
 
         
         questionSite
@@ -21,18 +19,19 @@ module.exports = {
        
         displayData
             .navigate()
+            .click('@seeMore')
             .waitForElementPresent('@questionItem', constants.TIMEOUT)
-            .assert.containsText('@questionItem',text)
+            .assert.containsText('@questionItem','What could you improve in our site?')
             .pause(500);
         
      
     },
-
+    
     'Should created answer be displayed in display page': async function(browser){
         var displayData = browser.page.tietoFeedbackToolDisplayData();
         var answerSite = browser.page.tietoFeedbackToolMarkingBar();
 
-        var answer = 'New answer';
+        var answer = 'Not really';
         answerSite 
             .navigate()
             .waitForElementPresent('@feedbackTool',constants.TIMEOUT)
@@ -44,27 +43,13 @@ module.exports = {
             .click('@submitBtn');
         displayData
             .navigate()
+            .click('@seeMore')
             .waitForElementPresent('@answerItem',constants.TIMEOUT)
             .pause(500)
             .assert.containsText('@answerItem',answer)
 
     },
-    */
-   /*
-    'Should change language after switching flag': async function(browser){
-        var homeSite = browser.page.tietoFeedbackToolHome();
-
-        homeSite
-            .navigate()
-            .waitForElementPresent('@languageBtn',constants.TIMEOUT)
-            .pause(500)
-            .assert.containsText('@title','Welcome to TietoFeedbackTool!')
-            .click('@languageBtn')
-            .pause(200)
-            .click('@suomiBtn')
-            .assert.containsText('@title','Tervetuloa TietoFeedbackTool!')
-    },
-    */
+    
     'Should error message appear after trying to submit empty answer': async function(browser){
         var homeSite = browser.page.tietoFeedbackToolMarkingBar();
 
@@ -76,5 +61,31 @@ module.exports = {
             .click('@submitBtn')
             .pause(200)
             .assert.elementPresent('#need')
-    }
+    },
+    
+   'Should change content after pressing see more': async function(browser){
+    var homeSite = browser.page.tietoFeedbackToolDashboard();
+
+    homeSite
+        .navigate()
+        .waitForElementPresent('@seeMore',constants.TIMEOUT)
+        .click('@seeMore')
+        .waitForElementPresent('h1',constants.TIMEOUT)
+        .assert.containsText("h1","Mr.Daddy")
+        .click('img')
+        .pause(500)
+   },
+   
+   'Should change content to tracking code after pressing tracking code button': async function(browser){
+    var homeSite = browser.page.tietoFeedbackToolDashboard();
+
+    homeSite
+        .navigate()
+        .waitForElementPresent('@trackingCode',constants.TIMEOUT)
+        .click('@trackingCode')
+        .pause(500)
+        .assert.containsText("h1","Tracking Code Generator")
+        .pause(500)
+   }
+
 }

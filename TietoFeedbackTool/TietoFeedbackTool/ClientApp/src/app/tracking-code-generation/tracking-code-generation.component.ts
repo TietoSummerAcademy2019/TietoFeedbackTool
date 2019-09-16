@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Account } from '../models/Account';
 import { TrackingCodeGenerationService } from './tracking-code-generation.service';
 import { ClipboardService } from 'ngx-clipboard';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-tracking-code-generation',

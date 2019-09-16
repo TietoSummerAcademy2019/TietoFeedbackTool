@@ -1,23 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { NewQuestionComponent } from './new-question/new-question.component';
 import { DisplayDataComponent } from './display-data/display-data.component';
 import { MarkingBarComponent } from './marking-bar/marking-bar.component';
 import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.component';
 import { TrackingCodeGenerationComponent } from './tracking-code-generation/tracking-code-generation.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: DashboardComponent
   },
   {
     path: 'new-question',
-    component: NewQuestionComponent
+    component: NewQuestionComponent,
   },
   {
-    path: 'display-data',
+    path: 'new-question/:id',
+    component: NewQuestionComponent,
+  },
+  {
+    path: 'display-data/:id',
     component: DisplayDataComponent
   },
   {
