@@ -14,10 +14,14 @@ const routes: Routes = [
   },
   {
     path: 'new-question',
-    component: NewQuestionComponent
+    component: NewQuestionComponent,
   },
   {
-    path: 'display-data',
+    path: 'new-question/:id',
+    component: NewQuestionComponent,
+  },
+  {
+    path: 'display-data/:id',
     component: DisplayDataComponent
   },
   {

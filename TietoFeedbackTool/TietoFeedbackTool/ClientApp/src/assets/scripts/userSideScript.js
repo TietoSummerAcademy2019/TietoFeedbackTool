@@ -23,8 +23,8 @@ function surveySetup() {
     request.open('post', link);
     request.setRequestHeader('Content-type', 'application/json');
 
-    request.send(jsonData); 
-    changeHtmlContent();
+    request.send(jsonData);
+    checkAnswer();
   });
 }
 
@@ -79,4 +79,18 @@ function changeOpacity() {
   } else {
     document.getElementsByClassName('img-exit')[0].style.opacity = 0;
   }
+}
+
+function checkAnswer() {
+  if (isEmptyOrSpaces(document.getElementById('answer').value)) {
+    document.getElementById('answer').style.backgroundColor =  "#ffedf1";
+    document.getElementById('answer').style.borderColor = "#d9135d";
+    document.getElementById('need').style.display = 'inline';
+  } else {
+    changeHtmlContent();
+  }
+}
+
+function isEmptyOrSpaces(str) {
+  return str === null || str.match(/^\s* *$/) !== null;
 }
