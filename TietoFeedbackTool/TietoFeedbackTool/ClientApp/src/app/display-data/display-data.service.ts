@@ -13,6 +13,7 @@ export class DisplayDataService<T extends Account> {
 
   private readonly dataByLoginUrl = environment.dataByLoginUrl;
   private readonly deleteQuestionUrl = environment.deleteQuestionUrl;
+  private readonly updateQuestionEnabledUrl = environment.updateQuestionEnabledUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -22,8 +23,13 @@ export class DisplayDataService<T extends Account> {
 
 
   remove(id:string) {
-    console.log(`${this.deleteQuestionUrl}/${id}`);
     this.http.delete(`${this.deleteQuestionUrl}/${id}`).subscribe();
     window.location.reload();
   }
+
+  updateEnabled(id:string, enabledIs: boolean) {
+    console.log(`${this.updateQuestionEnabledUrl}/${id}/${enabledIs}`)
+    //this.http.put(`${this.updateQuestionEnabledUrl}/${id}/${enabledIs}`)
+  }
+
 }

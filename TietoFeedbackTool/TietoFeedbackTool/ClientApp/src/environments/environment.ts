@@ -8,6 +8,7 @@ export const environment = {
   dataByLoginUrl: 'https://localhost:44350/api/account/OlejWoj',
   accountUrl: 'https://localhost:44350/api/account',
   deleteQuestionUrl: 'https://localhost:44350/api/Survey/questions',
+  updateQuestionEnabledUrl: 'https://localhost:44350/api/Survey/Questions/enable',
   production: false
 };
 

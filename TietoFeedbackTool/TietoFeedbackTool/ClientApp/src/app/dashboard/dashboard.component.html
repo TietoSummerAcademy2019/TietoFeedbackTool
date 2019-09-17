@@ -11,7 +11,7 @@
         <hr>
         <div class="row sidebar-page-item">
           <ul>
-            <li *ngFor="let page of pages"> {{ page }}</li>
+            <li *ngFor="let question of questionWithAnswer.questions">{{ question.domain}}</li>
           </ul>
         </div>
         <div class="row settings">
@@ -59,6 +59,7 @@
             <div class="row survey-list-item-head">
               <div class="col-6 question">
                 {{ question.questionText }}
+                {{ question.enabled }}
               </div>
               <div class="col-2 see-more">
                 <a id="survey-item-action" [routerLink]="['/display-data', question.id]">
@@ -98,6 +99,8 @@
                     Turn off
                     <mat-slide-toggle
                       (click)="question.enabled=!question.enabled"
+                      (click)="updateEnabledFalse(question.id, question.enabled)"
+
                       class="slide"
                       [color]="color"
                       [checked]=true
@@ -108,6 +111,7 @@
                     Turn on
                     <mat-slide-toggle
                       (click)="question.enabled=!question.enabled"
+                      (click)="updateEnabledTrue(question.id, question.enabled)"
                       class="slide"
                       [color]="color"
                       [checked]=false

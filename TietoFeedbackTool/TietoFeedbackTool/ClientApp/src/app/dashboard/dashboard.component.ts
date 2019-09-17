@@ -55,13 +55,21 @@ export class DashboardComponent implements OnInit {
     await this.ds.getAll().then((result) => {
       this.questionWithAnswer = result;
     });
+
   }
 
   openDialog(id) {
-    console.log(id)
     this.dialog.open(DeletePopupComponent, {
       panelClass: 'custom-dialog',
       data: { idQ: id }
     });
+  }
+
+  updateEnabledFalse(id: string, enabled: boolean) {
+    this.ds.updateEnabled(id, enabled);
+  }
+
+  updateEnabledTrue(id: string, enabled: boolean) {
+    this.ds.updateEnabled(id, enabled);
   }
 }
