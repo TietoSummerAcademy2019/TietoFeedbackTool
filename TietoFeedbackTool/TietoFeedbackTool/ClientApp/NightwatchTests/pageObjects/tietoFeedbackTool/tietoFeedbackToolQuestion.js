@@ -1,5 +1,7 @@
 module.exports = {
-  url: 'https://localhost:44350/new-question',
+  url: function () {
+    return this.api.launchUrl + "/new-question";
+  },
   elements: {
     submit: {
       selector: 'submit',

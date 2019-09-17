@@ -1,5 +1,7 @@
 module.exports = {
-  url: 'https://localhost:44350',
+  url: function () {
+    return this.api.launchUrl;
+  },
   elements: {
     seeMore: {
       selector: 'see-more',

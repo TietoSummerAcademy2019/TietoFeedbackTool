@@ -14,7 +14,14 @@ var settings = {
     "default": {
       "desiredCapabilities": {
         "browserName": "chrome"
-      }
+      },
+      "launch_url": "add_url"
+    },
+    "local": {
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      },
+      "launch_url": "https://localhost:44350"
     }
   }
 };
