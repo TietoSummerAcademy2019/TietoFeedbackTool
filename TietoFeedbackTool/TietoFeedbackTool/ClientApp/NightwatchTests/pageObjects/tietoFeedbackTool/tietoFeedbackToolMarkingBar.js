@@ -12,10 +12,6 @@ module.exports = {
     submitBtn: {
       selector: 'survey-submit',
       locateStrategy: 'id'
-    },
-    errorMsg: {
-      selector: 'error-label',
-      locateStrategy: 'class name'
     }
   }
 }

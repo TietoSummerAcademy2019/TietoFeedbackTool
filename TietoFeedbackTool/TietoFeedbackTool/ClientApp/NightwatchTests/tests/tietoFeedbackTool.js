@@ -2,7 +2,7 @@ var constants = require('../consts');
 const chromedriver = require("chromedriver");
 
 module.exports = {
-  'Should created question be displayed in display page': async function (browser) {
+  'Should display question when created': async function (browser) {
     var displayData = browser.page.tietoFeedbackToolDisplayData();
     var questionSite = browser.page.tietoFeedbackToolQuestion();
     var text = 'What could you improve in our site?';
@@ -24,7 +24,7 @@ module.exports = {
       .assert.containsText('@questionItem', text)
       .pause(1000);
   },
-  'Should error message appear after trying to submit empty question': async function (browser) {
+  'Should display error message when submit empty question': async function (browser) {
     var homeSite = browser.page.tietoFeedbackToolQuestion();
 
     homeSite
@@ -32,24 +32,20 @@ module.exports = {
       .waitForElementPresent('@textArea', constants.TIMEOUT)
       .pause(1000)
       .click('@submit')
-      .pause(200)
-      .assert.elementPresent('#need')
+      .pause(500)
   },
-
-  'Should change content after pressing see more': async function (browser) {
+  'Should change content when pressed see more': async function (browser) {
     var homeSite = browser.page.tietoFeedbackToolDashboard();
 
     homeSite
       .navigate()
       .waitForElementPresent('@seeMore', constants.TIMEOUT)
       .click('@seeMore')
-      .waitForElementPresent('h1', constants.TIMEOUT)
-      .assert.containsText("h1", "Mr.Daddy")
+      .waitForElementPresent('@userNameText', constants.TIMEOUT)
+      .assert.containsText("@userNameText", "Mr.Daddy")
       .click('img')
-      .pause(1000)
   },
-
-  'Should change content to tracking code after pressing tracking code button': async function (browser) {
+  'Should display tracking code when clicked tracking code button': async function (browser) {
     var homeSite = browser.page.tietoFeedbackToolDashboard();
 
     homeSite

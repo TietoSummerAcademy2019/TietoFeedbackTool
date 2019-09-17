@@ -16,6 +16,10 @@ module.exports = {
     copyText: {
       selector: 'text-copy',
       locateStrategy: 'id'
+    },
+    userNameText: {
+      selector: 'information-question-header',
+      locateStrategy: 'class name'
     }
   }
 }
