@@ -5,28 +5,26 @@
     </a>
   </div>
     <div class="information-question">
-      <h1 class="information-question-header">Setup feedback tool.</h1>
+      <h1 class="information-question-header">{{ 'setup-feedback-tool' | translate }}</h1>
       <div class="information-question-information">
-        <p>Ask your site visitor about their opinion.</p>
+        <p>{{ 'setup-feedback-tool-desc' | translate }}</p>
       </div>
     </div>
-    <div class="form-wrapper">
-      <div class="question-form">
-        <h2>Question</h2>
-        <form id="question-body" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
-          <textarea class="question-text" name="new-question" ngModel required #first="ngModel" id="question-area"></textarea>
-        </form>
-        <div class="transition-msg" id="error-message">
-          <div class="error-label" id="need">
-            Question is required
-          </div>
+    <div class="question-form">
+      <h2>{{ 'question' | translate }}</h2>
+      <form id="question-body" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
+        <textarea class="question-text" name="new-question" ngModel required #first="ngModel" id="question-area"></textarea>
+      </form>
+      <div class="transition-msg" id="error-message">
+        <div class="error-label" id="need">
+          {{ 'question-required' | translate }}
         </div>
       </div>
     </div>
 </div>
 <footer class="new-question-footer">
   <div class="new-question-footer-buttons">
-      <button class="tieto-button cancel" routerLink="" routerLinkActive="active">Cancel</button>
-      <button form="question-body" class="tieto-button submit">Submit</button>
+      <button class="tieto-button cancel" routerLink="" routerLinkActive="active">{{ 'cancel' | translate }}</button>
+      <button form="question-body" class="tieto-button submit">{{ 'submit' | translate }}</button>
   </div>
 </footer>

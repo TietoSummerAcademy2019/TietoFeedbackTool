@@ -1,12 +1,12 @@
 <div class="popup">
   <div class="popup-title">
-    Delete survey
+    {{ 'delete-survey' | translate }}
   </div>
   <div class="popup-message">
-    Are you sure you want to delete the survey?
+    {{ 'are-you-sure' | translate }}
   </div>
   <div class="popup-buttons">
-    <button class="tieto-button cancel" (click)="closeDialog()" routerLink="/" routerLinkActive="active">Cancel</button>
-    <button class="tieto-button delete" (click)="removeQuestion()">Delete</button>
+    <button class="tieto-button cancel" (click)="closeDialog()" routerLink="/" routerLinkActive="active">{{ 'cancel' | translate }}</button>
+    <button class="tieto-button delete" (click)="removeQuestion()">{{ 'delete' | translate }}</button>
   </div>
 </div>

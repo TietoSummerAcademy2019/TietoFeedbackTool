@@ -7,7 +7,7 @@
   <div class="information-question">
     <h1 class="information-question-header">{{questionWithAnswer.name}}</h1>
     <div class="information-question-information">
-      <p>Here you can find responses and their details for question:</p>
+      <p>{{ 'display-desc' | translate }}</p>
       <div class="question-iteration" *ngFor="let question of questionWithAnswer.questions">
         <div class="information-question-information-item" *ngIf="question.id==id">
           <p>{{ question.questionText }}</p>
@@ -19,11 +19,11 @@
     <table datatable class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Date</th>
-          <th scope="col">Reaction</th>
-          <th scope="col">Response</th>
-          <th scope="col">OS</th>
-          <th scope="col">Browser</th>
+          <th scope="col">{{ 'date' | translate }}</th>
+          <th scope="col">{{ 'reaction' | translate }}</th>
+          <th scope="col">{{ 'response' | translate }}</th>
+          <th scope="col">{{ 'operating-system' | translate }}</th>
+          <th scope="col">{{ 'browser' | translate }}</th>
         </tr>
       </thead>
       <tbody>
@@ -49,13 +49,13 @@
       <nav class="paging-nav" aria-label="..." *ngIf="pageCount != 0">
         <ul class="pagination">
           <li class="page-item" [ngClass]="{'disabled': activeSite==1}">
-            <a class="page-link" (click)="setActiveSite(activeSite-1)">Previous</a>
+            <a class="page-link" (click)="setActiveSite(activeSite-1)">{{ 'previous' | translate }}</a>
           </li>
           <li *ngFor="let number of pageArray" class="page-item" [ngClass]="{'active': activeSite==number}">
             <a class="page-link" (click)="setActiveSite(number)">{{ number }}</a>
           </li>
           <li class="page-item"[ngClass]="{'disabled': activeSite==pageCount}">
-            <a class="page-link" (click)="setActiveSite(activeSite+1)">Next</a>
+            <a class="page-link" (click)="setActiveSite(activeSite+1)">{{ 'next' | translate }}</a>
           </li>
         </ul>
       </nav>
