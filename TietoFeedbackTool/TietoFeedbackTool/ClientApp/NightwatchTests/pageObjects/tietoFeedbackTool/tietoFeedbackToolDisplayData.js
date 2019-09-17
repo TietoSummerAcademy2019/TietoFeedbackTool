@@ -25,8 +25,5 @@ module.exports = {
       selector: '//tbody//tr[last()]//td[3]',
       locateStrategy: 'xpath'
     }
-
   }
-
-
 }
