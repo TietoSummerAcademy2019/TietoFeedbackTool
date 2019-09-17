@@ -28,5 +28,19 @@
   "tracking-code-desc1": "Your “tracking code” is a code snippet that needs to be installed on your site for you to be able to use Tieto Feedback Tool.",
   "tracking-code-desc2": "Copy and paste the code snippet into the <head> tag on every page where you wish to track visitors and collect feedback.",
   "copy": "copy",
-  "copied-it": "copied-it"
+  "copied-it": "copied-it",
+  "generate-tracking-code": "Generate tracking code",
+  "list of pages": "List of pages",
+  "settings": "Settings",
+  "dashboard": "Dashboard",
+  "delete": "Delete",
+  "your-surveys": "Here you can find your surveys.",
+  "new-survey": "Create new survey",
+  "see-more": "See more",
+  "edit": "Edit",
+  "response-plural": "Responses",
+  "turn-on": "Turn on",
+  "turn-off": "Turn off",
+  "delete-survey": "Delete survey",
+  "are-you-sure": "Are you sure you want to delete the survey?"
 }
