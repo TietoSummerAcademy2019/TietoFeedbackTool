@@ -16,6 +16,8 @@ import { TranslateService } from './translate-service/translate-service.service'
 import { TranslatePipe } from './translate-service/translate.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { DeletePopupComponent } from './dashboard/delete-popup/delete-popup.component';
+import { MatDialogModule } from '@angular/material';
 
 export function setupTranslateFactory(
   service: TranslateService): Function {
@@ -32,7 +34,11 @@ export function setupTranslateFactory(
       MarkingBarSideComponent,
       TrackingCodeGenerationComponent,
       DashboardComponent,
+      DeletePopupComponent,
       TranslatePipe
+   ],
+   entryComponents: [
+     DeletePopupComponent
    ],
    imports: [
       BrowserModule,
@@ -41,7 +47,8 @@ export function setupTranslateFactory(
       FormsModule,
       HttpClientModule,
       ClipboardModule,
-      MatSlideToggleModule
+      MatSlideToggleModule,
+      MatDialogModule
    ],
    providers: [
      TranslateService,

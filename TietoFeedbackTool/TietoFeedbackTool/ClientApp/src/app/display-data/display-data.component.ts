@@ -60,7 +60,6 @@ export class DisplayDataComponent implements OnInit {
     }
 
     this.answers = this.getSortedArray();
-    console.log(this.answers)
   }
 
   public getSortedArray(): OpenPuzzleAnswer[] {

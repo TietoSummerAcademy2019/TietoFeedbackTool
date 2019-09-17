@@ -7,6 +7,7 @@ export const environment = {
   openAnswerUrl: 'https://localhost:44350/api/answer/open',
   dataByLoginUrl: 'https://localhost:44350/api/account/OlejWoj',
   accountUrl: 'https://localhost:44350/api/account',
+  deleteQuestionUrl: 'https://localhost:44350/api/Survey/questions',
   production: false
 };
 
