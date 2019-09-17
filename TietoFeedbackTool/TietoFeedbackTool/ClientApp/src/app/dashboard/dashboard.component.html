@@ -3,10 +3,10 @@
     <nav class="col-lg-3 d-none d-lg-block sidebar">
       <div class="sidebar-sticky">
         <div>
-          <button class="tieto-button submit btn btn-lg btn-block" [routerLink]="['/tracking-code-generation']" routerLinkActive="router-link-active">Generate tracking code</button>
+          <button class="tieto-button submit btn btn-lg btn-block" [routerLink]="['/tracking-code-generation']" routerLinkActive="router-link-active">{{ 'generate-tracking-code' | translate }}</button>
         </div>
         <div class="row sidebar-page">
-          List of pages
+          {{ 'list of pages' | translate }}
         </div>
         <hr>
         <div class="row sidebar-page-item">
@@ -17,7 +17,7 @@
         <div class="row settings">
           <a id="settings-link" href="#">
           <img id="settings-cog" src="../../assets/img/cog.svg" alt="Settings">
-          <span id="settings-cog-text">Settings</span>
+          <span id="settings-cog-text">{{ 'settings' | translate }}</span>
           </a>
         </div>
       </div>
@@ -26,13 +26,13 @@
       <div class="main-content">
         <div class="row heading">
           <div class="col-2 title">
-            Dashboard
+            {{ 'dashboard' | translate }}
           </div>
           <div class="col-2 tracking-code">
             <a id="survey-action" routerLink="tracking-code-generation">
               <img id="survey-icon" src="../../assets/img/tracking-code.svg" alt="tracking-code-icon">
               <span id="action-text">
-                Tracking code
+                {{ 'generate-tracking-code' | translate }}
               </span>
               </a>
           </div>
@@ -40,17 +40,17 @@
             <a id="survey-action" routerLink="/">
               <img id="survey-icon" src="../../assets/img/recycle-bin.svg" alt="recycle-bin-icon">
               <span id="action-text">
-                Delete
+                {{ 'delete' | translate }}
               </span>
             </a>
           </div>
         </div>
-        <p class="message">Here you can find your own surveys.</p>
+        <p class="message">{{ 'your-surveys' | translate }}</p>
         <div class="new-survey">
           <a id="new-survey-action" routerLink="new-question">
             <img id="new-survey-icon" src="../../assets/img/add-new.svg" alt="new-survey-icon">
             <span id="action-text">
-              Create new survey
+              {{ 'new-survey' | translate }}
           </span>
           </a>
         </div>
@@ -64,7 +64,7 @@
                 <a id="survey-item-action" [routerLink]="['/display-data', question.id]">
                   <img id="survey-item-icon" src="../../assets/img/see-more.svg" alt="see-more-icon">
                   <span id="item-action-text">
-                    See more
+                    {{ 'see-more' | translate }}
                   </span>
                 </a>
               </div>
@@ -72,7 +72,7 @@
                 <a id="survey-item-action" routerLink="/">
                   <img id="survey-item-icon" src="../../assets/img/edit-pencil.svg" alt="edit-pencil-icon">
                   <span id="item-action-text">
-                    Edit
+                    {{ 'edit' | translate }}
                   </span>
                 </a>
               </div>
@@ -80,7 +80,7 @@
                 <a id="survey-item-action" routerLink="/" (click)="openDialog(question.id)">
                   <img id="survey-item-icon" src="../../assets/img/recycle-bin.svg" alt="recycle-bin-icon">
                   <span id="item-action-text">
-                    Delete
+                    {{ 'delete' | translate }}
                   </span>
                 </a>
               </div>
@@ -95,7 +95,7 @@
                 <div class="float-right" id="active-toggle">
                   <div *ngIf="question.enabled; then activeBlock else inactiveBlock"></div>
                   <ng-template #activeBlock>
-                    Turn off
+                    {{ 'turn-off' | translate }}
                     <mat-slide-toggle
                       (click)="question.enabled=!question.enabled"
                       (click)="updateEnabledFalse(question.id, question.enabled)"
@@ -106,7 +106,7 @@
                     </mat-slide-toggle>
                   </ng-template>
                   <ng-template #inactiveBlock>
-                    Turn on
+                    {{ 'turn-on' | translate }}
                     <mat-slide-toggle
                       (click)="question.enabled=!question.enabled"
                       (click)="updateEnabledTrue(question.id, question.enabled)"

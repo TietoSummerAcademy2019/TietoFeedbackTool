@@ -42,5 +42,6 @@
   "turn-on": "Turn on",
   "turn-off": "Turn off",
   "delete-survey": "Delete survey",
-  "are-you-sure": "Are you sure you want to delete the survey?"
+  "are-you-sure": "Are you sure you want to delete the survey?",
+  "question-required" : "Question is required"
 }
