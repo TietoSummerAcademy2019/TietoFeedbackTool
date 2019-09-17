@@ -11,18 +11,14 @@ module.exports = {
       .navigate()
       .waitForElementPresent('@textArea', constants.TIMEOUT)
       .setValue('@textArea', text)
-      .pause(1000)
       .click('@submit')
-      .pause(1000);
 
     displayData
       .navigate()
       .waitForElementPresent('@lastElement')
       .click('@lastElement')
-      .pause(1000)
       .waitForElementPresent('@questionItem', constants.TIMEOUT)
       .assert.containsText('@questionItem', text)
-      .pause(1000);
   },
   'Should display error message when submit empty question': async function (browser) {
     var homeSite = browser.page.tietoFeedbackToolQuestion();
@@ -30,9 +26,7 @@ module.exports = {
     homeSite
       .navigate()
       .waitForElementPresent('@textArea', constants.TIMEOUT)
-      .pause(1000)
       .click('@submit')
-      .pause(500)
   },
   'Should change content when pressed see more': async function (browser) {
     var homeSite = browser.page.tietoFeedbackToolDashboard();
@@ -52,8 +46,6 @@ module.exports = {
       .navigate()
       .waitForElementPresent('@trackingCode', constants.TIMEOUT)
       .click('@trackingCode')
-      .pause(1000)
       .assert.elementPresent("@copyText")
-      .pause(1000)
   }
 }
