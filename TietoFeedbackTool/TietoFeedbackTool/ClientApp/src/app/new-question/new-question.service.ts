@@ -30,9 +30,6 @@ export class NewQuestionService<T extends Question> {
   }
 
   updateQuestion(id: number, question: T) {
-    this.http.put(`${this.updateUrl}/${id}`, question).subscribe(
-      update => console.log('Question updated', update),
-      error => console.log('Something went wrong', error)
-    )
+    this.http.put(`${this.updateUrl}/${id}`, question).subscribe()
   }
 }
