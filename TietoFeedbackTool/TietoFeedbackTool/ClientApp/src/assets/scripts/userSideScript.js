@@ -23,8 +23,8 @@ function surveySetup() {
     request.open('post', link);
     request.setRequestHeader('Content-type', 'application/json');
 
-    request.send(jsonData); 
-    changeHtmlContent();
+    request.send(jsonData);
+    checkAnswer();
   });
 }
 
@@ -58,13 +58,15 @@ function changeHtmlContent() {
   document.getElementById('answer-body').style.display = 'none';
   document.getElementById('success-message').style.display = 'inline';
   setTimeout(function () {
-    closeTool()
+    closeTool();
    },1000); //delay is in milliseconds 
-
 }
 
 function closeTool() {
-  document.getElementsByClassName('feedback')[0].style.display = 'none';
+  document.getElementsByClassName('feedback')[0].style.opacity = 0;
+  setTimeout(function () {
+    document.getElementsByClassName('feedback')[0].style.display = 'none';
+  }, 2000);
 }
 
 window.addEventListener('load', () => {
@@ -77,4 +79,18 @@ function changeOpacity() {
   } else {
     document.getElementsByClassName('img-exit')[0].style.opacity = 0;
   }
+}
+
+function checkAnswer() {
+  if (isEmptyOrSpaces(document.getElementById('answer').value)) {
+    document.getElementById('answer').style.backgroundColor =  "#ffedf1";
+    document.getElementById('answer').style.borderColor = "#d9135d";
+    document.getElementById('need').style.display = 'inline';
+  } else {
+    changeHtmlContent();
+  }
+}
+
+function isEmptyOrSpaces(str) {
+  return str === null || str.match(/^\s* *$/) !== null;
 }

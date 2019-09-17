@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DisplayDataService } from './display-data.service';
 import { Account } from '../models/Account';
 import { OpenPuzzleAnswer } from '../models/OpenPuzzleAnswer';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-display-data',
@@ -21,8 +22,12 @@ export class DisplayDataComponent implements OnInit {
   pageCount: number;
   pageArray: number[] = [];
   surveyIndex: number;
+  id: number;
 
-  constructor(private ds: DisplayDataService<Account>) {
+  constructor(
+    private ds: DisplayDataService<Account>,
+    private route: ActivatedRoute
+  ) {
     this.activeSite = 1;
     this.resultsPerSite = 5;
     this.surveyIndex = 0;
@@ -34,6 +39,7 @@ export class DisplayDataComponent implements OnInit {
 
   ngOnInit() {
     this.init();
+    this.id = Number(this.route.snapshot.paramMap.get("id"));
   }
 
   async init() {
@@ -43,7 +49,9 @@ export class DisplayDataComponent implements OnInit {
     });
 
     for (let question of this.questionWithAnswer.questions) {
-      this.answers = this.answers.concat(question.openPuzzleAnswers);
+      if (question.id == this.id) {
+        this.answers = this.answers.concat(question.openPuzzleAnswers);
+      }
     }
 
     this.pageCount = Math.ceil(this.answers.length / this.resultsPerSite);
