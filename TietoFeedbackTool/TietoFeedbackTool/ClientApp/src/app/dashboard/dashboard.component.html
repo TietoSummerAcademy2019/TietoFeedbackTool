@@ -69,7 +69,7 @@
                 </a>
               </div>
               <div class="col-2 edit-item">
-                <a id="survey-item-action" routerLink="/">
+                <a id="survey-item-action" [routerLink]="['/new-question', question.id]">
                   <img id="survey-item-icon" src="../../assets/img/edit-pencil.svg" alt="edit-pencil-icon">
                   <span id="item-action-text">
                     {{ 'edit' | translate }}
