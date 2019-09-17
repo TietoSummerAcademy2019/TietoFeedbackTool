@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,17 @@ import { MarkingBarComponent } from './marking-bar/marking-bar.component';
 import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.component';
 import { TrackingCodeGenerationComponent } from './tracking-code-generation/tracking-code-generation.component';
 import { ClipboardModule } from 'ngx-clipboard';
+import { TranslateService } from './translate-service/translate-service.service';
+import { TranslatePipe } from './translate-service/translate.pipe';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { DeletePopupComponent } from './dashboard/delete-popup/delete-popup.component';
+import { MatDialogModule } from '@angular/material';
+
+export function setupTranslateFactory(
+  service: TranslateService): Function {
+  return () => service.use('en');
+}
 
 @NgModule({
    declarations: [
@@ -21,7 +32,13 @@ import { ClipboardModule } from 'ngx-clipboard';
       DisplayDataComponent,
       MarkingBarComponent,
       MarkingBarSideComponent,
-      TrackingCodeGenerationComponent
+      TrackingCodeGenerationComponent,
+      DashboardComponent,
+      DeletePopupComponent,
+      TranslatePipe
+   ],
+   entryComponents: [
+     DeletePopupComponent
    ],
    imports: [
       BrowserModule,
@@ -29,9 +46,19 @@ import { ClipboardModule } from 'ngx-clipboard';
       BrowserAnimationsModule,
       FormsModule,
       HttpClientModule,
-      ClipboardModule
+      ClipboardModule,
+      MatSlideToggleModule,
+      MatDialogModule
    ],
-   providers: [],
+   providers: [
+     TranslateService,
+     {
+      provide: APP_INITIALIZER,
+      useFactory: setupTranslateFactory,
+      deps: [ TranslateService ],
+      multi: true
+    }
+   ],
    bootstrap: [
       AppComponent
    ]

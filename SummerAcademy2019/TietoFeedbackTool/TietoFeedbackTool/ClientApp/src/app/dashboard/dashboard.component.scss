@@ -1,0 +1,208 @@
+.container-fluid {
+  &.dashboard {
+    padding: 0;
+    height: 100%;
+  }
+}
+
+.row {
+  &.dashboard {
+    margin: 0;
+  }
+}
+
+.slide {
+  margin-left: .5rem;
+}
+
+nav {
+  &.sidebar {
+    position: fixed;
+    top: 4.0625rem;
+    bottom: 0;
+    padding: 0;
+    background-color: white;
+    border-right: .0625rem solid #DDDDDD;
+  }
+  & > div.sidebar-sticky {
+    padding: 3.4375rem 4.375rem 0 1.875rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    & > .sidebar-page {
+      margin-top: 1.25rem;
+      margin-left: 1.5rem;
+    }
+    & > hr {
+      margin-top: .3125rem;
+      margin-bottom: 1rem;
+      margin-left: 1.4rem;
+    }
+    & > .sidebar-page-item {
+      margin-left: 1.5rem;
+
+      & > ul {
+        list-style: none;
+        padding-inline-start: 0;
+      }
+    }
+    & > div.settings {
+      & > #settings-link {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 3rem;
+        margin-left: 2.5rem;
+        color: #333333;
+        &:hover {
+          text-decoration: none;
+        }
+        & > span {
+          margin-left: 1rem;
+          padding-bottom: .1rem;
+        }
+      }
+    }
+  }
+}
+
+main {
+  &.main-wrapper {
+    top: 3.4375rem;
+    padding-top: 3.125rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    & div {
+      &.main-content {
+        & div {
+          &.row.heading {
+            min-width: 60rem;
+            & div {
+              &.title {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                font-size: 1.75rem;
+                font-weight: 700;
+                margin-right: 3rem;
+              }
+              &.tracking-code {
+                padding-right: 0;
+              }
+              &.tracking-code, &.delete {
+                min-width: 4rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                & a {
+                  &#survey-action {
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    color: #0E76B7;
+                    & span {
+                      &#action-text {
+                        padding-bottom: .125rem;
+                        margin-left: .5rem;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        & p {
+          &.message {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 300;
+          }
+        }
+        & div.new-survey > a#new-survey-action {
+          max-width: 100%;
+          text-decoration: none;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          color: #0E76B7;
+          & span {
+            &#action-text {
+              margin-left: .5rem;
+              padding-bottom: .125rem;
+            }
+          }
+        }
+        & div.survey-list {
+          margin-top: 1.5rem;
+          &-empty {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 300;
+          }
+          & div.survey-list-item {
+            min-width: 35rem;
+            max-width: 55rem;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #DDDDDD;
+            border-radius: .4rem;
+            margin-bottom: 1.5rem;
+            & div.survey-list-item-head {
+              margin: 0;
+              padding-top: 1.5rem;
+              padding-bottom: 1.5rem;
+              & div.delete-item {
+                padding-right: 1.25rem;
+              }
+              & div.see-more, div.edit-item, div.delete-item {
+                min-width: 4rem;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                & a {
+                  &#survey-item-action {
+                    max-width: 100%;
+                    height: auto;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    color: #0E76B7;
+                    & span {
+                      &#item-action-text {
+                        padding-bottom: .125rem;
+                        margin-left: .5rem;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        & div.survey-info {
+          padding-top: 1.5rem;
+          padding-bottom: 1.5rem;
+          padding-left: .9rem;
+          padding-right: .9rem;
+          & div#response-count {
+            margin-top: .3rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+hr {
+  &#survey-item-separator {
+    color: #DDDDDD;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: .7rem;
+    margin-right: .7rem;
+  }
+}
