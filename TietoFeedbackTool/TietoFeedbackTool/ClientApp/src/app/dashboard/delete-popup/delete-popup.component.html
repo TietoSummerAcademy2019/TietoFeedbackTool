@@ -6,7 +6,7 @@
     Are you sure you want to delete the survey?
   </div>
   <div class="popup-buttons">
-    <button class="tieto-button cancel" routerLink="/" routerLinkActive="active">Cancel</button>
+    <button class="tieto-button cancel" (click)="closeDialog()" routerLink="/" routerLinkActive="active">Cancel</button>
     <button class="tieto-button delete" (click)="removeQuestion()">Delete</button>
   </div>
 </div>
