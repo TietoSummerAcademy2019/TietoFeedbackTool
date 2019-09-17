@@ -12,10 +12,18 @@ import { Account } from '../models/Account';
 export class DisplayDataService<T extends Account> {
 
   private readonly dataByLoginUrl = environment.dataByLoginUrl;
+  private readonly deleteQuestionUrl = environment.deleteQuestionUrl;
 
   constructor(private http: HttpClient) {}
 
   public getAll() {
     return this.http.get<T>(this.dataByLoginUrl).toPromise();
+  }
+
+
+  remove(id:string) {
+    console.log(`${this.deleteQuestionUrl}/${id}`);
+    this.http.delete(`${this.deleteQuestionUrl}/${id}`).subscribe();
+    window.location.reload();
   }
 }

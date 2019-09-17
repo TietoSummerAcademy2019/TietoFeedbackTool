@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Account } from '../models/Account';
 import { DisplayDataService } from '../display-data/display-data.service';
 import { I18nPluralPipe } from '@angular/common';
+import { MatDialog } from '@angular/material'
+import { DeletePopupComponent } from './delete-popup/delete-popup.component';
+
 
 
 @Component({
@@ -38,7 +41,10 @@ export class DashboardComponent implements OnInit {
     questionsKey:''
   }
 
-  constructor(private ds: DisplayDataService<Account>) { }
+  constructor(
+    private ds: DisplayDataService<Account>,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
     this.init();
@@ -48,6 +54,14 @@ export class DashboardComponent implements OnInit {
   async init() {
     await this.ds.getAll().then((result) => {
       this.questionWithAnswer = result;
+    });
+  }
+
+  openDialog(id) {
+    console.log(id)
+    this.dialog.open(DeletePopupComponent, {
+      panelClass: 'custom-dialog',
+      data: { idQ: id }
     });
   }
 }
