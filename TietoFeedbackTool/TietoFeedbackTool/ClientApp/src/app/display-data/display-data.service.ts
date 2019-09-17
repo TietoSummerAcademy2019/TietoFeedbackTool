@@ -34,5 +34,4 @@ export class DisplayDataService<T extends Account> {
       error => console.log('oops', error)
     );
   }
-
 }
