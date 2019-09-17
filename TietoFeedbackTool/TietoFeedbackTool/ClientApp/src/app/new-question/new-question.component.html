@@ -10,14 +10,16 @@
         <p>Ask your site visitor about their opinion.</p>
       </div>
     </div>
-    <div class="question-form">
-      <h2>Question</h2>
-      <form id="question-body" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
-        <textarea class="question-text" name="new-question" ngModel required #first="ngModel" id="question-area"></textarea>
-      </form>
-      <div class="transition-msg" id="error-message">
-        <div class="error-label" id="need">
-          Question is required
+    <div class="form-wrapper">
+      <div class="question-form">
+        <h2>Question</h2>
+        <form id="question-body" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
+          <textarea class="question-text" name="new-question" ngModel required #first="ngModel" id="question-area"></textarea>
+        </form>
+        <div class="transition-msg" id="error-message">
+          <div class="error-label" id="need">
+            Question is required
+          </div>
         </div>
       </div>
     </div>

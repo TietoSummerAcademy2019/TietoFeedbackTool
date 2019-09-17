@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Question } from '../models/Question';
 import { NewQuestionService } from './new-question.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-question',
   templateUrl: './new-question.component.html',
   styleUrls: ['./new-question.component.scss']
 })
-export class NewQuestionComponent {
+export class NewQuestionComponent implements OnInit {
 
   // hard-coded according to sample DB entries for now
   questionModel: Question = {
@@ -17,8 +18,37 @@ export class NewQuestionComponent {
     Domain: 'localhost:44350',
     enabled: false
   }
+  id: number;
+  textAreaValue: HTMLElement;
 
-  constructor(private qs: NewQuestionService<Question>) { }
+  constructor(
+    private qs: NewQuestionService<Question>,
+    private route: ActivatedRoute
+    ) { }
+
+  ngOnInit() {
+    this.id = Number(this.route.snapshot.paramMap.get("id"));
+    this.textAreaValue = document.getElementById('question-area');
+    this.init();
+  }
+
+  async init() {
+    await this.qs.getItems().then((result) => {
+      this.questionModel = result;
+    });
+
+    if (this.questionModel) {
+      for (let key in this.questionModel) {
+        let question = this.questionModel[key]
+        if (question.id == this.id) {
+          this.textAreaValue.value
+        }
+      }
+    }
+    else {
+      console.log("it's empty")
+    }
+  }
 
   onSubmit(f: NgForm) {
     // get new-question from the form and assign it to the model
@@ -35,7 +65,7 @@ export class NewQuestionComponent {
       div.style.backgroundColor = 'white';
       div.style.borderColor = '';
       document.getElementById('need').style.display = 'none';
-    }    
+    }
   }
 
   isEmptyOrSpaces(str) {

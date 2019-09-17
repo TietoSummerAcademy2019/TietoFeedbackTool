@@ -20,7 +20,7 @@ export class NewQuestionService<T extends Question> {
   }
 
   getItems() {
-    return this.items;
+    return this.http.get<T>(this.apiBase).toPromise();
   }
 
   add(item: T) {
