@@ -28,8 +28,11 @@ export class DisplayDataService<T extends Account> {
   }
 
   updateEnabled(id:string, enabledIs: boolean) {
-    console.log(`${this.updateQuestionEnabledUrl}/${id}/${enabledIs}`)
-    //this.http.put(`${this.updateQuestionEnabledUrl}/${id}/${enabledIs}`)
+    this.http.put(`${this.updateQuestionEnabledUrl}/${id}/${enabledIs}`, null)
+    .subscribe(
+      data => console.log('success', data),
+      error => console.log('oops', error)
+    );
   }
 
 }
