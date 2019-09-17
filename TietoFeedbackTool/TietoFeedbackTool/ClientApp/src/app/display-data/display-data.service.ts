@@ -12,10 +12,26 @@ import { Account } from '../models/Account';
 export class DisplayDataService<T extends Account> {
 
   private readonly dataByLoginUrl = environment.dataByLoginUrl;
+  private readonly deleteQuestionUrl = environment.deleteQuestionUrl;
+  private readonly updateQuestionEnabledUrl = environment.updateQuestionEnabledUrl;
 
   constructor(private http: HttpClient) {}
 
   public getAll() {
     return this.http.get<T>(this.dataByLoginUrl).toPromise();
+  }
+
+
+  remove(id:string) {
+    this.http.delete(`${this.deleteQuestionUrl}/${id}`).subscribe();
+    window.location.reload();
+  }
+
+  updateEnabled(id:string, enabledIs: boolean) {
+    this.http.put(`${this.updateQuestionEnabledUrl}/${id}/${enabledIs}`, null)
+    .subscribe(
+      data => console.log('success', data),
+      error => console.log('oops', error)
+    );
   }
 }

@@ -26,50 +26,16 @@ namespace TietoFeedbackTool.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("Password");
+                    b.Property<string>("QuestionsKey")
+                        .ValueGeneratedOnAdd();
 
                     b.HasKey("Login");
 
+                    b.HasIndex("QuestionsKey")
+                        .IsUnique()
+                        .HasFilter("[QuestionsKey] IS NOT NULL");
+
                     b.ToTable("Accounts");
-                });
-
-            modelBuilder.Entity("TietoFeedbackTool.Domain.ClosePuzzleAnswer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ClosePuzzlePossibilityId");
-
-                    b.Property<DateTime>("SubmitDate")
-                        .HasColumnType("Date");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClosePuzzlePossibilityId");
-
-                    b.ToTable("ClosePuzzleAnswers");
-                });
-
-            modelBuilder.Entity("TietoFeedbackTool.Domain.ClosePuzzlePossibility", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Answer");
-
-                    b.Property<int>("Counter");
-
-                    b.Property<int>("Position");
-
-                    b.Property<int>("SurveyPuzzleId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SurveyPuzzleId");
-
-                    b.ToTable("ClosePuzzlePossibilities");
                 });
 
             modelBuilder.Entity("TietoFeedbackTool.Domain.OpenPuzzleAnswer", b =>
@@ -82,113 +48,54 @@ namespace TietoFeedbackTool.Migrations
                         .IsRequired()
                         .HasMaxLength(2000);
 
+                    b.Property<int>("QuestionId");
+
                     b.Property<DateTime>("SubmitDate")
                         .HasColumnType("Datetime");
 
-                    b.Property<int>("SurveyPuzzleId");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("SurveyPuzzleId");
+                    b.HasIndex("QuestionId");
 
                     b.ToTable("OpenPuzzleAnswers");
                 });
 
-            modelBuilder.Entity("TietoFeedbackTool.Domain.PuzzleType", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.Question", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("HaveOpenAnswer");
+                    b.Property<string>("AccountLogin")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Domain");
+
+                    b.Property<bool>("Enabled");
+
+                    b.Property<string>("QuestionText");
 
                     b.HasKey("Id");
-
-                    b.ToTable("PuzzleTypes");
-                });
-
-            modelBuilder.Entity("TietoFeedbackTool.Domain.Survey", b =>
-                {
-                    b.Property<string>("SurveyKey")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("AccountLogin");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("SurveyKey");
 
                     b.HasIndex("AccountLogin");
 
-                    b.ToTable("Surveys");
-                });
-
-            modelBuilder.Entity("TietoFeedbackTool.Domain.SurveyPuzzle", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Position");
-
-                    b.Property<string>("PuzzleQuestion");
-
-                    b.Property<int>("PuzzleTypeId");
-
-                    b.Property<string>("SurveyKey");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PuzzleTypeId");
-
-                    b.HasIndex("SurveyKey");
-
-                    b.ToTable("SurveyPuzzles");
-                });
-
-            modelBuilder.Entity("TietoFeedbackTool.Domain.ClosePuzzleAnswer", b =>
-                {
-                    b.HasOne("TietoFeedbackTool.Domain.ClosePuzzlePossibility")
-                        .WithMany("ClosePuzzleAnswers")
-                        .HasForeignKey("ClosePuzzlePossibilityId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TietoFeedbackTool.Domain.ClosePuzzlePossibility", b =>
-                {
-                    b.HasOne("TietoFeedbackTool.Domain.SurveyPuzzle")
-                        .WithMany("ClosePuzzlePossibilities")
-                        .HasForeignKey("SurveyPuzzleId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.ToTable("Question");
                 });
 
             modelBuilder.Entity("TietoFeedbackTool.Domain.OpenPuzzleAnswer", b =>
                 {
-                    b.HasOne("TietoFeedbackTool.Domain.SurveyPuzzle")
+                    b.HasOne("TietoFeedbackTool.Domain.Question")
                         .WithMany("OpenPuzzleAnswers")
-                        .HasForeignKey("SurveyPuzzleId")
+                        .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TietoFeedbackTool.Domain.Survey", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.Question", b =>
                 {
                     b.HasOne("TietoFeedbackTool.Domain.Account")
-                        .WithMany("Surveys")
-                        .HasForeignKey("AccountLogin");
-                });
-
-            modelBuilder.Entity("TietoFeedbackTool.Domain.SurveyPuzzle", b =>
-                {
-                    b.HasOne("TietoFeedbackTool.Domain.PuzzleType")
-                        .WithMany("SurveyPuzzles")
-                        .HasForeignKey("PuzzleTypeId")
+                        .WithMany("Questions")
+                        .HasForeignKey("AccountLogin")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TietoFeedbackTool.Domain.Survey")
-                        .WithMany("SurveyPuzzles")
-                        .HasForeignKey("SurveyKey");
                 });
 #pragma warning restore 612, 618
         }

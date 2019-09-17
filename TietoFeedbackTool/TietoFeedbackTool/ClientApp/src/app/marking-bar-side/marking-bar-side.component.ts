@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MarkingBarService } from '../marking-bar/marking-bar.service';
-import { SurveyPuzzle } from '../models/SurveyPuzzle';
+import { Question } from '../models/Question';
 import { OpenAnswer } from '../models/OpenAnswer';
 import { NgForm } from '@angular/forms';
 import { Transition } from '../animation';
@@ -18,13 +18,13 @@ export class MarkingBarSideComponent implements OnInit {
   question: string = "";
   transition: Transition = new Transition;
 
-  constructor(private mbs: MarkingBarService<SurveyPuzzle, OpenAnswer>) { };
+  constructor(private mbs: MarkingBarService<Question, OpenAnswer>) { };
 
   ngOnInit() {
   }
 
   AnswerModel: OpenAnswer = {
-    SurveyPuzzleId: 1,
+    QuestionId: 1,
     Answer: ''
   }
 

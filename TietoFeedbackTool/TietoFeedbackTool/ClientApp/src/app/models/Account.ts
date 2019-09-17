@@ -1,8 +1,8 @@
-import { Survey } from './Survey';
+import { Question } from './Question';
 
 export interface Account {
   login: string;
   name: string;
-  password: string;
-  surveys: Survey[];
+  questionsKey: string
+  questions?: Question[];
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DisplayDataService } from './display-data.service';
 import { Account } from '../models/Account';
 import { OpenPuzzleAnswer } from '../models/OpenPuzzleAnswer';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-display-data',
@@ -10,15 +11,23 @@ import { OpenPuzzleAnswer } from '../models/OpenPuzzleAnswer';
 })
 export class DisplayDataComponent implements OnInit {
 
-  questionWithAnswer: Account;
+  questionWithAnswer: Account = {
+    login: '',
+    name:'',
+    questionsKey:''
+  }
   activeSite: number;
   resultsPerSite: number;
   answers: OpenPuzzleAnswer[] = [];
   pageCount: number;
   pageArray: number[] = [];
   surveyIndex: number;
+  id: number;
 
-  constructor(private ds: DisplayDataService<Account>) {
+  constructor(
+    private ds: DisplayDataService<Account>,
+    private route: ActivatedRoute
+  ) {
     this.activeSite = 1;
     this.resultsPerSite = 5;
     this.surveyIndex = 0;
@@ -30,6 +39,7 @@ export class DisplayDataComponent implements OnInit {
 
   ngOnInit() {
     this.init();
+    this.id = Number(this.route.snapshot.paramMap.get("id"));
   }
 
   async init() {
@@ -38,8 +48,10 @@ export class DisplayDataComponent implements OnInit {
       this.questionWithAnswer = result;
     });
 
-    for (let question of this.questionWithAnswer.surveys[0].surveyPuzzles) {
-      this.answers = this.answers.concat(question.openPuzzleAnswers);
+    for (let question of this.questionWithAnswer.questions) {
+      if (question.id == this.id) {
+        this.answers = this.answers.concat(question.openPuzzleAnswers);
+      }
     }
 
     this.pageCount = Math.ceil(this.answers.length / this.resultsPerSite);

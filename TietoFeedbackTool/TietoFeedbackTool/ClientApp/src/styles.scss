@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "tietoMaterialTheme";
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
@@ -13,10 +13,20 @@ body {
 .navigation-item {
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #dddddd;
+  height: 65px;
+  width: 100%;
   opacity: 1;
   & > a {
     & > img {
       padding: 8px;
+    }
+  }
+  &-button {
+    height: 100%;
+    & div {
+      &.dropdown {
+        height: 100%;
+      }
     }
   }
 }
@@ -121,8 +131,10 @@ body {
 /* Styles to button Submit and Cancel*/
 
 .tieto-button {
-  height: 45px;
-  width: 198px;
+  margin: 0 auto;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
   &.submit {
     background: #0e76b7;
     border-style: none;
@@ -183,4 +195,35 @@ body {
     }
   }
   display: none;
+}
+
+.icon-back {
+  text-align: center;
+  display: block;
+  margin: 1rem 1rem 1rem;
+  height: 50%;
+}
+
+/*
+  Exit image
+*/
+
+.img-exit {
+  margin-top: 2px;
+  background-image: url(../src/assets/img/exit.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  float: right;
+  margin-right:10px;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.custom-dialog {
+  .mat-dialog-container{
+    padding: 3.375rem;
+    border-radius: .75rem;
+  }
 }

@@ -14,5 +14,5 @@
     <ProjectReference Include="..\TietoFeedbackTool.Domain\TietoFeedbackTool.Domain.csproj" />
     <ProjectReference Include="..\TietoFeedbackTool.Persistence\TietoFeedbackTool.Persistence.csproj" />
   </ItemGroup>
-	
+
 </Project>
