@@ -36,7 +36,9 @@ export class NewQuestionComponent implements OnInit {
   ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get("id"));
     this.textAreaValue = document.getElementById('question-area');
-    this.init();
+    if (this.id) {
+      this.init();
+    }
   }
 
   async init() {
@@ -68,7 +70,12 @@ export class NewQuestionComponent implements OnInit {
     } else {
       this.questionModel.questionText = f.controls['new-question'].value;
       f.reset();
-      this.qs.add(this.questionModel);
+      if (this.id) {
+        this.qs.updateQuestion(this.id, this.questionModel);
+      }
+      else {
+        this.qs.add(this.questionModel);
+      }
       div.style.backgroundColor = 'white';
       div.style.borderColor = '';
       document.getElementById('need').style.display = 'none';

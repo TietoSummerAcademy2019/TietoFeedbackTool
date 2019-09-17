@@ -4,6 +4,7 @@
 
 export const environment = {
   newQuestionUrl: 'https://localhost:44350/api/Survey/questions',
+  updateQuestionUrl: 'https://localhost:44350/api/Survey/questions',
   openAnswerUrl: 'https://localhost:44350/api/answer/open',
   dataByLoginUrl: 'https://localhost:44350/api/account/OlejWoj',
   accountUrl: 'https://localhost:44350/api/account',
