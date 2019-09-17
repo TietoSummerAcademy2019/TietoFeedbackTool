@@ -18,8 +18,15 @@ export class NewQuestionComponent implements OnInit {
     Domain: 'localhost:44350',
     enabled: false
   }
+  questionModelEdit: Question = {
+    AccountLogin: 'OlejWoj',
+    questionText: '',
+    Domain: 'localhost:44350',
+    enabled: false
+  }
+
   id: number;
-  textAreaValue: HTMLElement;
+  textAreaValue: any;
 
   constructor(
     private qs: NewQuestionService<Question>,
@@ -34,14 +41,14 @@ export class NewQuestionComponent implements OnInit {
 
   async init() {
     await this.qs.getItems().then((result) => {
-      this.questionModel = result;
+      this.questionModelEdit = result
     });
 
-    if (this.questionModel) {
-      for (let key in this.questionModel) {
-        let question = this.questionModel[key]
+    if (this.questionModelEdit) {
+      for (let key in this.questionModelEdit) {
+        let question = this.questionModelEdit[key];
         if (question.id == this.id) {
-          this.textAreaValue.value
+          this.textAreaValue.value = question.questionText;
         }
       }
     }
