@@ -215,7 +215,7 @@
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.login).to.eql(\"testManTwo\");\r",
 							"    pm.expect(jsonData.name).to.eql(\"Imagine Wagons\");\r",
-							"    pm.expect(jsonData.questionsKey).to.not.eql(null);\r",
+							"    pm.expect(jsonData.questionsKey).to.eql(null);\r",
 							"    pm.expect(jsonData.questions).to.eql(null);\r",
 							"});\r",
 							""
