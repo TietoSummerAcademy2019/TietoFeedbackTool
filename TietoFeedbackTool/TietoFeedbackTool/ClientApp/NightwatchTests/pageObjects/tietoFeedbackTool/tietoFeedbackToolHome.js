@@ -12,7 +12,6 @@ module.exports = {
         suomiBtn:{
             selector:'dropdown-item',
             locateStrategy : 'class name'
-        }
-        
+        } 
     }
 }
