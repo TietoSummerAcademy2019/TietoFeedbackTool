@@ -46,16 +46,11 @@ export class NewQuestionComponent implements OnInit {
       this.questionModelEdit = result
     });
 
-    if (this.questionModelEdit) {
-      for (let key in this.questionModelEdit) {
-        let question = this.questionModelEdit[key];
-        if (question.id == this.id) {
-          this.textAreaValue.value = question.questionText;
-        }
+    for (let key in this.questionModelEdit) {
+      let question = this.questionModelEdit[key];
+      if (question.id == this.id) {
+        this.textAreaValue.value = question.questionText;
       }
-    }
-    else {
-      console.log("it's empty")
     }
   }
 
