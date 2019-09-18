@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DisplayDataService } from './display-data.service';
 import { Account } from '../models/Account';
-import { OpenPuzzleAnswer } from '../models/OpenPuzzleAnswer';
+import { PuzzleAnswer } from '../models/OpenPuzzleAnswer';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -18,7 +18,7 @@ export class DisplayDataComponent implements OnInit {
   }
   activeSite: number;
   resultsPerSite: number;
-  answers: OpenPuzzleAnswer[] = [];
+  answers: PuzzleAnswer[] = [];
   pageCount: number;
   pageArray: number[] = [];
   surveyIndex: number;
@@ -50,7 +50,7 @@ export class DisplayDataComponent implements OnInit {
 
     for (let question of this.questionWithAnswer.questions) {
       if (question.id == this.id) {
-        this.answers = this.answers.concat(question.openPuzzleAnswers);
+        this.answers = this.answers.concat(question.puzzleAnswers);
       }
     }
 
@@ -62,7 +62,7 @@ export class DisplayDataComponent implements OnInit {
     this.answers = this.getSortedArray();
   }
 
-  public getSortedArray(): OpenPuzzleAnswer[] {
+  public getSortedArray(): PuzzleAnswer[] {
     return this.answers.sort((a, b) => new Date(b.submitDate).getDate() - new Date(a.submitDate).getDate());
   }
 }
