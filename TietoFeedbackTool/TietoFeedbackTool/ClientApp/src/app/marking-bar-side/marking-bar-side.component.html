@@ -1,31 +1,31 @@
 <div class="feedback" id="tool">
-  <div id="window-content" class="width collapse" aria-expanded="false">
-      <div class="card card-body">
-        <form id="answer-body" #form="ngForm" (ngSubmit)="onSubmit(form)" (keydown.enter)="onSubmit(form);false" novalidate>
-          <p class="colored align-self-center">{{question}}</p>
-          <div class="text-center">
-            <textarea name="new-answer" ngModel required #first="ngModel" class="answer-input align-self-center"></textarea>
-          </div>
-          <div class="text-right">
-            <button class="btn btn-submit align-self-end" (click)="changeDisplayedContent()">Send</button>
-          </div>
-        </form>
-        <div class="transition-msg" id="success-message" [class.visible-msg]="messageVisibility">
-          <div id="thanks">
-            Thank you!
-          </div>
-          <div id="message">
-            Your feedback is really important to us!
-          </div>
+    <div id="window-content" class="width collapse" aria-expanded="false">
+        <div class="card card-body">
+            <form id="answer-body" #form="ngForm" (ngSubmit)="onSubmit(form)" (keydown.enter)="onSubmit(form);false" novalidate>
+                <p class="colored align-self-center">{{question}}</p>
+                <div class="text-center">
+                    <textarea name="new-answer" ngModel required #first="ngModel" class="answer-input align-self-center"></textarea>
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-submit align-self-end" (click)="changeDisplayedContent()">Send</button>
+                </div>
+            </form>
+            <div class="transition-msg" id="success-message" [class.visible-msg]="messageVisibility">
+                <div id="thanks">
+                    Thank you!
+                </div>
+                <div id="message">
+                    Your feedback is really important to us!
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <div class="feedback-marking-bar">
-      <button (click)="toggleVisibility()" role="button" class="btn feedback-marking-bar-button" id="marking-bar" data-toggle="collapse" data-target="#window-content" aria-expanded="false" onclick="changeOpacity()">
-        <div class="img-exit" id="exitsvg"></div>
-        <span>
-          Leave feedback
-        </span>
-      </button>
+        <button (click)="toggleVisibility()" role="button" class="btn feedback-marking-bar-button" id="marking-bar" data-toggle="collapse" data-target="#window-content" aria-expanded="false" onclick="changeOpacity()">
+            <div class="img-exit" id="exitsvg"></div>
+            <span>
+                Leave feedback
+            </span>
+        </button>
     </div>
-  </div>
+</div>
