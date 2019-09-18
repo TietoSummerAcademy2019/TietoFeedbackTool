@@ -1,4 +1,4 @@
-import { PuzzleAnswer } from './PuzzleAnswer';
+import { PuzzleAnswer } from './OpenPuzzleAnswer';
 
 export interface Question {
   id?: number;
