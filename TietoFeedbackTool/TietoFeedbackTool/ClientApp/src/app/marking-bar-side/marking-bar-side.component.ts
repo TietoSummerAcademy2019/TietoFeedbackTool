@@ -24,7 +24,7 @@ export class MarkingBarSideComponent implements OnInit {
   }
 
   AnswerModel: OpenAnswer = {
-    SurveyPuzzleId: 1,
+    QuestionId: 1,
     Answer: ''
   }
 

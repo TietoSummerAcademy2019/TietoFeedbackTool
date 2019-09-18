@@ -1,4 +1,4 @@
 export interface OpenAnswer {
-  SurveyPuzzleId: number;
+  QuestionId: number;
   Answer: string;
 }
