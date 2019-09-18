@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="141.493" height="154.357" viewBox="0 0 141.493 154.357">
+  <defs>
+    <filter id="Rectangle_2" x="0" y="0" width="141.493" height="154.357" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#cbeaf9"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_250" data-name="Group 250" transform="translate(15 8.803)">
+    <g transform="matrix(1, 0, 0, 1, -15, -8.8)" filter="url(#Rectangle_2)">
+      <g id="Rectangle_2-2" data-name="Rectangle 2" transform="translate(15 15)" fill="#e5f6fe" stroke="#000" stroke-width="1">
+        <path d="M6,0h99.493a6,6,0,0,1,6,6V124.357a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V6A6,6,0,0,1,6,0Z" stroke="none"/>
+        <path d="M6,.5h99.493a5.5,5.5,0,0,1,5.5,5.5V123.357a.5.5,0,0,1-.5.5H1a.5.5,0,0,1-.5-.5V6A5.5,5.5,0,0,1,6,.5Z" fill="none"/>
+      </g>
+    </g>
+    <text id="_4" data-name="4" transform="translate(32.648 97)" font-size="91" font-family="OpenSans-Semibold, Open Sans" font-weight="600"><tspan x="0" y="0">4</tspan></text>
+  </g>
+</svg>
