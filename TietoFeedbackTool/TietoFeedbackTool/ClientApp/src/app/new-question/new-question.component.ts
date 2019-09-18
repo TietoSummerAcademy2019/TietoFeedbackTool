@@ -16,17 +16,20 @@ export class NewQuestionComponent implements OnInit {
     AccountLogin: 'OlejWoj',
     questionText: '',
     Domain: 'localhost:44350',
-    enabled: false
+    enabled: false,
+    isBottom: true,
   }
   questionModelEdit: Question = {
     AccountLogin: 'OlejWoj',
     questionText: '',
     Domain: 'localhost:44350',
-    enabled: false
+    enabled: false,
+    isBottom: true,
   }
 
   id: number;
   textAreaValue: any;
+  position: any;
 
   constructor(
     private qs: NewQuestionService<Question>,
@@ -36,6 +39,7 @@ export class NewQuestionComponent implements OnInit {
   ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get("id"));
     this.textAreaValue = document.getElementById('question-area');
+    this.position = document.getElementsByName('position');
     if (this.id) {
       this.init();
     }
@@ -50,6 +54,7 @@ export class NewQuestionComponent implements OnInit {
       let question = this.questionModelEdit[key];
       if (question.id == this.id) {
         this.textAreaValue.value = question.questionText;
+        this.position.value = question.position;
       }
     }
   }
@@ -64,6 +69,8 @@ export class NewQuestionComponent implements OnInit {
       document.getElementById('need').style.display = 'inline';
     } else {
       this.questionModel.questionText = f.controls['new-question'].value;
+      this.questionModel.isBottom = f.controls['position'].value;
+      console.log(this.questionModel);
       f.reset();
       if (this.id) {
         this.qs.updateQuestion(this.id, this.questionModel);

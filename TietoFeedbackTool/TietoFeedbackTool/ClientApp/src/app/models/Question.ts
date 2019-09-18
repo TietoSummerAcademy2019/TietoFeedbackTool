@@ -7,4 +7,5 @@ export interface Question {
   AccountLogin: string;
   openPuzzleAnswers?: OpenPuzzleAnswer[];
   enabled: boolean;
+  isBottom: boolean;
 }
