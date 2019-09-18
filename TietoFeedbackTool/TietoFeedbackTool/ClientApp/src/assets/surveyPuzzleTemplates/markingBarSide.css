@@ -13,13 +13,13 @@
 }
 
 .collapsing.width {
-    -webkit-transition-property: width, visibility;
-    transition-property: width, visibility;
-    width: 0;
-    height: 100%;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-    float: right;
+  -webkit-transition-property: width, visibility;
+  transition-property: width, visibility;
+  width: 0;
+  height: 100%;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  float: right;
 }
 
 .feedback {
@@ -45,9 +45,9 @@
 
 
 .feedback-marking-bar-button span {
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
-    font-size: 16px;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  font-size: 16px;
 }
 
 
@@ -120,13 +120,13 @@
   margin-left: 20px;
 }
 
-  .btn#marking-bar:focus {
-    box-shadow: none;
-  }
+.btn#marking-bar:focus {
+  box-shadow: none;
+}
 
-  .btn#marking-bar:hover {
-    box-shadow: 0 0 10px 1px #878787;
-  }
+.btn#marking-bar:hover {
+  box-shadow: 0 0 10px 1px #878787;
+}
 
 
 .btn-submit {
@@ -138,9 +138,9 @@
   background-color: #0E76B7;
 }
 
-  .btn-submit:hover {
-    color: #fff;
-  }
+.btn-submit:hover {
+  color: #fff;
+}
 
 .answer-input {
   border-radius: 6px;
@@ -151,9 +151,9 @@
 }
 
 
-  .feedback-marking-bar-button:hover {
-    color: #fff;
-  }
+.feedback-marking-bar-button:hover {
+  color: #fff;
+}
 
 .visible-exit {
   opacity: 1 !important;
@@ -177,12 +177,10 @@
   display: none;
 }
 
-  #success-message div#thanks {
-    font-size: 18px;
-  }
+#success-message div#thanks {
+  font-size: 18px;
+}
 
-  #success-message div#message {
-    font-size: 13px;
-  }
-
-
+#success-message div#message {
+  font-size: 13px;
+}
