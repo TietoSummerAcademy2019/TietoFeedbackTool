@@ -36,9 +36,9 @@
 .website-form {
   display: flex;
   flex-direction: column;
-  padding-top: 2.125rem;
+  padding-top: .5rem;
   padding-left: 3.125rem;
-  padding-bottom: 2.125rem;
+  padding-bottom: 1.0rem;
   & div.domain-wrapper, div.nameinput-wrapper {
     & p#input-heading {
       font-weight: 700;
@@ -47,7 +47,6 @@
       opacity: 1;
       margin-bottom: .5rem;
     }
-
   }
   & div.domain-wrapper {
     & .domain-input {
@@ -66,7 +65,7 @@
     }
   }
   & div.nameinput-wrapper {
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     & .name-input {
       resize: none;
       overflow: hidden;
@@ -86,7 +85,6 @@
 }
 
 .tracking-code-content {
-  margin-top: 1.875rem;
   margin-left: 3.125rem;
   font-size: 1.25rem;
   font-weight: 300;
@@ -100,6 +98,9 @@
   margin-top: 1.25rem;
   width: 11.25rem;
   height: 2.5rem;
+  &.copy {
+    margin-right: 1.5rem;
+  }
 }
 
 .copy-text {

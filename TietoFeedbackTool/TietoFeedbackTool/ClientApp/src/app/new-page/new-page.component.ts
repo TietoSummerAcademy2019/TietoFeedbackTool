@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Account } from '../models/Account';
 import { NgForm } from '@angular/forms';
+import { TrackingCodeGenerationService } from '../tracking-code-generation/tracking-code-generation.service';
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-new-page',
@@ -7,13 +10,30 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./new-page.component.scss']
 })
 export class NewPageComponent implements OnInit {
-
+  acc: Account;
+  questionsKey: string;
+  userSideScript: string;
   domain: string;
   domainName: string;
 
-  constructor() { }
+  constructor(
+    private tcs: TrackingCodeGenerationService<Account>,
+    private _cs: ClipboardService) { }
 
   ngOnInit() {
+    this.init();
+  }
+
+  async init() {
+    await this.tcs.getAccounts().then((result) => {
+      this.acc = result;
+    });
+    this.questionsKey = this.acc[0].questionsKey;
+    this.userSideScript = `
+    <script async
+      src="https://localhost:44350/api/survey/getscript/
+      ${this.questionsKey}">
+    </script>`
   }
 
   onSubmit(f: NgForm) {
@@ -58,5 +78,10 @@ export class NewPageComponent implements OnInit {
 
   isEmptyOrSpaces(str) {
     return str === null || str.match(/^\s* *$/) !== null;
+  }
+
+  copyScript(element) {
+    this._cs.copyFromContent(this.userSideScript)
+    element.textContent = 'Copied it!'
   }
 }

@@ -29,7 +29,6 @@
         </div>
       </div>
     </form>
-    <button form="website-form" class="tieto-button submit">{{ 'submit' | translate }}</button>
   </div>
   <div class="row">
     <div class="col-xl-12">
@@ -38,7 +37,8 @@
           {{ userSideScript }}
         </pre>
       </div>
-      <button class="tieto-button submit float-right" (click)="copyScript($event.target)">{{ 'copy' | translate }}</button>
+      <button form="website-form" class="tieto-button submit float-right">{{ 'submit' | translate }}</button>
+      <button class="tieto-button submit copy float-right" (click)="copyScript($event.target)">{{ 'copy' | translate }}</button>
     </div>
   </div>
 </div>
