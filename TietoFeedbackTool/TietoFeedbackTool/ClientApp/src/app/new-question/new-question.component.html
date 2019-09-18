@@ -14,9 +14,7 @@
     <form id="question-body" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
       <h2>{{ 'question' | translate }}</h2>
       <textarea class="question-text" name="new-question" ngModel required #first="ngModel" id="question-area"></textarea>
-      <br />
-      <br />
-      <h2>{{ 'feedbacktool-position' | translate }}</h2>
+      <h2 class="feedback-position">{{ 'feedbacktool-position' | translate }}</h2>
       <div class="custom-control custom-radio">
         <input id="position-right" type="radio" class="custom-control-input" [value]="false" name="position" ngModel>
         <label class="custom-control-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
