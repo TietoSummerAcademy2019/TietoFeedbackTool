@@ -10,8 +10,8 @@ using TietoFeedbackTool.Persistence;
 namespace TietoFeedbackTool.Migrations
 {
     [DbContext(typeof(TietoFeedbackToolContext))]
-    [Migration("20190912082525_addRequiredToQuestion")]
-    partial class addRequiredToQuestion
+    [Migration("20190918093359_DbRefactor2_3")]
+    partial class DbRefactor2_3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,17 +40,18 @@ namespace TietoFeedbackTool.Migrations
                     b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("TietoFeedbackTool.Domain.OpenPuzzleAnswer", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.PuzzleAnswer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Answer")
-                        .IsRequired()
                         .HasMaxLength(2000);
 
                     b.Property<int>("QuestionId");
+
+                    b.Property<int?>("Rating");
 
                     b.Property<DateTime>("SubmitDate")
                         .HasColumnType("Datetime");
@@ -59,7 +60,7 @@ namespace TietoFeedbackTool.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("OpenPuzzleAnswers");
+                    b.ToTable("PuzzleAnswers");
                 });
 
             modelBuilder.Entity("TietoFeedbackTool.Domain.Question", b =>
@@ -75,6 +76,12 @@ namespace TietoFeedbackTool.Migrations
 
                     b.Property<bool>("Enabled");
 
+                    b.Property<bool>("HasRating");
+
+                    b.Property<bool>("IsBottom");
+
+                    b.Property<string>("Name");
+
                     b.Property<string>("QuestionText");
 
                     b.HasKey("Id");
@@ -84,10 +91,10 @@ namespace TietoFeedbackTool.Migrations
                     b.ToTable("Question");
                 });
 
-            modelBuilder.Entity("TietoFeedbackTool.Domain.OpenPuzzleAnswer", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.PuzzleAnswer", b =>
                 {
                     b.HasOne("TietoFeedbackTool.Domain.Question")
-                        .WithMany("OpenPuzzleAnswers")
+                        .WithMany("PuzzleAnswers")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

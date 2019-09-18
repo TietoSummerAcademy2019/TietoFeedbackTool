@@ -1,4 +1,4 @@
-export interface OpenPuzzleAnswer {
+export interface PuzzleAnswer {
   id: number;
   questionId: number;
   answer: string;
