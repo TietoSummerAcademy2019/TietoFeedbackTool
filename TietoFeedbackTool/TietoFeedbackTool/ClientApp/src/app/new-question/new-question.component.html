@@ -16,17 +16,22 @@
       <textarea class="question-text" name="new-question" ngModel required #first="ngModel" id="question-area"></textarea>
       <h2 class="feedback-position">{{ 'feedbacktool-position' | translate }}</h2>
       <div class="custom-control custom-radio">
-        <input id="position-right" type="radio" class="custom-control-input" [value]="false" name="position" ngModel>
+        <input id="position-right" type="radio" class="custom-control-input" required [value]="false" name="position" ngModel>
         <label class="custom-control-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
       </div>
       <div class="custom-control custom-radio">
-        <input id="position-bottom" type="radio" class="custom-control-input" [value]="true" name="position" ngModel>
+        <input id="position-bottom" type="radio" class="custom-control-input" required [value]="true" name="position" ngModel>
         <label class="custom-control-label" for="position-bottom">{{ 'feedbacktool-position-bottom' | translate }}</label>
       </div>
     </form>
     <div class="transition-msg" id="error-message">
       <div class="error-label" id="need">
         {{ 'question-required' | translate }}
+      </div>
+    </div>
+    <div class="transition-msg" id="error-message">
+      <div class="error-label" id="position-needed">
+        {{ 'position-required' | translate }}
       </div>
     </div>
   </div>

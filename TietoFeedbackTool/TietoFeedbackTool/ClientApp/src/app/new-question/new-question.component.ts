@@ -19,7 +19,7 @@ export class NewQuestionComponent implements OnInit {
     enabled: false,
     domainName: "",
     hasRating: false,
-    isBottom: false,
+    isBottom: null,
     ratingType: "" //hardcoded data at this moment
   }
   questionModelEdit: Question = {
@@ -29,7 +29,7 @@ export class NewQuestionComponent implements OnInit {
     enabled: false,
     domainName: "",
     hasRating: false,
-    isBottom: false,
+    isBottom: null,
     ratingType: ""
   }
 
@@ -73,6 +73,8 @@ export class NewQuestionComponent implements OnInit {
       div.style.backgroundColor = '#ffedf1';
       div.style.borderColor = '#d9135d';
       document.getElementById('need').style.display = 'inline';
+    } if (f.controls['position'].value == null) {
+      document.getElementById('position-needed').style.display = 'inline';
     } else {
       this.questionModel.questionText = f.controls['new-question'].value;
       this.questionModel.isBottom = f.controls['position'].value;
@@ -87,6 +89,7 @@ export class NewQuestionComponent implements OnInit {
       div.style.backgroundColor = 'white';
       div.style.borderColor = '';
       document.getElementById('need').style.display = 'none';
+      document.getElementById('position-needed').style.display = 'none';
     }
   }
 

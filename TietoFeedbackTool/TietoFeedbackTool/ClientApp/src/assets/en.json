@@ -44,6 +44,7 @@
   "delete-survey": "Delete survey",
   "are-you-sure": "Are you sure you want to delete the survey?",
   "question-required": "Question is required",
+  "position-required": "Position is required",
   "feedbacktool-position": "Position of the tool",
   "feedbacktool-position-right": "On the right side of the page",
   "feedbacktool-position-bottom": "At the bottom of the page"
