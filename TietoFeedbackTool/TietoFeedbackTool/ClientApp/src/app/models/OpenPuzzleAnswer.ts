@@ -1,6 +1,7 @@
 export interface PuzzleAnswer {
   id: number;
   questionId: number;
-  answer: string;
+  answer?: string;
   submitDate: Date;
+  rating?: number;
 }

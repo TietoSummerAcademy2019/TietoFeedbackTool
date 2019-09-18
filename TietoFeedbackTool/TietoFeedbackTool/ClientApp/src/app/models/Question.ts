@@ -7,4 +7,8 @@ export interface Question {
   AccountLogin: string;
   puzzleAnswers?: PuzzleAnswer[];
   enabled: boolean;
+  domainName: string;
+  hasRating: boolean;
+  isBottom: boolean;
+  ratingType: string;
 }
