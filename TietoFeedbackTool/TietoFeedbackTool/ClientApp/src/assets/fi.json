@@ -6,7 +6,7 @@
   "feedback-tool-bottom": "Palautetyökalun alaosa",
   "feedback-tool-side": "Palautetyökalun sivu",
   "display-data": "Näytä tiedot",
-  "tracking-code-generator": "Seurantakoodin generaattori",
+  "tracking-code-generator": "Lisää uusi sivu",
   "language": "Kieli",
   "leave-feedback": "Jätä palautetta",
   "send": "Lähetä",
@@ -43,8 +43,5 @@
   "turn-off": "Sulje",
   "delete-survey": "Poista kyselylomake",
   "are-you-sure": "Haluatko varmasti poistaa kyselylomakkeen?",
-  "question-required": "Kysymys on pakollinen",
-  "feedbacktool-position": "Työkalun sijainti",
-  "feedbacktool-position-right": "Sivun oikealla puolella",
-  "feedbacktool-position-bottom": "Sivun alareunassa"
+  "question-required": "Kysymys on pakollinen"
 }

@@ -276,7 +276,7 @@
 							"    pm.expect(jsonData.accountLogin).to.eql(\"testManOne\");\r",
 							"    pm.expect(jsonData.domain).to.eql(\"testbot.com\");\r",
 							"    pm.expect(jsonData.enabled).to.eql(true);\r",
-							"    pm.expect(jsonData.openPuzzleAnswers).to.eql(null);\r",
+							"    pm.expect(jsonData.PuzzleAnswers).to.eql(null);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -633,7 +633,7 @@
 							"    pm.expect(jsonData.accountLogin).to.eql(\"testManOne\");",
 							"    pm.expect(jsonData.domain).to.eql(\"testbot.com\");",
 							"    pm.expect(jsonData.enabled).to.eql(true);",
-							"    pm.expect(jsonData.openPuzzleAnswers).to.eql([]);",
+							"    pm.expect(jsonData.PuzzleAnswers).to.eql([]);",
 							"});"
 						],
 						"type": "text/javascript"

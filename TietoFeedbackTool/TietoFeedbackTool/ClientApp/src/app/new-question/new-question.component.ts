@@ -17,14 +17,20 @@ export class NewQuestionComponent implements OnInit {
     questionText: '',
     Domain: 'localhost:44350',
     enabled: false,
-    isBottom: true,
+    domainName: "",
+    hasRating: false,
+    isBottom: false,
+    ratingType: "" //hardcoded data at this moment
   }
   questionModelEdit: Question = {
     AccountLogin: 'OlejWoj',
     questionText: '',
     Domain: 'localhost:44350',
     enabled: false,
-    isBottom: true,
+    domainName: "",
+    hasRating: false,
+    isBottom: false,
+    ratingType: ""
   }
 
   id: number;

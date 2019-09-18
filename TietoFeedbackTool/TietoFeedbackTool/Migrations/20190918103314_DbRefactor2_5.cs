@@ -2,21 +2,21 @@
 
 namespace TietoFeedbackTool.Migrations
 {
-    public partial class addedDomain : Migration
+    public partial class DbRefactor2_5 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Domain",
-                table: "Surveys",
+                name: "RatingType",
+                table: "Question",
                 nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Domain",
-                table: "Surveys");
+                name: "RatingType",
+                table: "Question");
         }
     }
 }
