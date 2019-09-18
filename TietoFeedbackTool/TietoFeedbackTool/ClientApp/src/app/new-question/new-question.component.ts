@@ -69,13 +69,21 @@ export class NewQuestionComponent implements OnInit {
     // get new-question from the form and assign it to the model
     let div = document.getElementById('question-area');
 
-    if (this.isEmptyOrSpaces(f.controls['new-question'].value)) {
+    if (this.isEmptyOrSpaces(f.controls['new-question'].value) && f.controls['position'].value === null) {
       div.style.backgroundColor = '#ffedf1';
       div.style.borderColor = '#d9135d';
       document.getElementById('need').style.display = 'inline';
-    } if (f.controls['position'].value == null) {
       document.getElementById('position-needed').style.display = 'inline';
-    } else {
+    }
+    else if (this.isEmptyOrSpaces(f.controls['new-question'].value)) {
+      div.style.backgroundColor = '#ffedf1';
+      div.style.borderColor = '#d9135d';
+      document.getElementById('need').style.display = 'inline';
+    }
+    else if (f.controls['position'].value == null) {
+      document.getElementById('position-needed').style.display = 'inline';
+    }
+    else {
       this.questionModel.questionText = f.controls['new-question'].value;
       this.questionModel.isBottom = f.controls['position'].value;
       console.log(this.questionModel);
