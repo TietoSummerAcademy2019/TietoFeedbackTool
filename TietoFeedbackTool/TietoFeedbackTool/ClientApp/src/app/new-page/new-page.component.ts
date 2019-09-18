@@ -5,6 +5,7 @@ import { TrackingCodeGenerationService } from '../tracking-code-generation/track
 import { ClipboardService } from 'ngx-clipboard';
 import { Question } from '../models/Question';
 import { NewPageService } from './new-page.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-page',
@@ -31,7 +32,9 @@ export class NewPageComponent implements OnInit {
   constructor(
     private tcs: TrackingCodeGenerationService<Account>,
     private nps: NewPageService<Question>,
-    private _cs: ClipboardService) { }
+    private _cs: ClipboardService,
+    private route: Router
+  ) { }
 
   ngOnInit() {
     this.init();
@@ -74,6 +77,7 @@ export class NewPageComponent implements OnInit {
       this.changeColorSuccess(domainArea, 'need-domain');
       this.changeColorSuccess(domainNameArea, 'need-name');
       this.nps.addPage(this.questionModel);
+      this.route.navigate(["/"])
     }
   }
 
