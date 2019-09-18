@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TietoFeedbackTool.Persistence;
 
 namespace TietoFeedbackTool.Migrations
 {
     [DbContext(typeof(TietoFeedbackToolContext))]
-    partial class TietoFeedbackToolContextModelSnapshot : ModelSnapshot
+    [Migration("20190918103314_DbRefactor2_5")]
+    partial class DbRefactor2_5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
