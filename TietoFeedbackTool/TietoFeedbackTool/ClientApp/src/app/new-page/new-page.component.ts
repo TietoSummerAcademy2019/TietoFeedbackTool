@@ -3,6 +3,8 @@ import { Account } from '../models/Account';
 import { NgForm } from '@angular/forms';
 import { TrackingCodeGenerationService } from '../tracking-code-generation/tracking-code-generation.service';
 import { ClipboardService } from 'ngx-clipboard';
+import { Question } from '../models/Question';
+import { NewPageService } from './new-page.service';
 
 @Component({
   selector: 'app-new-page',
@@ -10,6 +12,16 @@ import { ClipboardService } from 'ngx-clipboard';
   styleUrls: ['./new-page.component.scss']
 })
 export class NewPageComponent implements OnInit {
+  questionModel: Question = {
+    AccountLogin: 'OlejWoj',
+    questionText: 'Placeholder text',
+    domain: '',
+    enabled: false,
+    domainName: '',
+    hasRating: false,
+    isBottom: false,
+    ratingType: '' //hardcoded data at this moment
+  };
   acc: Account;
   questionsKey: string;
   userSideScript: string;
@@ -18,6 +30,7 @@ export class NewPageComponent implements OnInit {
 
   constructor(
     private tcs: TrackingCodeGenerationService<Account>,
+    private nps: NewPageService<Question>,
     private _cs: ClipboardService) { }
 
   ngOnInit() {
@@ -40,7 +53,6 @@ export class NewPageComponent implements OnInit {
     let domainArea = document.getElementById('domain-area');
     let domainNameArea = document.getElementById('domain-name-area');
     this.formValidation(f, domainArea, domainNameArea);
-    console.log(f.value)
   }
 
   formValidation(f, domainArea, domainNameArea) {
@@ -57,10 +69,11 @@ export class NewPageComponent implements OnInit {
       this.changeColorSuccess(domainArea, 'need-domain');
     }
     else {
-      this.domain = f.controls['new-domain'].value;
-      this.domainName = f.controls['new-domain-name'].value;
+      this.questionModel.domain = f.controls['new-domain'].value;
+      this.questionModel.domainName = f.controls['new-domain-name'].value;
       this.changeColorSuccess(domainArea, 'need-domain');
       this.changeColorSuccess(domainNameArea, 'need-name');
+      this.nps.addPage(this.questionModel);
     }
   }
 

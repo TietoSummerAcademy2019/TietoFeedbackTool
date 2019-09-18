@@ -15,7 +15,7 @@ export class NewQuestionComponent implements OnInit {
   questionModel: Question = {
     AccountLogin: 'OlejWoj',
     questionText: '',
-    Domain: 'localhost:44350',
+    domain: 'localhost:44350',
     enabled: false,
     domainName: "",
     hasRating: false,
@@ -25,7 +25,7 @@ export class NewQuestionComponent implements OnInit {
   questionModelEdit: Question = {
     AccountLogin: 'OlejWoj',
     questionText: '',
-    Domain: 'localhost:44350',
+    domain: 'localhost:44350',
     enabled: false,
     domainName: "",
     hasRating: false,
