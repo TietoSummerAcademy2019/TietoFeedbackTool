@@ -66,11 +66,12 @@ export class NewQuestionComponent implements OnInit {
         this.questionAreaValue.value = question.questionText;
         this.domainAreaValue.value = question.domain;
         this.position.value = question.isBottom;
-        if (!this.position.value) {
-          this.position[0].setAttribute("checked", "checked");
+        console.log(this.position.value)
+        if (this.position.value) {
+          this.position[0].checked=true;
         }
         else {
-          this.position[1].setAttribute("checked", "checked");
+          this.position[1].checked=true;
         }
       }
     }

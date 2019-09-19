@@ -54,7 +54,6 @@ export class DashboardComponent implements OnInit {
 
   async init() {
     await this.ds.getAll().then((result) => {
-      delay(200);
       this.questionWithAnswer = result;
     });
 
