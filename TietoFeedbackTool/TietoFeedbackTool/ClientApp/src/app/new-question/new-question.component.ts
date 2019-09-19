@@ -50,7 +50,6 @@ export class NewQuestionComponent implements OnInit {
     this.domainAreaValue = document.getElementById('domain-area');
     this.questionAreaValue = document.getElementById('question-area');
     this.position = document.getElementsByName('position');
-    console.log(this.position)
     if (this.id) {
       this.init();
     }
@@ -67,7 +66,6 @@ export class NewQuestionComponent implements OnInit {
         this.questionAreaValue.value = question.questionText;
         this.domainAreaValue.value = question.domain;
         this.position.value = question.isBottom;
-        console.log(this.position[1])
       }
     }
   }
@@ -77,7 +75,6 @@ export class NewQuestionComponent implements OnInit {
   }
 
   formValidation(f) {
-    console.log(f.controls['new-question'].value)
     if (this.isEmptyOrSpaces(f.controls['new-question'].value)
       || this.isEmptyOrSpaces(f.controls['new-domain'].value)
       || !f.controls['position'].valid) {

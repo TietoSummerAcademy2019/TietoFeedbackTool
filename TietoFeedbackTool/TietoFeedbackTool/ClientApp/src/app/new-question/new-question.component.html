@@ -15,11 +15,11 @@
     <form id="website-form" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
       <div class="domain-wrapper">
         <p id="input-heading">Page domain</p>
-        <textarea class="domain-input" name="new-domain" ngModel required #first="ngModel" id="domain-area"></textarea>
+        <textarea class="domain-input" name="new-domain" ngModel="domain" required id="domain-area"></textarea>
       </div>
       <div class="question-wrapper">
         <p id="input-heading">{{ 'question' | translate }}</p>
-        <textarea class="question-input" name="new-question" ngModel required #first="ngModel" id="question-area"></textarea>
+        <textarea class="question-input" name="new-question" ngModel="question" required id="question-area"></textarea>
       </div>
       <div class="radio-wrapper" id="radio-position">
         <p id="input-heading">{{ 'feedbacktool-position' | translate }}</p>
