@@ -17,7 +17,6 @@ export class NewQuestionComponent implements OnInit {
     questionText: '',
     Domain: 'localhost:44350',
     enabled: false,
-    domainName: "",
     hasRating: false,
     isBottom: null,
     ratingType: "" //hardcoded data at this moment
@@ -27,7 +26,6 @@ export class NewQuestionComponent implements OnInit {
     questionText: '',
     Domain: 'localhost:44350',
     enabled: false,
-    domainName: "",
     hasRating: false,
     isBottom: null,
     ratingType: ""
