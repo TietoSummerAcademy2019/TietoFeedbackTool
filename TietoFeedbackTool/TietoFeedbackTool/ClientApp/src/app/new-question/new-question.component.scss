@@ -60,7 +60,7 @@
     opacity: 1;
   }
   .feedback-position {
-    padding-top: 14px;
+    padding-top: 30px;
   }
   .custom-radio {
     padding-top: 7px;
@@ -70,6 +70,15 @@
     padding-top: 14px;
   }
   
+  .custom-radio .custom-control-input:checked~.custom-control-label::after {
+    background: #0e76b7;
+    border-radius: 50%
+  }
+
+  .custom-radio .custom-control-input:active ~ .custom-control-label::before {
+    background-color: #eeeeee;
+  }
+
   .question-text {
     min-height: 238px;
     font-size: 16px;
