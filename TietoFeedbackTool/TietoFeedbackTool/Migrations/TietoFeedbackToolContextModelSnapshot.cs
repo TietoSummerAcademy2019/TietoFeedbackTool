@@ -72,8 +72,6 @@ namespace TietoFeedbackTool.Migrations
 
                     b.Property<string>("Domain");
 
-                    b.Property<string>("DomainName");
-
                     b.Property<bool>("Enabled");
 
                     b.Property<bool>("HasRating");

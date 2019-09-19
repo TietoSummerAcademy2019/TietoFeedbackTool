@@ -9,7 +9,7 @@ function surveySetup() {
     var request = new XMLHttpRequest();
 
     request.onload = () => {
-      console.log( request.responseText );// here we will add actions that should happens after successful survey submit
+      //console.log( request.responseText );// here we will add actions that should happens after successful survey submit
     }
 
     var requestData = {
@@ -28,12 +28,12 @@ function surveySetup() {
   });
 }
 
-function addCSS()
+function addCSS(isBottom)
 {
   var linkNode = document.createElement("link");
   linkNode.setAttribute("rel", "stylesheet");
   linkNode.setAttribute("type", "text/css");
-  linkNode.setAttribute("href", "https://localhost:44350/api/survey/getstyle");
+  linkNode.setAttribute("href", "https://localhost:44350/api/survey/getstyle/" + isBottom);
   document.head.appendChild(linkNode);
 }
 function checkDomain() {
@@ -43,10 +43,10 @@ function checkDomain() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      addCSS();
       var HTMLnode = document.createElement("div");
       HTMLnode.innerHTML = this.responseText;
       document.body.appendChild(HTMLnode);
+      addCSS(document.getElementById("feedback-main").getAttribute("data-isBottom"))
       surveySetup();
     }
   };
