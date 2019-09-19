@@ -22,8 +22,6 @@
           <th scope="col">{{ 'date' | translate }}</th>
           <th scope="col">{{ 'reaction' | translate }}</th>
           <th scope="col">{{ 'response' | translate }}</th>
-          <th scope="col">{{ 'operating-system' | translate }}</th>
-          <th scope="col">{{ 'browser' | translate }}</th>
         </tr>
       </thead>
       <tbody>
@@ -32,8 +30,6 @@
             <td scope="row">{{answer.submitDate | date: 'yyyy-MM-dd' }}</td>
             <td><img src="../../assets/img/stars.svg" class="visual-rating"></td>
             <td>{{answer.answer}}</td>
-            <td> Windows</td>
-            <td> Chrome </td>
           </tr>
         </ng-container>
       </tbody>
