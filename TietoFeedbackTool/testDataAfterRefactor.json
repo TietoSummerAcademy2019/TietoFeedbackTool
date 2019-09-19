@@ -64,7 +64,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"QuestionText\" : \"How well do you understand our homepage?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44350\",\n\t\"Enabled\": true,\n\t\"HasRating\": false,\n\t\"IsBottom\": true,\n\t\"DomainName\" : \"My Page 1\"\n}"
+					"raw": "{\n\t\"QuestionText\" : \"How well do you understand our homepage?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44350\",\n\t\"Enabled\": true,\n\t\"HasRating\": false,\n\t\"IsBottom\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:44350/api/Survey/questions",
@@ -96,7 +101,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"QuestionText\" : \"How well do you understand our homepage?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44350\",\n\t\"Enabled\": true,\n\t\"HasRating\": true,\n\t\"IsBottom\": true,\n\t\"RatingType\": \"Stars\",\n\t\"DomainName\": \"My Page 1\"\n}"
+					"raw": "{\n\t\"QuestionText\" : \"How well do you understand our homepage?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44350\",\n\t\"Enabled\": true,\n\t\"HasRating\": true,\n\t\"IsBottom\": true,\n\t\"RatingType\": \"Stars\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:44350/api/Survey/questions",
@@ -128,7 +138,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"QuestionText\" : \"How well do you understand our homepage?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44350\",\n\t\"Enabled\": true,\n\t\"HasRating\": false,\n\t\"IsBottom\": false,\n\t\"DomainName\": \"My Page 1\"\n}"
+					"raw": "{\n\t\"QuestionText\" : \"How well do you understand our homepage?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44350\",\n\t\"Enabled\": true,\n\t\"HasRating\": false,\n\t\"IsBottom\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:44350/api/Survey/questions",
