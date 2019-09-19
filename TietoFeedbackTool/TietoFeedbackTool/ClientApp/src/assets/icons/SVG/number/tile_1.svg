@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
+  <g id="tile_1" transform="translate(-632 -73)">
+    <g id="Rectangle_17104" data-name="Rectangle 17104" transform="translate(632 73)" fill="#fff" stroke="#000" stroke-width="1">
+      <rect width="33" height="33" rx="6" stroke="none"/>
+      <rect x="0.5" y="0.5" width="32" height="32" rx="5.5" fill="none"/>
+    </g>
+    <text id="_1" data-name="1" transform="translate(643 96)" font-size="16" font-family="OpenSans-Semibold, Open Sans" font-weight="600"><tspan x="0" y="0">1</tspan></text>
+  </g>
+</svg>
