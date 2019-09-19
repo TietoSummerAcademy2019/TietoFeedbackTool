@@ -53,11 +53,30 @@
   padding-top: 34px;
   padding-left: 50px;
   padding-bottom: 67px;
-  & > h2 {
+  & form > h2 {
     font-weight: 700;
     font-size: 14px;
     color: #333333;
     opacity: 1;
+  }
+  .feedback-position {
+    padding-top: 30px;
+  }
+  .custom-radio {
+    padding-top: 7px;
+  }
+
+  &#error-message {
+    padding-top: 14px;
+  }
+  
+  .custom-radio .custom-control-input:checked~.custom-control-label::after {
+    background: #0e76b7;
+    border-radius: 50%
+  }
+
+  .custom-radio .custom-control-input:active ~ .custom-control-label::before {
+    background-color: #eeeeee;
   }
 
   .question-text {
