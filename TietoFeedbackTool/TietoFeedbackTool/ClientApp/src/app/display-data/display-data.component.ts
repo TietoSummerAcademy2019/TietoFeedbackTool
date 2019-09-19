@@ -117,21 +117,8 @@ export class DisplayDataComponent implements OnInit {
 
     this.answers = this.getSortedArray();
 
-    this.barChartData = [
-      {data: [this.starRating[0] , this.starRating[1], this.starRating[2], 21, this.starRating[4]],
-      label: 'amount',
-      backgroundColor: [
-        'rgba(54, 162, 235, 0.6)',
-        'rgba(54, 162, 235, 0.6)',
-        'rgba(54, 162, 235, 0.6)',
-        'rgba(54, 162, 235, 0.6)',
-        'rgba(54, 162, 235, 0.6)',
-      ],
-      borderWidth: 0,
-      hoverBackgroundColor: 'rgba(221, 221, 221, 0.7)',
-      scaleStepWidth: 1
-      }
-    ];
+
+    this.barChartData[0].data = [this.starRating[0], this.starRating[1], this.starRating[2], this.starRating[3], this.starRating[4]];
   }
 
   public getSortedArray(): PuzzleAnswer[] {
