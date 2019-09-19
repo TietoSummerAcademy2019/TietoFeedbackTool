@@ -69,19 +69,24 @@ export class NewQuestionComponent implements OnInit {
     // get new-question from the form and assign it to the model
     let div = document.getElementById('question-area');
 
-    if (this.isEmptyOrSpaces(f.controls['new-question'].value) && !f.valid) {
+    if (this.isEmptyOrSpaces(f.controls['new-question'].value) && !f.controls['position'].valid) {
       div.style.backgroundColor = '#ffedf1';
       div.style.borderColor = '#d9135d';
       document.getElementById('need').style.display = 'inline';
       document.getElementById('position-needed').style.display = 'inline';
+      console.log(f.controls['position'].value)
     } else if (this.isEmptyOrSpaces(f.controls['new-question'].value)) {
       div.style.backgroundColor = '#ffedf1';
       div.style.borderColor = '#d9135d';
       document.getElementById('need').style.display = 'inline';
       document.getElementById('position-needed').style.display = 'none';
-    } else if (!f.valid) {
+      console.log(f.controls['position'].value)
+    } else if (!f.controls['position'].valid) {
+      div.style.backgroundColor = 'white';
+      div.style.borderColor = '';
       document.getElementById('need').style.display = 'none';
       document.getElementById('position-needed').style.display = 'inline';
+      console.log(f.controls['position'].value)
     } else {
       this.questionModel.questionText = f.controls['new-question'].value;
       this.questionModel.isBottom = f.controls['position'].value;
