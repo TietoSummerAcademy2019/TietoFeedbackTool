@@ -45,8 +45,8 @@ function checkDomain() {
     if (this.readyState == 4 && this.status == 200) {
       var HTMLnode = document.createElement("div");
       HTMLnode.innerHTML = this.responseText;
-      addCSS(HTMLnode.innerHTML.getElementById("feedback-main").getAttribute("data-isBottom"));
       document.body.appendChild(HTMLnode);
+      addCSS(document.getElementById("feedback-main").getAttribute("data-isBottom"))
       surveySetup();
     }
   };
