@@ -1,7 +1,0 @@
-<svg id="Group_167" data-name="Group 167" xmlns="http://www.w3.org/2000/svg" width="111.493" height="130.554" viewBox="0 0 111.493 130.554">
-  <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(0 6.197)" fill="none" stroke="#000" stroke-width="1">
-    <path d="M6,0h99.493a6,6,0,0,1,6,6V124.357a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V6A6,6,0,0,1,6,0Z" stroke="none"/>
-    <path d="M6,.5h99.493a5.5,5.5,0,0,1,5.5,5.5V123.357a.5.5,0,0,1-.5.5H1a.5.5,0,0,1-.5-.5V6A5.5,5.5,0,0,1,6,.5Z" fill="none"/>
-  </g>
-  <text id="_5" data-name="5" transform="translate(32.864 97)" font-size="91" font-family="OpenSans-Semibold, Open Sans" font-weight="600"><tspan x="0" y="0">5</tspan></text>
-</svg>
