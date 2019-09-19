@@ -63,26 +63,48 @@ export class NewQuestionComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    // get new-question from the form and assign it to the model
-    let div = document.getElementById('question-area');
+    let domainArea = document.getElementById('domain-area');
+    let questionArea = document.getElementById('question-area');
+    this.formValidation(f, domainArea, questionArea);
+  }
 
-    if (this.isEmptyOrSpaces(f.controls['new-question'].value)) {
-      div.style.backgroundColor = '#ffedf1';
-      div.style.borderColor = '#d9135d';
-      document.getElementById('need').style.display = 'inline';
-    } else {
+  formValidation(f, domainArea, questionArea) {
+    if (this.isEmptyOrSpaces(f.controls['new-question'].value) && this.isEmptyOrSpaces(f.controls['new-domain'].value)) {
+      this.changeColorError(domainArea, 'need-domain');
+      this.changeColorError(questionArea, 'need-question');
+    }
+    else if (this.isEmptyOrSpaces(f.controls['new-question'].value)) {
+      this.changeColorError(questionArea, 'need-question');
+      this.changeColorSuccess(domainArea, 'need-domain');
+    }
+    else if (this.isEmptyOrSpaces(f.controls['new-domain'].value)) {
+      this.changeColorError(domainArea, 'need-domain');
+      this.changeColorSuccess(questionArea, 'need-question');
+    }
+    else {
+      this.questionModel.domain = f.controls['new-domain'].value;
       this.questionModel.questionText = f.controls['new-question'].value;
-      f.reset();
+      this.changeColorSuccess(domainArea, 'need-domain');
+      this.changeColorSuccess(questionArea, 'need-question');
       if (this.id) {
         this.qs.updateQuestion(this.id, this.questionModel);
       }
       else {
         this.qs.add(this.questionModel);
       }
-      div.style.backgroundColor = 'white';
-      div.style.borderColor = '';
-      document.getElementById('need').style.display = 'none';
     }
+  }
+
+  changeColorError(textArea, messageId) {
+    textArea.style.backgroundColor = '#ffedf1';
+    textArea.style.borderColor = '#d9135d';
+    document.getElementById(messageId).style.display = 'inline';
+  }
+
+  changeColorSuccess(textArea, messageId) {
+    textArea.style.backgroundColor = 'white';
+    textArea.style.borderColor = '';
+    document.getElementById(messageId).style.display = 'none';
   }
 
   isEmptyOrSpaces(str) {

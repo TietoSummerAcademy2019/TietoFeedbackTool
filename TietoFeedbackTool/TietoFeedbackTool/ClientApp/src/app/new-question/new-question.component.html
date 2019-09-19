@@ -23,7 +23,7 @@
       </div>
       <div class="question-wrapper">
         <p id="input-heading">{{ 'question' | translate }}</p>
-        <textarea class="question-input" name="new-domain" ngModel required #first="ngModel" id="question-area"></textarea>
+        <textarea class="question-input" name="new-question" ngModel required #first="ngModel" id="question-area"></textarea>
         <div class="transition-msg" id="error-message">
           <div class="error-label" id="need-question">
             {{ 'question-required' | translate }}
@@ -36,6 +36,6 @@
 <footer class="new-question-footer">
   <div class="new-question-footer-buttons">
       <button class="tieto-button cancel" routerLink="" routerLinkActive="active">{{ 'cancel' | translate }}</button>
-      <button form="question-body" class="tieto-button submit">{{ 'submit' | translate }}</button>
+      <button form="website-form" class="tieto-button submit">{{ 'submit' | translate }}</button>
   </div>
 </footer>
