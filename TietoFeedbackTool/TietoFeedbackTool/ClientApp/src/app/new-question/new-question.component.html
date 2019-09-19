@@ -1,6 +1,6 @@
 <div class="new-question-content">
   <div class="navigation-item col-xl-12">
-    <a class="navigation-back" routerLink="/" >
+    <a class="navigation-back" routerLink="/">
       <img src="../../assets/img/round-reply-24px.svg" />
     </a>
   </div>
@@ -27,6 +27,22 @@
         <div class="transition-msg" id="error-message">
           <div class="error-label" id="need-question">
             {{ 'question-required' | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="radio-wrapper" id="radio-position">
+        <p id="input-heading">{{ 'feedbacktool-position' | translate }}</p>
+        <div class="custom-control custom-radio">
+          <input id="position-right" type="radio" class="custom-control-input" required [value]="false" name="position" ngModel>
+          <label class="custom-control-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="position-bottom" type="radio" class="custom-control-input" required [value]="true" name="position" ngModel>
+          <label class="custom-control-label" for="position-bottom">{{ 'feedbacktool-position-bottom' | translate }}</label>
+        </div>
+        <div class="transition-msg" id="error-message">
+          <div class="error-label" id="position-needed">
+            {{ 'position-required' | translate }}
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ export class NewQuestionComponent implements OnInit {
     enabled: false,
     domainName: "",
     hasRating: false,
-    isBottom: false,
+    isBottom: null,
     ratingType: "" //hardcoded data at this moment
   }
   questionModelEdit: Question = {
@@ -29,12 +29,13 @@ export class NewQuestionComponent implements OnInit {
     enabled: false,
     domainName: "",
     hasRating: false,
-    isBottom: false,
+    isBottom: null,
     ratingType: ""
   }
 
   id: number;
   textAreaValue: any;
+  position: any;
 
   constructor(
     private qs: NewQuestionService<Question>,
@@ -44,6 +45,7 @@ export class NewQuestionComponent implements OnInit {
   ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get("id"));
     this.textAreaValue = document.getElementById('question-area');
+    this.position = document.getElementsByName('position');
     if (this.id) {
       this.init();
     }
@@ -58,6 +60,7 @@ export class NewQuestionComponent implements OnInit {
       let question = this.questionModelEdit[key];
       if (question.id == this.id) {
         this.textAreaValue.value = question.questionText;
+        this.position.value = question.position;
       }
     }
   }
@@ -65,27 +68,25 @@ export class NewQuestionComponent implements OnInit {
   onSubmit(f: NgForm) {
     let domainArea = document.getElementById('domain-area');
     let questionArea = document.getElementById('question-area');
-    this.formValidation(f, domainArea, questionArea);
+    let radioArea = document.getElementById('radio-position')
+    this.formValidation(f, domainArea, questionArea, radioArea);
   }
 
-  formValidation(f, domainArea, questionArea) {
-    if (this.isEmptyOrSpaces(f.controls['new-question'].value) && this.isEmptyOrSpaces(f.controls['new-domain'].value)) {
-      this.changeColorError(domainArea, 'need-domain');
-      this.changeColorError(questionArea, 'need-question');
-    }
-    else if (this.isEmptyOrSpaces(f.controls['new-question'].value)) {
-      this.changeColorError(questionArea, 'need-question');
-      this.changeColorSuccess(domainArea, 'need-domain');
-    }
-    else if (this.isEmptyOrSpaces(f.controls['new-domain'].value)) {
-      this.changeColorError(domainArea, 'need-domain');
-      this.changeColorSuccess(questionArea, 'need-question');
+  formValidation(f, domainArea, questionArea, radioArea) {
+    if (this.isEmptyOrSpaces(f.controls['new-question'].value)
+      || this.isEmptyOrSpaces(f.controls['new-domain'].value)
+      || !f.controls['position'].valid) {
+        this.changeColorError(domainArea, 'need-domain');
+        this.changeColorError(questionArea, 'need-question');
+        this.changeColorError(radioArea, 'position-needed');
     }
     else {
       this.questionModel.domain = f.controls['new-domain'].value;
       this.questionModel.questionText = f.controls['new-question'].value;
+      this.questionModel.isBottom = f.controls['position'].value;
       this.changeColorSuccess(domainArea, 'need-domain');
       this.changeColorSuccess(questionArea, 'need-question');
+      this.changeColorSuccess(radioArea, 'position-needed');
       if (this.id) {
         this.qs.updateQuestion(this.id, this.questionModel);
       }
