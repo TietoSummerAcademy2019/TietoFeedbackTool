@@ -43,5 +43,9 @@
   "turn-off": "Sulje",
   "delete-survey": "Poista kyselylomake",
   "are-you-sure": "Haluatko varmasti poistaa kyselylomakkeen?",
-  "question-required": "Kysymys on pakollinen"
+  "question-required": "Kysymys on pakollinen",
+  "position-required": "Paikka on pakollinen",
+  "feedbacktool-position": "Työkalun sijainti",
+  "feedbacktool-position-right": "Sivun oikealla puolella",
+  "feedbacktool-position-bottom": "Sivun alaosassa"
 }
