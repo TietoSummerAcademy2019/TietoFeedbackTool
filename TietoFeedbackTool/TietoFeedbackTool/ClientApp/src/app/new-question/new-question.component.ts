@@ -74,18 +74,15 @@ export class NewQuestionComponent implements OnInit {
       div.style.borderColor = '#d9135d';
       document.getElementById('need').style.display = 'inline';
       document.getElementById('position-needed').style.display = 'inline';
-    }
-    else if (this.isEmptyOrSpaces(f.controls['new-question'].value)) {
+    } else if (this.isEmptyOrSpaces(f.controls['new-question'].value)) {
       div.style.backgroundColor = '#ffedf1';
       div.style.borderColor = '#d9135d';
       document.getElementById('need').style.display = 'inline';
       document.getElementById('position-needed').style.display = 'none';
-    }
-    else if (!f.valid) {
+    } else if (!f.valid) {
       document.getElementById('need').style.display = 'none';
       document.getElementById('position-needed').style.display = 'inline';
-    }
-    else {
+    } else {
       this.questionModel.questionText = f.controls['new-question'].value;
       this.questionModel.isBottom = f.controls['position'].value;
       console.log(this.questionModel);
