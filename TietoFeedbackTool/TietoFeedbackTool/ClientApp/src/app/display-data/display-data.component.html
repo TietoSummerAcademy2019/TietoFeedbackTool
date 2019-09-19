@@ -15,6 +15,19 @@
       </div>
     </div>
   </div>
+  <!-- barChart -->
+  <div class="container chart-style">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            style="height:20rem; width:100rem"
+            >
+    </canvas>
+  </div>
+  <!---->
   <div class="display-data-table">
     <table datatable class="table table-striped">
       <thead>
