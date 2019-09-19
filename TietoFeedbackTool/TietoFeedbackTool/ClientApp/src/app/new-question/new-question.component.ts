@@ -18,7 +18,7 @@ export class NewQuestionComponent implements OnInit {
     Domain: 'localhost:44350',
     enabled: false,
     hasRating: false,
-    isBottom: false,
+    isBottom: null,
     ratingType: "" //hardcoded data at this moment
   }
   questionModelEdit: Question = {
@@ -27,12 +27,13 @@ export class NewQuestionComponent implements OnInit {
     Domain: 'localhost:44350',
     enabled: false,
     hasRating: false,
-    isBottom: false,
+    isBottom: null,
     ratingType: ""
   }
 
   id: number;
   textAreaValue: any;
+  position: any;
 
   constructor(
     private qs: NewQuestionService<Question>,
@@ -42,6 +43,7 @@ export class NewQuestionComponent implements OnInit {
   ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get("id"));
     this.textAreaValue = document.getElementById('question-area');
+    this.position = document.getElementsByName('position');
     if (this.id) {
       this.init();
     }
@@ -56,6 +58,7 @@ export class NewQuestionComponent implements OnInit {
       let question = this.questionModelEdit[key];
       if (question.id == this.id) {
         this.textAreaValue.value = question.questionText;
+        this.position.value = question.position;
       }
     }
   }
@@ -64,12 +67,28 @@ export class NewQuestionComponent implements OnInit {
     // get new-question from the form and assign it to the model
     let div = document.getElementById('question-area');
 
-    if (this.isEmptyOrSpaces(f.controls['new-question'].value)) {
+    if (this.isEmptyOrSpaces(f.controls['new-question'].value) && !f.controls['position'].valid) {
       div.style.backgroundColor = '#ffedf1';
       div.style.borderColor = '#d9135d';
       document.getElementById('need').style.display = 'inline';
+      document.getElementById('position-needed').style.display = 'inline';
+      console.log(f.controls['position'].value)
+    } else if (this.isEmptyOrSpaces(f.controls['new-question'].value)) {
+      div.style.backgroundColor = '#ffedf1';
+      div.style.borderColor = '#d9135d';
+      document.getElementById('need').style.display = 'inline';
+      document.getElementById('position-needed').style.display = 'none';
+      console.log(f.controls['position'].value)
+    } else if (!f.controls['position'].valid) {
+      div.style.backgroundColor = 'white';
+      div.style.borderColor = '';
+      document.getElementById('need').style.display = 'none';
+      document.getElementById('position-needed').style.display = 'inline';
+      console.log(f.controls['position'].value)
     } else {
       this.questionModel.questionText = f.controls['new-question'].value;
+      this.questionModel.isBottom = f.controls['position'].value;
+      console.log(this.questionModel);
       f.reset();
       if (this.id) {
         this.qs.updateQuestion(this.id, this.questionModel);
@@ -80,6 +99,7 @@ export class NewQuestionComponent implements OnInit {
       div.style.backgroundColor = 'white';
       div.style.borderColor = '';
       document.getElementById('need').style.display = 'none';
+      document.getElementById('position-needed').style.display = 'none';
     }
   }
 
