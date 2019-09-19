@@ -61,7 +61,7 @@ export class DisplayDataComponent implements OnInit {
   public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData = [
-    {data: [1 , 1, 1, 1, 1],
+    {data: [0, 0, 0, 0, 0],
     label: 'amount',
     backgroundColor: [
       'rgba(54, 162, 235, 0.6)',
