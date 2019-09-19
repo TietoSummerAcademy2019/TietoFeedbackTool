@@ -28,12 +28,12 @@ function surveySetup() {
   });
 }
 
-function addCSS()
+function addCSS(isBottom)
 {
   var linkNode = document.createElement("link");
   linkNode.setAttribute("rel", "stylesheet");
   linkNode.setAttribute("type", "text/css");
-  linkNode.setAttribute("href", "https://localhost:44350/api/survey/getstyle");
+  linkNode.setAttribute("href", "https://localhost:44350/api/survey/getstyle/" + isBottom);
   document.head.appendChild(linkNode);
 }
 function checkDomain() {
@@ -43,9 +43,9 @@ function checkDomain() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      addCSS();
       var HTMLnode = document.createElement("div");
       HTMLnode.innerHTML = this.responseText;
+      addCSS(HTMLnode.innerHTML.getElementById("feedback-main").getAttribute("data-isBottom"));
       document.body.appendChild(HTMLnode);
       surveySetup();
     }
