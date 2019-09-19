@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Question } from '../models/Question';
 import { NewQuestionService } from './new-question.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-question',
@@ -15,17 +15,17 @@ export class NewQuestionComponent implements OnInit {
   questionModel: Question = {
     AccountLogin: 'OlejWoj',
     questionText: '',
-    domain: 'localhost:44350',
+    domain: '',
     enabled: false,
     domainName: "",
     hasRating: false,
     isBottom: null,
-    ratingType: "" //hardcoded data at this moment
+    ratingType: "" //hardcoded data at this moment,
   }
   questionModelEdit: Question = {
     AccountLogin: 'OlejWoj',
     questionText: '',
-    domain: 'localhost:44350',
+    domain: '',
     enabled: false,
     domainName: "",
     hasRating: false,
@@ -34,18 +34,23 @@ export class NewQuestionComponent implements OnInit {
   }
 
   id: number;
-  textAreaValue: any;
+  domainAreaValue: any;
+  questionAreaValue: any;
   position: any;
 
   constructor(
     private qs: NewQuestionService<Question>,
-    private route: ActivatedRoute
-    ) { }
+    private route: ActivatedRoute,
+    private nav: Router
+  ) { }
 
   ngOnInit() {
+    document.getElementById('validation-error').style.display = 'none';
     this.id = Number(this.route.snapshot.paramMap.get("id"));
-    this.textAreaValue = document.getElementById('question-area');
+    this.domainAreaValue = document.getElementById('domain-area');
+    this.questionAreaValue = document.getElementById('question-area');
     this.position = document.getElementsByName('position');
+    console.log(this.position)
     if (this.id) {
       this.init();
     }
@@ -59,53 +64,41 @@ export class NewQuestionComponent implements OnInit {
     for (let key in this.questionModelEdit) {
       let question = this.questionModelEdit[key];
       if (question.id == this.id) {
-        this.textAreaValue.value = question.questionText;
-        this.position.value = question.position;
+        this.questionAreaValue.value = question.questionText;
+        this.domainAreaValue.value = question.domain;
+        this.position.value = question.isBottom;
+        console.log(this.position[1])
       }
     }
   }
 
   onSubmit(f: NgForm) {
-    let domainArea = document.getElementById('domain-area');
-    let questionArea = document.getElementById('question-area');
-    let radioArea = document.getElementById('radio-position')
-    this.formValidation(f, domainArea, questionArea, radioArea);
+    this.formValidation(f);
   }
 
-  formValidation(f, domainArea, questionArea, radioArea) {
+  formValidation(f) {
+    console.log(f.controls['new-question'].value)
     if (this.isEmptyOrSpaces(f.controls['new-question'].value)
       || this.isEmptyOrSpaces(f.controls['new-domain'].value)
       || !f.controls['position'].valid) {
-        this.changeColorError(domainArea, 'need-domain');
-        this.changeColorError(questionArea, 'need-question');
-        this.changeColorError(radioArea, 'position-needed');
+        this.displayErrorMessage();
     }
     else {
       this.questionModel.domain = f.controls['new-domain'].value;
       this.questionModel.questionText = f.controls['new-question'].value;
       this.questionModel.isBottom = f.controls['position'].value;
-      this.changeColorSuccess(domainArea, 'need-domain');
-      this.changeColorSuccess(questionArea, 'need-question');
-      this.changeColorSuccess(radioArea, 'position-needed');
       if (this.id) {
         this.qs.updateQuestion(this.id, this.questionModel);
       }
       else {
         this.qs.add(this.questionModel);
       }
+      this.nav.navigate(["/"])
     }
   }
 
-  changeColorError(textArea, messageId) {
-    textArea.style.backgroundColor = '#ffedf1';
-    textArea.style.borderColor = '#d9135d';
-    document.getElementById(messageId).style.display = 'inline';
-  }
-
-  changeColorSuccess(textArea, messageId) {
-    textArea.style.backgroundColor = 'white';
-    textArea.style.borderColor = '';
-    document.getElementById(messageId).style.display = 'none';
+  displayErrorMessage() {
+    document.getElementById('validation-error').style.display = 'inline';
   }
 
   isEmptyOrSpaces(str) {

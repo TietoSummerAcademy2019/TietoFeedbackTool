@@ -15,14 +15,8 @@
   }
 }
 
-.error-label {
-  background-color: #d9135c;
-  color: white;
-  padding: 0.1875rem 0.9375rem 0.1875rem 0.9375rem;
-  margin-top: -0.3125rem;
-  float: left;
-  border-radius: 0.375rem;
-  display: none;
+p#validation-error {
+  color: #d9135c;
 }
 
 .information-question {
