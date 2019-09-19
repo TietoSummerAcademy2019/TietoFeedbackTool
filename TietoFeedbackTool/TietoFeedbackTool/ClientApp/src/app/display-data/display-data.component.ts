@@ -51,7 +51,8 @@ export class DisplayDataComponent implements OnInit {
       yAxes: [{
         ticks: {
           beginAtZero: true,
-          stepValue: 5,
+          stepSize: 10,
+          suggestedMin: 0
       }
       }]
   }
@@ -117,7 +118,7 @@ export class DisplayDataComponent implements OnInit {
     this.answers = this.getSortedArray();
 
     this.barChartData = [
-      {data: [this.starRating[0] , this.starRating[1], this.starRating[2], this.starRating[3], this.starRating[4]],
+      {data: [this.starRating[0] , this.starRating[1], this.starRating[2], 21, this.starRating[4]],
       label: 'amount',
       backgroundColor: [
         'rgba(54, 162, 235, 0.6)',
