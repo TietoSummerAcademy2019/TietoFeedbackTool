@@ -34,8 +34,8 @@ export class DisplayDataService<T extends Account> {
     );
   }
 
-  getRating(idQuestion: number, amountRating: number){
-    console.log(`${this.getRatingUrl}/${idQuestion}/${amountRating}`)
-    return this.http.get(`${this.getRatingUrl}/${idQuestion}/${amountRating}`).toPromise();
+  getRating(idQuestion: number){
+    console.log(`${this.getRatingUrl}/${idQuestion}`)
+    return this.http.get(`${this.getRatingUrl}/${idQuestion}`).toPromise();
   }
 }
