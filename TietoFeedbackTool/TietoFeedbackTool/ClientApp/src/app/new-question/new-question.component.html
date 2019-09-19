@@ -4,23 +4,34 @@
       <img src="../../assets/img/round-reply-24px.svg" />
     </a>
   </div>
-    <div class="information-question">
-      <h1 class="information-question-header">{{ 'setup-feedback-tool' | translate }}</h1>
-      <div class="information-question-information">
-        <p>{{ 'setup-feedback-tool-desc' | translate }}</p>
-      </div>
+  <div class="information-question">
+    <h1 class="information-question-header">{{ 'setup-feedback-tool' | translate }}</h1>
+    <div class="information-question-information">
+      <p>{{ 'setup-feedback-tool-desc' | translate }}</p>
     </div>
-    <div class="question-form">
-      <h2>{{ 'question' | translate }}</h2>
-      <form id="question-body" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
-        <textarea class="question-text" name="new-question" ngModel required #first="ngModel" id="question-area"></textarea>
-      </form>
-      <div class="transition-msg" id="error-message">
-        <div class="error-label" id="need">
-          {{ 'question-required' | translate }}
+  </div>
+  <div class="website-form">
+    <form id="website-form" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
+      <div class="domain-wrapper">
+        <p id="input-heading">Page domain</p>
+        <textarea class="domain-input" name="new-domain" ngModel required #first="ngModel" id="domain-area"></textarea>
+        <div class="transition-msg" id="error-message">
+          <div class="error-label" id="need-domain">
+            {{ 'question-required' | translate }}
+          </div>
         </div>
       </div>
-    </div>
+      <div class="question-wrapper">
+        <p id="input-heading">{{ 'question' | translate }}</p>
+        <textarea class="question-input" name="new-domain" ngModel required #first="ngModel" id="question-area"></textarea>
+        <div class="transition-msg" id="error-message">
+          <div class="error-label" id="need-question">
+            {{ 'question-required' | translate }}
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 <footer class="new-question-footer">
   <div class="new-question-footer-buttons">

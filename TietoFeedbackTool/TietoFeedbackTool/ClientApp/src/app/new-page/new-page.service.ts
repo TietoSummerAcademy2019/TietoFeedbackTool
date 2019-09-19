@@ -8,7 +8,7 @@ import { Question } from '../models/Question';
 })
 export class NewPageService<T extends Question> {
 
-  private readonly newPageUrl = environment.newQuestionUrl;
+  private readonly newPageUrl = environment.newPageUrl;
 
   constructor(private http: HttpClient) {
   }

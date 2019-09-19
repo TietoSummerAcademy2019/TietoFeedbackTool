@@ -39,7 +39,7 @@
   padding-top: .5rem;
   padding-left: 3.125rem;
   padding-bottom: 1.0rem;
-  & div.domain-wrapper, div.nameinput-wrapper {
+  & div.domain-wrapper, div.nameinput-wrapper, div.first-question-wrapper {
     & p#input-heading {
       font-weight: 700;
       font-size: 0.875rem;
@@ -67,6 +67,23 @@
   & div.nameinput-wrapper {
     padding-top: 1.7rem;
     & .name-input {
+      resize: none;
+      overflow: hidden;
+      height: 2rem;
+      font-size: 1rem;
+      font-weight: 400;
+      min-width: 15rem;
+      max-width: 33.75rem;
+      width: 20vw;
+      background: #ffffff 0% 0% no-repeat padding-box;
+      border: 0.0625rem solid #cccccc;
+      border-radius: 0.375rem;
+      opacity: 1;
+    }
+  }
+  & div.first-question-wrapper {
+    padding-top: 1.7rem;
+    & .question-text {
       resize: none;
       overflow: hidden;
       height: 2rem;
