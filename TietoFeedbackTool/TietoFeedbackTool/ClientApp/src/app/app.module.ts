@@ -18,7 +18,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { DeletePopupComponent } from './dashboard/delete-popup/delete-popup.component';
 import { MatDialogModule } from '@angular/material';
-import { NewPageComponent } from './new-page/new-page.component';
 
 export function setupTranslateFactory(
   service: TranslateService): Function {
@@ -36,7 +35,6 @@ export function setupTranslateFactory(
       TrackingCodeGenerationComponent,
       DashboardComponent,
       DeletePopupComponent,
-      NewPageComponent,
       TranslatePipe
    ],
    entryComponents: [
