@@ -1,29 +1,5 @@
 function surveySetup() {
-  const survey = {
-    answer: document.getElementById('answer'),
-    questionId: document.getElementById('answer').getAttribute("data-id"),
-    submit: document.getElementById('survey-submit')
-  };
-
   survey.submit.addEventListener('click', () => {
-    var request = new XMLHttpRequest();
-
-    request.onload = () => {
-      //console.log( request.responseText );// here we will add actions that should happens after successful survey submit
-    }
-
-    var requestData = {
-      answer: `${survey.answer.value}`,
-      questionId: `${survey.questionId}`
-    };
-
-    var jsonData = JSON.stringify(requestData);
-
-    var link = 'https://localhost:44350/api/Answer/open';
-    request.open('post', link);
-    request.setRequestHeader('Content-type', 'application/json');
-
-    request.send(jsonData);
     checkAnswer();
   });
 }
@@ -37,9 +13,7 @@ function addCSS(isBottom)
   document.head.appendChild(linkNode);
 }
 function checkDomain() {
-  var key = getSurveyKey();
-  var currentDomain = window.location.host;
-  var apiLink = "https://localhost:44350/api/survey/getsurvey/" + key + "/" + currentDomain;
+  var apiLink = "https://localhost:44350/api/survey/getdummysurvey";
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
