@@ -77,6 +77,7 @@ export class NewPageComponent implements OnInit {
       this.changeColorSuccess(domainArea, 'need-domain');
       this.changeColorSuccess(domainNameArea, 'need-name');
       this.nps.addPage(this.questionModel);
+      window.location.reload();
       this.route.navigate(["/"])
     }
   }

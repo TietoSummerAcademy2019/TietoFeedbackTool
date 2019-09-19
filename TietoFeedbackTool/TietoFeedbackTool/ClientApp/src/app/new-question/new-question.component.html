@@ -15,20 +15,20 @@
     <form id="website-form" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
       <div class="domain-wrapper">
         <p id="input-heading">Page domain</p>
-        <textarea class="domain-input" name="new-domain" ngModel="domain" required id="domain-area"></textarea>
+        <textarea class="domain-input" name="new-domain" ngModel="{{domainAreaValue.value}}" required id="domain-area"></textarea>
       </div>
       <div class="question-wrapper">
         <p id="input-heading">{{ 'question' | translate }}</p>
-        <textarea class="question-input" name="new-question" ngModel="question" required id="question-area"></textarea>
+        <textarea class="question-input" name="new-question" ngModel="{{questionAreaValue.value}}" required id="question-area"></textarea>
       </div>
       <div class="radio-wrapper" id="radio-position">
         <p id="input-heading">{{ 'feedbacktool-position' | translate }}</p>
         <div class="custom-control custom-radio">
-          <input id="position-right" type="radio" class="custom-control-input" required [value]="false" name="position">
+          <input id="position-right" type="radio" class="custom-control-input" required [value]="false" name="position" >
           <label class="custom-control-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
         </div>
         <div class="custom-control custom-radio">
-          <input id="position-bottom" type="radio" class="custom-control-input" required [value]="true" name="position">
+          <input id="position-bottom" type="radio" class="custom-control-input" required [value]="true" name="position" >
           <label class="custom-control-label" for="position-bottom">{{ 'feedbacktool-position-bottom' | translate }}</label>
         </div>
       </div>
