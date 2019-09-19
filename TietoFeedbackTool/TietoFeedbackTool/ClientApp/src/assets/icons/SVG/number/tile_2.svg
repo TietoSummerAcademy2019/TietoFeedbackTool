@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33">
+  <g id="tile_2" transform="translate(-678 -73)">
+    <g id="Group_4860" data-name="Group 4860" transform="translate(-4016 -976)">
+      <g id="Rectangle_17105" data-name="Rectangle 17105" transform="translate(4694 1049)" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="32" height="33" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="31" height="32" rx="5.5" fill="none"/>
+      </g>
+      <text id="_2" data-name="2" transform="translate(4706 1072)" font-size="16" font-family="OpenSans-Semibold, Open Sans" font-weight="600"><tspan x="0" y="0">2</tspan></text>
+    </g>
+  </g>
+</svg>
