@@ -91,13 +91,16 @@ export class NewQuestionComponent implements OnInit {
       this.questionModel.domain = f.controls['new-domain'].value;
       this.questionModel.questionText = f.controls['new-question'].value;
       this.questionModel.isBottom = f.controls['position'].value;
+      console.log(this.questionModel.isBottom)
       if (this.id) {
         this.qs.updateQuestion(this.id, this.questionModel);
       }
       else {
         this.qs.add(this.questionModel);
       }
-      this.nav.navigate(["/"])
+      this.nav.navigate(["/"]).then(() => {
+        window.location.reload();
+      })
     }
   }
 
