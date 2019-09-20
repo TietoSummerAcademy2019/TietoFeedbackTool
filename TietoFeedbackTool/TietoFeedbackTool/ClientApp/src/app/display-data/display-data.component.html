@@ -1,35 +1,31 @@
 <div class="display-data">
-  <div class="navigation-item col-xl-12">
-    <a class="navigation-back" routerLink="/">
-      <img src="../../assets/img/round-reply-24px.svg" />
-    </a>
-  </div>
   <div class="information-question">
     <h1 class="information-question-header">{{questionWithAnswer.name}}</h1>
     <div class="information-question-information">
-      <p>{{ 'display-desc' | translate }}</p>
       <div class="question-iteration" *ngFor="let question of questionWithAnswer.questions">
         <div class="information-question-information-item" *ngIf="question.id==id">
-          <p>{{ question.questionText }}</p>
+          <p>{{ 'display-desc' | translate }}  <strong>{{ question.questionText }}</strong></p>
         </div>
       </div>
     </div>
   </div>
+  <div class="information-reactions">
+    <p>Reactions:</p>
+  </div>
   <!-- barChart -->
-  <div class="container chart-style">
+  <div class="container display-chart col-xl-7">
     <canvas baseChart
             [datasets]="barChartData"
             [labels]="barChartLabels"
             [options]="barChartOptions"
             [legend]="barChartLegend"
             [chartType]="barChartType"
-            style="height:20rem; width:100rem"
             >
     </canvas>
   </div>
   <!---->
   <div class="display-data-table">
-    <table datatable class="table table-striped">
+    <table datatable class="table table-striped col-xl-9">
       <thead>
         <tr>
           <th scope="col">{{ 'date' | translate }}</th>
@@ -55,7 +51,7 @@
         {{ answers.length }}
       </div>
 
-      <nav class="paging-nav" aria-label="..." *ngIf="pageCount != 0">
+      <nav class="paging-nav col-xl-9" aria-label="..." *ngIf="pageCount != 0">
         <ul class="pagination">
           <li class="page-item" [ngClass]="{'disabled': activeSite==1}">
             <a class="page-link" (click)="setActiveSite(activeSite-1)">{{ 'previous' | translate }}</a>

@@ -39,7 +39,11 @@ nav {
     }
     & > .sidebar-page-item {
       margin-left: 1.5rem;
-
+      & ul#domain-list {
+        & .domain-list-item {
+          cursor: pointer;
+        }
+      }
       & > ul {
         list-style: none;
         padding-inline-start: 0;
