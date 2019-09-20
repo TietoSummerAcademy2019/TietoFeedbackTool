@@ -37,7 +37,7 @@ describe('NewQuestionComponent', () => {
   });
 
   it('should run onsubmit after click', () => {
-    let button = fixture.debugElement.queryAll(By.css('.tieto-button'));
+    let button = fixture.debugElement.queryAll(By.css('.submit'));
     spyOn(component, 'onSubmit');
     button[1].nativeElement.click();
     expect(component.onSubmit).toHaveBeenCalled();

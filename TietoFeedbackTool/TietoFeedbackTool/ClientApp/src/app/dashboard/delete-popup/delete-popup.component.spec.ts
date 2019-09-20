@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { DeletePopupComponent } from './delete-popup.component';
+import { TranslatePipe } from '../../translate-service/translate.pipe';
+import { TranslateService } from '../../translate-service/translate-service.service';
 
 describe('DeletePopupComponent', () => {
   let component: DeletePopupComponent;
@@ -11,7 +13,8 @@ describe('DeletePopupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeletePopupComponent ]
+      providers: [TranslateService],
+      declarations: [DeletePopupComponent, TranslatePipe ]
     })
     .compileComponents();
   }));

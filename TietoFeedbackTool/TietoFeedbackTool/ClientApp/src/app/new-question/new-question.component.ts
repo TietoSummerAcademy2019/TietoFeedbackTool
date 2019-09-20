@@ -21,15 +21,9 @@ export class NewQuestionComponent implements OnInit {
     isBottom: null,
     ratingType: "" //hardcoded data at this moment,
   }
-  questionModelEdit: Question = {
-    AccountLogin: 'OlejWoj',
-    questionText: '',
-    domain: '',
-    enabled: false,
-    hasRating: false,
-    isBottom: null,
-    ratingType: ""
-  }
+  questionArray: Question[] = [];
+
+
 
   id: number;
   domainAreaValue: any;
@@ -55,11 +49,11 @@ export class NewQuestionComponent implements OnInit {
 
   async init() {
     await this.qs.getItems().then((result) => {
-      this.questionModelEdit = result
+      this.questionArray = result
     });
 
-    for (let key in this.questionModelEdit) {
-      let question = this.questionModelEdit[key];
+    for (let key in this.questionArray) {
+      let question = this.questionArray[key];
       if (question.id == this.id) {
         this.questionAreaValue.value = question.questionText;
         this.domainAreaValue.value = question.domain;

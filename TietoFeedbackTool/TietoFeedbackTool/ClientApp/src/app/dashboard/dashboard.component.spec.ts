@@ -2,7 +2,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
+import { TranslatePipe } from '../translate-service/translate.pipe';
+import { TranslateService } from '../translate-service/translate-service.service';
 import { DashboardComponent } from './dashboard.component';
 
 describe('DashboardComponent', () => {
@@ -11,7 +12,9 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      declarations: [TranslatePipe, DashboardComponent],
+      providers: [TranslateService]
+
     })
     .compileComponents();
   }));
