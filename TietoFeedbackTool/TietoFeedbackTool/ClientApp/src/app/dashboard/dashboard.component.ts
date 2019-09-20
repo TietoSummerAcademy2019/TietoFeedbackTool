@@ -62,15 +62,12 @@ export class DashboardComponent implements OnInit {
 
   click(target) {
     const domainList = document.getElementsByClassName('domain-list-item');
-
     for (let i = 0; i < domainList.length; i++) {
       const domain = domainList[i] as HTMLElement;
       domain.style.fontWeight = '300';
     }
-
     this.activeSelection = target.innerText;
     target.style.fontWeight = '700'
-    console.log(this.activeSelection)
   }
 
   openDialog(id) {
