@@ -7,12 +7,15 @@ module.exports = {
     var displayData = browser.page.tietoFeedbackToolDisplayData();
     var questionSite = browser.page.tietoFeedbackToolQuestion();
     var text = 'What could you improve in our site?';
+    var domain = "Tieto.com";
 
     questionSite
-        .navigate()
-        .waitForElementPresent('@textArea', constants.TIMEOUT)
-        .setValue('@textArea', text)
-        .click('@submit')
+      .navigate()
+      .waitForElementPresent('@textArea', constants.TIMEOUT)
+      .setValue('@domainArea', domain)
+      .setValue('@textArea', text)
+      .click('@radioButtonRight')
+      .click('@submit')
 
     displayData
         .navigate()
@@ -28,10 +31,10 @@ module.exports = {
     questionSite
       .navigate()
       .waitForElementPresent('@textArea', constants.TIMEOUT)
-      .expect.element('#validation-error').to.have.css('display').which.equals('none')
+      .expect.element('@errorMessage').to.have.css('display').which.equals('none')
     questionSite
       .click('@submit')
-      .expect.element('#validation-error').to.have.css('display').which.equals('inline');
+      .expect.element('@errorMessage').to.have.css('display').which.equals('inline');
       
     },
         

@@ -1,19 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="1"
-            tests="1">
+            failures="0"
+            tests="4">
 
   <testsuite name="tietoFeedbackTool"
-    errors="0" failures="1" hostname="" id="" package="tietoFeedbackTool" skipped="3"
-    tests="1" time="5.734" timestamp="">
+    errors="0" failures="0" hostname="" id="" package="tietoFeedbackTool" skipped="0"
+    tests="4" time="8.254" timestamp="">
   
-    <testcase name="Should display question when created" classname="tietoFeedbackTool" time="5.734" assertions="4">
+    <testcase name="Should display question when created" classname="tietoFeedbackTool" time="5.575" assertions="4">
 
     
 
     
 
-      <failure message="Testing if element &lt;Element [name=@questionItem]&gt; contains text: &#34;What could you improve in our site?&#34; in 1000 ms. - expected [0;32m&#34;What could you improve in our site?&#34;[0m but got: [0;31m&#34;How well do you understand our homepage?&#34;[0m">    at Object.Should display question when created (C:\gitRepo\New folder\SummerAcademy2019\TietoFeedbackTool\TietoFeedbackTool\ClientApp\NightwatchTests\tests\tietoFeedbackTool.js:22:17)</failure>
+    
+
+    
+    </testcase>
+  
+    <testcase name="Should display error message when submit empty question" classname="tietoFeedbackTool" time="0.6160" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Should change content when pressed see more" classname="tietoFeedbackTool" time="1.335" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Should display tracking code when clicked tracking code button" classname="tietoFeedbackTool" time="0.7280" assertions="2">
+
+    
 
     
     </testcase>
@@ -21,23 +48,6 @@
 
   
 
-  
-    
-    <testcase
-      name="Should display error message when submit empty question" classname="tietoFeedbackTool">
-      <skipped />
-    </testcase>
-    
-    <testcase
-      name="Should change content when pressed see more" classname="tietoFeedbackTool">
-      <skipped />
-    </testcase>
-    
-    <testcase
-      name="Should display tracking code when clicked tracking code button" classname="tietoFeedbackTool">
-      <skipped />
-    </testcase>
-    
   
   </testsuite>
 </testsuites>
