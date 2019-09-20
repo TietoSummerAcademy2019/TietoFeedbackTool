@@ -7,6 +7,10 @@ module.exports = {
       selector: 'see-more',
       locateStrategy: 'class name'
     },
+    title: {
+      selector: '//div[@class="col-2 title"]',
+      locateStrategy: 'xpath'
+    },
     textArea: {
       selector: 'question-text',
       locateStrategy: 'class name'
