@@ -4,9 +4,6 @@ import { DisplayDataService } from '../display-data/display-data.service';
 import { I18nPluralPipe } from '@angular/common';
 import { MatDialog } from '@angular/material'
 import { DeletePopupComponent } from './delete-popup/delete-popup.component';
-import { delay } from 'rxjs/operators';
-
-
 
 @Component({
   selector: 'app-dashboard',
