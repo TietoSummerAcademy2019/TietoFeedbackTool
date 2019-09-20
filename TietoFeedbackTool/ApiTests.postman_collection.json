@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "aef392c0-797d-4eef-868b-c0ee252c0477",
-		"name": "Api test collection copy",
+		"name": "Api test collection",
 		"description": "This colletion tests our API.\nColletion should clear all test data after completing.\n\nWarning ! : \nAlways run this tests as a whole colletion.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
