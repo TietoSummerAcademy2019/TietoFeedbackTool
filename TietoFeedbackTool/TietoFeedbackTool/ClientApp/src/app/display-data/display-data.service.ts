@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
-import { map, merge } from 'rxjs/operators';
 import { Account } from '../models/Account';
 
 
@@ -15,6 +13,7 @@ export class DisplayDataService<T extends Account> {
   private readonly deleteQuestionUrl = environment.deleteQuestionUrl;
   private readonly updateQuestionEnabledUrl = environment.updateQuestionEnabledUrl;
   private readonly domainsUrl = environment.domainsUrl;
+  private readonly getRatingUrl = environment.getRatingUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -37,5 +36,10 @@ export class DisplayDataService<T extends Account> {
       data => console.log('success', data),
       error => console.log('oops', error)
     );
+  }
+
+  getRating(idQuestion: number){
+    console.log(`${this.getRatingUrl}/${idQuestion}`)
+    return this.http.get(`${this.getRatingUrl}/${idQuestion}`).toPromise();
   }
 }

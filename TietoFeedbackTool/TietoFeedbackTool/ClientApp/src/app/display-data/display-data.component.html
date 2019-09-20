@@ -15,6 +15,19 @@
       </div>
     </div>
   </div>
+  <!-- barChart -->
+  <div class="container chart-style">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            style="height:20rem; width:100rem"
+            >
+    </canvas>
+  </div>
+  <!---->
   <div class="display-data-table">
     <table datatable class="table table-striped">
       <thead>
@@ -22,18 +35,14 @@
           <th scope="col">{{ 'date' | translate }}</th>
           <th scope="col">{{ 'reaction' | translate }}</th>
           <th scope="col">{{ 'response' | translate }}</th>
-          <th scope="col">{{ 'operating-system' | translate }}</th>
-          <th scope="col">{{ 'browser' | translate }}</th>
         </tr>
       </thead>
       <tbody>
         <ng-container *ngFor="let answer of answers; let i=index">
           <tr *ngIf="i>=(activeSite-1)*resultsPerSite && i<activeSite*resultsPerSite">
             <td scope="row">{{answer.submitDate | date: 'yyyy-MM-dd' }}</td>
-            <td><img src="../../assets/img/stars.svg" class="visual-rating"></td>
+            <td>{{answer.rating}}</td>
             <td>{{answer.answer}}</td>
-            <td> Windows</td>
-            <td> Chrome </td>
           </tr>
         </ng-container>
       </tbody>

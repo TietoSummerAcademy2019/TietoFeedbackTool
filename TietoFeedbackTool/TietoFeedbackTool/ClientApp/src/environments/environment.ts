@@ -12,6 +12,7 @@ export const environment = {
   updateQuestionEnabledUrl: 'https://localhost:44350/api/Survey/Questions/enable',
   newPageUrl: 'https://localhost:44350/api/Survey/Page',
   domainsUrl: 'https://localhost:44350/api/account/userdomains/OlejWoj',
+  getRatingUrl: 'https://localhost:44350/api/answer/rating',
   production: false
 };
 
