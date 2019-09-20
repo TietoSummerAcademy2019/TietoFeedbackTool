@@ -6,11 +6,14 @@ module.exports = {
     var displayData = browser.page.tietoFeedbackToolDisplayData();
     var questionSite = browser.page.tietoFeedbackToolQuestion();
     var text = 'What could you improve in our site?';
+    var domain = "Tieto.com";
 
     questionSite
       .navigate()
       .waitForElementPresent('@textArea', constants.TIMEOUT)
+      .setValue('@domainArea', domain)
       .setValue('@textArea', text)
+      .click('@radioButtonRight')
       .click('@submit')
 
     displayData
@@ -27,6 +30,7 @@ module.exports = {
       .navigate()
       .waitForElementPresent('@textArea', constants.TIMEOUT)
       .click('@submit')
+      .waitForElementPresent('@errorMessage')
   },
   'Should change content when pressed see more': async function (browser) {
     var homeSite = browser.page.tietoFeedbackToolDashboard();

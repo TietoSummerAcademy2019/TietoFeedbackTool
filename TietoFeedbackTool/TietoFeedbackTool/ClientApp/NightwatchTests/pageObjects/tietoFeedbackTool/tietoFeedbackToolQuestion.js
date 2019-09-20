@@ -7,9 +7,25 @@ module.exports = {
       selector: 'submit',
       locateStrategy: 'class name'
     },
-    textArea: {
-      selector: 'question-text',
+    domainArea: {
+      selector: 'domain-input',
       locateStrategy: 'class name'
+    },
+    textArea: {
+      selector: 'question-input',
+      locateStrategy: 'class name'
+    },
+    radioButtonRight: {
+      selector: 'position-right-label',
+      locateStrategy: 'id'
+    },
+    radioButtonBottom: {
+      selector: 'position-bottom-label',
+      locateStrategy: 'id'
+    },
+    errorMessage: {
+      selector: 'validation-error',
+      locateStrategy: 'id'
     }
   }
 }
