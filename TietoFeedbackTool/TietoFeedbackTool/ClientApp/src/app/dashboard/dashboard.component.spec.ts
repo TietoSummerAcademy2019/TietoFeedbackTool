@@ -5,6 +5,11 @@ import { DebugElement } from '@angular/core';
 import { TranslatePipe } from '../translate-service/translate.pipe';
 import { TranslateService } from '../translate-service/translate-service.service';
 import { DashboardComponent } from './dashboard.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { NewQuestionComponent } from '../new-question/new-question.component';
+import { DisplayDataComponent } from '../display-data/display-data.component';
+import { MarkingBarComponent } from '../marking-bar/marking-bar.component';
+import { MarkingBarSideComponent } from '../marking-bar-side/marking-bar-side.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -12,7 +17,15 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TranslatePipe, DashboardComponent],
+      declarations: [
+        TranslatePipe,
+        DashboardComponent,
+        NewQuestionComponent,
+        DisplayDataComponent,
+        MarkingBarComponent,
+        MarkingBarSideComponent
+      ],
+      imports: [AppRoutingModule],
       providers: [TranslateService]
 
     })

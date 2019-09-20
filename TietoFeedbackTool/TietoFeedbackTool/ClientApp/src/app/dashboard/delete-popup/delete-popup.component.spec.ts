@@ -6,6 +6,7 @@ import { DebugElement } from '@angular/core';
 import { DeletePopupComponent } from './delete-popup.component';
 import { TranslatePipe } from '../../translate-service/translate.pipe';
 import { TranslateService } from '../../translate-service/translate-service.service';
+import { RouterModule } from '@angular/router';
 
 describe('DeletePopupComponent', () => {
   let component: DeletePopupComponent;
@@ -13,6 +14,7 @@ describe('DeletePopupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterModule.forRoot([])],
       providers: [TranslateService],
       declarations: [DeletePopupComponent, TranslatePipe ]
     })

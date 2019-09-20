@@ -6,6 +6,7 @@ import { TranslateService } from '../translate-service/translate-service.service
 import { DisplayDataComponent } from './display-data.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
+import { RouterModule } from '@angular/router';
 
 describe('DisplayDataComponent', () => {
   let component: DisplayDataComponent;
@@ -13,7 +14,7 @@ describe('DisplayDataComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, ChartsModule],
+      imports: [HttpClientTestingModule, ChartsModule, RouterModule.forRoot([])],
       providers: [TranslateService],
       declarations: [DisplayDataComponent, TranslatePipe ]
     })
