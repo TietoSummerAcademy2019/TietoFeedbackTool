@@ -10,6 +10,8 @@ export const environment = {
   accountUrl: 'https://localhost:44350/api/account',
   deleteQuestionUrl: 'https://localhost:44350/api/Survey/questions',
   updateQuestionEnabledUrl: 'https://localhost:44350/api/Survey/Questions/enable',
+  newPageUrl: 'https://localhost:44350/api/Survey/Page',
+  domainsUrl: 'https://localhost:44350/api/account/userdomains/OlejWoj',
   getRatingUrl: 'https://localhost:44350/api/answer/rating',
   production: false
 };

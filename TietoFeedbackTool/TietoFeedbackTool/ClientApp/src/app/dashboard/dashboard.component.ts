@@ -38,6 +38,8 @@ export class DashboardComponent implements OnInit {
     name:'',
     questionsKey:''
   }
+  domainArray: string[];
+  activeSelection: string = "";
 
   constructor(
     private ds: DisplayDataService<Account>,
@@ -53,6 +55,19 @@ export class DashboardComponent implements OnInit {
     await this.ds.getAll().then((result) => {
       this.questionWithAnswer = result;
     });
+    await this.ds.getDomains().then((result) => {
+      this.domainArray = result;
+    });
+  }
+
+  click(target) {
+    const domainList = document.getElementsByClassName('domain-list-item');
+    for (let i = 0; i < domainList.length; i++) {
+      const domain = domainList[i] as HTMLElement;
+      domain.style.fontWeight = '300';
+    }
+    this.activeSelection = target.innerText;
+    target.style.fontWeight = '700'
   }
 
   openDialog(id) {
