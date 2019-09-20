@@ -30,18 +30,21 @@ export class DisplayDataComponent implements OnInit {
     scaleShowVerticalLines: true,
     responsive: true,
     maintainAspectRatio: false,
+    legend: {
+      display: false
+    },
     tooltips: {
       backgroundColor: 'rgba(255,255,255,0.9)',
-      bodyFontColor: '#999',
-      borderColor: '#999',
+      bodyFontColor: '#000000',
+      borderColor: '#000000',
       borderWidth: 1,
       caretPadding: 15,
-      colorBody: '#666',
+      colorBody: '#000000',
       displayColors: false,
       enabled: true,
       intersect: true,
       mode: 'x',
-      titleFontColor: '#999',
+      titleFontColor: '#000000',
       titleMarginBottom: 10,
       xPadding: 15,
       yPadding: 15,
@@ -53,7 +56,8 @@ export class DisplayDataComponent implements OnInit {
           stepSize: 10,
           suggestedMin: 0
       }
-      }]
+      }],
+
   }
   };
   public barChartLabels = ['1 star', '2 stars', '3 stars', '4 stars', '5 stars'];
@@ -63,14 +67,14 @@ export class DisplayDataComponent implements OnInit {
     {data: [0, 0, 0, 0, 0],
     label: 'amount',
     backgroundColor: [
-      'rgba(54, 162, 235, 0.6)',
-      'rgba(54, 162, 235, 0.6)',
-      'rgba(54, 162, 235, 0.6)',
-      'rgba(54, 162, 235, 0.6)',
-      'rgba(54, 162, 235, 0.6)',
+      'rgba(14, 118, 183, 1)',
+      'rgba(14, 118, 183, 1)',
+      'rgba(14, 118, 183, 1)',
+      'rgba(14, 118, 183, 1)',
+      'rgba(14, 118, 183, 1)',
     ],
     borderWidth: 0,
-    hoverBackgroundColor: 'rgba(221, 221, 221, 0.7)',
+    hoverBackgroundColor: 'rgba(98, 179, 229, 1)',
     scaleStepWidth: 1
     }
   ];
@@ -123,5 +127,4 @@ export class DisplayDataComponent implements OnInit {
   public getSortedArray(): PuzzleAnswer[] {
     return this.answers.sort((a, b) => new Date(b.submitDate).getDate() - new Date(a.submitDate).getDate());
   }
-
 }

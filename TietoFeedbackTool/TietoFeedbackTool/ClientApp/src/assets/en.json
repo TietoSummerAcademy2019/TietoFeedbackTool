@@ -27,7 +27,7 @@
   "next": "Next",
   "tracking-code-desc1": "Your “tracking code” is a code snippet that needs to be installed on your site for you to be able to use Tieto Feedback Tool.",
   "tracking-code-desc2": "Copy and paste the code snippet into the <head> tag on every page where you wish to track visitors and collect feedback.",
-  "copy": "copy",
+  "copy": "Copy",
   "copied-it": "copied-it",
   "generate-tracking-code": "Tracking code",
   "list of pages": "List of pages",
