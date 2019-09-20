@@ -3,7 +3,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-
 import { TrackingCodeGenerationComponent } from './tracking-code-generation.component';
 import { TranslateService } from '../translate-service/translate-service.service';
 import { TranslatePipe } from '../translate-service/translate.pipe';

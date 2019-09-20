@@ -4,7 +4,6 @@ import { By } from '@angular/platform-browser';
 import { TranslatePipe } from '../translate-service/translate.pipe';
 import { TranslateService } from '../translate-service/translate-service.service';
 import { DisplayDataComponent } from './display-data.component';
-import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { RouterModule } from '@angular/router';
 

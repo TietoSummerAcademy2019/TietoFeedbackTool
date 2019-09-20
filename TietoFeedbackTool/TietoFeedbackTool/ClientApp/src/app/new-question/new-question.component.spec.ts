@@ -3,10 +3,8 @@ import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testi
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-
 import { NewQuestionComponent } from './new-question.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpHandler } from '@angular/common/http';
 import { TranslateService } from '../translate-service/translate-service.service';
 import { TranslatePipe } from '../translate-service/translate.pipe';
 import { RouterModule } from '@angular/router';

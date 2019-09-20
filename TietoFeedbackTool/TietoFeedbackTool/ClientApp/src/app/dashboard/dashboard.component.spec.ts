@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { TranslatePipe } from '../translate-service/translate.pipe';
@@ -12,10 +12,9 @@ import { MarkingBarComponent } from '../marking-bar/marking-bar.component';
 import { MarkingBarSideComponent } from '../marking-bar-side/marking-bar-side.component';
 import { TrackingCodeGenerationComponent } from '../tracking-code-generation/tracking-code-generation.component';
 import { MatSlideToggleModule } from '@angular/material';
-import { MatDialogModule, MatDialog , MatDialogRef } from '@angular/material/dialog';
-import { FormsModule } from '@angular/forms';
+import { MatDialog , MatDialogRef } from '@angular/material/dialog';
+import { NgForm } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
-import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -32,11 +31,9 @@ describe('DashboardComponent', () => {
         MarkingBarSideComponent,
         TrackingCodeGenerationComponent
       ],
-      imports: [AppRoutingModule, MatSlideToggleModule, ChartsModule, FormsModule],
+      imports: [AppRoutingModule, MatSlideToggleModule, ChartsModule, NgForm],
       providers: [
         TranslateService,
-        HttpClient,
-        HttpHandler,
         {
           provide: MatDialog,
           useValue: {}
@@ -56,7 +53,9 @@ describe('DashboardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  fakeAsync(() => {
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+  })
 });
