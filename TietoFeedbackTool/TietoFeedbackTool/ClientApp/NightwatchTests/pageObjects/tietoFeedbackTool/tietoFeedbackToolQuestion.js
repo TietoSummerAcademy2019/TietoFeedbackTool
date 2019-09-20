@@ -22,6 +22,10 @@ module.exports = {
     radioButtonBottom: {
       selector: 'position-bottom-label',
       locateStrategy: 'id'
+    },
+    errorMessage: {
+      selector: 'validation-error',
+      locateStrategy: 'id'
     }
   }
 }
