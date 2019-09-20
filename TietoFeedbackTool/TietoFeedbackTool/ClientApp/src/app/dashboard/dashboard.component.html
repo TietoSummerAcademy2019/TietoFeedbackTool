@@ -3,7 +3,7 @@
     <nav class="col-lg-3 d-none d-lg-block sidebar">
       <div class="sidebar-sticky">
         <div>
-          <button class="tieto-button submit btn btn-lg btn-block" [routerLink]="['/new-page']" routerLinkActive="router-link-active">{{ 'tracking-code-generator' | translate }}</button>
+          <button class="tieto-button submit btn btn-lg btn-block" [routerLink]="['/tracking-code']" routerLinkActive="router-link-active">{{ 'tracking-code-generator' | translate }}</button>
         </div>
         <div class="row sidebar-page">
           {{ 'list of pages' | translate }}
@@ -11,7 +11,7 @@
         <hr>
         <div class="row sidebar-page-item">
           <ul>
-            <li *ngFor="let question of questionWithAnswer.questions">{{ question.domain}}</li>
+            <li *ngFor="let question of questionWithAnswer.questions">{{ question.domain }}</li>
           </ul>
         </div>
         <div class="row settings">
@@ -29,7 +29,7 @@
             {{ 'dashboard' | translate }}
           </div>
           <div class="col-2 tracking-code">
-            <a id="survey-action" routerLink="tracking-code-generation">
+            <a id="survey-action" routerLink="tracking-code">
               <img id="survey-icon" src="../../assets/img/tracking-code.svg" alt="tracking-code-icon">
               <span id="action-text">
                 {{ 'generate-tracking-code' | translate }}

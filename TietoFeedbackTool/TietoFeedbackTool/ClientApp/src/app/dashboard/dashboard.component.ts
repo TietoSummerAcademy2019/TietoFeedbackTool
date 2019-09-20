@@ -5,8 +5,6 @@ import { I18nPluralPipe } from '@angular/common';
 import { MatDialog } from '@angular/material'
 import { DeletePopupComponent } from './delete-popup/delete-popup.component';
 
-
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -55,7 +53,6 @@ export class DashboardComponent implements OnInit {
     await this.ds.getAll().then((result) => {
       this.questionWithAnswer = result;
     });
-
   }
 
   openDialog(id) {
