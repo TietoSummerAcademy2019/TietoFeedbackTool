@@ -8,8 +8,8 @@ module.exports = {
       locateStrategy: 'class name'
     },
     textArea: {
-      selector: 'question-text',
-      locateStrategy: 'class name'
+      selector: 'question-area',
+      locateStrategy: 'id'
     }
   }
 }
