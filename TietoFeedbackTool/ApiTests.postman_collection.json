@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b17cfa12-828b-4fd4-b7d3-a1ceebe369cd",
+		"_postman_id": "aef392c0-797d-4eef-868b-c0ee252c0477",
 		"name": "Api test collection",
 		"description": "This colletion tests our API.\nColletion should clear all test data after completing.\n\nWarning ! : \nAlways run this tests as a whole colletion.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -276,7 +276,7 @@
 							"    pm.expect(jsonData.accountLogin).to.eql(\"testManOne\");\r",
 							"    pm.expect(jsonData.domain).to.eql(\"testbot.com\");\r",
 							"    pm.expect(jsonData.enabled).to.eql(true);\r",
-							"    pm.expect(jsonData.PuzzleAnswers).to.eql(null);\r",
+							"    pm.expect(jsonData.puzzleAnswers).to.eql(null);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -446,6 +446,56 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"QuestionId\" : {{questionID}},\n\t\"Answer\": \"it works even more\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/Answer/open",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Answer",
+						"open"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add open answer and rating",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "43c2d85d-acb1-46af-b3a5-ab7d572e8a15",
+						"exec": [
+							"pm.test(\"response\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"QuestionId\" : {{questionID}},\n\t\"Answer\": \"it works even more\",\n\t\"Rating\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "{{url}}/api/Answer/open",
@@ -633,7 +683,7 @@
 							"    pm.expect(jsonData.accountLogin).to.eql(\"testManOne\");",
 							"    pm.expect(jsonData.domain).to.eql(\"testbot.com\");",
 							"    pm.expect(jsonData.enabled).to.eql(true);",
-							"    pm.expect(jsonData.PuzzleAnswers).to.eql([]);",
+							"    pm.expect(jsonData.puzzleAnswers).to.eql([]);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -986,7 +1036,7 @@
 							"",
 							"pm.test(\"value veryfication\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"function surveySetup()\");",
-							"    pm.expect(pm.response.text()).to.include(\"function addCSS()\");",
+							"    pm.expect(pm.response.text()).to.include(\"function addCSS(isBottom)\");",
 							"    pm.expect(pm.response.text()).to.include(\"function changeHtmlContent()\");",
 							"    pm.expect(pm.response.text()).to.include(\"function closeTool()\");",
 							"});",
@@ -1069,14 +1119,15 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{url}}/api/Survey/getstyle",
+					"raw": "{{url}}/api/Survey/getstyle/False",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
 						"Survey",
-						"getstyle"
+						"getstyle",
+						"False"
 					]
 				}
 			},
@@ -1135,6 +1186,452 @@
 						"getsurvey",
 						"{{key}}",
 						"{{domain}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get dummy html",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0fd57df3-f62a-4217-a4ab-2dfec8fd4899",
+						"exec": [
+							"pm.test(\"response\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"value veryfication\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Will it work ?-Test-\");",
+							"    pm.expect(pm.response.text()).to.include(\"btn-submit\");",
+							"    pm.expect(pm.response.text()).to.include(\"answer-input\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"QuestionText\" : \"Will it work ?-Test-\",\n\t\"AccountLogin\" : \"testManOne\",\n\t\"Domain\" : \"testbot.com\",\n\t\"Enabled\" : true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/Survey/getdummysurvey",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Survey",
+						"getdummysurvey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get dummy script",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0fd57df3-f62a-4217-a4ab-2dfec8fd4899",
+						"exec": [
+							"pm.test(\"response\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"value veryfication\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"function surveySetup()\");",
+							"    pm.expect(pm.response.text()).to.include(\"function addCSS(isBottom)\");",
+							"    pm.expect(pm.response.text()).to.include(\"function changeHtmlContent()\");",
+							"    pm.expect(pm.response.text()).to.include(\"function closeTool()\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/Survey/getdummyscript",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Survey",
+						"getdummyscript"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add question to remove by domain",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0fd57df3-f62a-4217-a4ab-2dfec8fd4899",
+						"exec": [
+							"pm.test(\"response\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value veryfication\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.questionText).to.eql(\"Will it work ?-Test-1\");\r",
+							"    pm.expect(jsonData.accountLogin).to.eql(\"testManOne\");\r",
+							"    pm.expect(jsonData.domain).to.eql(\"testbot.com\");\r",
+							"    pm.expect(jsonData.enabled).to.eql(true);\r",
+							"    pm.expect(jsonData.puzzleAnswers).to.eql(null);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"QuestionText\" : \"Will it work ?-Test-1\",\n\t\"AccountLogin\" : \"testManOne\",\n\t\"Domain\" : \"testbot.com\",\n\t\"Enabled\" : true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/Survey/questions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Survey",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add question to remove by domain",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0fd57df3-f62a-4217-a4ab-2dfec8fd4899",
+						"exec": [
+							"pm.test(\"response\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value veryfication\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.questionText).to.eql(\"Will it work ?-Test-2\");\r",
+							"    pm.expect(jsonData.accountLogin).to.eql(\"testManOne\");\r",
+							"    pm.expect(jsonData.domain).to.eql(\"testbot.com\");\r",
+							"    pm.expect(jsonData.enabled).to.eql(false);\r",
+							"    pm.expect(jsonData.puzzleAnswers).to.eql(null);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"QuestionText\" : \"Will it work ?-Test-2\",\n\t\"AccountLogin\" : \"testManOne\",\n\t\"Domain\" : \"testbot.com\",\n\t\"Enabled\" : false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/Survey/questions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Survey",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add question to remove by domain",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0fd57df3-f62a-4217-a4ab-2dfec8fd4899",
+						"exec": [
+							"pm.test(\"response\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value veryfication\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.questionText).to.eql(\"Will it work ?-Test-3\");\r",
+							"    pm.expect(jsonData.accountLogin).to.eql(\"testManOne\");\r",
+							"    pm.expect(jsonData.domain).to.eql(\"testbot.com\");\r",
+							"    pm.expect(jsonData.enabled).to.eql(true);\r",
+							"    pm.expect(jsonData.puzzleAnswers).to.eql(null);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"QuestionText\" : \"Will it work ?-Test-3\",\n\t\"AccountLogin\" : \"testManOne\",\n\t\"Domain\" : \"testbot.com\",\n\t\"Enabled\" : true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/Survey/questions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Survey",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get question by domain",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0fd57df3-f62a-4217-a4ab-2dfec8fd4899",
+						"exec": [
+							"pm.test(\"response\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"value veryfication\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Will it work ?-Test-1\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"Will it work ?-Test-2\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"Will it work ?-Test-3\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"QuestionText\" : \"Will it work ?\",\n\t\"AccountLogin\" : \"testManOne\",\n\t\"Domain\" : \"TestBot.com\",\n\t\"Enabled\" : false\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/Survey/questionsbydomain/testManOne/testbot.com",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Survey",
+						"questionsbydomain",
+						"testManOne",
+						"testbot.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete question by domain",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0fd57df3-f62a-4217-a4ab-2dfec8fd4899",
+						"exec": [
+							"pm.test(\"response\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/Survey/questions/testManOne/testbot.com",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Survey",
+						"questions",
+						"testManOne",
+						"testbot.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "make sure questions are deleted by domain",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0fd57df3-f62a-4217-a4ab-2dfec8fd4899",
+						"exec": [
+							"pm.test(\"response\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"QuestionText\" : \"Will it work ?\",\n\t\"AccountLogin\" : \"testManOne\",\n\t\"Domain\" : \"TestBot.com\",\n\t\"Enabled\" : false\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/Survey/questionsbydomain/testManOne/testbot.com",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Survey",
+						"questionsbydomain",
+						"testManOne",
+						"testbot.com"
 					]
 				}
 			},
@@ -1381,5 +1878,6 @@
 			"value": "",
 			"type": "string"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
