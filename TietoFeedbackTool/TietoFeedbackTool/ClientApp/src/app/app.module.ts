@@ -18,6 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { DeletePopupComponent } from './dashboard/delete-popup/delete-popup.component';
 import { MatDialogModule } from '@angular/material';
+import { ChartsModule } from 'ng2-charts';
 
 export function setupTranslateFactory(
   service: TranslateService): Function {
@@ -48,7 +49,8 @@ export function setupTranslateFactory(
       HttpClientModule,
       ClipboardModule,
       MatSlideToggleModule,
-      MatDialogModule
+      MatDialogModule,
+      ChartsModule
    ],
    providers: [
      TranslateService,

@@ -23,6 +23,57 @@ export class DisplayDataComponent implements OnInit {
   pageArray: number[] = [];
   surveyIndex: number;
   id: number;
+  starRating : any;
+
+  //barChart
+    public barChartOptions = {
+    scaleShowVerticalLines: true,
+    responsive: true,
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: 'rgba(255,255,255,0.9)',
+      bodyFontColor: '#999',
+      borderColor: '#999',
+      borderWidth: 1,
+      caretPadding: 15,
+      colorBody: '#666',
+      displayColors: false,
+      enabled: true,
+      intersect: true,
+      mode: 'x',
+      titleFontColor: '#999',
+      titleMarginBottom: 10,
+      xPadding: 15,
+      yPadding: 15,
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          stepSize: 10,
+          suggestedMin: 0
+      }
+      }]
+  }
+  };
+  public barChartLabels = ['1 star', '2 stars', '3 stars', '4 stars', '5 stars'];
+  public barChartType = 'bar';
+  public barChartLegend = true;
+  public barChartData = [
+    {data: [0, 0, 0, 0, 0],
+    label: 'amount',
+    backgroundColor: [
+      'rgba(54, 162, 235, 0.6)',
+      'rgba(54, 162, 235, 0.6)',
+      'rgba(54, 162, 235, 0.6)',
+      'rgba(54, 162, 235, 0.6)',
+      'rgba(54, 162, 235, 0.6)',
+    ],
+    borderWidth: 0,
+    hoverBackgroundColor: 'rgba(221, 221, 221, 0.7)',
+    scaleStepWidth: 1
+    }
+  ];
 
   constructor(
     private ds: DisplayDataService<Account>,
@@ -48,6 +99,10 @@ export class DisplayDataComponent implements OnInit {
       this.questionWithAnswer = result;
     });
 
+    await this.ds.getRating(this.id).then((result) => {
+      this.starRating = result;
+    });
+
     for (let question of this.questionWithAnswer.questions) {
       if (question.id == this.id) {
         this.answers = this.answers.concat(question.puzzleAnswers);
@@ -60,9 +115,13 @@ export class DisplayDataComponent implements OnInit {
     }
 
     this.answers = this.getSortedArray();
+
+    //update data in chart
+    this.barChartData[0].data = [this.starRating[0], this.starRating[1], this.starRating[2], this.starRating[3], this.starRating[4]];
   }
 
   public getSortedArray(): PuzzleAnswer[] {
     return this.answers.sort((a, b) => new Date(b.submitDate).getDate() - new Date(a.submitDate).getDate());
   }
+
 }
