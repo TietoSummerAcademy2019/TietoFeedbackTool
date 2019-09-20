@@ -25,7 +25,7 @@
 
 .img-exit {
   margin-top: 2px;
-  background-image: url(../../assets/img/exit.svg);
+  background-image: url(../../../assets/img/exit.svg);
   background-repeat: no-repeat;
   background-position: center;
   width: 20px;
@@ -88,8 +88,8 @@
   display: none;
 }
 
-.div.text-center{
-  margin-bottom:0px ;
+.div.text-center {
+  margin-bottom: 0px;
 }
 
 .visible-exit, .visible-msg, .visible-form {
