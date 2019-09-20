@@ -54,8 +54,7 @@ export class DisplayDataComponent implements OnInit {
         ticks: {
           beginAtZero: true,
           stepSize: 10,
-          suggestedMin: 0,
-          max: 30
+          suggestedMin: 0
       }
       }],
 
