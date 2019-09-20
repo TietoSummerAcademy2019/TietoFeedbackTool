@@ -117,7 +117,7 @@ export class DisplayDataComponent implements OnInit {
 
     this.answers = this.getSortedArray();
 
-
+    //update data in chart
     this.barChartData[0].data = [this.starRating[0], this.starRating[1], this.starRating[2], this.starRating[3], this.starRating[4]];
   }
 
