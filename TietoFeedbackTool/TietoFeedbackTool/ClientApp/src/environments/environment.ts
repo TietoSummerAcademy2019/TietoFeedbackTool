@@ -11,6 +11,7 @@ export const environment = {
   deleteQuestionUrl: 'https://localhost:44350/api/Survey/questions',
   updateQuestionEnabledUrl: 'https://localhost:44350/api/Survey/Questions/enable',
   newPageUrl: 'https://localhost:44350/api/Survey/Page',
+  domainsUrl: 'https://localhost:44350/api/account/userdomains/OlejWoj',
   production: false
 };
 

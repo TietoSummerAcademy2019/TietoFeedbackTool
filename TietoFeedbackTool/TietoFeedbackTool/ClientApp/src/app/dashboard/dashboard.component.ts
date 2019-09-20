@@ -38,6 +38,7 @@ export class DashboardComponent implements OnInit {
     name:'',
     questionsKey:''
   }
+  domainArray: string[];
 
   constructor(
     private ds: DisplayDataService<Account>,
@@ -52,6 +53,9 @@ export class DashboardComponent implements OnInit {
   async init() {
     await this.ds.getAll().then((result) => {
       this.questionWithAnswer = result;
+    });
+    await this.ds.getDomains().then((result) => {
+      this.domainArray = result;
     });
   }
 

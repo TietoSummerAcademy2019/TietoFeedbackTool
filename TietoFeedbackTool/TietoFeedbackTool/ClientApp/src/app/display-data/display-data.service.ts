@@ -14,6 +14,7 @@ export class DisplayDataService<T extends Account> {
   private readonly dataByLoginUrl = environment.dataByLoginUrl;
   private readonly deleteQuestionUrl = environment.deleteQuestionUrl;
   private readonly updateQuestionEnabledUrl = environment.updateQuestionEnabledUrl;
+  private readonly domainsUrl = environment.domainsUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -21,6 +22,9 @@ export class DisplayDataService<T extends Account> {
     return this.http.get<T>(this.dataByLoginUrl).toPromise();
   }
 
+  getDomains() {
+    return this.http.get<string[]>(this.domainsUrl).toPromise();
+  }
 
   remove(id:string) {
     this.http.delete(`${this.deleteQuestionUrl}/${id}`).subscribe();
