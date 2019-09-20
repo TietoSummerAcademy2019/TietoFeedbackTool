@@ -61,8 +61,13 @@ export class DashboardComponent implements OnInit {
   }
 
   click(target) {
-    // for(let listItem of document.getElementsByClassName('domain-list-item'));
-    console.log(domainListItems);
+    const domainList = document.getElementsByClassName('domain-list-item');
+
+    for (let i = 0; i < domainList.length; i++) {
+      const domain = domainList[i] as HTMLElement;
+      domain.style.fontWeight = '300';
+    }
+
     this.activeSelection = target.innerText;
     target.style.fontWeight = '700'
     console.log(this.activeSelection)
