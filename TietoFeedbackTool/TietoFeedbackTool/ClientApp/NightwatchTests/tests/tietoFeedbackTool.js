@@ -15,7 +15,6 @@ module.exports = {
       .setValue('@textArea', text)
       .click('@radioButtonRight')
       .click('@submit')
-      .pause(2000)
 
     displayData
       .navigate()
