@@ -8,29 +8,28 @@
     <h1 class="information-question-header">{{ 'setup-feedback-tool' | translate }}</h1>
     <div class="information-question-information">
       <p>{{ 'setup-feedback-tool-desc' | translate }}</p>
+      <p id="validation-error">Please declare all fields below.</p>
     </div>
   </div>
-  <div class="question-form">
-    <form id="question-body" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
-      <h2>{{ 'question' | translate }}</h2>
-      <textarea class="question-text" name="new-question" ngModel required #first="ngModel" id="question-area"></textarea>
-      <div class="transition-msg" id="error-message">
-        <div class="error-label" id="need">
-          {{ 'question-required' | translate }}
+  <div class="website-form">
+    <form id="website-form" #f="ngForm" (ngSubmit)="onSubmit(f)" (keydown.enter)="onSubmit(f);false" novalidate>
+      <div class="domain-wrapper">
+        <p id="input-heading">Page domain</p>
+        <textarea class="domain-input" name="new-domain" ngModel="{{domainAreaValue.value}}" required id="domain-area"></textarea>
+      </div>
+      <div class="question-wrapper">
+        <p id="input-heading">{{ 'question' | translate }}</p>
+        <textarea class="question-input" name="new-question" ngModel="{{questionAreaValue.value}}" required id="question-area"></textarea>
+      </div>
+      <div class="radio-wrapper" id="radio-position">
+        <p id="input-heading">{{ 'feedbacktool-position' | translate }}</p>
+        <div class="custom-control custom-radio">
+          <input id="position-bottom" type="radio" class="custom-control-input" required [value]="true" name="position" ngModel=true>
+          <label class="custom-control-label" for="position-bottom">{{ 'feedbacktool-position-bottom' | translate }}</label>
         </div>
-      </div>
-      <h2 class="feedback-position">{{ 'feedbacktool-position' | translate }}</h2>
-      <div class="custom-control custom-radio">
-        <input id="position-right" type="radio" class="custom-control-input" required [value]="false" name="position" ngModel>
-        <label class="custom-control-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
-      </div>
-      <div class="custom-control custom-radio">
-        <input id="position-bottom" type="radio" class="custom-control-input" required [value]="true" name="position" ngModel>
-        <label class="custom-control-label" for="position-bottom">{{ 'feedbacktool-position-bottom' | translate }}</label>
-      </div>
-      <div class="transition-msg" id="error-message">
-        <div class="error-label" id="position-needed">
-          {{ 'position-required' | translate }}
+        <div class="custom-control custom-radio">
+          <input id="position-right" type="radio" class="custom-control-input" required [value]="false" name="position" ngModel=false>
+          <label class="custom-control-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
         </div>
       </div>
     </form>
@@ -39,6 +38,6 @@
 <footer class="new-question-footer">
   <div class="new-question-footer-buttons">
       <button class="tieto-button cancel" routerLink="" routerLinkActive="active">{{ 'cancel' | translate }}</button>
-      <button form="question-body" class="tieto-button submit">{{ 'submit' | translate }}</button>
+      <button form="website-form" class="tieto-button submit">{{ 'submit' | translate }}</button>
   </div>
 </footer>

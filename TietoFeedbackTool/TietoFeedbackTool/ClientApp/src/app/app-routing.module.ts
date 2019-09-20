@@ -6,7 +6,6 @@ import { MarkingBarComponent } from './marking-bar/marking-bar.component';
 import { MarkingBarSideComponent } from './marking-bar-side/marking-bar-side.component';
 import { TrackingCodeGenerationComponent } from './tracking-code-generation/tracking-code-generation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NewPageComponent } from './new-page/new-page.component';
 
 const routes: Routes = [
   {
@@ -22,10 +21,6 @@ const routes: Routes = [
     component: NewQuestionComponent
   },
   {
-    path: 'new-page',
-    component: NewPageComponent
-  },
-  {
     path: 'display-data/:id',
     component: DisplayDataComponent
   },
@@ -38,7 +33,7 @@ const routes: Routes = [
     component: MarkingBarSideComponent
   },
   {
-    path: 'tracking-code-generation',
+    path: 'tracking-code',
     component: TrackingCodeGenerationComponent
   }
 ];
