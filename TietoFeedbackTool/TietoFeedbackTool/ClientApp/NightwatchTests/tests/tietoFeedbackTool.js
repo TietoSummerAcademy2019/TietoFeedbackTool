@@ -14,7 +14,6 @@ module.exports = {
       .setValue('@domainArea', domain)
       .setValue('@textArea', text)
       .click('@radioButtonRight')
-      .pause(2000)
       .click('@submit')
       .pause(2000)
 
@@ -24,17 +23,15 @@ module.exports = {
       .click('@lastElement')
       .waitForElementPresent('@questionItem', constants.TIMEOUT)
       .assert.containsText('@questionItem', text)
-      .pause(2000)
   },
   'Should display error message when submit empty question': async function (browser) {
     var homeSite = browser.page.tietoFeedbackToolQuestion();
-    var text = "Please declare all fields below.";
 
     homeSite
       .navigate()
       .waitForElementPresent('@textArea', constants.TIMEOUT)
       .click('@submit')
-      .waitForElementPresent('@errorMessage', constants.TIMEOUT)
+      .waitForElementPresent('@errorMessage')
   },
   'Should change content when pressed see more': async function (browser) {
     var homeSite = browser.page.tietoFeedbackToolDashboard();
