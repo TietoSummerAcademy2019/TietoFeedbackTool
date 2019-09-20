@@ -25,11 +25,11 @@
         <p id="input-heading">{{ 'feedbacktool-position' | translate }}</p>
         <div class="custom-control custom-radio">
           <input id="position-bottom" type="radio" class="custom-control-input" required [value]="true" name="position" ngModel=true>
-          <label class="custom-control-label" for="position-bottom">{{ 'feedbacktool-position-bottom' | translate }}</label>
+          <label class="custom-control-label" id="position-bottom-label" for="position-bottom">{{ 'feedbacktool-position-bottom' | translate }}</label>
         </div>
         <div class="custom-control custom-radio">
           <input id="position-right" type="radio" class="custom-control-input" required [value]="false" name="position" ngModel=false>
-          <label class="custom-control-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
+          <label class="custom-control-label" id="position-right-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
         </div>
       </div>
     </form>

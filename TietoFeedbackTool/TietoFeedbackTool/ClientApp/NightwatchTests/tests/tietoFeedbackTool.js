@@ -6,12 +6,17 @@ module.exports = {
     var displayData = browser.page.tietoFeedbackToolDisplayData();
     var questionSite = browser.page.tietoFeedbackToolQuestion();
     var text = 'What could you improve in our site?';
+    var domain = "Tieto.com";
 
     questionSite
       .navigate()
       .waitForElementPresent('@textArea', constants.TIMEOUT)
+      .setValue('@domainArea', domain)
       .setValue('@textArea', text)
+      .click('@radioButtonRight')
+      .pause(2000)
       .click('@submit')
+      .pause(2000)
 
     displayData
       .navigate()
