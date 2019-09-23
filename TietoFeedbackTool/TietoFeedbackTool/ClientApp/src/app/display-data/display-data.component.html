@@ -36,8 +36,13 @@
       <tbody>
         <ng-container *ngFor="let answer of answers; let i=index">
           <tr *ngIf="i>=(activeSite-1)*resultsPerSite && i<activeSite*resultsPerSite">
-            <td scope="row">{{answer.submitDate | date: 'yyyy-MM-dd' }}</td>
-            <td>{{answer.rating}}</td>
+            <td>{{answer.submitDate | date: 'yyyy-MM-dd' }}</td>
+            <td>
+              <ng-container *ngFor="let item of amountRating; let star=index">
+
+                <img class="star-amount" src="../../assets/icons/PNG/star/star_white.png" alt="">
+              </ng-container>
+            </td>
             <td>{{answer.answer}}</td>
           </tr>
         </ng-container>
