@@ -3,6 +3,7 @@ import { DisplayDataService } from './display-data.service';
 import { Account } from '../models/Account';
 import { PuzzleAnswer } from '../models/OpenPuzzleAnswer';
 import { ActivatedRoute } from '@angular/router';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-display-data',
@@ -24,7 +25,7 @@ export class DisplayDataComponent implements OnInit {
   surveyIndex: number;
   id: number;
   starRating : any;
-  amountRating: number[] = [1,2,3,4,5]
+  amountRating: number[] = [1,2,3,4,5];
 
   //barChart
     public barChartOptions = {
