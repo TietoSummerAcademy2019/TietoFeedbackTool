@@ -31,13 +31,6 @@ function surveySetup() {
       }
     }
 
-    var jsonData = JSON.stringify(requestData);
-
-    var link = 'https://localhost:44350/api/Answer/open';
-    request.open('post', link);
-    request.setRequestHeader('Content-type', 'application/json');
-
-    request.send(jsonData);
     checkAnswer();
   });
 }
@@ -50,7 +43,7 @@ function addCSS(isBottom) {
   document.head.appendChild(linkNode);
 }
 function checkDomain() {
-  var apiLink = "https://localhost:44350/api/survey/getsurvey/" + key + "/" + currentDomain;
+  var apiLink = "https://localhost:44350/api/survey/getdummysurvey/";
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -61,8 +54,10 @@ function checkDomain() {
       surveySetup();
     }
   };
-  xhttp.open("GET", apiLink, true);
-  xhttp.send();
+  xhttp.open('post', apiLink);
+  xhttp.setRequestHeader('Content-type', 'application/json');
+  console.log(getQuestion());
+  xhttp.send(getQuestion());
 }
 
 function changeHtmlContent() {
