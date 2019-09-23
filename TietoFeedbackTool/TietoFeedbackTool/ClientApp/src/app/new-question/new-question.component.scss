@@ -1,5 +1,6 @@
 .new-question-content {
   min-height: 85vh;
+  margin-bottom: 5.625rem;
   max-width: 37.5rem;
 }
 
@@ -48,7 +49,8 @@ p#validation-error {
   padding-top: .5rem;
   padding-left: 3.125rem;
   padding-bottom: 1.0rem;
-  & div.domain-wrapper, div.question-wrapper, div.radio-wrapper {
+
+  & div.domain-wrapper, div.question-wrapper, div.radio-wrapper, div.reaction-type-wrapper {
     & p#input-heading {
       font-weight: 700;
       font-size: 0.875rem;
@@ -57,6 +59,7 @@ p#validation-error {
       margin-bottom: .25rem;
     }
   }
+
   & div.domain-wrapper {
     & .domain-input {
       resize: none;
@@ -73,8 +76,10 @@ p#validation-error {
       opacity: 1;
     }
   }
+
   & div.question-wrapper {
     padding-top: 1.7rem;
+
     & .question-input {
       resize: none;
       height: 7rem;
@@ -90,26 +95,135 @@ p#validation-error {
     }
   }
 
+  & div.reaction-type-wrapper {
+    padding-top: 1.7rem;
+
+    .select-css {
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border: 1px solid #CCCCCC;
+      border-radius: 6px;
+      opacity: 1;
+      width: 216px;
+      height: 40px;
+      display: block;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+
+      &:focus {
+        border: 1px solid #5EACDD;
+        color: #222;
+        outline: none;
+      }
+
+      &:hover {
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #5EACDD;
+        border-radius: 6px;
+        opacity: 1;
+      }
+
+      option {
+        border: 1px solid #0E76B7;
+        border-radius: 6px;
+        opacity: 1;
+        width: 260px;
+        height: 197px;
+
+        &:hover:not(:checked) {
+          background: #d9135c 0% 0% no-repeat padding-box;
+          opacity: 1;
+        }
+
+        &:checked {
+          background: #EEEEEE 0% 0% no-repeat padding-box;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   & div.radio-wrapper {
     padding-top: 1.7rem;
-    .feedback-position {
-      padding-top: 30px;
-    }
-    .custom-radio {
-      padding-top: 7px;
+
+    .row {
+      margin: 0.5rem;
     }
 
-    &#error-message {
-      padding-top: 14px;
-    }
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
 
-    .custom-radio .custom-control-input:checked~.custom-control-label::after {
-      background: #0e76b7;
-      border-radius: 50%
-    }
+      + .radio-label {
+        text-align: left;
+        font: Regular 14px/19px Open Sans;
+        letter-spacing: -0.07px;
+        color: #333333;
+        opacity: 1;
 
-    .custom-radio .custom-control-input:active ~ .custom-control-label::before {
-      background-color: #eeeeee;
+        &:before {
+          content: '';
+          background: #FFFFFF;
+          border-radius: 100%;
+          border: 1px solid darken(#CCCCCC, 25%);
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          position: relative;
+          margin-right: 8px;
+          vertical-align: top;
+          cursor: pointer;
+          transition: all 0.5s ease-in-out;
+        }
+      }
+
+      &:checked {
+        + .radio-label {
+          &:before {
+            background-color: #62B3E5;
+            box-shadow: inset 0 0 0 3px #ffffff;
+          }
+        }
+
+        &:focus {
+          + .radio-label {
+            &:before {
+              border: 1px solid #62B3E5;
+            }
+          }
+        }
+
+        &:not(:focus) {
+          + .radio-label {
+            &:before {
+              border: 1px solid #62B3E5;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        &:checked {
+          + .radio-label {
+            &:before {
+              background: #0E76B7 0% 0% no-repeat padding-box;
+              border-radius: 100px;
+              border: 1px solid #0E76B7;
+              opacity: 1;
+            }
+          }
+        }
+
+        &:not(:checked) {
+          + .radio-label {
+            &:before {
+              background: #FFFFFF 0% 0% no-repeat padding-box;
+              border: 1px solid #62B3E5;
+              border-radius: 100px;
+              opacity: 1;
+            }
+          }
+        }
+      }
     }
   }
 }

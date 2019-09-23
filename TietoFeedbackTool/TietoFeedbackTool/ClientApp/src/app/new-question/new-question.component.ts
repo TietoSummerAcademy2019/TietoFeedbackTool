@@ -29,6 +29,7 @@ export class NewQuestionComponent implements OnInit {
   domainAreaValue: any;
   questionAreaValue: any;
   position: any;
+  answerType: any;
 
   constructor(
     private qs: NewQuestionService<Question>,
@@ -42,6 +43,7 @@ export class NewQuestionComponent implements OnInit {
     this.domainAreaValue = document.getElementById('domain-area');
     this.questionAreaValue = document.getElementById('question-area');
     this.position = document.getElementsByName('position');
+    this.answerType = document.getElementsByName('answerType');
     if (this.id) {
       this.init();
     }
@@ -58,11 +60,18 @@ export class NewQuestionComponent implements OnInit {
         this.questionAreaValue.value = question.questionText;
         this.domainAreaValue.value = question.domain;
         this.position.value = question.isBottom;
+        this.answerType.value = question.hasRating;
         if (this.position.value) {
           this.position[0].checked=true;
         }
         else {
           this.position[1].checked=true;
+        }
+        if (!this.answerType.value) {
+          this.answerType[0].checked=true;
+        }
+        else {
+          this.answerType[1].checked=true;
         }
       }
     }
@@ -82,6 +91,7 @@ export class NewQuestionComponent implements OnInit {
       this.questionModel.domain = f.controls['new-domain'].value;
       this.questionModel.questionText = f.controls['new-question'].value;
       this.questionModel.isBottom = f.controls['position'].value;
+      this.questionModel.hasRating = f.controls['answerType'].value;
       if (this.id) {
         this.qs.updateQuestion(this.id, this.questionModel);
       }

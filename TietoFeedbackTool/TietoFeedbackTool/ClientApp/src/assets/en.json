@@ -45,7 +45,11 @@
   "are-you-sure": "Are you sure you want to delete the survey?",
   "question-required": "Question is required",
   "position-required": "Position is required",
-  "feedbacktool-position": "Position of the tool",
-  "feedbacktool-position-right": "On the right side of the page",
-  "feedbacktool-position-bottom": "At the bottom of the page"
+  "feedbacktool-position": "Position on page:",
+  "feedbacktool-position-right": "Right side",
+  "feedbacktool-position-bottom": "Bottom",
+  "answer-type": "Type of answer:",
+  "answer-open-text": "Open text",
+  "answer-visual-rating": "Visual rating",
+  "reaction-type": "Select reaction type:"
 }

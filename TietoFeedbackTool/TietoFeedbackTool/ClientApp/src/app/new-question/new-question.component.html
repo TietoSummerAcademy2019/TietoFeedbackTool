@@ -1,3 +1,4 @@
+  
 <div class="new-question-content">
   <div class="navigation-item col-xl-12">
     <a class="navigation-back" routerLink="/">
@@ -21,15 +22,35 @@
         <p id="input-heading">{{ 'question' | translate }}</p>
         <textarea class="question-input" name="new-question" ngModel="{{questionAreaValue.value}}" required id="question-area"></textarea>
       </div>
+      <div class="radio-wrapper" id="radio-answer-type">
+        <p id="input-heading">{{ 'answer-type' | translate }}</p>
+        <div class="row">
+          <input id="answer-type-open" type="radio" required [value]="false" name="answerType" [(ngModel)]="answerType.value">
+          <label class="radio-label" for="answer-type-open">{{ 'answer-open-text' | translate }}</label>
+        </div>
+        <div class="row">
+          <input id="answer-type-visual" type="radio" class="custom-control-input" required [value]="true" name="answerType" [(ngModel)]="answerType.value">
+          <label class="radio-label" for="answer-type-visual">{{ 'answer-visual-rating' | translate }}</label>
+        </div>
+      </div>
+      <div *ngIf="answerType.value" class="reaction-type-wrapper" id="reaction-type">
+        <p id="input-heading">{{ 'reaction-type' | translate }}</p>
+        <select class="select-css" id="reaction-type-value">
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+          <option>Option 4</option>
+        </select>
+      </div>
       <div class="radio-wrapper" id="radio-position">
         <p id="input-heading">{{ 'feedbacktool-position' | translate }}</p>
-        <div class="custom-control custom-radio">
-          <input id="position-bottom" type="radio" class="custom-control-input" required [value]="true" name="position" [(ngModel)]="position.value">
-          <label class="custom-control-label" for="position-bottom">{{ 'feedbacktool-position-bottom' | translate }}</label>
+        <div class="row">
+          <input id="position-bottom" type="radio" required [value]="true" name="position" [(ngModel)]="position.value">
+          <label class="radio-label" for="position-bottom">{{ 'feedbacktool-position-bottom' | translate }}</label>
         </div>
-        <div class="custom-control custom-radio">
+        <div class="row">
           <input id="position-right" type="radio" class="custom-control-input" required [value]="false" name="position" [(ngModel)]="position.value">
-          <label class="custom-control-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
+          <label class="radio-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
         </div>
       </div>
     </form>
