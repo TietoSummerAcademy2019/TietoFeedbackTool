@@ -22,12 +22,15 @@ namespace TietoFeedbackTool.Migrations
             modelBuilder.Entity("TietoFeedbackTool.Domain.Account", b =>
                 {
                     b.Property<string>("Login")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(50);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .HasMaxLength(30);
 
                     b.Property<string>("QuestionsKey")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(32);
 
                     b.HasKey("Login");
 
@@ -70,7 +73,8 @@ namespace TietoFeedbackTool.Migrations
                     b.Property<string>("AccountLogin")
                         .IsRequired();
 
-                    b.Property<string>("Domain");
+                    b.Property<string>("Domain")
+                        .HasMaxLength(200);
 
                     b.Property<bool>("Enabled");
 
@@ -78,9 +82,11 @@ namespace TietoFeedbackTool.Migrations
 
                     b.Property<bool>("IsBottom");
 
-                    b.Property<string>("QuestionText");
+                    b.Property<string>("QuestionText")
+                        .HasMaxLength(200);
 
-                    b.Property<string>("RatingType");
+                    b.Property<string>("RatingType")
+                        .HasMaxLength(20);
 
                     b.HasKey("Id");
 
