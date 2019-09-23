@@ -142,6 +142,10 @@
     font-size: 13px;
   }
 
+  img{
+    margin-right:5px;
+  }
+
 .star-select {
   content: url(../../../assets/icons/SVG/star/star_yellow.svg);
 }
