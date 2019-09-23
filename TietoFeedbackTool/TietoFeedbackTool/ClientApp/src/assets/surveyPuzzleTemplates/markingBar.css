@@ -97,6 +97,7 @@
 }
 
 .answer-input {
+  display:inherit;
   border-radius: 6px;
   border: 2px solid #ccc;
   width: 230px;
