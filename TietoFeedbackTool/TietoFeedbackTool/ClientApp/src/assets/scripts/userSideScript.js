@@ -1,9 +1,17 @@
 function surveySetup() {
-  const survey = {
-    answer: document.getElementById('answer'),
-    questionId: document.getElementById('answer').getAttribute("data-id"),
-    submit: document.getElementById('survey-submit')
-  };
+  var survey;
+  if (document.getElementsByName("new-answer").length == 0) {
+    survey = {
+      answer: document.getElementById('answer'),
+      questionId: document.getElementById('answer').getAttribute("data-id"),
+      submit: document.getElementById('survey-submit')
+    };
+  } else {
+    survey = {
+      questionId: document.getElementById('answer').getAttribute("data-id"),
+      submit: document.getElementById('survey-submit')
+    };
+  }
 
   survey.submit.addEventListener('click', () => {
     var request = new XMLHttpRequest();
@@ -12,10 +20,20 @@ function surveySetup() {
       //console.log( request.responseText );// here we will add actions that should happens after successful survey submit
     }
 
-    var requestData = {
-      answer: `${survey.answer.value}`,
-      questionId: `${survey.questionId}`
-    };
+    var requestData;
+    if (document.getElementsByName("new-answer").length == 0) {
+      requestData = {
+        answer: `${survey.answer.value}`,
+        questionId: `${survey.questionId}`
+      };
+    } else {
+      if (document.querySelector('input[name="new-answer"]:checked') != null) {
+        requestData = {
+          rating: `${document.querySelector('input[name="new-answer"]:checked').value}`,
+          questionId: `${survey.questionId}`
+        };
+      }
+    }
 
     var jsonData = JSON.stringify(requestData);
 
@@ -92,5 +110,13 @@ function checkAnswer() {
 }
 
 function isEmptyOrSpaces(str) {
-  return str === null || str.match(/^\s* *$/) !== null;
+  if (document.getElementsByName("new-answer").length == 0){
+    return str === null || str.match(/^\s* *$/) !== null;
+  } else {
+  if (document.querySelector('input[name="new-answer"]:checked') == null) {
+    return true;
+  } else {
+    return false;
+  }
+  }
 }
