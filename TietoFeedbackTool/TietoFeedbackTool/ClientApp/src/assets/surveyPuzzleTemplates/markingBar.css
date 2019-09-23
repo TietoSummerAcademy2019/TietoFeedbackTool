@@ -141,3 +141,14 @@
   #success-message #message {
     font-size: 13px;
   }
+
+img {
+  content: url(../../../assets/icons/PNG/star/star_white.png);
+}
+  img:hover {
+    content: url(../../../assets/icons/PNG/star/star_yellow.png);
+  }
+
+input[type="radio"]:checked + img {
+  content: url(../../../assets/icons/PNG/star/star_yellow.png);
+}
