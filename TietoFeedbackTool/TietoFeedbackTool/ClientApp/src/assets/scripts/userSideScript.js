@@ -120,3 +120,18 @@ function isEmptyOrSpaces(str) {
   }
   }
 }
+
+function markStars(x) {
+  for (var c = 0; c < 5; c++) {
+    document.getElementsByName("starImage")[c].classList.add("star");
+  }
+  for (var i = 0; i < x; i++) {
+    for (var j = 0; j < i; j++) {
+      document.getElementsByName("starImage")[j].classList.add("star-select");
+      document.getElementsByName("starImage")[j].classList.remove("star");
+      
+    }
+  }
+  i = 0;
+  j = 0;
+}
