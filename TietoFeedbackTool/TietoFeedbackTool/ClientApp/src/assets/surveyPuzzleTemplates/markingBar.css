@@ -153,13 +153,6 @@
 .star {
   content: url(../../../assets/icons/SVG/star/star_white.svg);
 }
-.star:hover {
-  content: url(../../../assets/icons/SVG/star/star_yellow.svg);
-}
-
-.inv:checked + .star {
-  content: url(../../../assets/icons/SVG/star/star_yellow.svg);
-}
 
 .inv {
   position: absolute;
