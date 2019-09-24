@@ -36,34 +36,36 @@
       <div *ngIf="answerType.value" class="reaction-type-wrapper" id="reaction-type">
         <p id="input-heading">{{ 'reaction-type' | translate }}</p>
         <div class="row" ngbDropdown>
-          <div class="select-css" id="dropdownBasic1" ngbDropdownToggle>Placeholder</div>
-          <div class="select-css" id="button-smile" ngbDropdownToggle style="display: none;">
-            <th *ngFor="let smile of smiles"><img class="star-amount" src={{smile.imageUrl}} /></th>
-          </div>
-          <div class="select-css" id="button-number" ngbDropdownToggle style="display: none;">
-            <th *ngFor="let number of numbers"><img class="star-amount" src={{number.imageUrl}} /></th>
-          </div>
-          <div class="select-css" id="button-star" ngbDropdownToggle style="display: none;">
-            <th *ngFor="let star of stars"><img class="star-amount" src={{star.imageUrl}} /></th>
+          <div class="select-css" ngbDropdownToggle>
+            <div id="dropdownBasic1">Placeholder</div>
+            <div id="button-smile" style="display: none;">
+              <div class="table-column" *ngFor="let smile of smiles"><img class="star-amount" src={{smile.imageUrl}} /></div>
+            </div>
+            <div id="button-number" style="display: none;">
+              <div class="table-column" *ngFor="let number of numbers">
+                <img class="star-amount" src={{number.imageUrl}} /></div>
+              </div>
+            <div id="button-star" style="display: none;">
+              <div class="table-column" *ngFor="let star of stars">
+                <img class="star-amount" src={{star.imageUrl}} /></div>
+            </div>
           </div>
           <div class="dropdown-menu" ngbDropdownMenu>
-            <table>
-              <tr (click)="changeDropdownStyle(1)" class="answer-type-item-css" id="smileType" ngbDropdownItem>
-                <th *ngFor="let smile of smiles">
-                  <img class="star-amount" src={{smile.imageUrl}} />
-                </th>
-              </tr>
-              <tr (click)="changeDropdownStyle(2)" class="answer-type-item-css" id="numberType" ngbDropdownItem>
-                <th *ngFor="let number of numbers">
-                  <img class="star-amount" src={{number.imageUrl}} />
-                </th>
-              </tr>
-              <tr (click)="changeDropdownStyle(3)" class="answer-type-item-css" id="starType" ngbDropdownItem>
-                <th *ngFor="let star of stars">
-                  <img class="star-amount" src={{star.imageUrl}} />
-                </th>
-              </tr>
-            </table>
+            <div class="table-row answer-type-item-css" (click)="changeDropdownStyle(1)" id="smileType" ngbDropdownItem>
+              <div class="table-column" *ngFor="let smile of smiles">
+                <img class="star-amount" src={{smile.imageUrl}} />
+              </div>
+            </div>
+            <div class="table-row answer-type-item-css" (click)="changeDropdownStyle(2)" id="smileType" ngbDropdownItem>
+              <div class="table-column" *ngFor="let number of numbers">
+                <img class="star-amount" src={{number.imageUrl}} />
+              </div>
+            </div>
+            <div class="table-row answer-type-item-css" (click)="changeDropdownStyle(3)" id="smileType" ngbDropdownItem>
+              <div class="table-column" *ngFor="let star of stars">
+                <img class="star-amount" src={{star.imageUrl}} />
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -111,6 +111,8 @@ p#validation-error {
       border: 1px solid #CCCCCC;
       border-radius: 6px;
       opacity: 1;
+      position: absolute;
+      top: 100%;
     }
 
     .select-css {
@@ -242,9 +244,30 @@ p#validation-error {
   }
 }
 
+.table-row {
+  width: 216px;
+}
+
+.table-column {
+  float: left;
+  width: 20%;
+  height: 40px;
+}
+
+.table-row:after {
+  content: "";
+  display: table;
+  clear: both;
+
+  .star-amount {
+    margin-left: 0.1rem;
+  }
+}
+
 .star-amount {
   height: 1.5rem;
   width: 1.5rem;
+  margin-top: 0.5rem;
   margin-left: 0.4375rem;
 }
 

@@ -84,7 +84,7 @@ export class NewQuestionComponent implements OnInit {
         this.domainAreaValue.value = question.domain;
         this.position.value = question.isBottom;
         this.answerType.value = question.hasRating;
-        this.reactionType.value = question.ratingType;
+        this.reactionType = question.ratingType;
         if (this.position.value) {
           this.position[0].checked = true;
         }
@@ -97,14 +97,15 @@ export class NewQuestionComponent implements OnInit {
         else {
           this.answerType[1].checked = true;
         }
-        if (this.reactionType.value === "Smiles") {
-          this.changeDropdownStyle(1);
+        console.log(this.reactionType);
+        if (this.reactionType === "Smiles") {
+          await  this.changeDropdownStyle(1);
         }
-        else if (this.reactionType.value === "Numbers") {
-          this.changeDropdownStyle(2);
+        else if (this.reactionType === "Numbers") {
+          await  this.changeDropdownStyle(2);
         }
-        else if (this.reactionType.value === "Stars") {
-          this.changeDropdownStyle(3);
+        else if (this.reactionType === "Stars") {
+         await this.changeDropdownStyle(3);
         }
       }
     }
@@ -138,26 +139,27 @@ export class NewQuestionComponent implements OnInit {
       })
     }
   }
-  changeDropdownStyle(i) {
-    if (i === 1) {
+
+  async changeDropdownStyle(i) {
+    if (i == 1) {
       document.getElementById('dropdownBasic1').style.display = "none";
-      document.getElementById('button-smile').style.display = "block";
+      document.getElementById('button-smile').style.display = "inline";
       document.getElementById('button-number').style.display = "none";
       document.getElementById('button-star').style.display = "none";
       this.reactionType = "Smiles";
     }
-    else if (i === 2) {
+    else if (i == 2) {
       document.getElementById('dropdownBasic1').style.display = "none";
       document.getElementById('button-smile').style.display = "none";
-      document.getElementById('button-number').style.display = "block";
+      document.getElementById('button-number').style.display = "inline";
       document.getElementById('button-star').style.display = "none";
       this.reactionType = "Numbers";
     }
-    else if (i === 3) {
+    else if (i == 3) {
       document.getElementById('dropdownBasic1').style.display = "none";
       document.getElementById('button-smile').style.display = "none";
       document.getElementById('button-number').style.display = "none";
-      document.getElementById('button-star').style.display = "block";
+      document.getElementById('button-star').style.display = "inline";
       this.reactionType = "Stars";
     }
   }
