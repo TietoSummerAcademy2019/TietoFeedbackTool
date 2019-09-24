@@ -3,7 +3,6 @@ import { DisplayDataService } from './display-data.service';
 import { Account } from '../models/Account';
 import { PuzzleAnswer } from '../models/OpenPuzzleAnswer';
 import { ActivatedRoute } from '@angular/router';
-import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-display-data',
