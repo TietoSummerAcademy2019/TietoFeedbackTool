@@ -12,8 +12,8 @@ module.exports = {
       locateStrategy: 'class name'
     },
     textArea: {
-      selector: 'question-input',
-      locateStrategy: 'class name'
+        selector: 'question-area',
+      locateStrategy: 'id'
     },
     radioButtonRight: {
       selector: 'position-right-label',
