@@ -9,5 +9,8 @@ var class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_
     [ "GetSurveyCSS", "class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#aa4de37952ebb7cd970018b28280f1ca2", null ],
     [ "CustomizeTemplate", "class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#ae82072e92bc53c0ce6e539c45719f162", null ],
     [ "GetScript", "class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#ac26dd865a79f2bf3f30f606b553ec3dd", null ],
-    [ "GetDummyScript", "class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#a0cbe980b1157ca707807caf3858dab65", null ]
+    [ "GetDummyScript", "class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#a0cbe980b1157ca707807caf3858dab65", null ],
+    [ "stars", "class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#a5358cc789d09b8c384d87787d9a76804", null ],
+    [ "smiles", "class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#a567e6912e30f1c17176f01ac8670ac79", null ],
+    [ "numbers", "class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#af53a64e8be11879beee898e00af3e2af", null ]
 ];
