@@ -24,6 +24,8 @@ export class DisplayDataComponent implements OnInit {
   surveyIndex: number;
   id: number;
   starRating : any;
+  amountRating: number[] = [1,2,3,4,5];
+  amountRatingNumber: number[] = [1];
 
   //barChart
     public barChartOptions = {
@@ -60,7 +62,7 @@ export class DisplayDataComponent implements OnInit {
 
   }
   };
-  public barChartLabels = ['1 star', '2 stars', '3 stars', '4 stars', '5 stars'];
+  public barChartLabels = ['', '', '', '', ''];
   public barChartType = 'bar';
   public barChartLegend = true;
   public barChartData = [

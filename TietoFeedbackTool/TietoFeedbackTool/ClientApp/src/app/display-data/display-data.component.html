@@ -19,25 +19,110 @@
             [labels]="barChartLabels"
             [options]="barChartOptions"
             [legend]="barChartLegend"
-            [chartType]="barChartType"
-            >
+            [chartType]="barChartType">
     </canvas>
+  </div>
+  <div class="label">
+      <ng-container *ngFor="let questionType of questionWithAnswer.questions">
+          <ng-container *ngIf="questionType.id==id">
+              <ng-container *ngIf="questionType.ratingType == 'Stars'">
+                  <ng-container *ngFor="let item of amountRatingNumber; let star=index">
+                    <div>1 star</div>
+                    <div>2 stars</div>
+                    <div>3 stars</div>
+                    <div>4 stars</div>
+                    <div>5 stars</div>
+                  </ng-container>
+              </ng-container>
+            <ng-container *ngIf="questionType.ratingType == 'Emotions'">
+                <ng-container *ngFor="let item of amountRatingNumber; let star=index">
+                  <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_1.png" alt="">
+                  <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_2.png" alt="">
+                  <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_3.png" alt="">
+                  <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_4.png" alt="">
+                  <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_5.png" alt="">
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="questionType.ratingType == 'Numbers'">
+                <ng-container *ngFor="let item of amountRatingNumber; let star=index">
+                      <img class="label-item" src="../../assets/icons/PNG/number/tile_1.png" alt="">
+                      <img class="label-item" src="../../assets/icons/PNG/number/tile_2.png" alt="">
+                      <img class="label-item" src="../../assets/icons/PNG/number/tile_3.png" alt="">
+                      <img class="label-item" src="../../assets/icons/PNG/number/tile_4.png" alt="">
+                      <img class="label-item" src="../../assets/icons/PNG/number/tile_5.png" alt="">
+                  </ng-container>
+            </ng-container>
+          </ng-container>
+        </ng-container>
   </div>
   <!---->
   <div class="display-data-table">
     <table datatable class="table table-striped col-xl-9">
       <thead>
-        <tr>
-          <th scope="col">{{ 'date' | translate }}</th>
-          <th scope="col">{{ 'reaction' | translate }}</th>
-          <th scope="col">{{ 'response' | translate }}</th>
+        <tr class="m-0">
+            <th class="w-10">{{ 'date' | translate }}</th>
+            <th class="w-15">{{ 'reaction' | translate }}</th>
+            <th class="w-75">{{ 'response' | translate }}</th>
         </tr>
       </thead>
       <tbody>
         <ng-container *ngFor="let answer of answers; let i=index">
           <tr *ngIf="i>=(activeSite-1)*resultsPerSite && i<activeSite*resultsPerSite">
-            <td scope="row">{{answer.submitDate | date: 'yyyy-MM-dd' }}</td>
-            <td>{{answer.rating}}</td>
+            <td>{{answer.submitDate | date: 'yyyy-MM-dd' }}</td>
+            <td>
+              <ng-container *ngFor="let questionType of questionWithAnswer.questions">
+                <ng-container *ngIf="questionType.id==id">
+                  <ng-container *ngIf="questionType.ratingType == 'Stars'">
+                      <ng-container *ngFor="let item of amountRating; let star=index">
+                          <ng-container *ngIf="star<answer.rating">
+                            <img class="star-amount" src="../../assets/icons/PNG/star/star_yellow.png" alt="">
+                          </ng-container>
+                          <ng-container *ngIf="star>=answer.rating">
+                            <img class="star-amount" src="../../assets/icons/PNG/star/star_white.png" alt="">
+                          </ng-container>
+                        </ng-container>
+                  </ng-container>
+                  <ng-container *ngIf="questionType.ratingType == 'Emotions'">
+                      <ng-container *ngFor="let item of amountRatingNumber; let star=index">
+                          <ng-container *ngIf="answer.rating == 1">
+                            <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_1.png" alt="">
+                          </ng-container>
+                          <ng-container *ngIf="answer.rating == 2">
+                            <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_2.png" alt="">
+                          </ng-container>
+                          <ng-container *ngIf="answer.rating == 3">
+                            <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_3.png" alt="">
+                          </ng-container>
+                          <ng-container *ngIf="answer.rating == 4">
+                            <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_4.png" alt="">
+                          </ng-container>
+                          <ng-container *ngIf="answer.rating == 5">
+                            <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_5.png" alt="">
+                          </ng-container>
+                        </ng-container>
+                  </ng-container>
+                  <ng-container *ngIf="questionType.ratingType == 'Numbers'">
+                      <ng-container *ngFor="let item of amountRatingNumber; let star=index">
+                          <ng-container *ngIf="answer.rating == 1">
+                            <img class="star-amount" src="../../assets/icons/PNG/number/tile_1.png" alt="">
+                          </ng-container>
+                          <ng-container *ngIf="answer.rating == 2">
+                            <img class="star-amount" src="../../assets/icons/PNG/number/tile_2.png" alt="">
+                          </ng-container>
+                          <ng-container *ngIf="answer.rating == 3">
+                            <img class="star-amount" src="../../assets/icons/PNG/number/tile_3.png" alt="">
+                          </ng-container>
+                          <ng-container *ngIf="answer.rating == 4">
+                            <img class="star-amount" src="../../assets/icons/PNG/number/tile_4.png" alt="">
+                          </ng-container>
+                          <ng-container *ngIf="answer.rating == 5">
+                            <img class="star-amount" src="../../assets/icons/PNG/number/tile_5.png" alt="">
+                          </ng-container>
+                        </ng-container>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+            </td>
             <td>{{answer.answer}}</td>
           </tr>
         </ng-container>
