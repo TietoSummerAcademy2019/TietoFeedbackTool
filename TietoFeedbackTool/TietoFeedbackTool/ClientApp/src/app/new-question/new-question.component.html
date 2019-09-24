@@ -1,4 +1,4 @@
-  
+
 <div class="new-question-content">
   <div class="navigation-item col-xl-12">
     <a class="navigation-back" routerLink="/">
@@ -35,12 +35,37 @@
       </div>
       <div *ngIf="answerType.value" class="reaction-type-wrapper" id="reaction-type">
         <p id="input-heading">{{ 'reaction-type' | translate }}</p>
-        <select class="select-css" id="reaction-type-value">
-          <option>Option 1</option>
-          <option>Option 2</option>
-          <option>Option 3</option>
-          <option>Option 4</option>
-        </select>
+        <div class="row" ngbDropdown>
+          <div class="select-css" id="dropdownBasic1" ngbDropdownToggle>Placeholder</div>
+          <div class="select-css" id="button-smile" ngbDropdownToggle style="display: none;">
+            <th *ngFor="let smile of smiles"><img class="star-amount" src={{smile.imageUrl}} /></th>
+          </div>
+          <div class="select-css" id="button-number" ngbDropdownToggle style="display: none;">
+            <th *ngFor="let number of numbers"><img class="star-amount" src={{number.imageUrl}} /></th>
+          </div>
+          <div class="select-css" id="button-star" ngbDropdownToggle style="display: none;">
+            <th *ngFor="let star of stars"><img class="star-amount" src={{star.imageUrl}} /></th>
+          </div>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <table>
+              <tr (click)="changeDropdownStyle(1)" class="answer-type-item-css" id="smileType" ngbDropdownItem>
+                <th *ngFor="let smile of smiles">
+                  <img class="star-amount" src={{smile.imageUrl}} />
+                </th>
+              </tr>
+              <tr (click)="changeDropdownStyle(2)" class="answer-type-item-css" id="numberType" ngbDropdownItem>
+                <th *ngFor="let number of numbers">
+                  <img class="star-amount" src={{number.imageUrl}} />
+                </th>
+              </tr>
+              <tr (click)="changeDropdownStyle(3)" class="answer-type-item-css" id="starType" ngbDropdownItem>
+                <th *ngFor="let star of stars">
+                  <img class="star-amount" src={{star.imageUrl}} />
+                </th>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
       <div class="radio-wrapper" id="radio-position">
         <p id="input-heading">{{ 'feedbacktool-position' | translate }}</p>
@@ -58,7 +83,7 @@
 </div>
 <footer class="new-question-footer">
   <div class="new-question-footer-buttons">
-      <button class="tieto-button cancel" routerLink="" routerLinkActive="active">{{ 'cancel' | translate }}</button>
-      <button form="website-form" class="tieto-button submit">{{ 'submit' | translate }}</button>
+    <button class="tieto-button cancel" routerLink="" routerLinkActive="active">{{ 'cancel' | translate }}</button>
+    <button form="website-form" class="tieto-button submit">{{ 'submit' | translate }}</button>
   </div>
 </footer>

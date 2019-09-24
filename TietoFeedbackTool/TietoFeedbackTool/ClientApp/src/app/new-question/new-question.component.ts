@@ -11,6 +11,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NewQuestionComponent implements OnInit {
 
+  smiles = [
+    { "imageUrl": "../../assets/icons/SVG/smile_color/smile_1.svg" },
+    { "imageUrl": "../../assets/icons/SVG/smile_color/smile_2.svg" },
+    { "imageUrl": "../../assets/icons/SVG/smile_color/smile_3.svg" },
+    { "imageUrl": "../../assets/icons/SVG/smile_color/smile_4.svg" },
+    { "imageUrl": "../../assets/icons/SVG/smile_color/smile_5.svg" }
+  ];
+  stars = [
+    { "imageUrl": "../../assets/icons/SVG/star/star_yellow.svg" },
+    { "imageUrl": "../../assets/icons/SVG/star/star_yellow.svg" },
+    { "imageUrl": "../../assets/icons/SVG/star/star_yellow.svg" },
+    { "imageUrl": "../../assets/icons/SVG/star/star_yellow.svg" },
+    { "imageUrl": "../../assets/icons/SVG/star/star_yellow.svg" }
+  ];
+  numbers = [
+    { "imageUrl": "../../assets/icons/SVG/number_select/tile_1_blue.svg" },
+    { "imageUrl": "../../assets/icons/SVG/number_select/tile_2_blue.svg" },
+    { "imageUrl": "../../assets/icons/SVG/number_select/tile_3_blue.svg" },
+    { "imageUrl": "../../assets/icons/SVG/number_select/tile_4_blue.svg" },
+    { "imageUrl": "../../assets/icons/SVG/number_select/tile_5_blue.svg" }
+  ];
+
   // hard-coded according to sample DB entries for now
   questionModel: Question = {
     AccountLogin: 'OlejWoj',
@@ -30,6 +52,7 @@ export class NewQuestionComponent implements OnInit {
   questionAreaValue: any;
   position: any;
   answerType: any;
+  reactionType: any;
 
   constructor(
     private qs: NewQuestionService<Question>,
@@ -61,17 +84,27 @@ export class NewQuestionComponent implements OnInit {
         this.domainAreaValue.value = question.domain;
         this.position.value = question.isBottom;
         this.answerType.value = question.hasRating;
+        this.reactionType.value = question.ratingType;
         if (this.position.value) {
-          this.position[0].checked=true;
+          this.position[0].checked = true;
         }
         else {
-          this.position[1].checked=true;
+          this.position[1].checked = true;
         }
         if (!this.answerType.value) {
-          this.answerType[0].checked=true;
+          this.answerType[0].checked = true;
         }
         else {
-          this.answerType[1].checked=true;
+          this.answerType[1].checked = true;
+        }
+        if (this.reactionType.value === "Smiles") {
+          this.changeDropdownStyle(1);
+        }
+        else if (this.reactionType.value === "Numbers") {
+          this.changeDropdownStyle(2);
+        }
+        else if (this.reactionType.value === "Stars") {
+          this.changeDropdownStyle(3);
         }
       }
     }
@@ -85,13 +118,15 @@ export class NewQuestionComponent implements OnInit {
     if (this.isEmptyOrSpaces(f.controls['new-question'].value)
       || this.isEmptyOrSpaces(f.controls['new-domain'].value)
       || !f.controls['position'].valid) {
-        this.displayErrorMessage();
+      this.displayErrorMessage();
     }
     else {
       this.questionModel.domain = f.controls['new-domain'].value;
       this.questionModel.questionText = f.controls['new-question'].value;
       this.questionModel.isBottom = f.controls['position'].value;
       this.questionModel.hasRating = f.controls['answerType'].value;
+      this.questionModel.ratingType = this.reactionType;
+      console.log(this.questionModel);
       if (this.id) {
         this.qs.updateQuestion(this.id, this.questionModel);
       }
@@ -101,6 +136,29 @@ export class NewQuestionComponent implements OnInit {
       this.nav.navigate(["/"]).then(() => {
         window.location.reload();
       })
+    }
+  }
+  changeDropdownStyle(i) {
+    if (i === 1) {
+      document.getElementById('dropdownBasic1').style.display = "none";
+      document.getElementById('button-smile').style.display = "block";
+      document.getElementById('button-number').style.display = "none";
+      document.getElementById('button-star').style.display = "none";
+      this.reactionType = "Smiles";
+    }
+    else if (i === 2) {
+      document.getElementById('dropdownBasic1').style.display = "none";
+      document.getElementById('button-smile').style.display = "none";
+      document.getElementById('button-number').style.display = "block";
+      document.getElementById('button-star').style.display = "none";
+      this.reactionType = "Numbers";
+    }
+    else if (i === 3) {
+      document.getElementById('dropdownBasic1').style.display = "none";
+      document.getElementById('button-smile').style.display = "none";
+      document.getElementById('button-number').style.display = "none";
+      document.getElementById('button-star').style.display = "block";
+      this.reactionType = "Stars";
     }
   }
 

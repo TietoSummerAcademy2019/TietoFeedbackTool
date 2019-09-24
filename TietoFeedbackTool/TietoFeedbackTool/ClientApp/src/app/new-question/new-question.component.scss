@@ -9,6 +9,7 @@
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #dddddd;
   opacity: 1;
+
   & > a {
     & > img {
       padding: 0.5rem;
@@ -25,6 +26,7 @@ p#validation-error {
   flex-direction: column;
   padding-top: 2.9375rem;
   padding-left: 3.125rem;
+
   &-header {
     text-align: left;
     font-weight: 700;
@@ -33,6 +35,7 @@ p#validation-error {
     color: #333333;
     opacity: 1;
   }
+
   &-information {
     text-align: left;
     font-size: 1.25rem;
@@ -98,6 +101,18 @@ p#validation-error {
   & div.reaction-type-wrapper {
     padding-top: 1.7rem;
 
+    .row {
+      margin-left: 0.1rem;
+      margin-top: 0.2rem;
+    }
+
+    .dropdown-menu {
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border: 1px solid #CCCCCC;
+      border-radius: 6px;
+      opacity: 1;
+    }
+
     .select-css {
       background: #FFFFFF 0% 0% no-repeat padding-box;
       border: 1px solid #CCCCCC;
@@ -105,9 +120,11 @@ p#validation-error {
       opacity: 1;
       width: 216px;
       height: 40px;
-      display: block;
-      -moz-appearance: none;
-      -webkit-appearance: none;
+      display: inherit;
+
+      &:after {
+        display: none;
+      }
 
       &:focus {
         border: 1px solid #5EACDD;
@@ -122,19 +139,15 @@ p#validation-error {
         opacity: 1;
       }
 
-      option {
-        border: 1px solid #0E76B7;
-        border-radius: 6px;
-        opacity: 1;
-        width: 260px;
-        height: 197px;
+      .answer-type-item-css {
+        width: 100% !important;
 
-        &:hover:not(:checked) {
-          background: #d9135c 0% 0% no-repeat padding-box;
+        &:hover {
+          background: #EEEEEE 0% 0% no-repeat padding-box;
           opacity: 1;
         }
 
-        &:checked {
+        &:active {
           background: #EEEEEE 0% 0% no-repeat padding-box;
           opacity: 1;
         }
@@ -146,7 +159,8 @@ p#validation-error {
     padding-top: 1.7rem;
 
     .row {
-      margin: 0.5rem;
+      margin-left: 0.1rem;
+      margin-top: 0.2rem;
     }
 
     input[type="radio"] {
@@ -172,7 +186,7 @@ p#validation-error {
           margin-right: 8px;
           vertical-align: top;
           cursor: pointer;
-          transition: all 0.5s ease-in-out;
+          transition: all 0.3s ease-in-out;
         }
       }
 
@@ -228,6 +242,12 @@ p#validation-error {
   }
 }
 
+.star-amount {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-left: 0.4375rem;
+}
+
 .new-question-footer {
   position: fixed;
   right: 0;
@@ -238,6 +258,7 @@ p#validation-error {
   border-top: 1px solid #cccccc;
   background: #ffffff;
   opacity: 1;
+
   &-buttons {
     display: flex;
     flex-direction: row;
