@@ -23,7 +23,7 @@ export class NewQuestionService<T extends Question> {
   }
 
   getItems() {
-    return this.http.get<T>(this.apiBase).toPromise();
+    return this.http.get<T[]>(this.apiBase).toPromise();
   }
 
   async getDummyScript(question: Question) {

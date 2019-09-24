@@ -3,12 +3,13 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 import { TrackingCodeGenerationService } from './tracking-code-generation.service';
 import { Account } from '../models/Account';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('Service: TrackingCodeGeneration', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [TrackingCodeGenerationService, HttpClient, HttpHandler]
+      imports: [HttpClientTestingModule],
+      providers: [TrackingCodeGenerationService]
     });
   });
 

@@ -1,9 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
-
+import { TranslatePipe } from '../translate-service/translate.pipe';
+import { TranslateService } from '../translate-service/translate-service.service';
 import { DisplayDataComponent } from './display-data.component';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
+import { RouterModule } from '@angular/router';
 
 describe('DisplayDataComponent', () => {
   let component: DisplayDataComponent;
@@ -11,12 +13,9 @@ describe('DisplayDataComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [
-      ],
-      declarations: [
-        DisplayDataComponent
-      ]
+      imports: [HttpClientTestingModule, ChartsModule, RouterModule.forRoot([])],
+      providers: [TranslateService],
+      declarations: [DisplayDataComponent, TranslatePipe ]
     })
     .compileComponents();
   }));

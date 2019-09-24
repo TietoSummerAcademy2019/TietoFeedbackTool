@@ -1,10 +1,10 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { NgForm } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
 import { MarkingBarComponent } from './marking-bar.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('MarkingBarComponent', () => {
   let component: MarkingBarComponent;
@@ -12,6 +12,7 @@ describe('MarkingBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule, HttpClientTestingModule],
       declarations: [ MarkingBarComponent ]
     })
     .compileComponents();
@@ -22,9 +23,10 @@ describe('MarkingBarComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  /*
+
   it('should create', () => {
-    expect(component).toBeTruthy();
+    fakeAsync(() => {
+      expect(component).toBeTruthy();
+    })
   });
-  */
 });

@@ -2,8 +2,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
 import { DeletePopupComponent } from './delete-popup.component';
+import { TranslatePipe } from '../../translate-service/translate.pipe';
+import { TranslateService } from '../../translate-service/translate-service.service';
+import { RouterModule } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 describe('DeletePopupComponent', () => {
   let component: DeletePopupComponent;
@@ -11,7 +15,18 @@ describe('DeletePopupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeletePopupComponent ]
+      imports: [RouterModule.forRoot([]), HttpClientTestingModule],
+      providers: [
+        TranslateService,
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        }, {
+          provide: MAT_DIALOG_DATA,
+          useValue: {}
+        }
+      ],
+      declarations: [DeletePopupComponent, TranslatePipe ]
     })
     .compileComponents();
   }));
