@@ -1,10 +1,13 @@
-import { OpenPuzzleAnswer } from './OpenPuzzleAnswer';
+import { PuzzleAnswer } from './OpenPuzzleAnswer';
 
 export interface Question {
   id?: number;
-  Domain: string;
+  domain: string;
   questionText: string;
   AccountLogin: string;
-  openPuzzleAnswers?: OpenPuzzleAnswer[];
+  puzzleAnswers?: PuzzleAnswer[];
   enabled: boolean;
+  hasRating: boolean;
+  isBottom: boolean;
+  ratingType: string;
 }

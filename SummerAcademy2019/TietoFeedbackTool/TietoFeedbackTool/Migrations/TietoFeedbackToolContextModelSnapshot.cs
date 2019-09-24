@@ -22,12 +22,15 @@ namespace TietoFeedbackTool.Migrations
             modelBuilder.Entity("TietoFeedbackTool.Domain.Account", b =>
                 {
                     b.Property<string>("Login")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(50);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .HasMaxLength(30);
 
                     b.Property<string>("QuestionsKey")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(32);
 
                     b.HasKey("Login");
 
@@ -38,17 +41,18 @@ namespace TietoFeedbackTool.Migrations
                     b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("TietoFeedbackTool.Domain.OpenPuzzleAnswer", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.PuzzleAnswer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Answer")
-                        .IsRequired()
                         .HasMaxLength(2000);
 
                     b.Property<int>("QuestionId");
+
+                    b.Property<int?>("Rating");
 
                     b.Property<DateTime>("SubmitDate")
                         .HasColumnType("Datetime");
@@ -57,7 +61,7 @@ namespace TietoFeedbackTool.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("OpenPuzzleAnswers");
+                    b.ToTable("PuzzleAnswers");
                 });
 
             modelBuilder.Entity("TietoFeedbackTool.Domain.Question", b =>
@@ -69,11 +73,20 @@ namespace TietoFeedbackTool.Migrations
                     b.Property<string>("AccountLogin")
                         .IsRequired();
 
-                    b.Property<string>("Domain");
+                    b.Property<string>("Domain")
+                        .HasMaxLength(200);
 
                     b.Property<bool>("Enabled");
 
-                    b.Property<string>("QuestionText");
+                    b.Property<bool>("HasRating");
+
+                    b.Property<bool>("IsBottom");
+
+                    b.Property<string>("QuestionText")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("RatingType")
+                        .HasMaxLength(20);
 
                     b.HasKey("Id");
 
@@ -82,10 +95,10 @@ namespace TietoFeedbackTool.Migrations
                     b.ToTable("Question");
                 });
 
-            modelBuilder.Entity("TietoFeedbackTool.Domain.OpenPuzzleAnswer", b =>
+            modelBuilder.Entity("TietoFeedbackTool.Domain.PuzzleAnswer", b =>
                 {
                     b.HasOne("TietoFeedbackTool.Domain.Question")
-                        .WithMany("OpenPuzzleAnswers")
+                        .WithMany("PuzzleAnswers")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

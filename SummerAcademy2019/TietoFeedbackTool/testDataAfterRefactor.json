@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8f382159-46af-4bd4-8132-aab8d068aecf",
+		"_postman_id": "7b70b876-7a8e-42b2-acb8-833f3ffa6dc7",
 		"name": "TestDataAfterRefactor",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -64,7 +64,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"QuestionText\" : \"How well do you understand our homepage?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44350\",\n\t\"Enabled\": true\n}"
+					"raw": "{\n\t\"QuestionText\" : \"How well do you understand our homepage?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44350\",\n\t\"Enabled\": true,\n\t\"HasRating\": false,\n\t\"IsBottom\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:44350/api/Survey/questions",
@@ -96,7 +101,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"QuestionText\" : \"What could you improve in our site?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44313\",\n\t\"Enabled\": false\n}"
+					"raw": "{\n\t\"QuestionText\" : \"How well do you understand our homepage?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44350\",\n\t\"Enabled\": true,\n\t\"HasRating\": true,\n\t\"IsBottom\": true,\n\t\"RatingType\": \"Stars\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:44350/api/Survey/questions",
@@ -128,7 +138,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"QuestionText\" : \"What could be changed to make your experience better?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44350\",\n\t\"Enabled\": false\n}"
+					"raw": "{\n\t\"QuestionText\" : \"How well do you understand our homepage?\",\n\t\"AccountLogin\" : \"OlejWoj\",\n\t\"Domain\" : \"localhost:44350\",\n\t\"Enabled\": true,\n\t\"HasRating\": false,\n\t\"IsBottom\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:44350/api/Survey/questions",
@@ -160,7 +175,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"QuestionId\" : 1,\n\t\"Answer\": \"Yes\"\n}"
+					"raw": "{\n\t\"QuestionId\" : 1,\n\t\"Answer\": \"Yes\",\n}"
 				},
 				"url": {
 					"raw": "https://localhost:44350/api/Answer/open",
@@ -192,7 +207,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"QuestionId\" : 1,\n\t\"Answer\": \"Yes, yes\"\n}"
+					"raw": "{\n\t\"QuestionId\" : 1,\n\t\"Rating\": 5\n}"
 				},
 				"url": {
 					"raw": "https://localhost:44350/api/Answer/open",

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Question } from '../models/Question';
 import { NewQuestionService } from './new-question.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-question',
@@ -15,27 +15,39 @@ export class NewQuestionComponent implements OnInit {
   questionModel: Question = {
     AccountLogin: 'OlejWoj',
     questionText: '',
-    Domain: 'localhost:44350',
-    enabled: false
+    domain: '',
+    enabled: false,
+    hasRating: false,
+    isBottom: null,
+    ratingType: "" //hardcoded data at this moment,
   }
   questionModelEdit: Question = {
     AccountLogin: 'OlejWoj',
     questionText: '',
-    Domain: 'localhost:44350',
-    enabled: false
+    domain: '',
+    enabled: false,
+    hasRating: false,
+    isBottom: null,
+    ratingType: ""
   }
 
   id: number;
-  textAreaValue: any;
+  domainAreaValue: any;
+  questionAreaValue: any;
+  position: any;
 
   constructor(
     private qs: NewQuestionService<Question>,
-    private route: ActivatedRoute
-    ) { }
+    private route: ActivatedRoute,
+    private nav: Router
+  ) { }
 
   ngOnInit() {
+    document.getElementById('validation-error').style.display = 'none';
     this.id = Number(this.route.snapshot.paramMap.get("id"));
-    this.textAreaValue = document.getElementById('question-area');
+    this.domainAreaValue = document.getElementById('domain-area');
+    this.questionAreaValue = document.getElementById('question-area');
+    this.position = document.getElementsByName('position');
     if (this.id) {
       this.init();
     }
@@ -49,32 +61,47 @@ export class NewQuestionComponent implements OnInit {
     for (let key in this.questionModelEdit) {
       let question = this.questionModelEdit[key];
       if (question.id == this.id) {
-        this.textAreaValue.value = question.questionText;
+        this.questionAreaValue.value = question.questionText;
+        this.domainAreaValue.value = question.domain;
+        this.position.value = question.isBottom;
+        if (this.position.value) {
+          this.position[0].checked=true;
+        }
+        else {
+          this.position[1].checked=true;
+        }
       }
     }
   }
 
   onSubmit(f: NgForm) {
-    // get new-question from the form and assign it to the model
-    let div = document.getElementById('question-area');
+    this.formValidation(f);
+  }
 
-    if (this.isEmptyOrSpaces(f.controls['new-question'].value)) {
-      div.style.backgroundColor = '#ffedf1';
-      div.style.borderColor = '#d9135d';
-      document.getElementById('need').style.display = 'inline';
-    } else {
+  formValidation(f) {
+    if (this.isEmptyOrSpaces(f.controls['new-question'].value)
+      || this.isEmptyOrSpaces(f.controls['new-domain'].value)
+      || !f.controls['position'].valid) {
+        this.displayErrorMessage();
+    }
+    else {
+      this.questionModel.domain = f.controls['new-domain'].value;
       this.questionModel.questionText = f.controls['new-question'].value;
-      f.reset();
+      this.questionModel.isBottom = f.controls['position'].value;
       if (this.id) {
         this.qs.updateQuestion(this.id, this.questionModel);
       }
       else {
         this.qs.add(this.questionModel);
       }
-      div.style.backgroundColor = 'white';
-      div.style.borderColor = '';
-      document.getElementById('need').style.display = 'none';
+      this.nav.navigate(["/"]).then(() => {
+        window.location.reload();
+      })
     }
+  }
+
+  displayErrorMessage() {
+    document.getElementById('validation-error').style.display = 'inline';
   }
 
   isEmptyOrSpaces(str) {
