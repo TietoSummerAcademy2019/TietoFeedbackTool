@@ -113,9 +113,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac26dd865a79f2bf3f30f606b553ec3dd"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#ac26dd865a79f2bf3f30f606b553ec3dd">GetScript</a> (string surveyKey, string path)</td></tr>
 <tr class="memdesc:ac26dd865a79f2bf3f30f606b553ec3dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create script for installing feedback tool.  <a href="class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#ac26dd865a79f2bf3f30f606b553ec3dd">More...</a><br /></td></tr>
 <tr class="separator:ac26dd865a79f2bf3f30f606b553ec3dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00ca40925809f4ef88d43bfb7c3adce6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#a00ca40925809f4ef88d43bfb7c3adce6">GetDummyScript</a> (string path)</td></tr>
-<tr class="memdesc:a00ca40925809f4ef88d43bfb7c3adce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create preview installing script.  <a href="class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#a00ca40925809f4ef88d43bfb7c3adce6">More...</a><br /></td></tr>
-<tr class="separator:a00ca40925809f4ef88d43bfb7c3adce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cbe980b1157ca707807caf3858dab65"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#a0cbe980b1157ca707807caf3858dab65">GetDummyScript</a> (string path, <a class="el" href="class_tieto_feedback_tool_1_1_domain_1_1_question.html">Question</a> question)</td></tr>
+<tr class="memdesc:a0cbe980b1157ca707807caf3858dab65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create preview installing script.  <a href="class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_tracking_code_repository.html#a0cbe980b1157ca707807caf3858dab65">More...</a><br /></td></tr>
+<tr class="separator:a0cbe980b1157ca707807caf3858dab65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_repository"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_repository')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_repository.html">TietoFeedbackTool.Infrastructure.Services.Repository&lt; Account &gt;</a></td></tr>
 <tr class="memitem:aabf3fb031ff26b30eb5edf10e8d64c5d inherit pub_methods_class_tieto_feedback_tool_1_1_infrastructure_1_1_services_1_1_repository"><td class="memItemLeft" align="right" valign="top"><a id="aabf3fb031ff26b30eb5edf10e8d64c5d"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Repository</b> (<a class="el" href="interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_tieto_feedback_tool_context.html">ITietoFeedbackToolContext</a> context)</td></tr>
@@ -489,8 +489,8 @@ readonly <a class="el" href="interface_tieto_feedback_tool_1_1_application_1_1_i
 
 </div>
 </div>
-<a id="a00ca40925809f4ef88d43bfb7c3adce6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00ca40925809f4ef88d43bfb7c3adce6">&#9670;&nbsp;</a></span>GetDummyScript()</h2>
+<a id="a0cbe980b1157ca707807caf3858dab65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cbe980b1157ca707807caf3858dab65">&#9670;&nbsp;</a></span>GetDummyScript()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -499,8 +499,18 @@ readonly <a class="el" href="interface_tieto_feedback_tool_1_1_application_1_1_i
           <td class="memname">string TietoFeedbackTool.Infrastructure.Services.TrackingCodeRepository.GetDummyScript </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>path</em></td><td>)</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="class_tieto_feedback_tool_1_1_domain_1_1_question.html">Question</a>&#160;</td>
+          <td class="paramname"><em>question</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -513,6 +523,8 @@ readonly <a class="el" href="interface_tieto_feedback_tool_1_1_application_1_1_i
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Dummy installing script.</dd></dl>
+<p><br  />
+ </p>
 
 <p>Implements <a class="el" href="interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_tracking_code_repository.html">TietoFeedbackTool.Application.Interfaces.ITrackingCodeRepository</a>.</p>
 
