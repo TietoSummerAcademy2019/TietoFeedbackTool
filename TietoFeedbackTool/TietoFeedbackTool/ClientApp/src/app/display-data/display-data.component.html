@@ -19,9 +19,41 @@
             [labels]="barChartLabels"
             [options]="barChartOptions"
             [legend]="barChartLegend"
-            [chartType]="barChartType"
-            >
+            [chartType]="barChartType">
     </canvas>
+  </div>
+  <div class="label">
+      <ng-container *ngFor="let questionType of questionWithAnswer.questions">
+          <ng-container *ngIf="questionType.id==id">
+              <ng-container *ngIf="questionType.ratingType == 'Stars'">
+                  <ng-container *ngFor="let item of amountRatingNumber; let star=index">
+                    <div>1 star</div>
+                    <div>2 stars</div>
+                    <div>3 stars</div>
+                    <div>4 stars</div>
+                    <div>5 stars</div>
+                  </ng-container>
+              </ng-container>
+            <ng-container *ngIf="questionType.ratingType == 'Emotions'">
+                <ng-container *ngFor="let item of amountRatingNumber; let star=index">
+                  <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_1.png" alt="">
+                  <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_2.png" alt="">
+                  <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_3.png" alt="">
+                  <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_4.png" alt="">
+                  <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_5.png" alt="">
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="questionType.ratingType == 'Numbers'">
+                <ng-container *ngFor="let item of amountRatingNumber; let star=index">
+                      <img class="label-item" src="../../assets/icons/PNG/number/tile_1.png" alt="">
+                      <img class="label-item" src="../../assets/icons/PNG/number/tile_2.png" alt="">
+                      <img class="label-item" src="../../assets/icons/PNG/number/tile_3.png" alt="">
+                      <img class="label-item" src="../../assets/icons/PNG/number/tile_4.png" alt="">
+                      <img class="label-item" src="../../assets/icons/PNG/number/tile_5.png" alt="">
+                  </ng-container>
+            </ng-container>
+          </ng-container>
+        </ng-container>
   </div>
   <!---->
   <div class="display-data-table">

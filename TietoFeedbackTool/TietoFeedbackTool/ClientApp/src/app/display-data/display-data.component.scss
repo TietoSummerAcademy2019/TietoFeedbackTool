@@ -70,7 +70,7 @@
 }
 
 .display-data-table {
-  padding-top: 24rem;
+  padding-top: 2rem;
   margin-left: 3.125rem;
   margin-right: 3.125rem;
 }
@@ -140,11 +140,16 @@
   margin-left: 0.625rem;
 }
 
-.imageLabels {
-  position: absolute;
+.label {
   margin-top: 20rem;
-  margin-left: 3rem;
-  & > .label {
-    margin-left: 2rem;
+  & > div {
+    display: inline-block;
+    padding-left: 7.8vw;
+  }
+  & > img {
+    height: 2.0625rem;
+  }
+  &-item {
+    padding-left: 8.2vw;
   }
 }
