@@ -1,0 +1,10 @@
+var namespace_tieto_feedback_tool_1_1_application_1_1_interfaces =
+[
+    [ "IAccountRepository", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_account_repository.html", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_account_repository" ],
+    [ "IPuzzleAnswerRepository", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_puzzle_answer_repository.html", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_puzzle_answer_repository" ],
+    [ "IQuestionRepository", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_question_repository.html", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_question_repository" ],
+    [ "IRepository", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_repository.html", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_repository" ],
+    [ "ITietoFeedbackToolContext", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_tieto_feedback_tool_context.html", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_tieto_feedback_tool_context" ],
+    [ "ITrackingCodeRepository", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_tracking_code_repository.html", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_tracking_code_repository" ],
+    [ "IUnitOfWork", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_unit_of_work.html", "interface_tieto_feedback_tool_1_1_application_1_1_interfaces_1_1_i_unit_of_work" ]
+];
