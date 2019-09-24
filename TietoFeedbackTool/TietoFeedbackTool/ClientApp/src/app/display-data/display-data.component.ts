@@ -26,6 +26,7 @@ export class DisplayDataComponent implements OnInit {
   id: number;
   starRating : any;
   amountRating: number[] = [1,2,3,4,5];
+  amountRatingNumber: number[] = [1];
 
   //barChart
     public barChartOptions = {
