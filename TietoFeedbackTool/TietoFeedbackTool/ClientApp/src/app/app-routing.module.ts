@@ -14,11 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'new-question',
-    component: NewQuestionComponent,
+    component: NewQuestionComponent
   },
   {
     path: 'new-question/:id',
-    component: NewQuestionComponent,
+    component: NewQuestionComponent
   },
   {
     path: 'display-data/:id',
@@ -33,7 +33,7 @@ const routes: Routes = [
     component: MarkingBarSideComponent
   },
   {
-    path: 'tracking-code-generation',
+    path: 'tracking-code',
     component: TrackingCodeGenerationComponent
   }
 ];

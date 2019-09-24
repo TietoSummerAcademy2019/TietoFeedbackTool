@@ -1,34 +1,35 @@
-<div class="feedback">
-  <div class="feedback-marking-bar">
-    <button class="btn feedback-marking-bar-button" id="marking-bar" type="button" data-toggle="collapse" data-target="#window-content" aria-expanded="false" aria-controls="collapseExample" onclick="changeOpacity()">
-      Leave feedback
-      <div class="img-exit"></div>
-    </button>
-  </div>
-  <div class="collapse feedback-window" id="window-content">
-    <div class="card card-body">
-      <div id="answer-body" novalidate>
-        <p class="colored align-self-center" id="question-text"> </p>
-        <div class="text-center">
-          <textarea name="new-answer" class="answer-input align-self-center" id="answer" data-id=""></textarea>
-          <div class="transition-msg" id="error-message">
-            <div class="error-label" id="need">
-              Answer is required
-            </div>
-          </div>
-        </div>
-        <div class="text-right">
-          <button class="btn btn-submit align-self-end" id="survey-submit">Send</button>
-        </div>
-      </div>
-      <div class="transition-msg" id="success-message">
-        <div id="thanks">
-          Thank you!
-        </div>
-        <div id="message">
-          Your feedback is really important to us!
-        </div>
-      </div>
+<div class="feedback" id="feedback-main" data-isBottom="true">
+    <div class="feedback-marking-bar">
+        <button class="btn feedback-marking-bar-button" id="marking-bar" type="button" data-toggle="collapse" data-target="#window-content" aria-expanded="false" aria-controls="collapseExample" onclick="changeOpacity()">
+            <span>
+                Leave feedback
+            </span>
+            <div class="img-exit"></div>
+        </button>
     </div>
-  </div>
+    <div class="collapse feedback-window" id="window-content">
+        <div class="card card-body">
+            <div id="answer-body" novalidate>
+                <p class="colored align-self-center" id="question-text"> </p>
+                <div class="text-center" id="answer-type-input">
+                    <div class="transition-msg" id="error-message">
+                        <div class="error-label" id="need">
+                            Answer is required
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-submit align-self-end" id="survey-submit">Send</button>
+                </div>
+            </div>
+            <div class="transition-msg" id="success-message">
+                <div id="thanks">
+                    Thank you!
+                </div>
+                <div id="message">
+                    Your feedback is really important to us!
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

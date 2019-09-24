@@ -12,7 +12,7 @@ export class AppComponent {
   selectedLanguage: string;
   image: string = 'url(../assets/flags-eng.svg)';
   imageNavbar: string;
-  imageNavbar_1 = '../assets/img/ninjakangoogeometric.png';
+  imageNavbar_1 = '../assets/img/logo.svg';
   imageNavbar_2 = '../assets/img/back.svg';
 
   constructor(private translate: TranslateService, private router: Router) {

@@ -1,21 +1,39 @@
 function surveySetup() {
-  const survey = {
-    answer: document.getElementById('answer'),
-    questionId: document.getElementById('answer').getAttribute("data-id"),
-    submit: document.getElementById('survey-submit')
-  };
+  var survey;
+  if (document.getElementsByName("new-answer").length == 0) {
+    survey = {
+      answer: document.getElementById('answer'),
+      questionId: document.getElementById('answer').getAttribute("data-id"),
+      submit: document.getElementById('survey-submit')
+    };
+  } else {
+    survey = {
+      questionId: document.getElementById('answer').getAttribute("data-id"),
+      submit: document.getElementById('survey-submit')
+    };
+  }
 
   survey.submit.addEventListener('click', () => {
     var request = new XMLHttpRequest();
 
     request.onload = () => {
-      console.log( request.responseText );// here we will add actions that should happens after successful survey submit
+      //console.log( request.responseText );// here we will add actions that should happens after successful survey submit
     }
 
-    var requestData = {
-      answer: `${survey.answer.value}`,
-      questionId: `${survey.questionId}`
-    };
+    var requestData;
+    if (document.getElementsByName("new-answer").length == 0) {
+      requestData = {
+        answer: `${survey.answer.value}`,
+        questionId: `${survey.questionId}`
+      };
+    } else {
+      if (document.querySelector('input[name="new-answer"]:checked') != null) {
+        requestData = {
+          rating: `${document.querySelector('input[name="new-answer"]:checked').value}`,
+          questionId: `${survey.questionId}`
+        };
+      }
+    }
 
     var jsonData = JSON.stringify(requestData);
 
@@ -28,12 +46,12 @@ function surveySetup() {
   });
 }
 
-function addCSS()
+function addCSS(isBottom)
 {
   var linkNode = document.createElement("link");
   linkNode.setAttribute("rel", "stylesheet");
   linkNode.setAttribute("type", "text/css");
-  linkNode.setAttribute("href", "https://localhost:44350/api/survey/getstyle");
+  linkNode.setAttribute("href", "https://localhost:44350/api/survey/getstyle/" + isBottom);
   document.head.appendChild(linkNode);
 }
 function checkDomain() {
@@ -43,10 +61,10 @@ function checkDomain() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      addCSS();
       var HTMLnode = document.createElement("div");
       HTMLnode.innerHTML = this.responseText;
       document.body.appendChild(HTMLnode);
+      addCSS(document.getElementById("feedback-main").getAttribute("data-isBottom"))
       surveySetup();
     }
   };
@@ -92,5 +110,34 @@ function checkAnswer() {
 }
 
 function isEmptyOrSpaces(str) {
-  return str === null || str.match(/^\s* *$/) !== null;
+  if (document.getElementsByName("new-answer").length == 0){
+    return str === null || str.match(/^\s* *$/) !== null;
+  } else {
+  if (document.querySelector('input[name="new-answer"]:checked') == null) {
+    return true;
+  } else {
+    return false;
+  }
+  }
+}
+
+function markStars(x) {
+  for (var c = 0; c < 5; c++) {
+    document.getElementsByName("starImage")[c].classList.remove("star-select");
+    document.getElementsByName("starImage")[c].classList.add("star");
+  }
+  for (var i = 0; i < x; i++) {
+    for (var j = 0; j <= i; j++) {
+      document.getElementsByName("starImage")[j].classList.add("star-select");
+      document.getElementsByName("starImage")[j].classList.remove("star");
+    }
+  }
+}
+
+function getBackSelectedStar() {
+  if (document.querySelector('input[name="new-answer"]:checked') != null) {
+    markStars(document.querySelector('input[name="new-answer"]:checked').value);
+  } else {
+    markStars(0);
+  }
 }
