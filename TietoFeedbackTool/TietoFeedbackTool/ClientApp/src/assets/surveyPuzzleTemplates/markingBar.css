@@ -283,5 +283,3 @@ label:nth-of-type(4) .inv:checked + .number {
 label:nth-of-type(5) .inv:checked + .number {
   content: url(../../../assets/icons/SVG/number_select/tile_5_blue.svg);
 }
-
-
