@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TietoFeedbackTool.Migrations
 {
-    public partial class DbRefactor2 : Migration
+    public partial class addedVarcharRestrictions : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,9 +12,9 @@ namespace TietoFeedbackTool.Migrations
                 name: "Accounts",
                 columns: table => new
                 {
-                    Login = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    QuestionsKey = table.Column<string>(nullable: true)
+                    Login = table.Column<string>(maxLength: 50, nullable: false),
+                    Name = table.Column<string>(maxLength: 30, nullable: true),
+                    QuestionsKey = table.Column<string>(maxLength: 32, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -27,13 +27,13 @@ namespace TietoFeedbackTool.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    QuestionText = table.Column<string>(nullable: true),
+                    QuestionText = table.Column<string>(maxLength: 200, nullable: true),
                     AccountLogin = table.Column<string>(nullable: false),
-                    Domain = table.Column<string>(nullable: true),
+                    Domain = table.Column<string>(maxLength: 200, nullable: true),
                     Enabled = table.Column<bool>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
                     HasRating = table.Column<bool>(nullable: false),
-                    IsBottom = table.Column<bool>(nullable: false)
+                    IsBottom = table.Column<bool>(nullable: false),
+                    RatingType = table.Column<string>(maxLength: 20, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -54,7 +54,7 @@ namespace TietoFeedbackTool.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     QuestionId = table.Column<int>(nullable: false),
                     Answer = table.Column<string>(maxLength: 2000, nullable: true),
-                    Rating = table.Column<int>(nullable: false),
+                    Rating = table.Column<int>(nullable: true),
                     SubmitDate = table.Column<DateTime>(type: "Datetime", nullable: false)
                 },
                 constraints: table =>

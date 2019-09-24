@@ -25,7 +25,7 @@
 
 .img-exit {
   margin-top: 2px;
-  background-image: url(../../assets/img/exit.svg);
+  background-image: url(../../../assets/img/exit.svg);
   background-repeat: no-repeat;
   background-position: center;
   width: 20px;
@@ -88,8 +88,8 @@
   display: none;
 }
 
-.div.text-center{
-  margin-bottom:0px ;
+.div.text-center {
+  margin-bottom: 0px;
 }
 
 .visible-exit, .visible-msg, .visible-form {
@@ -97,6 +97,7 @@
 }
 
 .answer-input {
+  display:inherit;
   border-radius: 6px;
   border: 2px solid #ccc;
   width: 230px;
@@ -141,3 +142,144 @@
   #success-message #message {
     font-size: 13px;
   }
+
+  img{
+    margin-right:5px;
+  }
+
+.star-select {
+  content: url(../../../assets/icons/SVG/star/star_yellow.svg);
+}
+.star {
+  content: url(../../../assets/icons/SVG/star/star_white.svg);
+}
+.star:hover {
+  content: url(../../../assets/icons/SVG/star/star_yellow.svg);
+}
+
+.inv:checked + .star {
+  content: url(../../../assets/icons/SVG/star/star_yellow.svg);
+}
+
+.inv {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+label:nth-of-type(1) .smile {
+  content: url(../../../assets/icons/SVG/smile_grey/smile_1_grey.svg);
+}
+label:nth-of-type(2) .smile {
+  content: url(../../../assets/icons/SVG/smile_grey/smile_2_grey.svg);
+}
+label:nth-of-type(3) .smile {
+  content: url(../../../assets/icons/SVG/smile_grey/smile_3_grey.svg);
+}
+label:nth-of-type(4) .smile {
+  content: url(../../../assets/icons/SVG/smile_grey/smile_4_grey.svg);
+}
+label:nth-of-type(5) .smile {
+  content: url(../../../assets/icons/SVG/smile_grey/smile_5_grey.svg);
+}
+
+  label:nth-of-type(1) .smile:hover {
+    content: url(../../../assets/icons/SVG/smile_color/smile_1.svg);
+  }
+
+  label:nth-of-type(2) .smile:hover {
+    content: url(../../../assets/icons/SVG/smile_color/smile_2.svg);
+  }
+
+  label:nth-of-type(3) .smile:hover {
+    content: url(../../../assets/icons/SVG/smile_color/smile_3.svg);
+  }
+
+label:nth-of-type(4) .smile:hover {
+  content: url(../../../assets/icons/SVG/smile_color/smile_4.svg);
+}
+
+label:nth-of-type(5) .smile:hover {
+  content: url(../../../assets/icons/SVG/smile_color/smile_5.svg);
+}
+
+label:nth-of-type(1) .inv:checked + .smile {
+  content: url(../../../assets/icons/SVG/smile_color/smile_1.svg);
+}
+
+label:nth-of-type(2) .inv:checked + .smile {
+  content: url(../../../assets/icons/SVG/smile_color/smile_2.svg);
+}
+
+label:nth-of-type(3) .inv:checked + .smile {
+  content: url(../../../assets/icons/SVG/smile_color/smile_3.svg);
+}
+
+label:nth-of-type(4) .inv:checked + .smile {
+  content: url(../../../assets/icons/SVG/smile_color/smile_4.svg);
+}
+
+label:nth-of-type(5) .inv:checked + .smile {
+  content: url(../../../assets/icons/SVG/smile_color/smile_5.svg);
+}
+
+label:nth-of-type(1) .number {
+  content: url(../../../assets/icons/SVG/number/tile_1.svg);
+}
+
+label:nth-of-type(2) .number {
+  content: url(../../../assets/icons/SVG/number/tile_2.svg);
+}
+
+label:nth-of-type(3) .number {
+  content: url(../../../assets/icons/SVG/number/tile_3.svg);
+}
+
+label:nth-of-type(4) .number {
+  content: url(../../../assets/icons/SVG/number/tile_4.svg);
+}
+
+label:nth-of-type(5) .number {
+  content: url(../../../assets/icons/SVG/number/tile_5.svg);
+}
+
+label:nth-of-type(1) .number:hover {
+  content: url(../../../assets/icons/SVG/number_hover/tile_1_grey.svg);
+}
+
+label:nth-of-type(2) .number:hover {
+  content: url(../../../assets/icons/SVG/number_hover/tile_2_grey.svg);
+}
+
+label:nth-of-type(3) .number:hover {
+  content: url(../../../assets/icons/SVG/number_hover/tile_3_grey.svg);
+}
+
+label:nth-of-type(4) .number:hover {
+  content: url(../../../assets/icons/SVG/number_hover/tile_4_grey.svg);
+}
+
+label:nth-of-type(5) .number:hover {
+  content: url(../../../assets/icons/SVG/number_hover/tile_5_grey.svg);
+}
+
+label:nth-of-type(1) .inv:checked + .number {
+  content: url(../../../assets/icons/SVG/number_select/tile_1_blue.svg);
+}
+
+label:nth-of-type(2) .inv:checked + .number {
+  content: url(../../../assets/icons/SVG/number_select/tile_2_blue.svg);
+}
+
+label:nth-of-type(3) .inv:checked + .number {
+  content: url(../../../assets/icons/SVG/number_select/tile_3_blue.svg);
+}
+
+label:nth-of-type(4) .inv:checked + .number {
+  content: url(../../../assets/icons/SVG/number_select/tile_4_blue.svg);
+}
+
+label:nth-of-type(5) .inv:checked + .number {
+  content: url(../../../assets/icons/SVG/number_select/tile_5_blue.svg);
+}
