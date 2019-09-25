@@ -204,122 +204,127 @@ img {
   height: 0;
 }
 
-label:nth-of-type(1) .smile {
+.tool-img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+label:nth-of-type(1) .smile, .smile1s1 {
   content: url(../../../assets/icons/SVG/smile_grey/smile_1_grey.svg);
 }
 
-label:nth-of-type(2) .smile {
+label:nth-of-type(2) .smile, .smile2s1 {
   content: url(../../../assets/icons/SVG/smile_grey/smile_2_grey.svg);
 }
 
-label:nth-of-type(3) .smile {
+label:nth-of-type(3) .smile, .smile3s1 {
   content: url(../../../assets/icons/SVG/smile_grey/smile_3_grey.svg);
 }
 
-label:nth-of-type(4) .smile {
+label:nth-of-type(4) .smile, .smile4s1 {
   content: url(../../../assets/icons/SVG/smile_grey/smile_4_grey.svg);
 }
 
-label:nth-of-type(5) .smile {
+label:nth-of-type(5) .smile, .smile5s1 {
   content: url(../../../assets/icons/SVG/smile_grey/smile_5_grey.svg);
 }
 
-label:nth-of-type(1) .smile:hover {
+label:nth-of-type(1) .smile:hover, .smile1s2 {
   content: url(../../../assets/icons/SVG/smile_color/smile_1.svg);
 }
 
-label:nth-of-type(2) .smile:hover {
+label:nth-of-type(2) .smile:hover, .smile2s2 {
   content: url(../../../assets/icons/SVG/smile_color/smile_2.svg);
 }
 
-label:nth-of-type(3) .smile:hover {
+label:nth-of-type(3) .smile:hover, .smile3s2 {
   content: url(../../../assets/icons/SVG/smile_color/smile_3.svg);
 }
 
-label:nth-of-type(4) .smile:hover {
+label:nth-of-type(4) .smile:hover, .smile4s2 {
   content: url(../../../assets/icons/SVG/smile_color/smile_4.svg);
 }
 
-label:nth-of-type(5) .smile:hover {
+label:nth-of-type(5) .smile:hover, .smile5s2 {
   content: url(../../../assets/icons/SVG/smile_color/smile_5.svg);
 }
 
-label:nth-of-type(1) .inv:checked + .smile {
+label:nth-of-type(1) .inv:checked + .smile, .smile1s3 {
   content: url(../../../assets/icons/SVG/smile_color/smile_1.svg);
 }
 
-label:nth-of-type(2) .inv:checked + .smile {
+label:nth-of-type(2) .inv:checked + .smile, .smile2s3 {
   content: url(../../../assets/icons/SVG/smile_color/smile_2.svg);
 }
 
-label:nth-of-type(3) .inv:checked + .smile {
+label:nth-of-type(3) .inv:checked + .smile, .smile3s3 {
   content: url(../../../assets/icons/SVG/smile_color/smile_3.svg);
 }
 
-label:nth-of-type(4) .inv:checked + .smile {
+label:nth-of-type(4) .inv:checked + .smile, .smile4s3 {
   content: url(../../../assets/icons/SVG/smile_color/smile_4.svg);
 }
 
-label:nth-of-type(5) .inv:checked + .smile {
+label:nth-of-type(5) .inv:checked + .smile, .smile5s3 {
   content: url(../../../assets/icons/SVG/smile_color/smile_5.svg);
 }
 
-label:nth-of-type(1) .number {
+label:nth-of-type(1) .number , .number1s1 {
   content: url(../../../assets/icons/SVG/number/tile_1.svg);
 }
 
-label:nth-of-type(2) .number {
+label:nth-of-type(2) .number, .number2s1 {
   content: url(../../../assets/icons/SVG/number/tile_2.svg);
 }
 
-label:nth-of-type(3) .number {
+label:nth-of-type(3) .number, .number3s1 {
   content: url(../../../assets/icons/SVG/number/tile_3.svg);
 }
 
-label:nth-of-type(4) .number {
+label:nth-of-type(4) .number, .number4s1 {
   content: url(../../../assets/icons/SVG/number/tile_4.svg);
 }
 
-label:nth-of-type(5) .number {
+label:nth-of-type(5) .number, .number5s1 {
   content: url(../../../assets/icons/SVG/number/tile_5.svg);
 }
 
-label:nth-of-type(1) .number:hover {
+label:nth-of-type(1) .number:hover, .number1s2 {
   content: url(../../../assets/icons/SVG/number_hover/tile_1_grey.svg);
 }
 
-label:nth-of-type(2) .number:hover {
+label:nth-of-type(2) .number:hover, .number2s2 {
   content: url(../../../assets/icons/SVG/number_hover/tile_2_grey.svg);
 }
 
-label:nth-of-type(3) .number:hover {
+label:nth-of-type(3) .number:hover, .number3s2 {
   content: url(../../../assets/icons/SVG/number_hover/tile_3_grey.svg);
 }
 
-label:nth-of-type(4) .number:hover {
+label:nth-of-type(4) .number:hover, .number4s2 {
   content: url(../../../assets/icons/SVG/number_hover/tile_4_grey.svg);
 }
 
-label:nth-of-type(5) .number:hover {
+label:nth-of-type(5) .number:hover, .number5s2 {
   content: url(../../../assets/icons/SVG/number_hover/tile_5_grey.svg);
 }
 
-label:nth-of-type(1) .inv:checked + .number {
+label:nth-of-type(1) .inv:checked + .number, .number1s3 {
   content: url(../../../assets/icons/SVG/number_select/tile_1_blue.svg);
 }
 
-label:nth-of-type(2) .inv:checked + .number {
+label:nth-of-type(2) .inv:checked + .number, .number2s3 {
   content: url(../../../assets/icons/SVG/number_select/tile_2_blue.svg);
 }
 
-label:nth-of-type(3) .inv:checked + .number {
+label:nth-of-type(3) .inv:checked + .number, .number3s3 {
   content: url(../../../assets/icons/SVG/number_select/tile_3_blue.svg);
 }
 
-label:nth-of-type(4) .inv:checked + .number {
+label:nth-of-type(4) .inv:checked + .number, .number4s3 {
   content: url(../../../assets/icons/SVG/number_select/tile_4_blue.svg);
 }
 
-label:nth-of-type(5) .inv:checked + .number {
+label:nth-of-type(5) .inv:checked + .number, .number5s3 {
   content: url(../../../assets/icons/SVG/number_select/tile_5_blue.svg);
 }
