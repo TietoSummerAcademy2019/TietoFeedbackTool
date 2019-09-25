@@ -28,8 +28,8 @@ export class DashboardComponent implements OnInit {
 
   questionWithAnswer: Account = {
     login: '',
-    name:'',
-    questionsKey:''
+    name: '',
+    questionsKey: ''
   }
   domainArray: string[];
   activeSelection: string = "";
@@ -42,6 +42,14 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.init();
     this.item = 'response';
+  }
+
+  ngAfterViewInit(){
+    setTimeout(() => {
+      console.log(document.getElementsByTagName("ul")[0].getElementsByTagName("li"));
+      this.activeSelection = document.getElementsByTagName("ul")[0].getElementsByTagName("li")[1].innerText;
+      document.getElementsByTagName("ul")[0].getElementsByTagName("li")[1].style.fontWeight = '700';
+    }, 100);
   }
 
   async init() {
