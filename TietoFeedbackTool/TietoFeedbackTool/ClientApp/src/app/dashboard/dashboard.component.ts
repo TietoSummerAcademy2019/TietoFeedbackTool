@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
     setTimeout(() => {
       this.activeSelection = document.getElementsByTagName("ul")[0].getElementsByTagName("li")[0].innerText;
       document.getElementsByTagName("ul")[0].getElementsByTagName("li")[0].style.fontWeight = '700';
-    }, 200);
+    }, 350);
   }
 
   async init() {
