@@ -41,7 +41,7 @@ export class NewQuestionComponent implements OnInit {
     enabled: false,
     hasRating: false,
     isBottom: null,
-    ratingType: "" //hardcoded data at this moment,
+    ratingType: "Smiles" //hardcoded data at this moment,
   }
   questionArray: Question[] = [];
 
@@ -143,21 +143,18 @@ export class NewQuestionComponent implements OnInit {
 
   changeDropdownStyle(i) {
     if (i == 1) {
-      document.getElementById('dropdownBasic1').style.display = "none";
       document.getElementById('button-smile').style.display = "inline";
       document.getElementById('button-number').style.display = "none";
       document.getElementById('button-star').style.display = "none";
       this.reactionType = "Smiles";
     }
     else if (i == 2) {
-      document.getElementById('dropdownBasic1').style.display = "none";
       document.getElementById('button-smile').style.display = "none";
       document.getElementById('button-number').style.display = "inline";
       document.getElementById('button-star').style.display = "none";
       this.reactionType = "Numbers";
     }
     else if (i == 3) {
-      document.getElementById('dropdownBasic1').style.display = "none";
       document.getElementById('button-smile').style.display = "none";
       document.getElementById('button-number').style.display = "none";
       document.getElementById('button-star').style.display = "inline";
