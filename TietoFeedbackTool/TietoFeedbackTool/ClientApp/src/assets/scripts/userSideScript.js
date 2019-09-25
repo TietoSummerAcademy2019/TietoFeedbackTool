@@ -1,9 +1,17 @@
 function surveySetup() {
-  const survey = {
-    answer: document.getElementById('answer'),
-    questionId: document.getElementById('answer').getAttribute("data-id"),
-    submit: document.getElementById('survey-submit')
-  };
+  var survey;
+  if (document.getElementsByName("new-answer").length == 0) {
+    survey = {
+      answer: document.getElementById('answer'),
+      questionId: document.getElementById('answer').getAttribute("data-id"),
+      submit: document.getElementById('survey-submit')
+    };
+  } else {
+    survey = {
+      questionId: document.getElementById('answer').getAttribute("data-id"),
+      submit: document.getElementById('survey-submit')
+    };
+  }
 
   survey.submit.addEventListener('click', () => {
     var request = new XMLHttpRequest();
@@ -12,10 +20,20 @@ function surveySetup() {
       //console.log( request.responseText );// here we will add actions that should happens after successful survey submit
     }
 
-    var requestData = {
-      answer: `${survey.answer.value}`,
-      questionId: `${survey.questionId}`
-    };
+    var requestData;
+    if (document.getElementsByName("new-answer").length == 0) {
+      requestData = {
+        answer: `${survey.answer.value}`,
+        questionId: `${survey.questionId}`
+      };
+    } else {
+      if (document.querySelector('input[name="new-answer"]:checked') != null) {
+        requestData = {
+          rating: `${document.querySelector('input[name="new-answer"]:checked').value}`,
+          questionId: `${survey.questionId}`
+        };
+      }
+    }
 
     var jsonData = JSON.stringify(requestData);
 
@@ -92,5 +110,34 @@ function checkAnswer() {
 }
 
 function isEmptyOrSpaces(str) {
-  return str === null || str.match(/^\s* *$/) !== null;
+  if (document.getElementsByName("new-answer").length == 0){
+    return str === null || str.match(/^\s* *$/) !== null;
+  } else {
+  if (document.querySelector('input[name="new-answer"]:checked') == null) {
+    return true;
+  } else {
+    return false;
+  }
+  }
+}
+
+function markStars(x) {
+  for (var c = 0; c < 5; c++) {
+    document.getElementsByName("starImage")[c].classList.remove("star-select");
+    document.getElementsByName("starImage")[c].classList.add("star");
+  }
+  for (var i = 0; i < x; i++) {
+    for (var j = 0; j <= i; j++) {
+      document.getElementsByName("starImage")[j].classList.add("star-select");
+      document.getElementsByName("starImage")[j].classList.remove("star");
+    }
+  }
+}
+
+function getBackSelectedStar() {
+  if (document.querySelector('input[name="new-answer"]:checked') != null) {
+    markStars(document.querySelector('input[name="new-answer"]:checked').value);
+  } else {
+    markStars(0);
+  }
 }
