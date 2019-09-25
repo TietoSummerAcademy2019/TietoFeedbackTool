@@ -164,7 +164,7 @@ During runtime add /swagger in your browser link at dashboard page
 * **Kamińska Karolina**
 * **Śliwiński Bartosz**
 ## License
-This project is licensed under the Apache License 2.0  License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the Apache License 2.0  License - see the [LICENSE.md](https://github.com/TietoSummerAcademy2019/TietoFeedbackTool/blob/master/LICENSE) file for details
 ## Acknowledgments
 * **Joanna Rogańska**
 * **Wojtalewicz Michał**
