@@ -11,13 +11,6 @@ import { DeletePopupComponent } from './delete-popup/delete-popup.component';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  pages = [
-    'page1',
-    'page2',
-    'page3',
-  ];
-
   // i18n pluralization map
   responseMapping = {
     'response': {
