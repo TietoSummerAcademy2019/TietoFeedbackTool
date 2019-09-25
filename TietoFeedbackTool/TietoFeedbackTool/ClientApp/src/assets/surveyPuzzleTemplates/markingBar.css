@@ -161,6 +161,11 @@
   height: 0;
 }
 
+.tool-img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 label:nth-of-type(1) .smile {
   content: url(../../../assets/icons/SVG/smile_grey/smile_1_grey.svg);
 }
