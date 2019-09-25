@@ -8,7 +8,7 @@
     <h1 class="information-question-header">{{ 'setup-feedback-tool' | translate }}</h1>
     <div class="information-question-information">
       <p>{{ 'setup-feedback-tool-desc' | translate }}</p>
-      <p id="validation-error">Please declare all fields below.</p>
+      <p id="validation-error">{{ 'new-question-error' | translate }}</p>
     </div>
   </div>
   <div class="website-form">
@@ -21,15 +21,70 @@
         <p id="input-heading">{{ 'question' | translate }}</p>
         <textarea class="question-input" name="new-question" ngModel="{{questionAreaValue.value}}" required id="question-area"></textarea>
       </div>
+      <div class="radio-wrapper" id="radio-answer-type">
+        <p id="input-heading">{{ 'answer-type' | translate }}</p>
+        <div class="row">
+          <input id="answer-type-open" type="radio" required [value]="false" name="answerType" [(ngModel)]="answerType.value">
+          <label class="radio-label" for="answer-type-open">{{ 'answer-open-text' | translate }}</label>
+        </div>
+        <div class="row">
+          <input id="answer-type-visual" type="radio" class="custom-control-input" required [value]="true" name="answerType" [(ngModel)]="answerType.value">
+          <label class="radio-label" for="answer-type-visual">{{ 'answer-visual-rating' | translate }}</label>
+        </div>
+      </div>
+      <div *ngIf="answerType.value" class="reaction-type-wrapper" id="reaction-type">
+        <p id="input-heading">{{ 'reaction-type' | translate }}</p>
+        <div class="row" ngbDropdown>
+          <div class="select-css" ngbDropdownToggle>
+              <div style="width:90%;">
+                <div id="button-smile">
+                  <div class="table-column" *ngFor="let smile of smiles">
+                    <img class="star-amount" src={{smile.imageUrl}} />
+                  </div>
+                </div>
+                <div id="button-number" style="display: none;">
+                  <div class="table-column" *ngFor="let number of numbers">
+                    <img class="star-amount" src={{number.imageUrl}} />
+                  </div>
+                  </div>
+                <div id="button-star" style="display: none;">
+                  <div class="table-column" *ngFor="let star of stars">
+                    <img class="star-amount" src={{star.imageUrl}} />
+                  </div>
+                </div>
+              </div>
+              <div style="width:10%; margin-top:0.3rem;">
+                <img class="arrow-style" src="../../assets/img/arrow.svg"/>
+              </div>
+          </div>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <div class="table-row answer-type-item-css" (click)="changeDropdownStyle(1)" id="smile-type" ngbDropdownItem>
+              <div class="table-column" *ngFor="let smile of smiles">
+                <img class="star-amount" src={{smile.imageUrl}} />
+              </div>
+            </div>
+            <div class="table-row answer-type-item-css" (click)="changeDropdownStyle(2)" id="number-type" ngbDropdownItem>
+              <div class="table-column" *ngFor="let number of numbers">
+                <img class="star-amount" src={{number.imageUrl}} />
+              </div>
+            </div>
+            <div class="table-row answer-type-item-css" (click)="changeDropdownStyle(3)" id="star-type" ngbDropdownItem>
+              <div class="table-column" *ngFor="let star of stars">
+                <img class="star-amount" src={{star.imageUrl}} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="radio-wrapper" id="radio-position">
         <p id="input-heading">{{ 'feedbacktool-position' | translate }}</p>
-        <div class="custom-control custom-radio">
-          <input id="position-bottom" type="radio" class="custom-control-input" required [value]="true" name="position" [(ngModel)]="position.value">
-          <label class="custom-control-label" for="position-bottom">{{ 'feedbacktool-position-bottom' | translate }}</label>
+        <div class="row">
+          <input id="position-bottom" type="radio" required [value]="true" name="position" [(ngModel)]="position.value">
+          <label class="radio-label" for="position-bottom">{{ 'feedbacktool-position-bottom' | translate }}</label>
         </div>
-        <div class="custom-control custom-radio">
+        <div class="row">
           <input id="position-right" type="radio" class="custom-control-input" required [value]="false" name="position" [(ngModel)]="position.value">
-          <label class="custom-control-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
+          <label class="radio-label" for="position-right">{{ 'feedbacktool-position-right' | translate }}</label>
         </div>
       </div>
     </form>
@@ -37,7 +92,7 @@
 </div>
 <footer class="new-question-footer">
   <div class="new-question-footer-buttons">
-      <button class="tieto-button cancel" routerLink="" routerLinkActive="active">{{ 'cancel' | translate }}</button>
-      <button form="website-form" class="tieto-button submit">{{ 'submit' | translate }}</button>
+    <button class="tieto-button cancel" routerLink="" routerLinkActive="active">{{ 'cancel' | translate }}</button>
+    <button form="website-form" class="tieto-button submit">{{ 'submit' | translate }}</button>
   </div>
 </footer>

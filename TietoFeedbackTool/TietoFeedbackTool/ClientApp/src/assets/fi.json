@@ -45,7 +45,12 @@
   "are-you-sure": "Haluatko varmasti poistaa kyselylomakkeen?",
   "question-required": "Kysymys on pakollinen",
   "position-required": "Paikka on pakollinen",
-  "feedbacktool-position": "Työkalun sijainti",
-  "feedbacktool-position-right": "Sivun oikealla puolella",
-  "feedbacktool-position-bottom": "Sivun alaosassa"
+  "feedbacktool-position": "Sivun sijainti:",
+  "feedbacktool-position-right": "Oikea puoli",
+  "feedbacktool-position-bottom": "Pohja",
+  "answer-type": "Vastauksen tyyppi:",
+  "answer-open-text": "Avaa teksti",
+  "answer-visual-rating": "Visuaalinen arviointi",
+  "reaction-type": "Valitse reaktion tyyppi:",
+  "new-question-error": "Ilmoita kaikki alla olevat kentät."
 }
