@@ -46,9 +46,8 @@ export class DashboardComponent implements OnInit {
 
   ngAfterViewInit(){
     setTimeout(() => {
-      console.log(document.getElementsByTagName("ul")[0].getElementsByTagName("li"));
-      this.activeSelection = document.getElementsByTagName("ul")[0].getElementsByTagName("li")[1].innerText;
-      document.getElementsByTagName("ul")[0].getElementsByTagName("li")[1].style.fontWeight = '700';
+      this.activeSelection = document.getElementsByTagName("ul")[0].getElementsByTagName("li")[0].innerText;
+      document.getElementsByTagName("ul")[0].getElementsByTagName("li")[0].style.fontWeight = '700';
     }, 100);
   }
 
