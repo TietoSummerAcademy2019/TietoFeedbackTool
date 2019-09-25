@@ -51,5 +51,7 @@
   "answer-type": "Vastauksen tyyppi:",
   "answer-open-text": "Avaa teksti",
   "answer-visual-rating": "Visuaalinen arviointi",
-  "reaction-type": "Valitse reaktion tyyppi:"
+  "reaction-type": "Valitse reaktion tyyppi:",
+  "reaction-type-placeholder": "Reaktion tyyppi",
+  "new-question-error": "Ilmoita kaikki alla olevat kentät."
 }

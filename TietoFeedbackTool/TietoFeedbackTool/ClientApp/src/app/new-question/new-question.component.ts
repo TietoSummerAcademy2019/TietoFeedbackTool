@@ -119,6 +119,7 @@ export class NewQuestionComponent implements OnInit {
   formValidation(f) {
     if (this.isEmptyOrSpaces(f.controls['new-question'].value)
       || this.isEmptyOrSpaces(f.controls['new-domain'].value)
+      || !f.controls['answerType'].valid
       || !f.controls['position'].valid) {
       this.displayErrorMessage();
     }

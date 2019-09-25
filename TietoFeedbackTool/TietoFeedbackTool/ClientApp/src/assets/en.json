@@ -51,5 +51,7 @@
   "answer-type": "Type of answer:",
   "answer-open-text": "Open text",
   "answer-visual-rating": "Visual rating",
-  "reaction-type": "Select reaction type:"
+  "reaction-type": "Select reaction type:",
+  "reaction-type-placeholder": "Reaction type",
+  "new-question-error": "Please declare all fields below."
 }

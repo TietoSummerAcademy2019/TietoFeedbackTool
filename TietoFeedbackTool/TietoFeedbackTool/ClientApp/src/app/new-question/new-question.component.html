@@ -9,7 +9,7 @@
     <h1 class="information-question-header">{{ 'setup-feedback-tool' | translate }}</h1>
     <div class="information-question-information">
       <p>{{ 'setup-feedback-tool-desc' | translate }}</p>
-      <p id="validation-error">Please declare all fields below.</p>
+      <p id="validation-error">{{ 'new-question-error' | translate }}</p>
     </div>
   </div>
   <div class="website-form">
@@ -38,7 +38,7 @@
         <div class="row" ngbDropdown>
           <div class="select-css" ngbDropdownToggle>
               <div style="width:90%;">
-                <div id="dropdownBasic1">Placeholder</div>
+                <div id="dropdownBasic1">{{ 'reaction-type-placeholder' | translate }}</div>
                 <div id="button-smile" style="display: none;">
                   <div class="table-column" *ngFor="let smile of smiles">
                     <img class="star-amount" src={{smile.imageUrl}} />
