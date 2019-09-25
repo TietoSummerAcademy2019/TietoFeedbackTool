@@ -11,13 +11,6 @@ import { DeletePopupComponent } from './delete-popup/delete-popup.component';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  pages = [
-    'page1',
-    'page2',
-    'page3',
-  ];
-
   // i18n pluralization map
   responseMapping = {
     'response': {
@@ -35,8 +28,8 @@ export class DashboardComponent implements OnInit {
 
   questionWithAnswer: Account = {
     login: '',
-    name:'',
-    questionsKey:''
+    name: '',
+    questionsKey: ''
   }
   domainArray: string[];
   activeSelection: string = "";
@@ -49,6 +42,13 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.init();
     this.item = 'response';
+  }
+
+  ngAfterViewInit(){
+    setTimeout(() => {
+      this.activeSelection = document.getElementsByTagName("ul")[0].getElementsByTagName("li")[0].innerText;
+      document.getElementsByTagName("ul")[0].getElementsByTagName("li")[0].style.fontWeight = '700';
+    }, 350);
   }
 
   async init() {
