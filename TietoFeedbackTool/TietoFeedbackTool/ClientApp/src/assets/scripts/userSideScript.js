@@ -148,7 +148,6 @@ function getBackSelectedStar() {
 
 function loadImages()
 {
-  console.log("WTF");
   var node = document.getElementById('img-loader');
   var nodes1 = document.getElementById('img-loader-stage1');
   var nodes2 = document.getElementById('img-loader-stage2');
