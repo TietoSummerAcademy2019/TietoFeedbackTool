@@ -86,7 +86,7 @@ export class DisplayDataComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.activeSite = 1;
-    this.resultsPerSite = 5;
+    this.resultsPerSite = 10;
     this.surveyIndex = 0;
   }
 
