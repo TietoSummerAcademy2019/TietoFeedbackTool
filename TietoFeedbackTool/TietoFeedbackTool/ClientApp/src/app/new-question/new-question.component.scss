@@ -106,15 +106,6 @@ p#validation-error {
       margin-top: 0.2rem;
     }
 
-    .dropdown-menu {
-      background: #FFFFFF 0% 0% no-repeat padding-box;
-      border: 1px solid #CCCCCC;
-      border-radius: 6px;
-      opacity: 1;
-      position: absolute;
-      top: 100%;
-    }
-
     .select-css {
       background: #FFFFFF 0% 0% no-repeat padding-box;
       border: 1px solid #CCCCCC;
@@ -123,6 +114,11 @@ p#validation-error {
       width: 216px;
       height: 40px;
       display: inherit;
+
+      .table-column {
+        float: left;
+        width: 17%;
+      }
 
       &:after {
         display: none;
@@ -139,20 +135,6 @@ p#validation-error {
         border: 1px solid #5EACDD;
         border-radius: 6px;
         opacity: 1;
-      }
-
-      .answer-type-item-css {
-        width: 100% !important;
-
-        &:hover {
-          background: #EEEEEE 0% 0% no-repeat padding-box;
-          opacity: 1;
-        }
-
-        &:active {
-          background: #EEEEEE 0% 0% no-repeat padding-box;
-          opacity: 1;
-        }
       }
     }
   }
@@ -200,15 +182,7 @@ p#validation-error {
           }
         }
 
-        &:focus {
-          + .radio-label {
-            &:before {
-              border: 1px solid #62B3E5;
-            }
-          }
-        }
-
-        &:not(:focus) {
+        &:focus, &:not(:focus) {
           + .radio-label {
             &:before {
               border: 1px solid #62B3E5;
@@ -254,14 +228,30 @@ p#validation-error {
   height: 40px;
 }
 
+.dropdown-table-column {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#dropdownBasic1 {
+  margin-top: 0.4rem;
+  margin-left: 0.4375rem;
+  text-align: left;
+  font: Regular 14px/19px Open Sans;
+  letter-spacing: -0.07px;
+  color: #777777;
+  opacity: 1;
+}
+
 .table-row:after {
   content: "";
   display: table;
   clear: both;
+}
 
-  .star-amount {
-    margin-left: 0.1rem;
-  }
+.answer-type-item-css {
+  margin-left: 0.1rem;
 }
 
 .star-amount {

@@ -85,6 +85,7 @@ export class NewQuestionComponent implements OnInit {
         this.position.value = question.isBottom;
         this.answerType.value = question.hasRating;
         this.reactionType = question.ratingType;
+        console.log(this.reactionType);
         if (this.position.value) {
           this.position[0].checked = true;
         }
@@ -97,16 +98,17 @@ export class NewQuestionComponent implements OnInit {
         else {
           this.answerType[1].checked = true;
         }
-        console.log(this.reactionType);
-        if (this.reactionType === "Smiles") {
-          await  this.changeDropdownStyle(1);
-        }
-        else if (this.reactionType === "Numbers") {
-          await  this.changeDropdownStyle(2);
-        }
-        else if (this.reactionType === "Stars") {
-         await this.changeDropdownStyle(3);
-        }
+        setTimeout(() => {
+          if (this.reactionType == "Smiles") {
+            this.changeDropdownStyle(1);
+          }
+          else if (this.reactionType == "Numbers") {
+            this.changeDropdownStyle(2);
+          }
+          else if (this.reactionType == "Stars") {
+            this.changeDropdownStyle(3);
+          }
+        }, 50);
       }
     }
   }
@@ -140,7 +142,7 @@ export class NewQuestionComponent implements OnInit {
     }
   }
 
-  async changeDropdownStyle(i) {
+  changeDropdownStyle(i) {
     if (i == 1) {
       document.getElementById('dropdownBasic1').style.display = "none";
       document.getElementById('button-smile').style.display = "inline";
