@@ -5,7 +5,7 @@ This project is fully open source and is based on Apache License 2.0.
 
 ## Getting Started
 
-Clone repository into your local machine and run it by using dotnet run in VisualStudio Code or by using IIS Express in VisualStudio, be sure you have installed MS Sql server and deployed database.
+Clone this repository into your local machine and run it by using dotnet run in VisualStudio Code or by using IIS Express in VisualStudio, be sure you have installed MS SQL Server and the database was created.
 
 ### Prerequisites
 
@@ -78,46 +78,78 @@ Press ctrl+shift+b to build application
 
 Setup project database
 ```
-Through PowerShell/CMD/PackageManager
+Using PowerShell/CMD/PackageManager
 Go to project folder e.g. C:\Users\Administrator\Source\Repos\TietoFeedbackTool\SummerAcademy2019\TietoFeedbackTool\TietoFeedbackTool
-
-Type 
+Type
 dotnet ef database update
 ```
 
 Install packages
 ```
-Through PowerShell/CMD/PackageManager
+Using PowerShell/CMD/PackageManager
 Go to ClientApp folder e.g. C:\Users\Administrator\Source\Repos\TietoFeedbackTool\SummerAcademy2019\TietoFeedbackTool\TietoFeedbackTool\ClientApp
-
-Type 
+Type
 npm install
 ```
 
 Run application
 ```
 Use IIS Express in Visual Studio or type
-dotnet run in project folder
-
+dotnet run
+in project folder
 If it doesn't automatically open browser, type localhost:44350 in your browser.
 ```
 
-You can add new survey and check if it is added to the database.
+
+## Using application
+```
+You can click "Create new survey"
+```
+then
+```
+Complete form with data
+```
+then
+```
+You can select domain on the left side of the site
+```
+then
+```
+You can see list of questions(surveys), that you already setuped
+```
+And by clicking "See more"
+```
+You will see the feedback for that question
+```
 
 ## Running the tests
 
-Unit tests for back-end c# are located in .\Test folder and tests generally data management, running with build of the project.
-Unit tests for front-end angular are written in NightWatch and are located in .\ClientApp\NightwatchTests, these tests general functionality of front-end,
-to run type 
+Unit tests for back-end are written in C# and are located in .\Test folder. They test general data management, running with build of the project.
+Unit tests for front-end angular are written in NightWatch and are located in .\ClientApp\NightwatchTests, these tests check the general functionality of the front-end part of the application.
+To start the tests run:
 ```ng test```
 in ClientApp folder.
 
-## Built With
+## Documentation
 
+You can check documentation of the project and methods
+
+Doxygen
+```
+open index.html in \TietoFeedbackTool.Documentation\html
+Alternative way:
+In solution explorer Documentation folder open index.html via RMB open in browser or Ctrl + Shift + W
+```
+
+Swagger
+```
+During runtime add /swagger in your browser link at dashboard page
+```
+
+## Built With
 * [Angular 8](https://angular.io/docs) -  Client-side TypeScript based framework
 * [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/getting-started/?view=aspnetcore-2.2&tabs=windows) - Cross-platform, high-performance, open-source framework
 * [SQL Server 2019](https://www.microsoft.com/en-us/sql-server/sql-server-2019) -  Data base hub for data integration.
-
 ## Authors
 **Team Kangaroos**
 * **Dyjeta Sebastian** - [bboydexter1](https://github.com/bboydexter1)
@@ -131,16 +163,12 @@ in ClientApp folder.
 * **Skrzypa Agata**
 * **Kamińska Karolina**
 * **Śliwiński Bartosz**
-
 ## License
-
 This project is licensed under the Apache License 2.0  License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Acknowledgments
-
 * **Joanna Rogańska**
 * **Wojtalewicz Michał**
 * **Jakub Nowak**
-* **Aleksander Dudek**
+* **Aleksander Dudek** - [aleksanderdudek](https://github.com/AleksanderDudek)
 * **Róża Żabiłowicz**
 * **And any other menthors who helped us**
