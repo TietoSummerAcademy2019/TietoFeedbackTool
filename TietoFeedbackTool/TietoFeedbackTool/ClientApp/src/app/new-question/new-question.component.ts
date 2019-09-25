@@ -85,7 +85,6 @@ export class NewQuestionComponent implements OnInit {
         this.position.value = question.isBottom;
         this.answerType.value = question.hasRating;
         this.reactionType = question.ratingType;
-        console.log(this.reactionType);
         if (this.position.value) {
           this.position[0].checked = true;
         }
@@ -129,7 +128,6 @@ export class NewQuestionComponent implements OnInit {
       this.questionModel.isBottom = f.controls['position'].value;
       this.questionModel.hasRating = f.controls['answerType'].value;
       this.questionModel.ratingType = this.reactionType;
-      console.log(this.questionModel);
       if (this.id) {
         this.qs.updateQuestion(this.id, this.questionModel);
       }
