@@ -38,7 +38,7 @@ export class NewQuestionComponent implements OnInit {
     AccountLogin: 'OlejWoj',
     questionText: '',
     domain: '',
-    enabled: false,
+    enabled: true,
     hasRating: false,
     isBottom: null,
     ratingType: "Smiles" //hardcoded data at this moment,
