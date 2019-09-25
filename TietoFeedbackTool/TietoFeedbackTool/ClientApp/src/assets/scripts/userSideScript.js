@@ -13,9 +13,7 @@ function surveySetup() {
     };
   }
 
-  //if (document.getElementsByName("new-answer").length == 0) {
-    loadImages();
-  //}
+  loadImages();
 
   survey.submit.addEventListener('click', () => {
     var request = new XMLHttpRequest();

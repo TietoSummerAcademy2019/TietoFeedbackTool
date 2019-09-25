@@ -13,6 +13,8 @@ function surveySetup() {
     };
   }
 
+  loadImages();
+
   survey.submit.addEventListener('click', () => {
     var request = new XMLHttpRequest();
 
@@ -127,5 +129,32 @@ function getBackSelectedStar() {
     markStars(document.querySelector('input[name="new-answer"]:checked').value);
   } else {
     markStars(0);
+  }
+}
+
+function loadImages() {
+  var node = document.getElementById('img-loader');
+  var nodes1 = document.getElementById('img-loader-stage1');
+  var nodes2 = document.getElementById('img-loader-stage2');
+  var nodes3 = document.getElementById('img-loader-stage3');
+  node.style.visibility = "hidden";
+  node.style.width = "0px";
+  node.style.height = "0px";
+  node.style.marginLeft = "-99px";
+  if (document.getElementsByClassName("star").length != 0) {
+    nodes1.getElementsByTagName("img")[0].classList.add("star-select");
+    nodes1.getElementsByTagName("img")[1].classList.add("star");
+  } else if (document.getElementsByClassName("smile").length != 0) {
+    for (var i = 1; i <= 5; i++) {
+      nodes1.getElementsByTagName("img")[i - 1].classList.add("smile" + i + "s1");
+      nodes2.getElementsByTagName("img")[i - 1].classList.add("smile" + i + "s2");
+      nodes3.getElementsByTagName("img")[i - 1].classList.add("smile" + i + "s3");
+    }
+  } else if (document.getElementsByClassName("number").length != 0) {
+    for (var i = 1; i <= 5; i++) {
+      nodes1.getElementsByTagName("img")[i - 1].classList.add("number" + i + "s1");
+      nodes2.getElementsByTagName("img")[i - 1].classList.add("number" + i + "s2");
+      nodes3.getElementsByTagName("img")[i - 1].classList.add("number" + i + "s3");
+    }
   }
 }
