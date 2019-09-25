@@ -35,7 +35,6 @@ p#validation-error {
     color: #333333;
     opacity: 1;
   }
-
   &-information {
     text-align: left;
     font-size: 1.25rem;
@@ -62,7 +61,6 @@ p#validation-error {
       margin-bottom: .25rem;
     }
   }
-
   & div.domain-wrapper {
     & .domain-input {
       resize: none;
@@ -79,7 +77,6 @@ p#validation-error {
       opacity: 1;
     }
   }
-
   & div.question-wrapper {
     padding-top: 1.7rem;
 
@@ -100,12 +97,10 @@ p#validation-error {
 
   & div.reaction-type-wrapper {
     padding-top: 1.7rem;
-
     .row {
       margin-left: 0.1rem;
       margin-top: 0.2rem;
     }
-
     .select-css {
       background: #FFFFFF 0% 0% no-repeat padding-box;
       border: 1px solid #CCCCCC;
@@ -119,17 +114,14 @@ p#validation-error {
         float: left;
         width: 17%;
       }
-
       &:after {
         display: none;
       }
-
       &:focus {
         border: 1px solid #5EACDD;
         color: #222;
         outline: none;
       }
-
       &:hover {
         background: #FFFFFF 0% 0% no-repeat padding-box;
         border: 1px solid #5EACDD;
@@ -146,7 +138,6 @@ p#validation-error {
       margin-left: 0.1rem;
       margin-top: 0.2rem;
     }
-
     input[type="radio"] {
       position: absolute;
       opacity: 0;
@@ -157,7 +148,6 @@ p#validation-error {
         letter-spacing: -0.07px;
         color: #333333;
         opacity: 1;
-
         &:before {
           content: '';
           background: #FFFFFF;
@@ -173,7 +163,6 @@ p#validation-error {
           transition: all 0.3s ease-in-out;
         }
       }
-
       &:checked {
         + .radio-label {
           &:before {
@@ -181,7 +170,6 @@ p#validation-error {
             box-shadow: inset 0 0 0 3px #ffffff;
           }
         }
-
         &:focus, &:not(:focus) {
           + .radio-label {
             &:before {
@@ -190,7 +178,6 @@ p#validation-error {
           }
         }
       }
-
       &:hover {
         &:checked {
           + .radio-label {
@@ -202,7 +189,6 @@ p#validation-error {
             }
           }
         }
-
         &:not(:checked) {
           + .radio-label {
             &:before {
