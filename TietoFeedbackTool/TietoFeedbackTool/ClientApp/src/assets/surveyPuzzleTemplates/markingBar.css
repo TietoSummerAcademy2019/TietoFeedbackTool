@@ -75,6 +75,7 @@
   font-weight: 400;
   font-size: 14px;
   color: #0e76b7;
+  text-shadow: none;
 }
 
 .error-label {
@@ -136,10 +137,12 @@
 
   #success-message #thanks {
     font-size: 18px;
+    text-shadow: none;
   }
 
   #success-message #message {
     font-size: 13px;
+    text-shadow: none;
   }
 
 img {
