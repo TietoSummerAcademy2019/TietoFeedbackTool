@@ -1,5 +1,6 @@
 .new-question-content {
   min-height: 85vh;
+  margin-bottom: 5.625rem;
   max-width: 37.5rem;
 }
 
@@ -8,6 +9,7 @@
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #dddddd;
   opacity: 1;
+
   & > a {
     & > img {
       padding: 0.5rem;
@@ -24,6 +26,7 @@ p#validation-error {
   flex-direction: column;
   padding-top: 2.9375rem;
   padding-left: 3.125rem;
+
   &-header {
     text-align: left;
     font-weight: 700;
@@ -48,7 +51,8 @@ p#validation-error {
   padding-top: .5rem;
   padding-left: 3.125rem;
   padding-bottom: 1.0rem;
-  & div.domain-wrapper, div.question-wrapper, div.radio-wrapper {
+
+  & div.domain-wrapper, div.question-wrapper, div.radio-wrapper, div.reaction-type-wrapper {
     & p#input-heading {
       font-weight: 700;
       font-size: 0.875rem;
@@ -75,6 +79,7 @@ p#validation-error {
   }
   & div.question-wrapper {
     padding-top: 1.7rem;
+
     & .question-input {
       resize: none;
       height: 7rem;
@@ -90,28 +95,156 @@ p#validation-error {
     }
   }
 
-  & div.radio-wrapper {
+  & div.reaction-type-wrapper {
     padding-top: 1.7rem;
-    .feedback-position {
-      padding-top: 30px;
+    .row {
+      margin-left: 0.1rem;
+      margin-top: 0.2rem;
     }
-    .custom-radio {
-      padding-top: 7px;
-    }
+    .select-css {
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border: 1px solid #CCCCCC;
+      border-radius: 6px;
+      opacity: 1;
+      width: 216px;
+      height: 40px;
+      display: inherit;
 
-    &#error-message {
-      padding-top: 14px;
-    }
-
-    .custom-radio .custom-control-input:checked~.custom-control-label::after {
-      background: #0e76b7;
-      border-radius: 50%
-    }
-
-    .custom-radio .custom-control-input:active ~ .custom-control-label::before {
-      background-color: #eeeeee;
+      .table-column {
+        float: left;
+        width: 17%;
+      }
+      &:after {
+        display: none;
+      }
+      &:focus {
+        border: 1px solid #5EACDD;
+        color: #222;
+        outline: none;
+      }
+      &:hover {
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #5EACDD;
+        border-radius: 6px;
+        opacity: 1;
+      }
     }
   }
+
+  & div.radio-wrapper {
+    padding-top: 1.7rem;
+
+    .row {
+      margin-left: 0.1rem;
+      margin-top: 0.2rem;
+    }
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+
+      + .radio-label {
+        text-align: left;
+        font: Regular 14px/19px Open Sans;
+        letter-spacing: -0.07px;
+        color: #333333;
+        opacity: 1;
+        &:before {
+          content: '';
+          background: #FFFFFF;
+          border-radius: 100%;
+          border: 1px solid darken(#CCCCCC, 25%);
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          position: relative;
+          margin-right: 8px;
+          vertical-align: top;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+      &:checked {
+        + .radio-label {
+          &:before {
+            background-color: #62B3E5;
+            box-shadow: inset 0 0 0 3px #ffffff;
+          }
+        }
+        &:focus, &:not(:focus) {
+          + .radio-label {
+            &:before {
+              border: 1px solid #62B3E5;
+            }
+          }
+        }
+      }
+      &:hover {
+        &:checked {
+          + .radio-label {
+            &:before {
+              background: #0E76B7 0% 0% no-repeat padding-box;
+              border-radius: 100px;
+              border: 1px solid #0E76B7;
+              opacity: 1;
+            }
+          }
+        }
+        &:not(:checked) {
+          + .radio-label {
+            &:before {
+              background: #FFFFFF 0% 0% no-repeat padding-box;
+              border: 1px solid #62B3E5;
+              border-radius: 100px;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.table-row {
+  width: 216px;
+}
+
+.table-column {
+  float: left;
+  width: 20%;
+  height: 40px;
+}
+
+.dropdown-table-column {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#dropdownBasic1 {
+  margin-top: 0.4rem;
+  margin-left: 0.4375rem;
+  text-align: left;
+  font: Regular 14px/19px Open Sans;
+  letter-spacing: -0.07px;
+  color: #777777;
+  opacity: 1;
+}
+
+.table-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.answer-type-item-css {
+  margin-left: 0.1rem;
+}
+
+.star-amount {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: 0.5rem;
+  margin-left: 0.4375rem;
 }
 
 .new-question-footer {
@@ -124,6 +257,7 @@ p#validation-error {
   border-top: 1px solid #cccccc;
   background: #ffffff;
   opacity: 1;
+
   &-buttons {
     display: flex;
     flex-direction: row;
@@ -133,8 +267,6 @@ p#validation-error {
 }
 
 .tieto-button {
-  margin-left: 3.125rem;
-  margin-right: 3.125rem;
   width: 11.5625rem;
   height: 2.8125rem;
 }
