@@ -73,6 +73,7 @@
   font-weight: 400;
   font-size: 14px;
   color: #0E76B7;
+  text-shadow: none;
 }
 
 .btn-submit {
@@ -179,10 +180,12 @@
 
 #success-message div#thanks {
   font-size: 18px;
+  text-shadow: none;
 }
 
 #success-message div#message {
   font-size: 13px;
+  text-shadow: none;
 }
 
 img {

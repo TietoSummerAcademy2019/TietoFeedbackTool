@@ -34,7 +34,7 @@
                     <div>5 stars</div>
                   </ng-container>
               </ng-container>
-            <ng-container *ngIf="questionType.ratingType == 'Emotions'">
+            <ng-container *ngIf="questionType.ratingType == 'Smiles'">
                 <ng-container *ngFor="let item of amountRatingNumber; let star=index">
                   <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_1.png" alt="">
                   <img class="label-item" src="../../assets/icons/PNG/smile_color/smile_2.png" alt="">
@@ -72,94 +72,96 @@
             <td>
               <ng-container *ngFor="let questionType of questionWithAnswer.questions">
                 <ng-container *ngIf="questionType.id==id">
-                  <ng-container *ngIf="questionType.ratingType == 'Stars'">
-                      <ng-container *ngFor="let item of amountRating; let star=index">
-                          <ng-container *ngIf="star<answer.rating">
-                            <img class="star-amount" src="../../assets/icons/PNG/star/star_yellow.png" alt="">
+                  <ng-container *ngIf="answer.rating > 0">
+                    <ng-container *ngIf="questionType.ratingType == 'Stars'">
+                        <ng-container *ngFor="let item of amountRating; let star=index">
+                            <ng-container *ngIf="star<answer.rating">
+                              <img class="star-amount" src="../../assets/icons/PNG/star/star_yellow.png" alt="">
+                            </ng-container>
+                            <ng-container *ngIf="star>=answer.rating">
+                              <img class="star-amount" src="../../assets/icons/PNG/star/star_white.png" alt="">
+                            </ng-container>
                           </ng-container>
-                          <ng-container *ngIf="star>=answer.rating">
-                            <img class="star-amount" src="../../assets/icons/PNG/star/star_white.png" alt="">
-                          </ng-container>
-                        </ng-container>
-                  </ng-container>
-                  <ng-container *ngIf="questionType.ratingType == 'Emotions'">
+                    </ng-container>
+                    <ng-container *ngIf="questionType.ratingType == 'Smiles'">
                       <ng-container *ngFor="let item of amountRatingNumber; let star=index">
-                          <ng-container *ngIf="answer.rating == 1">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_1.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_2_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_3_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_4_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_5_grey.png" alt="">
-                          </ng-container>
-                          <ng-container *ngIf="answer.rating == 2">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_1_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_2.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_3_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_4_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_5_grey.png" alt="">
-                          </ng-container>
-                          <ng-container *ngIf="answer.rating == 3">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_1_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_2_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_3.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_4_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_5_grey.png" alt="">
-                          </ng-container>
-                          <ng-container *ngIf="answer.rating == 4">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_1_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_2_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_3_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_4.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_5_grey.png" alt="">
-                          </ng-container>
-                          <ng-container *ngIf="answer.rating == 5">
-                              <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_1_grey.png" alt="">
-                              <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_2_grey.png" alt="">
-                              <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_3_grey.png" alt="">
-                              <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_4_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_5.png" alt="">
-                          </ng-container>
+                        <ng-container *ngIf="answer.rating == 1">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_1.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_2_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_3_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_4_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_5_grey.png" alt="">
                         </ng-container>
-                  </ng-container>
-                  <ng-container *ngIf="questionType.ratingType == 'Numbers'">
-                      <ng-container *ngFor="let item of amountRatingNumber; let star=index">
-                          <ng-container *ngIf="answer.rating == 1">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_select/tile_1_blue.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_2_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_3_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_4_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_5_grey.png" alt="">
-                          </ng-container>
-                          <ng-container *ngIf="answer.rating == 2">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_1_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_select/tile_2_blue.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_3_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_4_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_5_grey.png" alt="">
-                          </ng-container>
-                          <ng-container *ngIf="answer.rating == 3">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_1_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_2_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_select/tile_3_blue.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_4_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_5_grey.png" alt="">
-                          </ng-container>
-                          <ng-container *ngIf="answer.rating == 4">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_1_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_2_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_3_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_select/tile_4_blue.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_5_grey.png" alt="">
-                          </ng-container>
-                          <ng-container *ngIf="answer.rating == 5">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_1_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_2_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_3_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_4_grey.png" alt="">
-                            <img class="star-amount" src="../../assets/icons/PNG/number_select/tile_5_blue.png" alt="">
-                          </ng-container>
+                        <ng-container *ngIf="answer.rating == 2">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_1_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_2.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_3_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_4_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_5_grey.png" alt="">
                         </ng-container>
-                  </ng-container>
+                        <ng-container *ngIf="answer.rating == 3">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_1_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_2_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_3.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_4_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_5_grey.png" alt="">
+                        </ng-container>
+                        <ng-container *ngIf="answer.rating == 4">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_1_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_2_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_3_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_4.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_5_grey.png" alt="">
+                        </ng-container>
+                        <ng-container *ngIf="answer.rating == 5">
+                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_1_grey.png" alt="">
+                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_2_grey.png" alt="">
+                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_3_grey.png" alt="">
+                            <img class="star-amount" src="../../assets/icons/PNG/smile_grey/smile_4_grey.png" alt="">
+                          <img class="star-amount" src="../../assets/icons/PNG/smile_color/smile_5.png" alt="">
+                        </ng-container>
+                      </ng-container>
+                    </ng-container>
+                    <ng-container *ngIf="questionType.ratingType == 'Numbers'">
+                        <ng-container *ngFor="let item of amountRatingNumber; let star=index">
+                            <ng-container *ngIf="answer.rating == 1">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_select/tile_1_blue.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_2_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_3_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_4_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_5_grey.png" alt="">
+                            </ng-container>
+                            <ng-container *ngIf="answer.rating == 2">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_1_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_select/tile_2_blue.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_3_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_4_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_5_grey.png" alt="">
+                            </ng-container>
+                            <ng-container *ngIf="answer.rating == 3">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_1_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_2_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_select/tile_3_blue.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_4_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_5_grey.png" alt="">
+                            </ng-container>
+                            <ng-container *ngIf="answer.rating == 4">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_1_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_2_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_3_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_select/tile_4_blue.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_5_grey.png" alt="">
+                            </ng-container>
+                            <ng-container *ngIf="answer.rating == 5">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_1_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_2_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_3_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_hover/tile_4_grey.png" alt="">
+                              <img class="star-amount" src="../../assets/icons/PNG/number_select/tile_5_blue.png" alt="">
+                            </ng-container>
+                          </ng-container>
+                      </ng-container>
+                    </ng-container>
                 </ng-container>
               </ng-container>
             </td>
