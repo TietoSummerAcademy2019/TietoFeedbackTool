@@ -124,17 +124,20 @@ main {
             font-weight: 300;
           }
         }
-        & div.new-survey > a#new-survey-action {
-          max-width: 100%;
-          text-decoration: none;
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          color: #0E76B7;
-          & span {
-            &#action-text {
-              margin-left: .5rem;
-              padding-bottom: .125rem;
+        & div.new-survey {
+          display: inline-block;
+          & a#new-survey-action {
+            max-width: 100%;
+            text-decoration: none;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: #0E76B7;
+            & span {
+              &#action-text {
+                margin-left: .5rem;
+                padding-bottom: .125rem;
+              }
             }
           }
         }
