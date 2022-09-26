@@ -29,7 +29,7 @@
     "jquery": "^3.4.1",
     "ng2-charts": "^2.3.0",
     "ngx-clipboard": "^12.2.1",
-    "nightwatch": "^1.2.2",
+    "nightwatch": "^1.7.13",
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
